@@ -15,14 +15,16 @@ const playfair = Playfair_Display({
   display: "swap"
 });
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+
 export const metadata: Metadata = {
   title: "History of the Trenches",
   description: "Community-maintained crypto history archive and timeline.",
-  metadataBase: new URL("https://historyofthetrenches.xyz"),
+  metadataBase: new URL(siteUrl),
   openGraph: {
     title: "History of the Trenches",
     description: "Community-maintained crypto history archive and timeline.",
-    url: "https://historyofthetrenches.xyz",
+    url: siteUrl,
     siteName: "History of the Trenches",
     type: "website"
   },

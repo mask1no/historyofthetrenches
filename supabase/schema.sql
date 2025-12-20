@@ -48,3 +48,23 @@ create policy "Users can manage their subscriptions" on public.subscriptions
   for all using (auth.uid() = user_id) with check (auth.uid() = user_id);
 
 
+-- Wallet nonces (server-managed; service role only)
+create table if not exists public.wallet_nonces (
+  id uuid default gen_random_uuid() primary key,
+  address text not null,
+  nonce text not null unique,
+  expires_at timestamptz not null,
+  used boolean default false,
+  created_at timestamptz default now(),
+  ip text,
+  user_agent text
+);
+
+create index if not exists wallet_nonces_address_idx on public.wallet_nonces (address);
+create index if not exists wallet_nonces_expires_idx on public.wallet_nonces (expires_at);
+
+alter table public.wallet_nonces enable row level security;
+create policy "Service role only" on public.wallet_nonces
+  for all using (auth.role() = 'service_role');
+
+

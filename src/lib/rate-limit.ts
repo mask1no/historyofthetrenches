@@ -10,6 +10,12 @@ export function rateLimit(key: string, limit: number, windowMs: number) {
     bucket.count += 1;
     return true;
   }
+  // periodic cleanup to avoid unbounded growth
+  if (buckets.size > 5000) {
+    for (const [k, v] of buckets) {
+      if (v.expires < now) buckets.delete(k);
+    }
+  }
   buckets.set(key, { count: 1, expires: now + windowMs });
   return true;
 }

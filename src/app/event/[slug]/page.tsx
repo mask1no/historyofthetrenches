@@ -15,6 +15,8 @@ type EventPageProps = {
 
 export function generateMetadata({ params }: EventPageProps): Metadata {
   const event = getEventBySlug(params.slug);
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+  const canonical = event ? `${siteUrl}/event/${event.slug}` : siteUrl;
   return {
     title: event
       ? `${event.title} | History of the Trenches`
@@ -23,7 +25,7 @@ export function generateMetadata({ params }: EventPageProps): Metadata {
     openGraph: {
       title: event ? `${event.title} | History of the Trenches` : "Event | History of the Trenches",
       description: event?.summary,
-      url: `https://historyofthetrenches.xyz/event/${event?.slug ?? ""}`,
+      url: canonical,
       type: "article"
     },
     twitter: {
@@ -71,7 +73,7 @@ export default function EventPage({ params }: EventPageProps) {
           </div>
           <ShareButtons
             title={event!.title}
-            url={`https://historyofthetrenches.xyz/event/${event!.slug}`}
+            url={`${process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"}/event/${event!.slug}`}
             className="flex"
           />
         </div>
@@ -82,6 +84,9 @@ export default function EventPage({ params }: EventPageProps) {
               <CardTitle>Sources</CardTitle>
               <p className="text-sm text-muted">
                 Verified references submitted by curators. Always include at least two.
+              </p>
+              <p className="text-xs text-muted">
+                Links marked “Source pending” are awaiting verified references.
               </p>
             </CardHeader>
             <CardContent>

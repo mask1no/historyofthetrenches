@@ -130,7 +130,10 @@ export function NavBar() {
       const { nonce, expiresAt } = await nonceRes.json();
 
       const issuedAt = new Date().toISOString();
-      const domain = typeof window !== "undefined" ? window.location.host : "historyofthetrenches.xyz";
+      const domain =
+        typeof window !== "undefined"
+          ? window.location.host
+          : new URL(process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000").host;
       const message = `Sign in to History of the Trenches\nDomain: ${domain}\nAddress: ${address}\nNonce: ${nonce}\nExpires: ${expiresAt}\nIssuedAt: ${issuedAt}`;
       const encodedMessage = new TextEncoder().encode(message);
       const signed = await provider.signMessage(encodedMessage, "utf8");

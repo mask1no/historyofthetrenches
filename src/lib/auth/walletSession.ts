@@ -29,6 +29,7 @@ export function verifySession(token: string): WalletSession | null {
   const [body, sig] = token.split(".");
   if (!body || !sig) return null;
   const expected = crypto.createHmac("sha256", secret).update(body).digest("base64url");
+  if (expected.length !== sig.length) return null;
   if (!crypto.timingSafeEqual(Buffer.from(sig), Buffer.from(expected))) return null;
   try {
     const payload = JSON.parse(Buffer.from(body, "base64url").toString()) as WalletSession;
