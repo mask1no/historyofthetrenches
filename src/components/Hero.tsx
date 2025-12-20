@@ -1,6 +1,7 @@
 import { ArrowRight, Play } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { events } from "@/data/events";
 
 export function Hero() {
   return (
@@ -21,7 +22,9 @@ export function Hero() {
             the community.
           </p>
           <p className="text-sm font-medium text-fg">
-            Tracking 482 events curated by the community. Updated daily.
+            {events.length > 0
+              ? `Tracking ${events.length} archived events curated by the community.`
+              : "Tracking a growing archive of crypto’s defining moments."}
           </p>
         </div>
         <div className="flex flex-wrap items-center gap-3">

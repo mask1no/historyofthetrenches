@@ -11,6 +11,7 @@ const badgeVariants = cva(
         gold: "border-accentGold bg-accentGold/10 text-accentGold",
         red: "border-accentRed bg-accentRed/10 text-accentRed",
         green: "border-accentGreen bg-accentGreen/10 text-accentGreen",
+        dark: "border-border bg-border/30 text-fg",
         muted: "border-border bg-muted/10 text-muted"
       }
     },

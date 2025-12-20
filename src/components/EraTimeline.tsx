@@ -16,17 +16,7 @@ export function EraTimeline() {
 
   return (
     <section className="space-y-6">
-      <div className="flex items-center justify-between">
-        <h2
-          className="text-3xl font-semibold text-fg"
-          style={{ fontFamily: "var(--font-playfair)" }}
-        >
-          Crypto Onboarding Eras
-        </h2>
-        <span className="text-sm text-muted">
-          Click into an era to see its featured events.
-        </span>
-      </div>
+      <p className="text-sm text-muted">Click into an era to see its featured events.</p>
       <div className="relative overflow-hidden rounded-2xl border border-border bg-card p-6 shadow-subtle">
         <div className="absolute left-8 top-10 bottom-8 w-px bg-border" />
         <div className="flex flex-col gap-6">
@@ -38,16 +28,7 @@ export function EraTimeline() {
                 </div>
                 <div>
                   <div className="text-xs font-semibold uppercase text-muted">{era.range}</div>
-                  <div className="flex items-center gap-3">
-                    <div className="text-lg font-semibold">{era.title}</div>
-                    <button
-                      type="button"
-                      onClick={() => toggleEra(era.id)}
-                      className="text-xs text-accentGold underline"
-                    >
-                      {openEraIds.includes(era.id) ? "Collapse" : "Expand"}
-                    </button>
-                  </div>
+                  <div className="text-lg font-semibold">{era.title}</div>
                   <p className="mt-2 text-sm text-muted">{era.description}</p>
                 </div>
               </div>
@@ -69,6 +50,8 @@ export function EraTimeline() {
                             ? "red"
                             : event.type === "runner"
                             ? "green"
+                            : event.type === "hack"
+                            ? "dark"
                             : "gold"
                         }
                       >
@@ -77,10 +60,18 @@ export function EraTimeline() {
                     </Link>
                   )
                 )}
-                {era.featured.length > 2 && !openEraIds.includes(era.id) && (
-                  <div className="text-xs text-muted">+{era.featured.length - 2} more in era</div>
-                )}
               </div>
+              {era.featured.length > 2 && (
+                <div className="md:col-span-2 flex justify-center pt-3">
+                  <button
+                    type="button"
+                    onClick={() => toggleEra(era.id)}
+                    className="text-xs font-semibold text-accentGold underline"
+                  >
+                    {openEraIds.includes(era.id) ? "Collapse" : "Expand"}
+                  </button>
+                </div>
+              )}
               {idx !== eras.length - 1 && (
                 <div className="absolute -bottom-4 left-8 h-4 w-px bg-transparent md:hidden" />
               )}

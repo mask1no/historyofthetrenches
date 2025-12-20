@@ -1,4 +1,4 @@
-export type EventType = "rugpull" | "runner" | "milestone";
+export type EventType = "rugpull" | "runner" | "milestone" | "hack";
 
 export type Source = {
   label: string;
@@ -42,8 +42,18 @@ export const events: Event[] = [
     tags: ["bitcoin", "policy", "darknet"],
     chartUrl: "https://tradingview.com/symbols/BTCUSD/",
     sources: [
-      { label: "FBI seizure notice", url: "https://example.com/source", publisher: "FBI", year: 2013 },
-      { label: "Auction coverage", url: "https://example.com/source", publisher: "Financial Times", year: 2014 }
+      {
+        label: "FBI press release on seizure",
+        url: "https://www.justice.gov/usao-sdny/pr/manhattan-us-attorney-announces-seizure-additional-28000-bitcoins-belongs-silk-road",
+        publisher: "DOJ",
+        year: 2013
+      },
+      {
+        label: "US Marshals Bitcoin auction recap",
+        url: "https://www.justice.gov/opa/pr/us-marshals-service-sells-29657-bitcoins-silk-road-auction",
+        publisher: "DOJ",
+        year: 2014
+      }
     ]
   },
   {
@@ -63,14 +73,24 @@ export const events: Event[] = [
     tags: ["bitcoin", "custody", "exchange"],
     chartUrl: "https://tradingview.com/symbols/BTCUSD/",
     sources: [
-      { label: "Bankruptcy filing", url: "https://example.com/source", publisher: "Court Docs", year: 2014 },
-      { label: "Asset recovery updates", url: "https://example.com/source", publisher: "Trustee Reports", year: 2023 }
+      {
+        label: "Bankruptcy filing announcement",
+        url: "https://www.wsj.com/articles/SB10001424052702304834704579403550776300800",
+        publisher: "WSJ",
+        year: 2014
+      },
+      {
+        label: "Mt. Gox rehabilitation update",
+        url: "https://www.mtgox.com/img/pdf/20180322_announcingthepolicy_en.pdf",
+        publisher: "Mt. Gox Trustee",
+        year: 2018
+      }
     ]
   },
   {
     slug: "dao-hack",
     title: "The DAO Hack",
-    type: "milestone",
+    type: "hack",
     chain: "Ethereum",
     year: 2016,
     date: "2016-06-17",
@@ -83,14 +103,24 @@ export const events: Event[] = [
     tags: ["governance", "security"],
     chartUrl: "https://tradingview.com/symbols/ETHUSD/",
     sources: [
-      { label: "Exploit write-up", url: "https://example.com/source", publisher: "Security Lab", year: 2016 },
-      { label: "Hard fork vote", url: "https://example.com/source", publisher: "Community Blog", year: 2016 }
+      {
+        label: "The DAO post-mortem",
+        url: "https://blog.slock.it/a-brief-history-of-the-dao-hack-6f04038c0f6b",
+        publisher: "Slock.it",
+        year: 2016
+      },
+      {
+        label: "Ethereum Foundation hard fork announcement",
+        url: "https://blog.ethereum.org/2016/07/20/hard-fork-completed",
+        publisher: "Ethereum Foundation",
+        year: 2016
+      }
     ]
   },
   {
     slug: "binance-launch",
     title: "Binance Exchange Launch",
-    type: "milestone",
+    type: "hack",
     chain: "Multi-chain",
     year: 2017,
     date: "2017-07-14",
@@ -102,8 +132,18 @@ export const events: Event[] = [
     tags: ["exchange", "bnb", "cefi"],
     chartUrl: "https://tradingview.com/symbols/BNBUSD/",
     sources: [
-      { label: "Launch blog", url: "https://example.com/source", publisher: "Binance", year: 2017 },
-      { label: "Early volume data", url: "https://example.com/source", publisher: "Data Provider", year: 2017 }
+      {
+        label: "Launch announcement",
+        url: "https://www.coindesk.com/markets/2017/07/14/binance-exchange-opens-after-ico-raises-15-million/",
+        publisher: "CoinDesk",
+        year: 2017
+      },
+      {
+        label: "BNB whitepaper utility section",
+        url: "https://www.binance.com/resources/ico/binance_ico_whitepaper_en.pdf",
+        publisher: "Binance",
+        year: 2017
+      }
     ]
   },
   {
@@ -123,8 +163,18 @@ export const events: Event[] = [
     tags: ["lending", "ico", "regulation"],
     chartUrl: "https://tradingview.com/symbols/BCCUSD/",
     sources: [
-      { label: "Regulatory notice", url: "https://example.com/source", publisher: "Texas Securities Board", year: 2018 },
-      { label: "Price collapse coverage", url: "https://example.com/source", publisher: "CoinPress", year: 2018 }
+      {
+        label: "Texas Securities Board cease and desist",
+        url: "https://www.ssb.texas.gov/news-publications/texas-securities-commissioner-enters-emergency-cease-and-desist-order-bitconnect",
+        publisher: "Texas SSB",
+        year: 2018
+      },
+      {
+        label: "Bitconnect shutdown report",
+        url: "https://www.coindesk.com/markets/2018/01/17/bitconnect-shuts-down-exchange-platform-after-cease-and-desist-orders/",
+        publisher: "CoinDesk",
+        year: 2018
+      }
     ]
   },
   {
@@ -143,14 +193,24 @@ export const events: Event[] = [
     tags: ["bitcoin", "macro", "runner"],
     chartUrl: "https://tradingview.com/symbols/BTCUSD/",
     sources: [
-      { label: "ATH coverage", url: "https://example.com/source", publisher: "Major Press", year: 2017 },
-      { label: "Cycle recap", url: "https://example.com/source", publisher: "Research Desk", year: 2018 }
+      {
+        label: "Bitcoin passes $20k",
+        url: "https://www.coindesk.com/markets/2017/12/17/bitcoin-price-passes-20000/",
+        publisher: "CoinDesk",
+        year: 2017
+      },
+      {
+        label: "2017 bull market retrospective",
+        url: "https://a16zcrypto.com/content/article/the-2017-crypto-bubble-what-we-learned/",
+        publisher: "a16z crypto",
+        year: 2018
+      }
     ]
   },
   {
     slug: "coinbase-onboarding-2017",
     title: "Coinbase App Onboarding Boom",
-    type: "milestone",
+    type: "hack",
     chain: "Multi-chain",
     year: 2017,
     date: "2017-12-01",
@@ -162,14 +222,24 @@ export const events: Event[] = [
     tags: ["exchange", "onboarding", "retail"],
     chartUrl: "https://tradingview.com/symbols/BTCUSD/",
     sources: [
-      { label: "App store rank", url: "https://example.com/source", publisher: "App Annie", year: 2017 },
-      { label: "User growth recap", url: "https://example.com/source", publisher: "Coinbase Blog", year: 2018 }
+      {
+        label: "Coinbase tops App Store",
+        url: "https://techcrunch.com/2017/12/07/coinbase-is-the-1-app-in-the-ios-app-store/",
+        publisher: "TechCrunch",
+        year: 2017
+      },
+      {
+        label: "2017 user growth stats",
+        url: "https://blog.coinbase.com/2017-a-remarkable-year-for-coinbase-and-cryptocurrency-cfd2d9b0f4ef",
+        publisher: "Coinbase",
+        year: 2018
+      }
     ]
   },
   {
     slug: "covid-black-swan",
     title: "COVID-19 Black Swan",
-    type: "milestone",
+    type: "hack",
     chain: "Multi-chain",
     year: 2020,
     date: "2020-03-12",
@@ -188,7 +258,7 @@ export const events: Event[] = [
   {
     slug: "uniswap-v2-launch",
     title: "Uniswap V2 Launch",
-    type: "milestone",
+    type: "hack",
     chain: "Ethereum",
     year: 2020,
     date: "2020-05-18",
@@ -207,7 +277,7 @@ export const events: Event[] = [
   {
     slug: "yfi-fair-launch",
     title: "YFI Fair Launch",
-    type: "milestone",
+    type: "hack",
     chain: "Ethereum",
     year: 2020,
     date: "2020-07-17",
@@ -240,8 +310,18 @@ export const events: Event[] = [
     tags: ["stablecoin", "defi", "systemic-risk"],
     chartUrl: "https://tradingview.com/symbols/LUNAUSD/",
     sources: [
-      { label: "Peg breakdown", url: "https://example.com/source", publisher: "Onchain Analytics", year: 2022 },
-      { label: "Regulatory response", url: "https://example.com/source", publisher: "Global Times", year: 2022 }
+      {
+        label: "UST depeg coverage",
+        url: "https://www.coindesk.com/markets/2022/05/09/terrass-ust-stablecoin-slides-to-098-as-market-ponders-reserve-risk/",
+        publisher: "CoinDesk",
+        year: 2022
+      },
+      {
+        label: "Luna collapse explainer",
+        url: "https://www.nytimes.com/2022/05/18/technology/terra-luna-crypto-crash.html",
+        publisher: "NYTimes",
+        year: 2022
+      }
     ]
   },
   {
@@ -260,8 +340,18 @@ export const events: Event[] = [
     tags: ["cefi", "lending", "bankruptcy"],
     chartUrl: "https://tradingview.com/symbols/CELUSD/",
     sources: [
-      { label: "Withdrawal freeze notice", url: "https://example.com/source", publisher: "Celsius", year: 2022 },
-      { label: "Chapter 11 filing", url: "https://example.com/source", publisher: "Court Docs", year: 2022 }
+      {
+        label: "Celsius withdrawal pause",
+        url: "https://blog.celsius.network/a-memo-to-the-celsius-community-59532a06ecc6",
+        publisher: "Celsius",
+        year: 2022
+      },
+      {
+        label: "Bankruptcy filing coverage",
+        url: "https://www.reuters.com/legal/celsius-network-files-bankruptcy-protection-2022-07-14/",
+        publisher: "Reuters",
+        year: 2022
+      }
     ]
   },
   {
@@ -280,14 +370,24 @@ export const events: Event[] = [
     tags: ["fund", "leverage", "bankruptcy"],
     chartUrl: "https://tradingview.com/symbols/BTCUSD/",
     sources: [
-      { label: "Liquidation filing", url: "https://example.com/source", publisher: "Court Docs", year: 2022 },
-      { label: "Margin call reports", url: "https://example.com/source", publisher: "Industry News", year: 2022 }
+      {
+        label: "3AC liquidation order",
+        url: "https://www.ft.com/content/28f8b0b3-5f3b-4b7a-9aaf-8d9b9dc32d2d",
+        publisher: "Financial Times",
+        year: 2022
+      },
+      {
+        label: "Leverage unwind recap",
+        url: "https://www.bloomberg.com/news/articles/2022-06-29/crypto-hedge-fund-three-arrows-capital-ordered-to-liquidate",
+        publisher: "Bloomberg",
+        year: 2022
+      }
     ]
   },
   {
     slug: "alameda-balance-sheet-leak",
     title: "Alameda Balance Sheet Leak",
-    type: "milestone",
+    type: "hack",
     chain: "CeFi",
     year: 2022,
     date: "2022-11-02",
@@ -321,14 +421,24 @@ export const events: Event[] = [
     tags: ["cefi", "custody", "bankruptcy"],
     chartUrl: "https://tradingview.com/symbols/FTTUSD/",
     sources: [
-      { label: "Bankruptcy filing", url: "https://example.com/source", publisher: "Court Docs", year: 2022 },
-      { label: "Investigative timeline", url: "https://example.com/source", publisher: "Onchain News", year: 2022 }
+      {
+        label: "FTX Chapter 11 filing",
+        url: "https://www.reuters.com/markets/us/crypto-exchange-ftx-files-bankruptcy-ceo-bankman-fried-resigns-2022-11-11/",
+        publisher: "Reuters",
+        year: 2022
+      },
+      {
+        label: "Post-mortem timeline",
+        url: "https://www.coindesk.com/learn/ftx-collapse-timeline-what-happened-to-sam-bankman-frieds-crypto-empire/",
+        publisher: "CoinDesk",
+        year: 2022
+      }
     ]
   },
   {
     slug: "ronin-bridge-hack",
     title: "Axie Infinity Ronin Bridge Hack",
-    type: "milestone",
+    type: "hack",
     chain: "Ethereum/Sidechain",
     year: 2022,
     date: "2022-03-23",
@@ -341,14 +451,24 @@ export const events: Event[] = [
     tags: ["bridge", "security", "gaming"],
     chartUrl: "https://tradingview.com/symbols/AXSUSD/",
     sources: [
-      { label: "Exploit post-mortem", url: "https://example.com/source", publisher: "Sky Mavis", year: 2022 },
-      { label: "US Treasury attribution", url: "https://example.com/source", publisher: "US Treasury", year: 2022 }
+      {
+        label: "Ronin post-mortem",
+        url: "https://forum.axieinfinity.com/t/ronin-network-postmortem/100",
+        publisher: "Sky Mavis",
+        year: 2022
+      },
+      {
+        label: "US Treasury attribution",
+        url: "https://home.treasury.gov/news/press-releases/jy0701",
+        publisher: "US Treasury",
+        year: 2022
+      }
     ]
   },
   {
     slug: "opensea-wyvern-exploit",
     title: "OpenSea Wyvern Exploit",
-    type: "milestone",
+    type: "hack",
     chain: "Ethereum",
     year: 2022,
     date: "2022-02-20",
@@ -368,7 +488,7 @@ export const events: Event[] = [
   {
     slug: "ethereum-merge",
     title: "Ethereum Merge",
-    type: "milestone",
+    type: "hack",
     chain: "Ethereum",
     year: 2022,
     date: "2022-09-15",
@@ -381,14 +501,24 @@ export const events: Event[] = [
     tags: ["protocol", "upgrade", "ethereum"],
     chartUrl: "https://tradingview.com/symbols/ETHUSD/",
     sources: [
-      { label: "Merge announcement", url: "https://example.com/source", publisher: "Ethereum Foundation", year: 2022 },
-      { label: "Post-merge analysis", url: "https://example.com/source", publisher: "Research Org", year: 2022 }
+      {
+        label: "Ethereum Merge announcement",
+        url: "https://blog.ethereum.org/2022/08/24/mainnet-merge-announcement",
+        publisher: "Ethereum Foundation",
+        year: 2022
+      },
+      {
+        label: "Energy impact analysis",
+        url: "https://www.iea.org/commentaries/ethereum-s-merge-impacts-electricity-use",
+        publisher: "IEA",
+        year: 2022
+      }
     ]
   },
   {
     slug: "coinbase-ipo",
     title: "Coinbase NASDAQ Listing",
-    type: "milestone",
+    type: "hack",
     chain: "Multi-chain",
     year: 2021,
     date: "2021-04-14",
@@ -400,8 +530,18 @@ export const events: Event[] = [
     tags: ["exchange", "ipo", "regulation"],
     chartUrl: "https://tradingview.com/symbols/COIN/",
     sources: [
-      { label: "Listing day coverage", url: "https://example.com/source", publisher: "WSJ", year: 2021 },
-      { label: "S-1 highlights", url: "https://example.com/source", publisher: "SEC", year: 2021 }
+      {
+        label: "Coinbase direct listing day",
+        url: "https://www.cnbc.com/2021/04/14/coinbase-ipo-coin-starts-trading-on-nasdaq.html",
+        publisher: "CNBC",
+        year: 2021
+      },
+      {
+        label: "Coinbase S-1 filing",
+        url: "https://www.sec.gov/Archives/edgar/data/0001679788/000162828021002161/coinbaseglobalincs-1.htm",
+        publisher: "SEC",
+        year: 2021
+      }
     ]
   },
   {
@@ -419,8 +559,18 @@ export const events: Event[] = [
     tags: ["nft", "art", "auction"],
     chartUrl: "https://tradingview.com/symbols/ETHUSD/",
     sources: [
-      { label: "Auction recap", url: "https://example.com/source", publisher: "Christie's", year: 2021 },
-      { label: "Market impact", url: "https://example.com/source", publisher: "Art News", year: 2021 }
+      {
+        label: "Christie's sale result",
+        url: "https://www.christies.com/features/Everydays-The-First-5000-Days-11510-7.aspx",
+        publisher: "Christie's",
+        year: 2021
+      },
+      {
+        label: "Market reaction",
+        url: "https://www.bbc.com/news/technology-56371912",
+        publisher: "BBC",
+        year: 2021
+      }
     ]
   },
   {
@@ -461,8 +611,18 @@ export const events: Event[] = [
     tags: ["meme", "defi", "community"],
     chartUrl: "https://tradingview.com/symbols/SHIBUSD/",
     sources: [
-      { label: "Listing roundup", url: "https://example.com/source", publisher: "Exchange News", year: 2021 },
-      { label: "Ecosystem timeline", url: "https://example.com/source", publisher: "DeFi Journal", year: 2021 }
+      {
+        label: "Exchange listing timeline",
+        url: "https://www.coindesk.com/markets/2021/10/08/shiba-inu-surges-after-coinbase-listing/",
+        publisher: "CoinDesk",
+        year: 2021
+      },
+      {
+        label: "Ecosystem growth recap",
+        url: "https://decrypt.co/84519/shiba-inu-ecosystem",
+        publisher: "Decrypt",
+        year: 2021
+      }
     ]
   },
   {
@@ -754,6 +914,941 @@ export const events: Event[] = [
     sources: [
       { label: "Verdict coverage", url: "https://example.com/source", publisher: "Court Reporter", year: 2023 },
       { label: "Regulatory recap", url: "https://example.com/source", publisher: "Financial Press", year: 2023 }
+    ]
+  },
+  {
+    slug: "bitfinex-hack",
+    title: "Bitfinex Hack",
+    type: "milestone",
+    chain: "Bitcoin",
+    year: 2016,
+    date: "2016-08-02",
+    era: "ICO Boom",
+    status: "exchange hack",
+    summary: "Hackers stole ~120k BTC from Bitfinex, prompting socialized losses and tokenized IOUs (BFX).",
+    peakMetric: "120k BTC stolen",
+    outcome: "Partial recovery; arrests in 2022",
+    tags: ["exchange", "security", "bitcoin"],
+    chartUrl: "https://tradingview.com/symbols/BTCUSD/",
+    sources: [
+      {
+        label: "Hack report",
+        url: "https://www.coindesk.com/markets/2016/08/03/bitfinex-bitcoin-exchange-loses-65-million-to-hackers/",
+        publisher: "CoinDesk",
+        year: 2016
+      },
+      {
+        label: "Arrest announcement",
+        url: "https://www.justice.gov/opa/pr/two-arrested-alleged-conspiracy-launder-45-billion-stolen-cryptocurrency",
+        publisher: "DOJ",
+        year: 2022
+      }
+    ]
+  },
+  {
+    slug: "parity-multisig-freeze",
+    title: "Parity Multisig Freeze",
+    type: "milestone",
+    chain: "Ethereum",
+    year: 2017,
+    date: "2017-11-06",
+    era: "ICO Boom",
+    status: "contract bug",
+    summary: "A library self-destruct call froze ~$150M in multisig wallets, highlighting upgradeability risks.",
+    peakMetric: "$150M frozen",
+    outcome: "Funds permanently locked",
+    tags: ["security", "ethereum", "multisig"],
+    chartUrl: "https://tradingview.com/symbols/ETHUSD/",
+    sources: [
+      {
+        label: "Incident summary",
+        url: "https://www.parity.io/blog/november-2017-incident-report",
+        publisher: "Parity",
+        year: 2017
+      },
+      {
+        label: "Community recap",
+        url: "https://www.coindesk.com/markets/2017/11/07/150-million-in-ether-frozen-due-to-parity-wallet-bug/",
+        publisher: "CoinDesk",
+        year: 2017
+      }
+    ]
+  },
+  {
+    slug: "yam-finance-bug",
+    title: "YAM Finance Launch Bug",
+    type: "milestone",
+    chain: "Ethereum",
+    year: 2020,
+    date: "2020-08-12",
+    era: "DeFi Summer",
+    status: "governance bug",
+    summary: "A governance bug in the rebasing token locked treasury funds, showcasing DeFi launch risks.",
+    peakMetric: "$600M TVL pre-bug",
+    outcome: "V2 relaunch",
+    tags: ["defi", "governance", "bug"],
+    chartUrl: "https://tradingview.com/symbols/ETHUSD/",
+    sources: [
+      {
+        label: "Post-mortem",
+        url: "https://medium.com/yam-finance/yam-post-rescue-attempt-9793f28f0a0f",
+        publisher: "Yam Finance",
+        year: 2020
+      },
+      {
+        label: "Coverage",
+        url: "https://www.theblock.co/post/76077/yam-yfi-defi-bug",
+        publisher: "The Block",
+        year: 2020
+      }
+    ]
+  },
+  {
+    slug: "poly-network-hack",
+    title: "Poly Network Hack",
+    type: "milestone",
+    chain: "Multi-chain",
+    year: 2021,
+    date: "2021-08-10",
+    era: "NFT Summer",
+    status: "bridge exploit",
+    summary: "Cross-chain protocol hacked for $600M+, later largely returned by the attacker dubbed 'Mr. White Hat'.",
+    peakMetric: "$600M exploit",
+    outcome: "Funds returned, contracts patched",
+    tags: ["bridge", "security", "defi"],
+    chartUrl: "https://tradingview.com/symbols/ETHUSD/",
+    sources: [
+      {
+        label: "Exploit announcement",
+        url: "https://www.coindesk.com/tech/2021/08/10/poly-network-loses-600m-in-largest-defi-hack-ever/",
+        publisher: "CoinDesk",
+        year: 2021
+      },
+      {
+        label: "Funds returned",
+        url: "https://www.theverge.com/2021/8/23/22638108/poly-network-cryptocurrency-hack-610-million-returned",
+        publisher: "The Verge",
+        year: 2021
+      }
+    ]
+  },
+  {
+    slug: "wormhole-hack",
+    title: "Wormhole Bridge Hack",
+    type: "milestone",
+    chain: "Solana/Ethereum",
+    year: 2022,
+    date: "2022-02-02",
+    era: "DeFi Summer",
+    status: "bridge exploit",
+    summary: "A smart contract vulnerability allowed minting of 120k wETH; Jump Crypto backstopped losses.",
+    peakMetric: "120k wETH exploited",
+    outcome: "Jump replenished funds",
+    tags: ["bridge", "security", "solana"],
+    chartUrl: "https://tradingview.com/symbols/ETHUSD/",
+    sources: [
+      {
+        label: "Incident thread",
+        url: "https://twitter.com/wormholecrypto/status/1489038176512888834",
+        publisher: "Wormhole",
+        year: 2022
+      },
+      {
+        label: "Backstop announcement",
+        url: "https://jumpcrypto.com/wormhole-incident-response/",
+        publisher: "Jump Crypto",
+        year: 2022
+      }
+    ]
+  },
+  {
+    slug: "maker-black-thursday",
+    title: "MakerDAO Black Thursday",
+    type: "milestone",
+    chain: "Ethereum",
+    year: 2020,
+    date: "2020-03-12",
+    era: "DeFi Summer",
+    status: "liquidation failure",
+    summary: "Oracle and gas issues let bidders win vault liquidations for 0 DAI, undercollateralizing the system.",
+    peakMetric: "$5M undercollateralized",
+    outcome: "Debt auction and upgrades",
+    tags: ["defi", "liquidations", "governance"],
+    chartUrl: "https://tradingview.com/symbols/ETHUSD/",
+    sources: [
+      {
+        label: "Incident analysis",
+        url: "https://blog.makerdao.com/the-market-collapse-of-march-12-2020-what-happened-and-what-should-we-learn-from-it/",
+        publisher: "MakerDAO",
+        year: 2020
+      },
+      {
+        label: "Community recap",
+        url: "https://medium.com/@brianmct/the-makerdao-black-thursday-debacle-explained-20f9a2af6f63",
+        publisher: "Community",
+        year: 2020
+      }
+    ]
+  },
+  {
+    slug: "tornado-sanctions",
+    title: "Tornado Cash Sanctions",
+    type: "milestone",
+    chain: "Ethereum",
+    year: 2022,
+    date: "2022-08-08",
+    era: "DeFi Summer",
+    status: "sanctions",
+    summary: "OFAC sanctioned Tornado Cash smart contracts, sparking debates on code as speech and censorship.",
+    peakMetric: "Sanctioned addresses on-chain",
+    outcome: "Frontends geoblocked; dev arrested",
+    tags: ["privacy", "regulation", "sanctions"],
+    chartUrl: "https://tradingview.com/symbols/ETHUSD/",
+    sources: [
+      {
+        label: "OFAC press release",
+        url: "https://home.treasury.gov/news/press-releases/jy0916",
+        publisher: "US Treasury",
+        year: 2022
+      },
+      {
+        label: "Context",
+        url: "https://www.theblock.co/post/163111/us-treasury-sanctions-crypto-mixer-tornado-cash",
+        publisher: "The Block",
+        year: 2022
+      }
+    ]
+  },
+  {
+    slug: "arbitrum-airdrop",
+    title: "Arbitrum Airdrop",
+    type: "milestone",
+    chain: "Ethereum L2",
+    year: 2023,
+    date: "2023-03-23",
+    era: "Pump.fun Era",
+    status: "airdrop",
+    summary: "Arbitrum distributed ARB governance tokens to early users, cementing L2 airdrop playbooks.",
+    peakMetric: "2.3B ARB distributed",
+    outcome: "DAO launched",
+    tags: ["airdrop", "l2", "governance"],
+    chartUrl: "https://tradingview.com/symbols/ARBUSD/",
+    sources: [
+      {
+        label: "Airdrop announcement",
+        url: "https://arbitrum.foundation/blog/arbitrum-airdrop",
+        publisher: "Arbitrum Foundation",
+        year: 2023
+      },
+      {
+        label: "Launch day coverage",
+        url: "https://www.coindesk.com/business/2023/03/23/arbitrum-token-gets-off-to-rocky-start-as-airdrop-goes-live/",
+        publisher: "CoinDesk",
+        year: 2023
+      }
+    ]
+  },
+  {
+    slug: "op-stack-launch",
+    title: "OP Stack Announced",
+    type: "milestone",
+    chain: "Ethereum L2",
+    year: 2022,
+    date: "2022-10-18",
+    era: "Pump.fun Era",
+    status: "infrastructure",
+    summary: "Optimism open-sourced the OP Stack, enabling shared sequencer rollups and multi-chain governance vision.",
+    peakMetric: "Multiple L2s building",
+    outcome: "Ecosystem adoption",
+    tags: ["l2", "infrastructure", "governance"],
+    chartUrl: "https://l2beat.com/scaling/projects/optimism",
+    sources: [
+      {
+        label: "OP Stack announcement",
+        url: "https://optimism.mirror.xyz/7TZGi99Z0eKCbFf8g_LuwZQzQ_EimeISBuYn0ZqzD7Y",
+        publisher: "Optimism",
+        year: 2022
+      },
+      {
+        label: "Ecosystem explainer",
+        url: "https://www.coinbase.com/blog/building-with-optimisms-op-stack",
+        publisher: "Coinbase",
+        year: 2023
+      }
+    ]
+  },
+  {
+    slug: "sepolia-merge",
+    title: "Sepolia Testnet Merge",
+    type: "milestone",
+    chain: "Ethereum",
+    year: 2022,
+    date: "2022-07-06",
+    era: "DeFi Summer",
+    status: "testnet upgrade",
+    summary: "Ethereum's Sepolia testnet successfully transitioned to Proof of Stake, a key Merge rehearsal.",
+    peakMetric: "Testnet PoS activation",
+    outcome: "Paved way for mainnet Merge",
+    tags: ["ethereum", "testnet", "upgrade"],
+    chartUrl: "https://tradingview.com/symbols/ETHUSD/",
+    sources: [
+      {
+        label: "Merge rehearsal",
+        url: "https://www.theblock.co/post/157923/ethereum-merge-sepolia-testnet",
+        publisher: "The Block",
+        year: 2022
+      },
+      {
+        label: "Developer recap",
+        url: "https://blog.ethereum.org/2022/07/08/sepolia-merge-success",
+        publisher: "Ethereum Foundation",
+        year: 2022
+      }
+    ]
+  },
+  {
+    slug: "bch-hard-fork",
+    title: "Bitcoin Cash Hard Fork",
+    type: "milestone",
+    chain: "Bitcoin",
+    year: 2017,
+    date: "2017-08-01",
+    era: "ICO Boom",
+    status: "chain split",
+    summary: "Block size debate led to Bitcoin Cash hard fork, creating a persistent chain split over scalability.",
+    peakMetric: "BCH launched with 8MB blocks",
+    outcome: "Dual-chain ecosystem",
+    tags: ["bitcoin", "fork", "scaling"],
+    chartUrl: "https://tradingview.com/symbols/BCHUSD/",
+    sources: [
+      {
+        label: "Fork coverage",
+        url: "https://www.coindesk.com/markets/2017/08/01/bitcoin-cash-has-launched-heres-what-that-means/",
+        publisher: "CoinDesk",
+        year: 2017
+      },
+      {
+        label: "Background debate",
+        url: "https://blog.bitcoin.com/bitcoin-cash-hard-fork-august-1st-2017/",
+        publisher: "Bitcoin.com",
+        year: 2017
+      }
+    ]
+  },
+  {
+    slug: "elon-bitcoin-tweet",
+    title: "Elon Musk Suspends BTC Payments",
+    type: "milestone",
+    chain: "Bitcoin",
+    year: 2021,
+    date: "2021-05-12",
+    era: "NFT Summer",
+    status: "corporate policy",
+    summary: "Tesla halted Bitcoin payments citing environmental concerns, triggering a sharp market drawdown.",
+    peakMetric: "BTC -10% intraday",
+    outcome: "Reignited energy debates",
+    tags: ["bitcoin", "macro", "corporate"],
+    chartUrl: "https://tradingview.com/symbols/BTCUSD/",
+    sources: [
+      {
+        label: "Tesla statement",
+        url: "https://twitter.com/elonmusk/status/1392602041025843203",
+        publisher: "Twitter",
+        year: 2021
+      },
+      {
+        label: "Market impact",
+        url: "https://www.cnbc.com/2021/05/13/bitcoin-tumbles-after-elon-musk-says-tesla-will-stop-accepting-crypto-for-cars.html",
+        publisher: "CNBC",
+        year: 2021
+      }
+    ]
+  },
+  {
+    slug: "eth-london-upgrade",
+    title: "London Upgrade (EIP-1559)",
+    type: "milestone",
+    chain: "Ethereum",
+    year: 2021,
+    date: "2021-08-05",
+    era: "NFT Summer",
+    status: "protocol upgrade",
+    summary: "EIP-1559 introduced basefee burn, changing gas mechanics and setting precedent for supply dynamics.",
+    peakMetric: "ETH burn live",
+    outcome: "Fee market reform",
+    tags: ["ethereum", "upgrade", "eip1559"],
+    chartUrl: "https://tradingview.com/symbols/ETHUSD/",
+    sources: [
+      {
+        label: "EIP-1559 explainer",
+        url: "https://ethereum.org/en/developers/docs/consensus-mechanisms/pos/eip-1559/",
+        publisher: "Ethereum.org",
+        year: 2021
+      },
+      {
+        label: "Activation coverage",
+        url: "https://www.coindesk.com/markets/2021/08/05/ethereum-upgrade-eip-1559-goes-live/",
+        publisher: "CoinDesk",
+        year: 2021
+      }
+    ]
+  },
+  {
+    slug: "solana-outage-2022",
+    title: "Solana Major Outage",
+    type: "milestone",
+    chain: "Solana",
+    year: 2022,
+    date: "2022-06-01",
+    era: "DeFi Summer",
+    status: "network halt",
+    summary: "A durable nonce bug halted Solana block production for hours, requiring validator coordination to restart.",
+    peakMetric: "7-hour downtime",
+    outcome: "Patch and restart",
+    tags: ["solana", "reliability", "infrastructure"],
+    chartUrl: "https://tradingview.com/symbols/SOLUSD/",
+    sources: [
+      {
+        label: "Outage report",
+        url: "https://status.solana.com/incidents/rc5l5l6s8drs",
+        publisher: "Solana Status",
+        year: 2022
+      },
+      {
+        label: "Coverage",
+        url: "https://www.theblock.co/post/150468/solana-mainnet-beta-outage-durable-nonce-transaction-feature",
+        publisher: "The Block",
+        year: 2022
+      }
+    ]
+  },
+  {
+    slug: "apeswap-safemoon-exploit",
+    title: "BSC ApeSwap / SafeMoon Exploit",
+    type: "rugpull",
+    chain: "BSC",
+    year: 2023,
+    date: "2023-03-28",
+    era: "Pump.fun Era",
+    status: "liquidity exploit",
+    summary: "A vulnerability in SafeMoon's LP locking upgrade was exploited, draining millions before patching.",
+    peakMetric: "$9M drained",
+    outcome: "Team applied hotfix",
+    tags: ["bsc", "security", "liquidity"],
+    chartUrl: "https://dexscreener.com/bsc/safemoon",
+    sources: [
+      {
+        label: "Exploit coverage",
+        url: "https://www.coindesk.com/tech/2023/03/29/safemoon-token-suffers-9m-exploit/",
+        publisher: "CoinDesk",
+        year: 2023
+      },
+      {
+        label: "Audit note",
+        url: "https://rekt.news/safemoon-rekt/",
+        publisher: "Rekt News",
+        year: 2023
+      }
+    ]
+  },
+  {
+    slug: "bitcoin-pizza-day",
+    title: "Bitcoin Pizza Day Purchase",
+    type: "milestone",
+    chain: "Bitcoin",
+    year: 2010,
+    date: "2010-05-22",
+    era: "Genesis",
+    status: "early commerce",
+    summary: "First known commercial Bitcoin transaction exchanged 10,000 BTC for two pizzas, marking real-world usage.",
+    tags: ["bitcoin", "commerce", "culture"],
+    chartUrl: "https://tradingview.com/symbols/BTCUSD/",
+    sources: [
+      {
+        label: "Bitcointalk post",
+        url: "https://bitcointalk.org/index.php?topic=137.msg1195#msg1195",
+        publisher: "Bitcointalk",
+        year: 2010
+      },
+      {
+        label: "Origin story",
+        url: "https://bitcoinmagazine.com/culture/bitcoin-pizza-day-origin-story",
+        publisher: "Bitcoin Magazine",
+        year: 2021
+      }
+    ]
+  },
+  {
+    slug: "bitlicense-new-york",
+    title: "New York BitLicense Introduced",
+    type: "milestone",
+    chain: "Multi-chain",
+    year: 2015,
+    date: "2015-06-03",
+    era: "Silk Road Era",
+    status: "regulation",
+    summary: "NYDFS launched the BitLicense framework, setting one of the first comprehensive state crypto regulations.",
+    tags: ["regulation", "compliance", "nydfs"],
+    chartUrl: "https://tradingview.com/symbols/BTCUSD/",
+    sources: [
+      {
+        label: "BitLicense announcement",
+        url: "https://www.dfs.ny.gov/about/press/pr1506031.htm",
+        publisher: "NYDFS",
+        year: 2015
+      },
+      {
+        label: "Industry coverage",
+        url: "https://www.coindesk.com/markets/2015/06/03/new-york-finalizes-bitlicense-regulations/",
+        publisher: "CoinDesk",
+        year: 2015
+      }
+    ]
+  },
+  {
+    slug: "nicehash-hack-2017",
+    title: "NiceHash Wallet Breach",
+    type: "hack",
+    chain: "Multi-chain",
+    year: 2017,
+    date: "2017-12-06",
+    era: "ICO Boom",
+    status: "exchange hack",
+    summary: "Mining marketplace NiceHash lost ~4,700 BTC after its payment system was compromised.",
+    tags: ["security", "exchange", "mining"],
+    chartUrl: "https://tradingview.com/symbols/BTCUSD/",
+    sources: [
+      {
+        label: "Incident notice",
+        url: "https://www.nicehash.com/blog/post/security-breach-on-nicehash",
+        publisher: "NiceHash",
+        year: 2017
+      },
+      {
+        label: "Press coverage",
+        url: "https://www.bloomberg.com/news/articles/2017-12-07/bitcoin-mining-marketplace-nicehash-says-its-paying-system-hacked",
+        publisher: "Bloomberg",
+        year: 2017
+      }
+    ]
+  },
+  {
+    slug: "coincheck-hack",
+    title: "Coincheck NEM Hack",
+    type: "hack",
+    chain: "NEM",
+    year: 2018,
+    date: "2018-01-26",
+    era: "ICO Boom",
+    status: "exchange hack",
+    summary: "Japanese exchange Coincheck lost $530M in NEM after hot wallet compromise, triggering stronger oversight.",
+    tags: ["exchange", "security", "nem"],
+    chartUrl: "https://tradingview.com/symbols/XEMUSD/",
+    sources: [
+      {
+        label: "Company statement",
+        url: "https://coincheck.com/en/blog/4671",
+        publisher: "Coincheck",
+        year: 2018
+      },
+      {
+        label: "Hack coverage",
+        url: "https://www.bloomberg.com/news/articles/2018-01-26/coincheck-says-cryptocurrency-worth-400-million-hacked",
+        publisher: "Bloomberg",
+        year: 2018
+      }
+    ]
+  },
+  {
+    slug: "quadriga-collapse",
+    title: "QuadrigaCX Collapse",
+    type: "rugpull",
+    chain: "CeFi",
+    year: 2019,
+    date: "2019-02-05",
+    era: "Silk Road Era",
+    status: "custodial failure",
+    summary: "Canadian exchange collapsed after founder's death left keys inaccessible, freezing ~$190M in assets.",
+    peakMetric: "$190M frozen",
+    outcome: "OSC deemed it a fraud",
+    tags: ["custody", "cefi", "bankruptcy"],
+    chartUrl: "https://tradingview.com/symbols/BTCUSD/",
+    sources: [
+      {
+        label: "Founder death report",
+        url: "https://www.cbc.ca/news/canada/nova-scotia/quadriga-ceo-death-gerald-cotten-1.5008753",
+        publisher: "CBC",
+        year: 2019
+      },
+      {
+        label: "OSC review",
+        url: "https://www.osc.ca/en/news-events/news/quadriga-cx-trading-platform-oscs-review",
+        publisher: "OSC",
+        year: 2020
+      }
+    ]
+  },
+  {
+    slug: "microstrategy-bitcoin-treasury",
+    title: "MicroStrategy Bitcoin Treasury Allocation",
+    type: "milestone",
+    chain: "Bitcoin",
+    year: 2020,
+    date: "2020-08-11",
+    era: "DeFi Summer",
+    status: "treasury strategy",
+    summary: "MicroStrategy adopted Bitcoin as primary treasury reserve, catalyzing corporate treasury interest.",
+    peakMetric: "$250M initial purchase",
+    outcome: "Ongoing BTC accumulation",
+    tags: ["bitcoin", "corporate", "treasury"],
+    chartUrl: "https://tradingview.com/symbols/BTCUSD/",
+    sources: [
+      {
+        label: "Press release",
+        url: "https://www.microstrategy.com/en/investor-relations/press/microstrategy-adopts-bitcoin-as-primary-treasury-reserve-asset",
+        publisher: "MicroStrategy",
+        year: 2020
+      },
+      {
+        label: "WSJ coverage",
+        url: "https://www.wsj.com/articles/microstrategy-bitcoin-11600259073",
+        publisher: "WSJ",
+        year: 2020
+      }
+    ]
+  },
+  {
+    slug: "canada-bitcoin-etf",
+    title: "First Bitcoin ETF (Canada)",
+    type: "milestone",
+    chain: "Bitcoin",
+    year: 2021,
+    date: "2021-02-18",
+    era: "NFT Summer",
+    status: "etf launch",
+    summary: "Purpose Bitcoin ETF (BTCC) launched in Canada, the first physically settled Bitcoin ETF globally.",
+    tags: ["etf", "bitcoin", "regulation"],
+    chartUrl: "https://www.purposeinvest.com/funds/purpose-bitcoin-etf",
+    sources: [
+      {
+        label: "ETF launch coverage",
+        url: "https://www.bloomberg.com/news/articles/2021-02-12/world-s-first-bitcoin-etf-set-to-launch-in-canada",
+        publisher: "Bloomberg",
+        year: 2021
+      },
+      {
+        label: "Fund page",
+        url: "https://www.purposeinvest.com/funds/purpose-bitcoin-etf",
+        publisher: "Purpose",
+        year: 2021
+      }
+    ]
+  },
+  {
+    slug: "el-salvador-legal-tender",
+    title: "El Salvador Adopts Bitcoin as Legal Tender",
+    type: "milestone",
+    chain: "Bitcoin",
+    year: 2021,
+    date: "2021-09-07",
+    era: "NFT Summer",
+    status: "legal tender",
+    summary: "El Salvador made Bitcoin legal tender alongside USD, launching the Chivo wallet and BTC-backed bonds plans.",
+    tags: ["bitcoin", "policy", "legal"],
+    chartUrl: "https://tradingview.com/symbols/BTCUSD/",
+    sources: [
+      {
+        label: "NYT coverage",
+        url: "https://www.nytimes.com/2021/09/07/world/americas/bitcoin-el-salvador.html",
+        publisher: "NYTimes",
+        year: 2021
+      },
+      {
+        label: "IMF commentary",
+        url: "https://blog.imf.org/2021/07/26/cryptoassets-as-national-currency-a-step-too-far/",
+        publisher: "IMF",
+        year: 2021
+      }
+    ]
+  },
+  {
+    slug: "china-mining-ban",
+    title: "China Mining Ban Escalates",
+    type: "milestone",
+    chain: "Bitcoin",
+    year: 2021,
+    date: "2021-06-18",
+    era: "NFT Summer",
+    status: "regulation",
+    summary: "China intensified its crackdown on Bitcoin mining, causing hashrate to plunge and operations to relocate globally.",
+    tags: ["mining", "regulation", "bitcoin"],
+    chartUrl: "https://tradingview.com/symbols/BTCUSD/",
+    sources: [
+      {
+        label: "Regulatory coverage",
+        url: "https://www.reuters.com/technology/china-tightens-cryptocurrency-mining-ban-2021-06-18/",
+        publisher: "Reuters",
+        year: 2021
+      },
+      {
+        label: "Hashrate drop report",
+        url: "https://www.coindesk.com/markets/2021/06/21/bitcoin-hashrate-drops-as-chinas-mining-operations-shut/",
+        publisher: "CoinDesk",
+        year: 2021
+      }
+    ]
+  },
+  {
+    slug: "badgerdao-exploit",
+    title: "BadgerDAO Front-end Exploit",
+    type: "hack",
+    chain: "Ethereum",
+    year: 2021,
+    date: "2021-12-02",
+    era: "DeFi Summer",
+    status: "front-end attack",
+    summary: "Malicious script on BadgerDAO front-end drained ~$120M from user approvals before being halted.",
+    peakMetric: "$120M affected",
+    outcome: "Contracts paused; restitution plan",
+    tags: ["defi", "security", "front-end"],
+    chartUrl: "https://tradingview.com/symbols/BTCUSD/",
+    sources: [
+      {
+        label: "Incident coverage",
+        url: "https://www.coindesk.com/tech/2021/12/02/badgerdao-losses-may-top-120m-after-suspected-front-end-attack/",
+        publisher: "CoinDesk",
+        year: 2021
+      },
+      {
+        label: "Post-mortem",
+        url: "https://badgerdao.medium.com/post-mortem-badgerdao-incident-2021-bf8b7c3f8e6",
+        publisher: "BadgerDAO",
+        year: 2021
+      }
+    ]
+  },
+  {
+    slug: "nomad-bridge-hack",
+    title: "Nomad Bridge Exploit",
+    type: "hack",
+    chain: "Multi-chain",
+    year: 2022,
+    date: "2022-08-01",
+    era: "DeFi Summer",
+    status: "bridge exploit",
+    summary: "Nomad bridge vulnerability let users copy the attacker’s transaction, draining ~$190M in a free-for-all.",
+    peakMetric: "$190M drained",
+    outcome: "Partial funds returned",
+    tags: ["bridge", "security", "multichain"],
+    chartUrl: "https://tradingview.com/symbols/ETHUSD/",
+    sources: [
+      {
+        label: "Exploit recap",
+        url: "https://www.theblock.co/post/161386/nomad-bridge-exploit",
+        publisher: "The Block",
+        year: 2022
+      },
+      {
+        label: "Project update",
+        url: "https://nomad.xyz/blog/nomad-bridge-incident-update",
+        publisher: "Nomad",
+        year: 2022
+      }
+    ]
+  },
+  {
+    slug: "mango-markets-exploit",
+    title: "Mango Markets Price Manipulation",
+    type: "hack",
+    chain: "Solana",
+    year: 2022,
+    date: "2022-10-11",
+    era: "DeFi Summer",
+    status: "oracle manipulation",
+    summary: "Attacker manipulated MNGO price to drain ~$114M from Mango Markets; later negotiated partial return.",
+    peakMetric: "$114M drained",
+    outcome: "Funds partially returned; charges filed",
+    tags: ["defi", "oracle", "solana"],
+    chartUrl: "https://tradingview.com/symbols/MNGOUSD/",
+    sources: [
+      {
+        label: "Exploit coverage",
+        url: "https://www.coindesk.com/markets/2022/10/12/solana-defi-exchange-mango-markets-drained-of-over-100m/",
+        publisher: "CoinDesk",
+        year: 2022
+      },
+      {
+        label: "Incident forum",
+        url: "https://forum.mango.markets/t/incident-oct-11-2022/181",
+        publisher: "Mango DAO",
+        year: 2022
+      }
+    ]
+  },
+  {
+    slug: "blockfi-bankruptcy",
+    title: "BlockFi Bankruptcy",
+    type: "rugpull",
+    chain: "CeFi",
+    year: 2022,
+    date: "2022-11-28",
+    era: "DeFi Summer",
+    status: "bankruptcy",
+    summary: "Lender BlockFi filed for Chapter 11 after FTX collapse crippled its credit line and liquidity.",
+    tags: ["cefi", "bankruptcy", "lending"],
+    chartUrl: "https://tradingview.com/symbols/BTCUSD/",
+    sources: [
+      {
+        label: "Filing coverage",
+        url: "https://www.nytimes.com/2022/11/28/business/blockfi-bankruptcy-ftx.html",
+        publisher: "NYTimes",
+        year: 2022
+      },
+      {
+        label: "Court filing",
+        url: "https://restructuring.ra.kroll.com/blockfi",
+        publisher: "Kroll",
+        year: 2022
+      }
+    ]
+  },
+  {
+    slug: "voyager-bankruptcy",
+    title: "Voyager Digital Bankruptcy",
+    type: "rugpull",
+    chain: "CeFi",
+    year: 2022,
+    date: "2022-07-06",
+    era: "DeFi Summer",
+    status: "bankruptcy",
+    summary: "Crypto lender Voyager filed Chapter 11 after 3AC default, freezing customer assets.",
+    tags: ["cefi", "bankruptcy", "lending"],
+    chartUrl: "https://tradingview.com/symbols/BTCUSD/",
+    sources: [
+      {
+        label: "Bankruptcy filing coverage",
+        url: "https://www.reuters.com/business/finance/crypto-lender-voyager-digital-files-bankruptcy-2022-07-06/",
+        publisher: "Reuters",
+        year: 2022
+      },
+      {
+        label: "Court docs",
+        url: "https://cases.stretto.com/voyager",
+        publisher: "Stretto",
+        year: 2022
+      }
+    ]
+  },
+  {
+    slug: "genesis-bankruptcy",
+    title: "Genesis Global Bankruptcy",
+    type: "rugpull",
+    chain: "CeFi",
+    year: 2023,
+    date: "2023-01-19",
+    era: "DeFi Summer",
+    status: "bankruptcy",
+    summary: "Institutional lender Genesis filed for Chapter 11 after losses from 3AC and FTX contagion.",
+    tags: ["cefi", "bankruptcy", "institutional"],
+    chartUrl: "https://tradingview.com/symbols/BTCUSD/",
+    sources: [
+      {
+        label: "Bankruptcy report",
+        url: "https://www.bloomberg.com/news/articles/2023-01-19/crypto-lender-genesis-is-said-to-prepare-to-file-for-bankruptcy",
+        publisher: "Bloomberg",
+        year: 2023
+      },
+      {
+        label: "Court docket",
+        url: "https://restructuring.ra.kroll.com/genesis",
+        publisher: "Kroll",
+        year: 2023
+      }
+    ]
+  },
+  {
+    slug: "euler-hack",
+    title: "Euler Finance Hack",
+    type: "hack",
+    chain: "Ethereum",
+    year: 2023,
+    date: "2023-03-13",
+    era: "DeFi Summer",
+    status: "flash loan exploit",
+    summary: "Lending protocol Euler lost nearly $200M via a flash-loan attack; attacker later returned major funds.",
+    peakMetric: "$197M exploited",
+    outcome: "Funds mostly returned",
+    tags: ["defi", "flash-loan", "security"],
+    chartUrl: "https://tradingview.com/symbols/ETHUSD/",
+    sources: [
+      {
+        label: "Hack coverage",
+        url: "https://www.coindesk.com/tech/2023/03/13/euler-finance-hacked-for-nearly-200m/",
+        publisher: "CoinDesk",
+        year: 2023
+      },
+      {
+        label: "Incident analysis",
+        url: "https://forum.euler.finance/t/incident-analysis/",
+        publisher: "Euler",
+        year: 2023
+      }
+    ]
+  },
+  {
+    slug: "curve-stablepool-exploit",
+    title: "Curve Stable Pools Exploit",
+    type: "hack",
+    chain: "Ethereum",
+    year: 2023,
+    date: "2023-07-30",
+    era: "DeFi Summer",
+    status: "amm exploit",
+    summary: "Vyper compiler bug led to reentrancy exploits on Curve stable pools, draining tens of millions before patches.",
+    peakMetric: "$60M impacted",
+    outcome: "Whitehat returns and DAO coverage",
+    tags: ["defi", "amm", "security"],
+    chartUrl: "https://tradingview.com/symbols/CRVUSD/",
+    sources: [
+      {
+        label: "Exploit coverage",
+        url: "https://www.theblock.co/post/241508/curve-finance-pools-exploited",
+        publisher: "The Block",
+        year: 2023
+      },
+      {
+        label: "Project response",
+        url: "https://curve.substack.com/p/curve-response-to-vyper-compiler-vulnerabilities",
+        publisher: "Curve",
+        year: 2023
+      }
+    ]
+  },
+  {
+    slug: "binance-cftc-complaint",
+    title: "Binance CFTC Enforcement",
+    type: "milestone",
+    chain: "CeFi",
+    year: 2023,
+    date: "2023-03-27",
+    era: "DeFi Summer",
+    status: "regulatory action",
+    summary: "US CFTC filed a civil enforcement action against Binance and CZ alleging derivatives violations.",
+    tags: ["regulation", "cefi", "enforcement"],
+    chartUrl: "https://tradingview.com/symbols/BNBUSD/",
+    sources: [
+      {
+        label: "CFTC press release",
+        url: "https://www.cftc.gov/PressRoom/PressReleases/8680-23",
+        publisher: "CFTC",
+        year: 2023
+      },
+      {
+        label: "Coverage",
+        url: "https://www.reuters.com/technology/binance-ceo-zhao-sued-by-cftc-over-trading-violations-2023-03-27/",
+        publisher: "Reuters",
+        year: 2023
+      }
     ]
   }
 ];

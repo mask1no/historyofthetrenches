@@ -17,7 +17,23 @@ const playfair = Playfair_Display({
 
 export const metadata: Metadata = {
   title: "History of the Trenches",
-  description: "Community-maintained crypto history archive and timeline."
+  description: "Community-maintained crypto history archive and timeline.",
+  metadataBase: new URL("https://historyofthetrenches.xyz"),
+  openGraph: {
+    title: "History of the Trenches",
+    description: "Community-maintained crypto history archive and timeline.",
+    url: "https://historyofthetrenches.xyz",
+    siteName: "History of the Trenches",
+    type: "website"
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "History of the Trenches",
+    description: "Community-maintained crypto history archive and timeline."
+  },
+  icons: {
+    icon: "/favicon.svg"
+  }
 };
 
 export default function RootLayout({

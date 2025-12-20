@@ -1,11 +1,12 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { events, type Event, type EventType } from "@/data/events";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Select } from "@/components/ui/select";
+import { typeLabel, typeVariant } from "@/lib/eventType";
 
 type FilterState = {
   type: EventType | "all";
@@ -13,6 +14,7 @@ type FilterState = {
   year: string;
   tag: string;
   search: string;
+  sort: "newest" | "oldest" | "hall-of-fame";
 };
 
 const chains = Array.from(new Set(events.map((e) => e.chain)));
@@ -36,12 +38,14 @@ function matchesFilters(event: Event, filters: FilterState) {
 }
 
 export function EventTable() {
+  const router = useRouter();
   const [filters, setFilters] = useState<FilterState>({
     type: "all",
     chain: "all",
     year: "all",
     tag: "",
-    search: ""
+    search: "",
+    sort: "newest"
   });
 
   const filtered = useMemo(
@@ -49,9 +53,20 @@ export function EventTable() {
     [filters]
   );
 
+  const sorted = useMemo(() => {
+    const list = [...filtered];
+    if (filters.sort === "hall-of-fame") {
+      return list.sort((a, b) => Number(b.hallOfFame ?? false) - Number(a.hallOfFame ?? false));
+    }
+    if (filters.sort === "oldest") {
+      return list.sort((a, b) => Number(new Date(a.date)) - Number(new Date(b.date)));
+    }
+    return list.sort((a, b) => Number(new Date(b.date)) - Number(new Date(a.date)));
+  }, [filtered, filters.sort]);
+
   return (
     <section className="space-y-4">
-      <div className="grid grid-cols-1 gap-3 md:grid-cols-5">
+      <div className="grid grid-cols-1 gap-3 md:grid-cols-6">
         <Select
           label="Type"
           value={filters.type}
@@ -63,6 +78,7 @@ export function EventTable() {
           <option value="rugpull">Rugpull</option>
           <option value="runner">Runner</option>
           <option value="milestone">Milestone</option>
+          <option value="hack">Hack</option>
         </Select>
         <Select
           label="Chain"
@@ -113,49 +129,76 @@ export function EventTable() {
             </option>
           ))}
         </Select>
+        <Select
+          label="Sort"
+          value={filters.sort}
+          onChange={(e) =>
+            setFilters((prev) => ({ ...prev, sort: e.target.value as FilterState["sort"] }))
+          }
+        >
+          <option value="newest">Newest</option>
+          <option value="oldest">Oldest</option>
+          <option value="hall-of-fame">Hall of fame first</option>
+        </Select>
       </div>
 
       <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-subtle">
-        <div className="grid grid-cols-12 bg-bg px-4 py-3 text-xs font-semibold uppercase tracking-wide text-muted">
-          <span className="col-span-5">Event</span>
-          <span className="col-span-2">Type</span>
-          <span className="col-span-2">Chain</span>
-          <span className="col-span-2">Date</span>
-          <span className="col-span-1 text-right">Outcome</span>
-        </div>
         <div className="divide-y divide-border">
-          {filtered.map((event) => (
-            <Link
+          {sorted.map((event) => (
+            <div
               key={event.slug}
-              href={`/event/${event.slug}`}
-              className="grid grid-cols-12 items-center px-4 py-4 transition hover:bg-bg"
+              role="button"
+              tabIndex={0}
+              className="flex flex-col gap-2 px-4 py-4 transition hover:bg-bg focus:outline-none focus-visible:ring-2 focus-visible:ring-accentGold"
+              onClick={() => router.push(`/event/${event.slug}`)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  router.push(`/event/${event.slug}`);
+                }
+              }}
             >
-              <div className="col-span-5 space-y-1">
-                <div className="text-sm font-semibold">{event.title}</div>
-                <p className="text-xs text-muted line-clamp-2">{event.summary}</p>
+              <div className="flex flex-wrap items-start justify-between gap-3">
+                <div className="space-y-1">
+                  <div className="flex items-center gap-2">
+                    <div className="text-sm font-semibold">{event.title}</div>
+                    {event.hallOfFame && <Badge variant="gold">Hall of Fame</Badge>}
+                  </div>
+                  <p className="text-xs text-muted line-clamp-2">{event.summary}</p>
+                </div>
+                <div className="flex flex-wrap items-center gap-2">
+                  <Badge variant={typeVariant[event.type]} className="w-fit text-[11px]">
+                    {typeLabel[event.type]}
+                  </Badge>
+                  <Badge variant="muted" className="text-[11px]">
+                    {event.chain}
+                  </Badge>
+                  <span className="text-xs text-muted">{event.date}</span>
+                </div>
               </div>
-              <div className="col-span-2">
-                <Badge
-                  variant={
-                    event.type === "rugpull"
-                      ? "red"
-                      : event.type === "runner"
-                      ? "green"
-                      : "gold"
-                  }
-                  className="w-fit text-[11px]"
-                >
-                  {event.type}
-                </Badge>
+              <div className="flex flex-wrap items-center gap-2">
+                {event.tags.map((tag) => (
+                  <Badge key={tag} variant="muted">
+                    {tag}
+                  </Badge>
+                ))}
               </div>
-              <div className="col-span-2 text-sm">{event.chain}</div>
-              <div className="col-span-2 text-sm">{event.date}</div>
-              <div className="col-span-1 text-right text-sm text-muted">
-                {event.outcome ?? "—"}
+              <div className="flex items-center justify-between gap-3 text-xs text-muted">
+                <span>{event.outcome ?? "Outcome pending"}</span>
+                {event.chartUrl && (
+                  <a
+                    href={event.chartUrl}
+                    target="_blank"
+                    className="text-accentGold underline"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    View chart
+                  </a>
+                )}
               </div>
-            </Link>
+            </div>
           ))}
-          {filtered.length === 0 && (
+          {sorted.length === 0 && (
             <div className="px-4 py-6 text-center text-sm text-muted">
               No events match the current filters.
             </div>

@@ -139,13 +139,12 @@ export function BentoGrid() {
                 style={{ transform: `translateX(-${clampedIndex * 100}%)` }}
               >
                 {eras.map((era) => (
-                  <div
-                    key={era.id}
-                    className="min-w-full md:min-w-[85%] flex-1 rounded-xl border border-border bg-bg p-5 shadow-sm"
-                  >
-                    <div className="text-xs font-semibold uppercase text-muted">{era.range}</div>
-                    <div className="text-base font-semibold">{era.title}</div>
-                    <p className="mt-3 text-sm text-muted">{era.description}</p>
+                  <div key={era.id} className="min-w-full flex justify-center">
+                    <div className="w-full max-w-[380px] min-h-[220px] rounded-xl border border-border bg-bg p-5 shadow-sm">
+                      <div className="text-xs font-semibold uppercase text-muted">{era.range}</div>
+                      <div className="text-base font-semibold">{era.title}</div>
+                      <p className="mt-3 text-sm text-muted">{era.description}</p>
+                    </div>
                   </div>
                 ))}
               </div>

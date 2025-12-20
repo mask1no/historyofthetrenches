@@ -7,6 +7,7 @@ import { SourceList } from "@/components/SourceList";
 import { events, getEventBySlug } from "@/data/events";
 import { ShareButtons } from "@/components/ShareButtons";
 import Link from "next/link";
+import { typeLabel, typeVariant } from "@/lib/eventType";
 
 type EventPageProps = {
   params: { slug: string };
@@ -18,7 +19,18 @@ export function generateMetadata({ params }: EventPageProps): Metadata {
     title: event
       ? `${event.title} | History of the Trenches`
       : "Event | History of the Trenches",
-    description: event?.summary
+    description: event?.summary,
+    openGraph: {
+      title: event ? `${event.title} | History of the Trenches` : "Event | History of the Trenches",
+      description: event?.summary,
+      url: `https://historyofthetrenches.xyz/event/${event?.slug ?? ""}`,
+      type: "article"
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: event ? `${event.title} | History of the Trenches` : "Event | History of the Trenches",
+      description: event?.summary
+    }
   };
 }
 
@@ -43,17 +55,7 @@ export default function EventPage({ params }: EventPageProps) {
       <section className="mx-auto max-w-6xl px-6 pb-10 pt-8">
         <div className="mb-6 space-y-4">
           <div className="flex flex-wrap items-center gap-3">
-            <Badge
-              variant={
-                event!.type === "rugpull"
-                  ? "red"
-                  : event!.type === "runner"
-                  ? "green"
-                  : "gold"
-              }
-            >
-              {event!.type}
-            </Badge>
+            <Badge variant={typeVariant[event!.type]}>{typeLabel[event!.type]}</Badge>
             <Badge variant="muted">{event!.chain}</Badge>
             <Badge variant="muted">{event!.year}</Badge>
           </div>
@@ -173,6 +175,8 @@ export default function EventPage({ params }: EventPageProps) {
                       ? "red"
                       : item.type === "runner"
                       ? "green"
+                      : item.type === "hack"
+                      ? "dark"
                       : "gold"
                   }
                 >

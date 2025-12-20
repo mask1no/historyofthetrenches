@@ -22,6 +22,7 @@ Then open http://localhost:3000.
 - `src/app/globals.css` – design tokens and base styles
 - `src/lib/supabase/*` – Supabase client helpers (browser/server)
 - `supabase/schema.sql` – starter schema for profiles/notifications/subscriptions
+- `src/app/api/auth/wallet/*` – wallet auth endpoints (nonce, verify, me) with signed HttpOnly sessions
 
 ### Data Model
 
@@ -46,6 +47,7 @@ Eras (`src/data/eras.ts`) reference featured events by filtering the events list
 - Add env vars (see `.env.example` template):
   - `NEXT_PUBLIC_SUPABASE_URL`
   - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+- `WALLET_SESSION_SECRET` (server-only) signs wallet session cookies
 - In Supabase dashboard, enable Twitter/X OAuth and add your site URL as redirect.
 - The login modal offers “Login with X” (Supabase OAuth) and a placeholder wallet option.
 - Notification UI is client-only; schema is defined in `supabase/schema.sql` (profiles, notifications, subscriptions with RLS).

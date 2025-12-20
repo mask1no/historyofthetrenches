@@ -11,65 +11,103 @@ export type Era = {
 
 export const eras: Era[] = [
   {
-    id: "silk-road",
-    title: "Silk Road Era",
-    range: "2011–2013",
-    description: "Bitcoin's early notoriety through darknet markets and custody shocks.",
+    id: "genesis",
+    title: "Genesis & Early Infrastructure",
+    range: "2010–2015",
+    description: "From pizza payments to early exchange custody lessons and first state regulation.",
     featured: events.filter((e) =>
-      ["silk-road-closure", "mt-gox-bankruptcy"].includes(e.slug)
+      ["bitcoin-pizza-day", "silk-road-closure", "mt-gox-bankruptcy", "bitlicense-new-york"].includes(e.slug)
     )
   },
   {
     id: "ico-boom",
-    title: "ICO Boom",
-    range: "2017",
-    description: "Crowdfunding mania and pioneering governance debates.",
+    title: "ICO Boom & Fork Debates",
+    range: "2016–2018",
+    description: "Crowdfunding mania, governance forks, and the rise of mega-exchanges amid early hacks.",
     featured: events.filter((e) =>
-      ["bitconnect-collapse", "dao-hack", "binance-launch", "bitcoin-run-2017"].includes(e.slug)
-    )
-  },
-  {
-    id: "covid-black-swan",
-    title: "COVID-19 Black Swan",
-    range: "2020",
-    description: "Macro shock that reset liquidity and opened a new cohort of on-chain participants.",
-    featured: events.filter((e) =>
-      ["covid-black-swan", "uniswap-v2-launch", "yfi-fair-launch"].includes(e.slug)
+      [
+        "dao-hack",
+        "binance-launch",
+        "bitcoin-run-2017",
+        "bitconnect-collapse",
+        "coincheck-hack",
+        "nicehash-hack-2017"
+      ].includes(e.slug)
     )
   },
   {
     id: "defi-summer",
-    title: "DeFi Summer",
-    range: "2020–2022",
-    description: "On-chain liquidity experiments and the first major stablecoin stress tests.",
+    title: "Macro Shock & DeFi Summer",
+    range: "2020–2021",
+    description: "COVID liquidity shock, on-chain liquidity bootstrapping, and corporate Bitcoin adoption.",
     featured: events.filter((e) =>
       [
-        "terra-luna-collapse",
-        "ftx-collapse",
-        "celsius-bankruptcy",
-        "three-arrows-capital",
-        "ronin-bridge-hack",
-        "alameda-balance-sheet-leak",
+        "covid-black-swan",
+        "maker-black-thursday",
+        "uniswap-v2-launch",
+        "yfi-fair-launch",
+        "microstrategy-bitcoin-treasury",
         "ethereum-merge"
       ].includes(e.slug)
     )
   },
   {
-    id: "nft-summer",
-    title: "NFT Summer",
+    id: "nft-onboarding",
+    title: "NFT & Onboarding Wave",
     range: "2021",
-    description: "Culture meets blockchains; meme and community tokens go mainstream.",
+    description: "Consumer onramps, NFTs, and global policy shifts during peak retail discovery.",
     featured: events.filter((e) =>
-      ["dogecoin-run", "shiba-inu-run", "opensea-wyvern-exploit"].includes(e.slug)
+      [
+        "beeple-sale",
+        "opensea-wyvern-exploit",
+        "canada-bitcoin-etf",
+        "el-salvador-legal-tender",
+        "china-mining-ban",
+        "dogecoin-run",
+        "shiba-inu-run"
+      ].includes(e.slug)
+    )
+  },
+  {
+    id: "cefi-contagion",
+    title: "CeFi Contagion & Bridge Hacks",
+    range: "2022–2023",
+    description: "Stablecoin stress, lender failures, and bridge exploits reshaping risk perceptions.",
+    featured: events.filter((e) =>
+      [
+        "terra-luna-collapse",
+        "celsius-bankruptcy",
+        "three-arrows-capital",
+        "alameda-balance-sheet-leak",
+        "ftx-collapse",
+        "blockfi-bankruptcy",
+        "voyager-bankruptcy",
+        "genesis-bankruptcy",
+        "ronin-bridge-hack",
+        "nomad-bridge-hack",
+        "mango-markets-exploit",
+        "wormhole-hack",
+        "poly-network-hack",
+        "euler-hack",
+        "curve-stablepool-exploit",
+        "binance-cftc-complaint"
+      ].includes(e.slug)
     )
   },
   {
     id: "pump-fun",
-    title: "Pump.fun Era",
-    range: "2024–",
-    description: "Instant launches, viral liquidity, and rapid community spins.",
+    title: "Pump.fun & Meme Liquidity",
+    range: "2023–2024",
+    description: "Memecoin rails, L2 onboarding, and renewed ETF-driven institutional bridges.",
     featured: events.filter((e) =>
-      ["squid-game-token", "pepe-memecoin", "bonk-solana", "pump-fun-surge", "btc-etf-approval"].includes(e.slug)
+      [
+        "pepe-memecoin",
+        "bonk-solana",
+        "pump-fun-surge",
+        "btc-etf-approval",
+        "base-mainnet-launch",
+        "friend-tech-summer"
+      ].includes(e.slug)
     )
   }
 ];

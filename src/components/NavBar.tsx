@@ -1,9 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { Bell, LogOut, X } from "lucide-react";
+import { Bell, LogOut, X, Loader2, AlertCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { supabaseBrowser } from "@/lib/supabase/client";
 
@@ -15,13 +15,16 @@ const navItems = [
 
 export function NavBar() {
   const pathname = usePathname();
+  const router = useRouter();
   const [hasSupabaseSession, setHasSupabaseSession] = useState(false);
   const [walletAddress, setWalletAddress] = useState<string | null>(null);
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [showNotifications, setShowNotifications] = useState(false);
   const [showUserMenu, setShowUserMenu] = useState(false);
   const [userName, setUserName] = useState<string | null>(null);
-  const unread = true; // placeholder UI state
+  const [authLoading, setAuthLoading] = useState(false);
+  const [authError, setAuthError] = useState<string | null>(null);
+  const [notifications] = useState<any[]>([]);
   const isAuthenticated = hasSupabaseSession || !!walletAddress;
 
   const setSupabaseUser = useCallback((user: any | null | undefined) => {
@@ -48,14 +51,20 @@ export function NavBar() {
   }, [userName, walletAddress]);
 
   const handleLoginWithX = async () => {
-    setShowLoginModal(false);
-    await supabaseBrowser.auth.signInWithOAuth({
-      provider: "twitter",
-      options: {
-        redirectTo:
-          typeof window !== "undefined" ? `${window.location.origin}/auth/callback` : undefined
-      }
-    });
+    setAuthError(null);
+    setAuthLoading(true);
+    try {
+      await supabaseBrowser.auth.signInWithOAuth({
+        provider: "twitter",
+        options: {
+          redirectTo:
+            typeof window !== "undefined" ? `${window.location.origin}/auth/callback` : undefined
+        }
+      });
+    } catch (err: any) {
+      setAuthError(err?.message || "Login failed. Please try again.");
+      setAuthLoading(false);
+    }
   };
 
   const handleLogout = async () => {
@@ -64,18 +73,20 @@ export function NavBar() {
     setShowLoginModal(false);
     await Promise.allSettled([
       supabaseBrowser.auth.signOut(),
-      fetch("/api/auth/wallet", { method: "DELETE" })
+      fetch("/api/auth/wallet/logout", { method: "POST" })
     ]);
     setHasSupabaseSession(false);
     setWalletAddress(null);
     setUserName(null);
     setShowNotifications(false);
     setShowUserMenu(false);
+    router.refresh();
   };
 
   const hydrateWalletStatus = useCallback(async () => {
     try {
-      const res = await fetch("/api/auth/wallet/status");
+      const res = await fetch("/api/auth/wallet/me", { cache: "no-store" });
+      if (!res.ok) throw new Error("No wallet session");
       const data = (await res.json()) as { address: string | null };
       if (data.address) {
         setWalletAddress(data.address);
@@ -102,38 +113,47 @@ export function NavBar() {
   }, [hydrateWalletStatus, setSupabaseUser]);
 
   const handleWalletLogin = async () => {
-    setShowLoginModal(false);
+    setAuthError(null);
+    setAuthLoading(true);
     try {
       const provider = (window as any).solana;
       if (!provider || !provider.isPhantom) {
-        alert("Phantom wallet not found. Please install Phantom.");
+        setAuthError("Phantom wallet not found. Please install Phantom.");
+        setAuthLoading(false);
         return;
       }
       const { publicKey } = await provider.connect();
       const address = publicKey.toBase58();
 
-      const nonceRes = await fetch("/api/auth/wallet");
-      const nonceData = await nonceRes.json();
-      const nonce = nonceData.nonce;
-      const message = `Login to History of the Trenches: ${nonce}`;
+      const nonceRes = await fetch(`/api/auth/wallet/nonce?address=${encodeURIComponent(address)}`);
+      if (!nonceRes.ok) throw new Error("Could not fetch nonce");
+      const { nonce, expiresAt } = await nonceRes.json();
+
+      const issuedAt = new Date().toISOString();
+      const domain = typeof window !== "undefined" ? window.location.host : "historyofthetrenches.xyz";
+      const message = `Sign in to History of the Trenches\nDomain: ${domain}\nAddress: ${address}\nNonce: ${nonce}\nExpires: ${expiresAt}\nIssuedAt: ${issuedAt}`;
       const encodedMessage = new TextEncoder().encode(message);
       const signed = await provider.signMessage(encodedMessage, "utf8");
       const { default: bs58 } = await import("bs58");
       const signature = bs58.encode(signed.signature);
 
-      const verifyRes = await fetch("/api/auth/wallet", {
+      const verifyRes = await fetch("/api/auth/wallet/verify", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ address, signature, nonce })
+        body: JSON.stringify({ address, nonce, signature, issuedAt })
       });
-      if (verifyRes.ok) {
-        setWalletAddress(address);
-      } else {
-        throw new Error("Wallet verification failed");
+      if (!verifyRes.ok) {
+        const errText = await verifyRes.text();
+        throw new Error(errText || "Wallet verification failed");
       }
-    } catch (error) {
+
+      await hydrateWalletStatus();
+      setShowLoginModal(false);
+    } catch (error: any) {
       console.error(error);
-      alert("Wallet login failed. Please try again.");
+      setAuthError(error?.message || "Wallet login failed. Please try again.");
+    } finally {
+      setAuthLoading(false);
     }
   };
 
@@ -184,7 +204,7 @@ export function NavBar() {
                   onClick={() => setShowNotifications((v) => !v)}
                 >
                   <Bell className="h-4 w-4" />
-                  {unread && (
+                  {notifications.length > 0 && (
                     <span className="absolute -right-1 -top-1 h-2.5 w-2.5 rounded-full bg-accentGold shadow-subtle" />
                   )}
                 </button>
@@ -192,9 +212,17 @@ export function NavBar() {
                   <div className="absolute right-0 top-12 w-64 rounded-xl border border-border bg-card p-4 text-sm shadow-subtle">
                     <div className="mb-2 flex items-center justify-between">
                       <span className="font-semibold">Notifications</span>
-                      <span className="text-xs text-muted">placeholder</span>
+                      <span className="text-xs text-muted">{notifications.length} alerts</span>
                     </div>
-                    <p className="text-xs text-muted">No new notifications yet.</p>
+                    {notifications.length === 0 ? (
+                      <p className="text-xs text-muted">No alerts yet. Coming soon.</p>
+                    ) : (
+                      <ul className="space-y-2 text-xs text-muted">
+                        {notifications.map((n) => (
+                          <li key={n.id}>{n.title}</li>
+                        ))}
+                      </ul>
+                    )}
                   </div>
                 )}
               </div>
@@ -256,18 +284,32 @@ export function NavBar() {
               </p>
             </div>
             <div className="space-y-3">
-              <Button className="w-full justify-between" variant="subtle" onClick={handleLoginWithX}>
+              <Button
+                className="w-full justify-between"
+                variant="subtle"
+                onClick={handleLoginWithX}
+                disabled={authLoading}
+              >
                 <span>Continue with X</span>
                 <span className="text-xs text-muted">Twitter OAuth</span>
+                {authLoading && <Loader2 className="h-4 w-4 animate-spin" />}
               </Button>
               <Button
                 className="w-full justify-between"
                 variant="subtle"
                 onClick={handleWalletLogin}
+                disabled={authLoading}
               >
                 <span>Continue with Wallet</span>
                 <span className="text-xs text-muted">Phantom signature</span>
+                {authLoading && <Loader2 className="h-4 w-4 animate-spin" />}
               </Button>
+              {authError && (
+                <div className="flex items-start gap-2 rounded-lg border border-border bg-bg px-3 py-2 text-sm text-accentRed">
+                  <AlertCircle className="mt-[2px] h-4 w-4" />
+                  <span>{authError}</span>
+                </div>
+              )}
             </div>
           </div>
         </div>

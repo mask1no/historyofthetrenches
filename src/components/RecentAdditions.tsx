@@ -2,6 +2,7 @@ import Link from "next/link";
 import { events } from "@/data/events";
 import { Badge } from "@/components/ui/badge";
 import { Bell } from "lucide-react";
+import { typeLabel, typeVariant } from "@/lib/eventType";
 
 const recent = [...events]
   .sort((a, b) => b.year - a.year)
@@ -39,13 +40,7 @@ export function RecentAdditions() {
               </div>
             </div>
             <div className="flex items-center gap-2">
-              <Badge
-                variant={
-                  item.type === "rugpull" ? "red" : item.type === "runner" ? "green" : "gold"
-                }
-              >
-                {item.type}
-              </Badge>
+              <Badge variant={typeVariant[item.type]}>{typeLabel[item.type]}</Badge>
               <span className="text-xs text-muted uppercase tracking-wide">
                 New
               </span>
