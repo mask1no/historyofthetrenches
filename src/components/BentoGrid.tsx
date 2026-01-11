@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { events } from "@/data/events";
 import { eras } from "@/data/eras";
 import { Button } from "@/components/ui/button";
@@ -36,6 +36,7 @@ export function BentoGrid() {
   const [copied, setCopied] = useState(false);
   const [showCopiedToast, setShowCopiedToast] = useState(false);
   const [eraIndex, setEraIndex] = useState(0);
+  const scrollRef = useRef<HTMLDivElement | null>(null);
 
   const clampedIndex = useMemo(
     () => Math.max(0, Math.min(eraIndex, eras.length - 1)),
@@ -49,6 +50,15 @@ export function BentoGrid() {
       setTimeout(() => setCopied(false), 1200);
       setTimeout(() => setShowCopiedToast(false), 1400);
     });
+  };
+
+  const scrollToEra = (nextIndex: number) => {
+    const safeIndex = Math.max(0, Math.min(nextIndex, eras.length - 1));
+    setEraIndex(safeIndex);
+    const target = scrollRef.current?.children?.[safeIndex] as HTMLElement | undefined;
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth", inline: "start", block: "nearest" });
+    }
   };
 
   return (
@@ -121,6 +131,23 @@ export function BentoGrid() {
           </p>
         </CardHeader>
         <CardContent className="relative overflow-hidden">
+          <div className="mb-3 flex items-center justify-between text-xs text-muted">
+            <span>
+              Era {clampedIndex + 1} of {eras.length}
+            </span>
+            <div className="flex items-center gap-1">
+              {eras.map((era, idx) => (
+                <button
+                  key={era.id}
+                  className={`h-2.5 w-2.5 rounded-full transition ${
+                    idx === clampedIndex ? "bg-accentGold shadow-subtle" : "bg-border"
+                  }`}
+                  aria-label={`Go to ${era.title}`}
+                  onClick={() => scrollToEra(idx)}
+                />
+              ))}
+            </div>
+          </div>
           <div className="pointer-events-none absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-card to-transparent" />
           <div className="pointer-events-none absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-card to-transparent" />
           <div className="flex items-center gap-3">
@@ -128,19 +155,22 @@ export function BentoGrid() {
               variant="ghost"
               size="icon"
               className="h-10 w-10 border border-border bg-card shadow-subtle hover:border-accentGold"
-              onClick={() => setEraIndex((i) => Math.max(0, i - 1))}
+              onClick={() => scrollToEra(clampedIndex - 1)}
               aria-label="Previous era"
             >
               <ArrowLeft className="h-4 w-4" />
             </Button>
-            <div className="relative flex-1 overflow-hidden">
+            <div className="relative flex-1">
               <div
-                className="flex gap-4 transition-transform duration-500 ease-out"
-                style={{ transform: `translateX(-${clampedIndex * 100}%)` }}
+                ref={scrollRef}
+                className="flex gap-4 overflow-x-auto pb-2 pr-2 scroll-smooth snap-x snap-mandatory"
               >
                 {eras.map((era) => (
-                  <div key={era.id} className="min-w-full flex justify-center">
-                    <div className="w-full max-w-[380px] min-h-[220px] rounded-xl border border-border bg-bg p-5 shadow-sm">
+                  <div
+                    key={era.id}
+                    className="flex-none snap-start basis-[85%] sm:basis-[65%] md:basis-[48%] lg:basis-[36%] xl:basis-[30%] max-w-[440px]"
+                  >
+                    <div className="min-h-[220px] rounded-xl border border-border bg-bg p-5 shadow-sm">
                       <div className="text-xs font-semibold uppercase text-muted">{era.range}</div>
                       <div className="text-base font-semibold">{era.title}</div>
                       <p className="mt-3 text-sm text-muted">{era.description}</p>
@@ -153,7 +183,7 @@ export function BentoGrid() {
               variant="ghost"
               size="icon"
               className="h-10 w-10 border border-border bg-card shadow-subtle hover:border-accentGold"
-              onClick={() => setEraIndex((i) => Math.min(eras.length - 1, i + 1))}
+              onClick={() => scrollToEra(clampedIndex + 1)}
               aria-label="Next era"
             >
               <ArrowRight className="h-4 w-4" />

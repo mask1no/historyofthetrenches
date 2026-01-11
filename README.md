@@ -22,9 +22,7 @@ Then open http://localhost:3000.
 - `src/data/eras.ts` – era definitions and featured events
 - `src/lib/utils.ts` – class merging helper
 - `src/app/globals.css` – design tokens and base styles
-- `src/lib/supabase/*` – Supabase client helpers (browser/server + service role)
-- `supabase/schema.sql` – starter schema for profiles/notifications/subscriptions and wallet_nonces
-- `src/app/api/auth/wallet/*` – wallet auth endpoints (nonce, verify, me) with signed HttpOnly sessions
+- Removed Supabase and wallet auth code for a static lander footprint.
 
 ### Data Model
 
@@ -44,16 +42,9 @@ Eras (`src/data/eras.ts`) reference featured events by filtering the events list
 - `/timeline` – vertical chaptered era view with featured events and inline expand/collapse
 - `/event/[slug]` – event detail with badges, sources, key facts, related events
 
-### Supabase Auth Setup
+### Environment
 
-- Add env vars (see `.env.example` template):
-  - `NEXT_PUBLIC_SUPABASE_URL`
-  - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
-  - `NEXT_PUBLIC_SITE_URL` (Railway preview or custom domain)
-  - `WALLET_SESSION_SECRET` (server-only, signs wallet session cookies)
-  - `SUPABASE_SERVICE_ROLE` (server-only, used by wallet nonce routes)
-- In Supabase dashboard, enable Twitter/X OAuth and add your site URL as redirect (`<SITE_URL>/auth/callback`).
-- Wallet login uses server-managed nonces in Supabase; Notification UI is client-only; schema is defined in `supabase/schema.sql` (profiles, notifications, subscriptions, wallet_nonces with RLS).
+No external services required. Optionally set `NEXT_PUBLIC_SITE_URL` for metadata; defaults to `http://localhost:3000`.
 
 ### Styling
 

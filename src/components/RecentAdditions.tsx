@@ -9,6 +9,13 @@ const recent = [...events]
   .slice(0, 3);
 
 export function RecentAdditions() {
+  const typeDot: Record<string, string> = {
+    rugpull: "bg-accentRed",
+    runner: "bg-accentGreen",
+    milestone: "bg-accentGold",
+    hack: "bg-border"
+  };
+
   return (
     <section className="mx-auto max-w-6xl px-6 pb-16">
       <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
@@ -31,10 +38,17 @@ export function RecentAdditions() {
           <Link
             key={item.slug}
             href={`/event/${item.slug}`}
-            className="flex items-center justify-between rounded-xl border border-border bg-card px-4 py-3 shadow-sm transition hover:-translate-y-0.5 hover:shadow-subtle"
+            className="group relative flex items-center justify-between overflow-hidden rounded-xl border border-border bg-card px-4 py-3 shadow-sm transition hover:-translate-y-0.5 hover:border-accentGold hover:shadow-subtle"
           >
+            <span
+              className={`absolute inset-y-0 left-0 w-1 ${typeDot[item.type] ?? "bg-border"}`}
+              aria-hidden
+            />
             <div>
-              <div className="text-sm font-semibold">{item.title}</div>
+              <div className="flex items-center gap-2 text-sm font-semibold">
+                <span className="h-2 w-2 rounded-full bg-accentGold opacity-0 transition group-hover:opacity-100" />
+                <span>{item.title}</span>
+              </div>
               <div className="text-xs text-muted">
                 {item.chain} • {item.date} • {item.summary}
               </div>

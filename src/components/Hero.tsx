@@ -4,6 +4,9 @@ import { Button } from "@/components/ui/button";
 import { events } from "@/data/events";
 
 export function Hero() {
+  const hallOfFameCount = events.filter((e) => e.hallOfFame).length;
+  const chainCount = new Set(events.map((e) => e.chain)).size;
+
   return (
     <section className="mx-auto flex max-w-6xl flex-col gap-8 px-6 pb-12 pt-10 md:flex-row md:items-start md:gap-12">
       <div className="flex-1 space-y-6">
@@ -43,27 +46,32 @@ export function Hero() {
         </div>
       </div>
       <div className="w-full max-w-sm rounded-2xl border border-border bg-card p-6 shadow-subtle">
-        <div className="mb-4 text-sm font-semibold text-muted">
-          Markets forget. Communities don&apos;t.
+        <div className="mb-3 text-sm font-semibold uppercase tracking-[0.12em] text-muted">
+          At a glance
         </div>
-        <p className="text-sm text-muted">
-          We catalogue rugs, runs, and milestones with sourced evidence so the
-          next cycle remembers the last.
-        </p>
-        <ul className="mt-4 space-y-3 text-sm text-fg">
-          <li className="flex items-start gap-2">
-            <span className="mt-1 h-2 w-2 rounded-full bg-accentGold" />
-            Verifiable sources, curator notes, and era context.
-          </li>
-          <li className="flex items-start gap-2">
-            <span className="mt-1 h-2 w-2 rounded-full bg-accentGreen" />
-            Filters by chain, tag, and impact.
-          </li>
-          <li className="flex items-start gap-2">
-            <span className="mt-1 h-2 w-2 rounded-full bg-accentRed" />
-            Rug Hall of Fame: never forget the lessons.
-          </li>
-        </ul>
+        <div className="space-y-3">
+          <div className="flex items-center justify-between rounded-xl border border-border bg-bg px-3 py-3">
+            <div className="space-y-1">
+              <div className="text-sm font-semibold">Hall of Fame</div>
+              <div className="text-xs text-muted">Rugs & runners we never forget.</div>
+            </div>
+            <span className="text-lg font-semibold text-accentGold">{hallOfFameCount}</span>
+          </div>
+          <div className="flex items-center justify-between rounded-xl border border-border bg-bg px-3 py-3">
+            <div className="space-y-1">
+              <div className="text-sm font-semibold">Verified sources</div>
+              <div className="text-xs text-muted">Every entry cites its receipts.</div>
+            </div>
+            <span className="text-lg font-semibold text-accentGreen">2+</span>
+          </div>
+          <div className="flex items-center justify-between rounded-xl border border-border bg-bg px-3 py-3">
+            <div className="space-y-1">
+              <div className="text-sm font-semibold">Chains covered</div>
+              <div className="text-xs text-muted">Cross-ecosystem view, one archive.</div>
+            </div>
+            <span className="text-lg font-semibold text-fg">{chainCount}</span>
+          </div>
+        </div>
       </div>
     </section>
   );

@@ -14,3 +14,5 @@ export const typeVariant: Record<EventType, "red" | "green" | "gold" | "dark"> =
   hack: "dark"
 };
 
+
+
