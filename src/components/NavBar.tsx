@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Download, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const navItems = [
@@ -50,8 +50,9 @@ export function NavBar() {
           <a href="/trench-manual.pdf" download className="hidden md:inline-flex">
             <Button
               variant="default"
-              className="bg-accentGold text-fg hover:bg-accentGold/90"
+              className="gap-2 bg-accentGold text-fg hover:bg-accentGold/90"
             >
+              <Download className="h-4 w-4" />
               Download Trench Manual
             </Button>
           </a>
@@ -106,7 +107,8 @@ export function NavBar() {
           </div>
           <div className="mt-6 flex flex-col gap-3">
             <a href="/trench-manual.pdf" download onClick={() => setShowMobileNav(false)}>
-              <Button className="w-full justify-center bg-accentGold text-fg hover:bg-accentGold/90">
+              <Button className="w-full justify-center gap-2 bg-accentGold text-fg hover:bg-accentGold/90">
+                <Download className="h-4 w-4" />
                 Download Trench Manual
               </Button>
             </a>

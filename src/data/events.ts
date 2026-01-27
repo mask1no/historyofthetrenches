@@ -2053,6 +2053,180 @@ export const events: Event[] = [
         year: 2023
       }
     ]
+  },
+  {
+    slug: "bitcoin-halving-2012",
+    title: "Bitcoin First Halving",
+    type: "milestone",
+    chain: "Bitcoin",
+    year: 2012,
+    date: "2012-11-28",
+    era: "Genesis",
+    status: "issuance change",
+    summary: "Bitcoin’s block reward dropped from 50 to 25 BTC, marking the first programmed supply cut.",
+    peakMetric: "Block 210,000",
+    outcome: "Issuance rate halved",
+    tags: ["bitcoin", "halving", "issuance"],
+    chartUrl: "https://tradingview.com/symbols/BTCUSD/",
+    sources: [
+      {
+        label: "Halving overview",
+        url: "https://bitcoin.org/en/bitcoin-halving",
+        publisher: "Bitcoin.org",
+        year: 2012
+      },
+      {
+        label: "Halving coverage",
+        url: "https://www.coindesk.com/markets/2012/11/28/bitcoin-network-halves-mining-reward/",
+        publisher: "CoinDesk",
+        year: 2012
+      }
+    ]
+  },
+  {
+    slug: "cme-bitcoin-futures-launch",
+    title: "CME Bitcoin Futures Launch",
+    type: "milestone",
+    chain: "Bitcoin",
+    year: 2017,
+    date: "2017-12-17",
+    era: "ICO Boom",
+    status: "institutional access",
+    summary: "CME launched cash-settled Bitcoin futures, opening regulated derivatives exposure for institutions.",
+    peakMetric: "First major regulated BTC futures",
+    outcome: "Broader institutional participation",
+    tags: ["bitcoin", "derivatives", "institutional"],
+    chartUrl: "https://tradingview.com/symbols/BTCUSD/",
+    sources: [
+      {
+        label: "CME launch announcement",
+        url: "https://www.cmegroup.com/media-room/press-releases/2017/12/17/cme_group_launches_bitcoin_futures.html",
+        publisher: "CME Group",
+        year: 2017
+      },
+      {
+        label: "Launch coverage",
+        url: "https://www.reuters.com/article/us-bitcoin-cmegroup/cme-group-launches-bitcoin-futures-idUSKBN1EB0Y3",
+        publisher: "Reuters",
+        year: 2017
+      }
+    ]
+  },
+  {
+    slug: "binance-hack-2019",
+    title: "Binance Hack (7,000 BTC)",
+    type: "hack",
+    chain: "CeFi",
+    year: 2019,
+    date: "2019-05-07",
+    era: "Silk Road Era",
+    status: "exchange breach",
+    summary: "Binance disclosed a security breach that led to a 7,000 BTC theft from its hot wallet.",
+    peakMetric: "7,000 BTC stolen",
+    outcome: "SAFU fund used; withdrawals paused",
+    tags: ["exchange", "security", "custody"],
+    chartUrl: "https://tradingview.com/symbols/BTCUSD/",
+    sources: [
+      {
+        label: "Binance incident update",
+        url: "https://www.binance.com/en/blog/421499824684901056/important-security-update",
+        publisher: "Binance",
+        year: 2019
+      },
+      {
+        label: "Coverage",
+        url: "https://www.reuters.com/article/us-crypto-currencies-binance-hack/binance-hacked-for-40-million-in-bitcoin-idUSKCN1SD2T9",
+        publisher: "Reuters",
+        year: 2019
+      }
+    ]
+  },
+  {
+    slug: "sec-sues-ripple",
+    title: "SEC Sues Ripple Labs",
+    type: "milestone",
+    chain: "Multi-chain",
+    year: 2020,
+    date: "2020-12-22",
+    era: "DeFi Summer",
+    status: "regulatory action",
+    summary: "The SEC filed suit against Ripple Labs alleging an unregistered securities offering tied to XRP.",
+    peakMetric: "$1.3B alleged offering",
+    outcome: "Multi-year litigation",
+    tags: ["regulation", "securities", "xrp"],
+    chartUrl: "https://tradingview.com/symbols/XRPUSD/",
+    sources: [
+      {
+        label: "SEC press release",
+        url: "https://www.sec.gov/news/press-release/2020-338",
+        publisher: "SEC",
+        year: 2020
+      },
+      {
+        label: "Reuters coverage",
+        url: "https://www.reuters.com/article/us-ripple-sec/ripple-labs-sued-by-sec-in-xrp-cryptocurrency-lawsuit-idUSKBN28W1K5",
+        publisher: "Reuters",
+        year: 2020
+      }
+    ]
+  },
+  {
+    slug: "proshares-bitcoin-etf",
+    title: "First U.S. Bitcoin Futures ETF Launch",
+    type: "milestone",
+    chain: "Bitcoin",
+    year: 2021,
+    date: "2021-10-19",
+    era: "NFT Summer",
+    status: "etf launch",
+    summary: "ProShares BITO began trading as the first U.S. Bitcoin futures ETF, expanding regulated access.",
+    peakMetric: "Record first-day volume",
+    outcome: "ETF access expanded",
+    tags: ["etf", "bitcoin", "institutional"],
+    chartUrl: "https://www.nyse.com/quote/ARCX:BITO",
+    sources: [
+      {
+        label: "ProShares launch notice",
+        url: "https://www.proshares.com/news/proshares-launches-bitcoin-strategy-etf",
+        publisher: "ProShares",
+        year: 2021
+      },
+      {
+        label: "ETF debut coverage",
+        url: "https://www.reuters.com/world/us/first-us-bitcoin-futures-etf-set-debut-tuesday-2021-10-18/",
+        publisher: "Reuters",
+        year: 2021
+      }
+    ]
+  },
+  {
+    slug: "nyag-tether-settlement",
+    title: "NYAG Tether/Bitfinex Settlement",
+    type: "milestone",
+    chain: "CeFi",
+    year: 2021,
+    date: "2021-02-23",
+    era: "NFT Summer",
+    status: "regulatory settlement",
+    summary: "New York’s Attorney General reached a settlement with Tether and Bitfinex over reserve disclosures.",
+    peakMetric: "$18.5M settlement",
+    outcome: "Disclosure requirements imposed",
+    tags: ["regulation", "stablecoin", "cefi"],
+    chartUrl: "https://tradingview.com/symbols/USDTUSD/",
+    sources: [
+      {
+        label: "NYAG settlement announcement",
+        url: "https://ag.ny.gov/press-release/2021/attorney-general-james-ends-virtual-currency-trading-platform",
+        publisher: "NYAG",
+        year: 2021
+      },
+      {
+        label: "Coverage",
+        url: "https://www.reuters.com/article/us-crypto-currency-tether/ny-attorney-general-says-tether-agree-to-end-trading-in-new-york-idUSKBN2AN1B4",
+        publisher: "Reuters",
+        year: 2021
+      }
+    ]
   }
 ];
 

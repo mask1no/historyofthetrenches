@@ -6,7 +6,7 @@ import { eras } from "@/data/eras";
 import { Badge } from "@/components/ui/badge";
 
 export function EraTimeline() {
-  const [openEraIds, setOpenEraIds] = useState<string[]>([]);
+  const [openEraIds, setOpenEraIds] = useState<string[]>(() => eras.map((era) => era.id));
 
   const toggleEra = (id: string) => {
     setOpenEraIds((prev) =>
@@ -16,7 +16,7 @@ export function EraTimeline() {
 
   return (
     <section className="space-y-6">
-      <p className="text-sm text-muted">Click into an era to see its featured events.</p>
+      <p className="text-sm text-muted">Collapse eras to focus, or expand to view all highlights.</p>
       <div className="relative overflow-hidden rounded-2xl border border-border bg-card p-6 shadow-subtle">
         <div className="absolute left-8 top-10 bottom-8 w-px bg-border" />
         <div className="flex flex-col gap-6">
