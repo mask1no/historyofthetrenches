@@ -4,6 +4,7 @@ const links = {
   explore: [
     { label: "Archive", href: "/archive" },
     { label: "Timeline", href: "/timeline" },
+    { label: "$HOT", href: "/hot" },
     { label: "Hall of Fame", href: "/#token" }
   ],
   community: [
@@ -15,15 +16,20 @@ const links = {
 
 export function Footer() {
   return (
-    <footer className="border-t border-border/80 bg-card">
+    <footer className="border-t border-border/80 bg-card/95">
       <div className="mx-auto flex max-w-6xl flex-col gap-8 px-6 py-10">
-        <div className="space-y-3">
-          <div className="text-lg font-semibold text-fg">History of the Trenches</div>
-          <p className="max-w-xl text-sm text-muted">
-            Built by the trenches. For memory, not hype. A living archive of crypto’s defining moments.
-          </p>
-          <div className="text-xs uppercase tracking-[0.2em] text-muted">
-            historyofthetrenches.xyz
+        <div className="relative overflow-hidden rounded-2xl border border-border bg-bg/70 p-6 shadow-subtle">
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(90%_90%_at_10%_10%,rgba(214,177,94,0.12),rgba(12,12,12,0)_60%)]" />
+          <div className="relative flex flex-col gap-3">
+            <div className="text-lg font-semibold text-fg">History of the Trenches</div>
+            <p className="max-w-2xl text-sm text-muted">
+              Built by the trenches. For memory, not hype. A living archive of crypto’s defining moments.
+            </p>
+            <div className="flex flex-wrap items-center gap-3 text-xs uppercase tracking-[0.2em] text-muted">
+              <span>historyofthetrenches.xyz</span>
+              <span className="h-1 w-1 rounded-full bg-accentGold" />
+              <span>Sources first</span>
+            </div>
           </div>
         </div>
         <div className="grid gap-8 text-sm sm:grid-cols-2 lg:grid-cols-3">
@@ -49,7 +55,7 @@ export function Footer() {
                   key={link.href}
                   href={link.href}
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   className="text-fg hover:text-accentGold"
                 >
                   {link.label}
@@ -69,7 +75,33 @@ export function Footer() {
             </div>
           </div>
         </div>
-        <div className="flex flex-col gap-2 text-xs text-muted sm:flex-row sm:items-center sm:justify-between">
+        <div className="grid gap-4 md:grid-cols-3">
+          <div className="rounded-xl border border-border bg-bg/60 p-4 shadow-subtle">
+            <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted">
+              Field Notes
+            </div>
+            <p className="mt-2 text-sm text-muted">
+              Every entry is anchored to sources so the next cycle remembers the last.
+            </p>
+          </div>
+          <div className="rounded-xl border border-border bg-bg/60 p-4 shadow-subtle">
+            <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted">
+              Community Ritual
+            </div>
+            <p className="mt-2 text-sm text-muted">
+              Monthly $HOT buys are tracked for fun, not promises. This is a living web3 diary.
+            </p>
+          </div>
+          <div className="rounded-xl border border-border bg-bg/60 p-4 shadow-subtle">
+            <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted">
+              Explore
+            </div>
+            <p className="mt-2 text-sm text-muted">
+              Start with the archive or jump to the eras timeline to trace the story.
+            </p>
+          </div>
+        </div>
+        <div className="flex flex-col gap-2 border-t border-border/70 pt-4 text-xs text-muted sm:flex-row sm:items-center sm:justify-between">
           <span>© {new Date().getFullYear()} History of the Trenches</span>
           <span>All events include sources for verification.</span>
         </div>

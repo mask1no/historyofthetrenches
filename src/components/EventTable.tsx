@@ -171,6 +171,7 @@ export function EventTable() {
                   <a
                     href={event.chartUrl}
                     target="_blank"
+                    rel="noopener noreferrer"
                     className="text-accentGold underline"
                     onClick={(e) => e.stopPropagation()}
                   >

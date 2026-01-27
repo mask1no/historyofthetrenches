@@ -28,15 +28,24 @@ export function ShareButtons({ title, url, className }: Props) {
   return (
     <div className={cn("flex gap-2", className)}>
       <Button asChild variant="subtle" size="sm" className="gap-2">
-        <a href={xLink} target="_blank" rel="noreferrer">
+        <a href={xLink} target="_blank" rel="noopener noreferrer">
           <Share2 className="h-4 w-4" />
           Share on X
         </a>
       </Button>
-      <Button variant="subtle" size="sm" className="gap-2" onClick={handleCopy}>
+      <Button
+        variant="subtle"
+        size="sm"
+        className="gap-2"
+        onClick={handleCopy}
+        aria-label="Copy link to clipboard"
+      >
         <Copy className="h-4 w-4" />
         {copied ? "Copied" : "Copy link"}
       </Button>
+      <span className="sr-only" aria-live="polite">
+        {copied ? "Link copied to clipboard" : ""}
+      </span>
     </div>
   );
 }

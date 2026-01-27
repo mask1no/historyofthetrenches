@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import Script from "next/script";
 import { NavBar } from "@/components/NavBar";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -20,6 +21,7 @@ export function generateMetadata({ params }: EventPageProps): Metadata {
   const description = event
     ? `${event.title} — ${event.summary} (${event.chain}, ${event.date}).`
     : "Event details from the History of the Trenches archive.";
+  const publishedTime = event ? new Date(event.date).toISOString() : undefined;
   return {
     title: event
       ? `${event.title} | History of the Trenches`
@@ -28,12 +30,16 @@ export function generateMetadata({ params }: EventPageProps): Metadata {
     alternates: {
       canonical
     },
+    keywords: event ? event.tags : undefined,
     openGraph: {
       title: event ? `${event.title} | History of the Trenches` : "Event | History of the Trenches",
       description,
       url: canonical,
       type: "article",
       siteName: "History of the Trenches",
+      publishedTime,
+      modifiedTime: publishedTime,
+      authors: ["History of the Trenches"],
       images: [
         {
           url: "/og.png",
@@ -52,12 +58,60 @@ export function generateMetadata({ params }: EventPageProps): Metadata {
   };
 }
 
+export const revalidate = 3600;
+
+export async function generateStaticParams() {
+  return events.map((event) => ({ slug: event.slug }));
+}
+
 export default function EventPage({ params }: EventPageProps) {
   const event = getEventBySlug(params.slug);
 
   if (!event) {
     notFound();
   }
+
+  const eventJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: event.title,
+    datePublished: event.date,
+    dateModified: event.date,
+    author: {
+      "@type": "Organization",
+      name: "History of the Trenches"
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "History of the Trenches",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://www.historyofthetrenches.xyz/og.png"
+      }
+    },
+    mainEntityOfPage: `https://www.historyofthetrenches.xyz/event/${event.slug}`,
+    image: "https://www.historyofthetrenches.xyz/og.png",
+    keywords: event.tags.join(", ")
+  };
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Archive",
+        item: "https://www.historyofthetrenches.xyz/archive"
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: event.title,
+        item: `https://www.historyofthetrenches.xyz/event/${event.slug}`
+      }
+    ]
+  };
 
   const related = events
     .filter(
@@ -68,7 +122,17 @@ export default function EventPage({ params }: EventPageProps) {
     .slice(0, 4);
 
   return (
-    <main className="min-h-screen pb-16">
+    <main id="main-content" className="min-h-screen pb-16">
+      <Script
+        id={`event-jsonld-${event.slug}`}
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(eventJsonLd) }}
+      />
+      <Script
+        id={`event-breadcrumb-jsonld-${event.slug}`}
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       <NavBar />
       <section className="mx-auto max-w-6xl px-6 pb-10 pt-8">
         <div className="mb-6 space-y-4">
@@ -87,11 +151,11 @@ export default function EventPage({ params }: EventPageProps) {
           <div className="flex flex-wrap items-center gap-3 text-sm text-muted">
             <span>Event date: {event!.date}</span>
           </div>
-        <ShareButtons
-          title={event!.title}
-          url={`https://www.historyofthetrenches.xyz/event/${event!.slug}`}
-          className="flex"
-        />
+          <ShareButtons
+            title={event!.title}
+            url={`https://www.historyofthetrenches.xyz/event/${event!.slug}`}
+            className="flex"
+          />
         </div>
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
@@ -162,6 +226,7 @@ export default function EventPage({ params }: EventPageProps) {
                 <Link
                   href={event!.chartUrl}
                   target="_blank"
+                  rel="noopener noreferrer"
                   className="text-sm text-accentGold underline"
                 >
                   Open chart →

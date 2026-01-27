@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useMemo, useRef, useState } from "react";
-import { events, getEventBySlug } from "@/data/events";
+import { events } from "@/data/events";
 import { eras } from "@/data/eras";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -45,8 +45,6 @@ export function BentoGrid() {
     [eraIndex]
   );
 
-  const genesisEvent = getEventBySlug("bitcoin-genesis-block");
-
   const handleCopy = () => {
     navigator.clipboard.writeText(HOT_CONTRACT_ADDRESS).then(() => {
       setCopied(true);
@@ -88,7 +86,7 @@ export function BentoGrid() {
 
   return (
     <section className="mx-auto grid max-w-6xl grid-cols-1 gap-6 px-6 pb-12 md:grid-cols-12">
-      <Card className="md:col-span-4 border-l-4 border-l-accentRed bg-card/95 transition duration-500 ease-out hover:-translate-y-0.5 hover:shadow-[0_18px_42px_rgba(196,77,77,0.12)]">
+      <Card className="md:col-span-6 border-l-4 border-l-accentRed bg-card/95 transition duration-500 ease-out hover:-translate-y-0.5 hover:shadow-[0_18px_42px_rgba(196,77,77,0.12)]">
         <CardHeader className="flex flex-row items-center justify-between">
           <div className="space-y-1">
             <CardTitle className="flex items-center gap-2 text-xl">
@@ -118,7 +116,7 @@ export function BentoGrid() {
         </CardContent>
       </Card>
 
-      <Card className="md:col-span-4 border-l-4 border-l-accentGreen bg-card/95 transition duration-500 ease-out hover:-translate-y-0.5 hover:shadow-[0_18px_42px_rgba(47,158,111,0.12)]">
+      <Card className="md:col-span-6 border-l-4 border-l-accentGreen bg-card/95 transition duration-500 ease-out hover:-translate-y-0.5 hover:shadow-[0_18px_42px_rgba(47,158,111,0.12)]">
         <CardHeader className="flex flex-row items-center justify-between">
           <div className="space-y-1">
             <CardTitle className="flex items-center gap-2 text-xl">
@@ -148,32 +146,7 @@ export function BentoGrid() {
         </CardContent>
       </Card>
 
-      <Card className="md:col-span-4 border-l-4 border-l-accentGold bg-card/95 transition duration-500 ease-out hover:-translate-y-0.5 hover:shadow-[0_18px_42px_rgba(214,177,94,0.16)]">
-        <CardHeader className="flex flex-row items-center justify-between">
-          <div className="space-y-1">
-            <CardTitle className="flex items-center gap-2 text-xl">Bitcoin Genesis</CardTitle>
-            <p className="text-sm text-muted">Block zero, January 3, 2009.</p>
-          </div>
-          <Badge variant="gold">2009</Badge>
-        </CardHeader>
-        <CardContent className="space-y-3">
-          <div className="rounded-lg border border-accentGold/30 bg-accentGold/5 px-4 py-3 text-sm text-muted">
-            {genesisEvent?.summary ??
-              "Satoshi mined the first Bitcoin block, planting the seed for a new monetary network."}
-          </div>
-          {genesisEvent ? (
-            <Button asChild variant="subtle" className="w-full justify-center border border-accentGold/60">
-              <Link href={`/event/${genesisEvent.slug}`}>Read the genesis story</Link>
-            </Button>
-          ) : (
-            <Button variant="subtle" className="w-full justify-center border border-accentGold/60">
-              Event coming soon
-            </Button>
-          )}
-        </CardContent>
-      </Card>
-
-      <Card className="md:col-span-12 relative overflow-hidden bg-[radial-gradient(120%_120%_at_0%_0%,rgba(214,177,94,0.10),rgba(15,15,15,0)_60%)]">
+      <Card className="md:col-span-12 relative overflow-hidden border border-border/80 bg-card/90">
         <CardHeader className="flex flex-col items-start gap-2">
           <CardTitle className="text-xl">Crypto Onboarding Eras</CardTitle>
           <p className="text-sm text-muted">
@@ -181,7 +154,7 @@ export function BentoGrid() {
           </p>
         </CardHeader>
         <CardContent className="relative overflow-hidden">
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(80%_80%_at_70%_10%,rgba(214,177,94,0.10),rgba(15,15,15,0)_60%)]" />
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(90%_90%_at_20%_20%,rgba(214,177,94,0.10),rgba(12,12,12,0)_65%)]" />
           <div className="mb-3 flex items-center justify-between text-xs text-muted">
             <span>
               Era {clampedIndex + 1} of {eras.length}
@@ -227,7 +200,7 @@ export function BentoGrid() {
                     key={era.id}
                     className="flex-none snap-start basis-[82%] sm:basis-[65%] md:basis-[45%] lg:basis-[32%] xl:basis-[26%] max-w-[360px]"
                   >
-                    <div className="flex h-full min-h-[220px] flex-col rounded-2xl border border-border/80 bg-gradient-to-br from-bg via-card to-bg p-5 shadow-[0_18px_36px_rgba(15,15,15,0.35)] aspect-[4/3]">
+                    <div className="flex h-full min-h-[220px] flex-col rounded-2xl border border-border/80 bg-gradient-to-br from-card/90 via-bg/80 to-card/90 p-5 shadow-[0_18px_36px_rgba(8,8,8,0.45)] aspect-[4/3]">
                       <div className="text-xs font-semibold uppercase text-muted">{era.range}</div>
                       <div className="text-base font-semibold">{era.title}</div>
                       <p className="mt-3 text-sm text-muted">{era.description}</p>
@@ -288,7 +261,7 @@ export function BentoGrid() {
               className="flex-1 min-w-[200px] justify-center gap-2 border border-accentGold/60 bg-card text-fg shadow-[0_12px_26px_rgba(214,177,94,0.12)] transition duration-400 ease-out hover:border-accentGold"
               asChild
             >
-              <Link href="https://dexscreener.com/solana" target="_blank">
+              <Link href="https://dexscreener.com/solana" target="_blank" rel="noopener noreferrer">
                 View on DexScreener
               </Link>
             </Button>

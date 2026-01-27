@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function ArchivePage() {
   return (
-    <main className="min-h-screen pb-16">
+    <main id="main-content" className="min-h-screen pb-16">
       <NavBar />
       <section className="mx-auto max-w-6xl px-6 pb-10 pt-8">
         <div className="mb-8 space-y-3">

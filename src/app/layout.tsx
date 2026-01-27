@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 
@@ -17,13 +18,34 @@ const playfair = Playfair_Display({
 
 const canonicalSiteUrl = "https://www.historyofthetrenches.xyz";
 
+export const viewport = {
+  themeColor: "#0f0f0f",
+  colorScheme: "dark"
+};
+
 export const metadata: Metadata = {
   title: "History of the Trenches",
   description: "Community-maintained crypto history archive and timeline.",
+  applicationName: "History of the Trenches",
+  creator: "History of the Trenches",
   metadataBase: new URL(canonicalSiteUrl),
   alternates: {
-    canonical: canonicalSiteUrl
+    canonical: canonicalSiteUrl,
+    languages: {
+      "en-US": canonicalSiteUrl
+    }
   },
+  robots: {
+    index: true,
+    follow: true
+  },
+  keywords: [
+    "crypto history",
+    "bitcoin history",
+    "web3 timeline",
+    "defi events",
+    "crypto archive"
+  ],
   openGraph: {
     title: "History of the Trenches",
     description: "Community-maintained crypto history archive and timeline.",
@@ -55,12 +77,43 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const organizationJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "History of the Trenches",
+    url: canonicalSiteUrl,
+    sameAs: ["https://x.com/historytrenches"]
+  };
+
+  const websiteJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "History of the Trenches",
+    url: canonicalSiteUrl
+  };
+
   return (
     <html lang="en">
       <body
         className={`${inter.variable} ${playfair.variable} bg-bg text-fg antialiased`}
         style={{ fontFamily: "var(--font-inter), system-ui, sans-serif" }}
       >
+        <Script
+          id="org-jsonld"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
+        <Script
+          id="site-jsonld"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+        />
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-6 focus:top-6 focus:z-50 focus:rounded-full focus:bg-card focus:px-4 focus:py-2 focus:text-sm focus:text-fg"
+        >
+          Skip to content
+        </a>
         {children}
       </body>
     </html>

@@ -6,6 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/"
     },
-    sitemap: "https://www.historyofthetrenches.xyz/sitemap.xml"
+    sitemap: "https://www.historyofthetrenches.xyz/sitemap.xml",
+    host: "https://www.historyofthetrenches.xyz"
   };
 }

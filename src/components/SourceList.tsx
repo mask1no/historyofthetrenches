@@ -22,7 +22,7 @@ export function SourceList({ sources }: { sources: Source[] }) {
           : {
               href: source.url,
               target: "_blank",
-              rel: "noreferrer"
+              rel: "noopener noreferrer"
             };
 
         return (

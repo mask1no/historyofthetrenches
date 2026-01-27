@@ -3,12 +3,13 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { Download, Menu, X } from "lucide-react";
+import { Download, Menu, Sparkles, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const navItems = [
   { label: "Archive", href: "/archive" },
   { label: "Timeline", href: "/timeline" },
+  { label: "$HOT", href: "/hot" },
   { label: "Community", href: "https://x.com/historytrenches" }
 ];
 
@@ -34,6 +35,7 @@ export function NavBar() {
                 key={item.href}
                 href={item.href}
                 target={item.href.startsWith("http") ? "_blank" : undefined}
+                rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
                 className={`rounded-full px-4 py-2 transition hover:text-fg hover:bg-card hover:underline hover:decoration-2 hover:decoration-accentGold ${
                   pathname === item.href
                     ? "bg-card text-fg underline decoration-2 decoration-accentGold"
@@ -47,13 +49,19 @@ export function NavBar() {
           </nav>
         </div>
         <div className="flex items-center gap-3">
+          <Link href="/hot" className="hidden md:inline-flex">
+            <Button variant="secondary" className="gap-2">
+              <Sparkles className="h-4 w-4" />
+              About $HOT
+            </Button>
+          </Link>
           <a href="/trench-manual.pdf" download className="hidden md:inline-flex">
             <Button
               variant="default"
               className="gap-2 bg-accentGold text-fg hover:bg-accentGold/90"
             >
               <Download className="h-4 w-4" />
-              Download Trench Manual
+              Download TM
             </Button>
           </a>
           <Button
@@ -61,6 +69,8 @@ export function NavBar() {
             size="icon"
             className="md:hidden border border-border text-muted"
             aria-label="Open menu"
+            aria-controls="mobile-nav-drawer"
+            aria-expanded={isMenuOpen}
             onClick={() => setShowMobileNav(true)}
           >
             <Menu className="h-5 w-5" />
@@ -75,6 +85,7 @@ export function NavBar() {
         aria-hidden={!isMenuOpen}
       >
         <div
+          id="mobile-nav-drawer"
           className={`absolute right-0 top-0 flex h-full w-[88vw] max-w-sm flex-col border-l border-border bg-card p-6 shadow-subtle transition-transform duration-300 ${
             isMenuOpen ? "translate-x-0" : "translate-x-full"
           }`}
@@ -96,6 +107,7 @@ export function NavBar() {
                 key={item.href}
                 href={item.href}
                 target={item.href.startsWith("http") ? "_blank" : undefined}
+                rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
                 className={`rounded-2xl border border-border px-4 py-4 text-base transition hover:border-accentGold hover:bg-bg ${
                   pathname === item.href ? "border-accentGold bg-bg" : ""
                 }`}
@@ -106,10 +118,16 @@ export function NavBar() {
             ))}
           </div>
           <div className="mt-6 flex flex-col gap-3">
+            <Link href="/hot" onClick={() => setShowMobileNav(false)}>
+              <Button variant="secondary" className="w-full justify-center gap-2">
+                <Sparkles className="h-4 w-4" />
+                About $HOT
+              </Button>
+            </Link>
             <a href="/trench-manual.pdf" download onClick={() => setShowMobileNav(false)}>
               <Button className="w-full justify-center gap-2 bg-accentGold text-fg hover:bg-accentGold/90">
                 <Download className="h-4 w-4" />
-                Download Trench Manual
+                Download TM
               </Button>
             </a>
             <Link href="/archive" onClick={() => setShowMobileNav(false)}>
