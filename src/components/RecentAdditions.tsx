@@ -27,7 +27,16 @@ export function RecentAdditions() {
         </h2>
         <div className="flex flex-wrap items-center gap-2 text-sm text-muted">
           <Bell className="h-4 w-4" />
-          Opt in to notifications after login.
+          Follow{" "}
+          <a
+            href="https://x.com/historytrenches"
+            target="_blank"
+            rel="noreferrer"
+            className="underline"
+          >
+            @historytrenches
+          </a>{" "}
+          for new entries.
         </div>
       </div>
       <Link href="/archive" className="text-sm text-muted underline">

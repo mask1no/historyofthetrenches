@@ -1850,6 +1850,209 @@ export const events: Event[] = [
         year: 2023
       }
     ]
+  },
+  {
+    slug: "bitcoin-genesis-block",
+    title: "Bitcoin Genesis Block Mined",
+    type: "milestone",
+    chain: "Bitcoin",
+    year: 2009,
+    date: "2009-01-03",
+    era: "Genesis",
+    status: "network launch",
+    summary: "Satoshi mined the first Bitcoin block, embedding a headline that framed the system as a response to banking failure.",
+    peakMetric: "Block height 0",
+    outcome: "Network bootstrapped",
+    tags: ["bitcoin", "protocol", "genesis"],
+    chartUrl: "https://mempool.space/block/000000000019d6689c085ae165831e93",
+    sources: [
+      {
+        label: "Genesis block record",
+        url: "https://mempool.space/block/000000000019d6689c085ae165831e93",
+        publisher: "mempool.space",
+        year: 2009
+      },
+      {
+        label: "Bitcoin.org history",
+        url: "https://bitcoin.org/en/developer-documentation",
+        publisher: "Bitcoin.org",
+        year: 2024
+      }
+    ]
+  },
+  {
+    slug: "ethereum-mainnet-launch",
+    title: "Ethereum Mainnet Launch",
+    type: "milestone",
+    chain: "Ethereum",
+    year: 2015,
+    date: "2015-07-30",
+    era: "ICO Boom",
+    status: "protocol launch",
+    summary: "Ethereum launched its Frontier mainnet, enabling smart contracts and a new developer ecosystem.",
+    peakMetric: "Frontier release",
+    outcome: "Smart contract era begins",
+    tags: ["ethereum", "smart-contracts", "launch"],
+    chartUrl: "https://tradingview.com/symbols/ETHUSD/",
+    sources: [
+      {
+        label: "Ethereum launch announcement",
+        url: "https://blog.ethereum.org/2015/07/30/ethereum-launch",
+        publisher: "Ethereum Foundation",
+        year: 2015
+      },
+      {
+        label: "Frontier release notes",
+        url: "https://blog.ethereum.org/2015/07/30/the-frontier-release",
+        publisher: "Ethereum Foundation",
+        year: 2015
+      }
+    ]
+  },
+  {
+    slug: "bitcoin-taproot-activation",
+    title: "Bitcoin Taproot Activation",
+    type: "milestone",
+    chain: "Bitcoin",
+    year: 2021,
+    date: "2021-11-14",
+    era: "NFT Summer",
+    status: "protocol upgrade",
+    summary: "Taproot went live, improving privacy and enabling more flexible smart contract spending conditions.",
+    peakMetric: "Block 709,632",
+    outcome: "Expanded script functionality",
+    tags: ["bitcoin", "upgrade", "privacy"],
+    chartUrl: "https://tradingview.com/symbols/BTCUSD/",
+    sources: [
+      {
+        label: "Taproot activation coverage",
+        url: "https://www.coindesk.com/markets/2021/11/14/bitcoin-taproot-upgrade-goes-live/",
+        publisher: "CoinDesk",
+        year: 2021
+      },
+      {
+        label: "Bitcoin Core release notes",
+        url: "https://bitcoincore.org/en/releases/0.21.0/",
+        publisher: "Bitcoin Core",
+        year: 2021
+      }
+    ]
+  },
+  {
+    slug: "eth-beacon-chain-genesis",
+    title: "Ethereum Beacon Chain Genesis",
+    type: "milestone",
+    chain: "Ethereum",
+    year: 2020,
+    date: "2020-12-01",
+    era: "DeFi Summer",
+    status: "consensus shift",
+    summary: "Ethereum’s Beacon Chain launched, marking the start of the transition to Proof of Stake.",
+    peakMetric: "PoS chain live",
+    outcome: "Merge path established",
+    tags: ["ethereum", "consensus", "pos"],
+    chartUrl: "https://tradingview.com/symbols/ETHUSD/",
+    sources: [
+      {
+        label: "Beacon Chain launch",
+        url: "https://blog.ethereum.org/2020/12/01/ethereum-2-0-beacon-chain-launches",
+        publisher: "Ethereum Foundation",
+        year: 2020
+      },
+      {
+        label: "Launch recap",
+        url: "https://www.coindesk.com/tech/2020/12/01/ethereum-20-beacon-chain-launches/",
+        publisher: "CoinDesk",
+        year: 2020
+      }
+    ]
+  },
+  {
+    slug: "steth-depeg-2022",
+    title: "stETH Depeg During 3AC Contagion",
+    type: "milestone",
+    chain: "Ethereum",
+    year: 2022,
+    date: "2022-06-18",
+    era: "DeFi Summer",
+    status: "liquidity stress",
+    summary: "Lido’s stETH traded below 1 ETH as liquidity dried up during contagion fears from 3AC exposure.",
+    peakMetric: "stETH ~0.95 ETH",
+    outcome: "Market stabilized after liquidations",
+    tags: ["defi", "liquidity", "staking"],
+    chartUrl: "https://tradingview.com/symbols/STETHUSD/",
+    sources: [
+      {
+        label: "stETH depeg coverage",
+        url: "https://www.coindesk.com/markets/2022/06/13/steth-ethereum-liquid-staking-token-falls-below-1-eth/",
+        publisher: "CoinDesk",
+        year: 2022
+      },
+      {
+        label: "Lido docs",
+        url: "https://docs.lido.fi/",
+        publisher: "Lido",
+        year: 2022
+      }
+    ]
+  },
+  {
+    slug: "grayscale-court-win",
+    title: "Grayscale Wins Bitcoin ETF Court Case",
+    type: "milestone",
+    chain: "Bitcoin",
+    year: 2023,
+    date: "2023-08-29",
+    era: "Pump.fun Era",
+    status: "regulatory",
+    summary: "A federal appeals court ruled the SEC must revisit its GBTC spot ETF denial, a key step toward spot approvals.",
+    peakMetric: "GBTC discount narrows",
+    outcome: "SEC review ordered",
+    tags: ["regulation", "etf", "bitcoin"],
+    chartUrl: "https://tradingview.com/symbols/BTCUSD/",
+    sources: [
+      {
+        label: "Court ruling coverage",
+        url: "https://www.reuters.com/markets/us/grayscale-wins-court-battle-over-bitcoin-etf-2023-08-29/",
+        publisher: "Reuters",
+        year: 2023
+      },
+      {
+        label: "GBTC ruling recap",
+        url: "https://www.bloomberg.com/news/articles/2023-08-29/grayscale-scores-win-over-sec-in-bid-for-bitcoin-etf",
+        publisher: "Bloomberg",
+        year: 2023
+      }
+    ]
+  },
+  {
+    slug: "shapella-upgrade",
+    title: "Ethereum Shapella Upgrade",
+    type: "milestone",
+    chain: "Ethereum",
+    year: 2023,
+    date: "2023-04-12",
+    era: "Pump.fun Era",
+    status: "protocol upgrade",
+    summary: "Shanghai/Capella enabled staked ETH withdrawals, completing a major post-Merge milestone.",
+    peakMetric: "Withdrawals enabled",
+    outcome: "Staking market matures",
+    tags: ["ethereum", "staking", "upgrade"],
+    chartUrl: "https://tradingview.com/symbols/ETHUSD/",
+    sources: [
+      {
+        label: "Shapella announcement",
+        url: "https://blog.ethereum.org/2023/03/28/shapella-mainnet-announcement",
+        publisher: "Ethereum Foundation",
+        year: 2023
+      },
+      {
+        label: "Shanghai overview",
+        url: "https://ethereum.org/en/roadmap/shanghai/",
+        publisher: "Ethereum.org",
+        year: 2023
+      }
+    ]
   }
 ];
 

@@ -4,7 +4,10 @@ import { EventTable } from "@/components/EventTable";
 
 export const metadata: Metadata = {
   title: "Archive | History of the Trenches",
-  description: "Filter and explore the community-maintained crypto history archive."
+  description: "Filter and explore the community-maintained crypto history archive.",
+  alternates: {
+    canonical: "https://www.historyofthetrenches.xyz/archive"
+  }
 };
 
 export default function ArchivePage() {

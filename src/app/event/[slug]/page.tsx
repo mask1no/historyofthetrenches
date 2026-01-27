@@ -15,23 +15,39 @@ type EventPageProps = {
 
 export function generateMetadata({ params }: EventPageProps): Metadata {
   const event = getEventBySlug(params.slug);
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
-  const canonical = event ? `${siteUrl}/event/${event.slug}` : siteUrl;
+  const canonicalBase = "https://www.historyofthetrenches.xyz";
+  const canonical = event ? `${canonicalBase}/event/${event.slug}` : canonicalBase;
+  const description = event
+    ? `${event.title} — ${event.summary} (${event.chain}, ${event.date}).`
+    : "Event details from the History of the Trenches archive.";
   return {
     title: event
       ? `${event.title} | History of the Trenches`
       : "Event | History of the Trenches",
-    description: event?.summary,
+    description,
+    alternates: {
+      canonical
+    },
     openGraph: {
       title: event ? `${event.title} | History of the Trenches` : "Event | History of the Trenches",
-      description: event?.summary,
+      description,
       url: canonical,
-      type: "article"
+      type: "article",
+      siteName: "History of the Trenches",
+      images: [
+        {
+          url: "/og.png",
+          width: 1200,
+          height: 630,
+          alt: event ? event.title : "History of the Trenches"
+        }
+      ]
     },
     twitter: {
       card: "summary_large_image",
       title: event ? `${event.title} | History of the Trenches` : "Event | History of the Trenches",
-      description: event?.summary
+      description,
+      images: ["/og.png"]
     }
   };
 }
@@ -71,11 +87,11 @@ export default function EventPage({ params }: EventPageProps) {
           <div className="flex flex-wrap items-center gap-3 text-sm text-muted">
             <span>Event date: {event!.date}</span>
           </div>
-          <ShareButtons
-            title={event!.title}
-            url={`${process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"}/event/${event!.slug}`}
-            className="flex"
-          />
+        <ShareButtons
+          title={event!.title}
+          url={`https://www.historyofthetrenches.xyz/event/${event!.slug}`}
+          className="flex"
+        />
         </div>
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
@@ -163,7 +179,7 @@ export default function EventPage({ params }: EventPageProps) {
           </h2>
           <div className="mt-4 grid grid-cols-1 gap-3 md:grid-cols-2">
             {related.map((item) => (
-              <a
+              <Link
                 key={item.slug}
                 href={`/event/${item.slug}`}
                 className="flex items-center justify-between rounded-xl border border-border bg-card px-4 py-3 shadow-sm transition hover:border-accentGold"
@@ -187,7 +203,7 @@ export default function EventPage({ params }: EventPageProps) {
                 >
                   {item.type}
                 </Badge>
-              </a>
+              </Link>
             ))}
             {related.length === 0 && (
               <div className="text-sm text-muted">No related events yet.</div>

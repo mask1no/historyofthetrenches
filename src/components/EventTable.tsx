@@ -23,6 +23,20 @@ const years = Array.from(new Set(events.map((e) => e.year))).sort(
 );
 const tags = Array.from(new Set(events.flatMap((e) => e.tags))).sort();
 
+const typeOptions = [
+  { label: "All", value: "all" },
+  { label: "Rugpull", value: "rugpull" },
+  { label: "Runner", value: "runner" },
+  { label: "Milestone", value: "milestone" },
+  { label: "Hack", value: "hack" }
+];
+
+const sortOptions = [
+  { label: "Newest", value: "newest" },
+  { label: "Oldest", value: "oldest" },
+  { label: "Hall of fame first", value: "hall-of-fame" }
+];
+
 function matchesFilters(event: Event, filters: FilterState) {
   const search = filters.search.toLowerCase();
   const tag = filters.tag.toLowerCase();
@@ -66,48 +80,26 @@ export function EventTable() {
 
   return (
     <section className="space-y-4">
-      <div className="grid grid-cols-1 gap-3 md:grid-cols-6">
+      <div className="rounded-2xl border border-border bg-bg p-4 shadow-subtle">
+        <div className="grid grid-cols-1 gap-3 md:grid-cols-6">
         <Select
           label="Type"
           value={filters.type}
-          onChange={(e) =>
-            setFilters((prev) => ({ ...prev, type: e.target.value as any }))
-          }
-        >
-          <option value="all">All</option>
-          <option value="rugpull">Rugpull</option>
-          <option value="runner">Runner</option>
-          <option value="milestone">Milestone</option>
-          <option value="hack">Hack</option>
-        </Select>
+          onChange={(value) => setFilters((prev) => ({ ...prev, type: value as any }))}
+          options={typeOptions}
+        />
         <Select
           label="Chain"
           value={filters.chain}
-          onChange={(e) =>
-            setFilters((prev) => ({ ...prev, chain: e.target.value }))
-          }
-        >
-          <option value="all">All</option>
-          {chains.map((chain) => (
-            <option key={chain} value={chain}>
-              {chain}
-            </option>
-          ))}
-        </Select>
+          onChange={(value) => setFilters((prev) => ({ ...prev, chain: value }))}
+          options={[{ label: "All", value: "all" }, ...chains.map((chain) => ({ label: chain, value: chain }))]}
+        />
         <Select
           label="Year"
           value={filters.year}
-          onChange={(e) =>
-            setFilters((prev) => ({ ...prev, year: e.target.value }))
-          }
-        >
-          <option value="all">All</option>
-          {years.map((year) => (
-            <option key={year} value={year}>
-              {year}
-            </option>
-          ))}
-        </Select>
+          onChange={(value) => setFilters((prev) => ({ ...prev, year: value }))}
+          options={[{ label: "All", value: "all" }, ...years.map((year) => ({ label: String(year), value: String(year) }))]}
+        />
         <Input
           placeholder="Search title or summary"
           value={filters.search}
@@ -118,28 +110,18 @@ export function EventTable() {
         <Select
           label="Tag"
           value={filters.tag}
-          onChange={(e) =>
-            setFilters((prev) => ({ ...prev, tag: e.target.value }))
-          }
-        >
-          <option value="">Any</option>
-          {tags.map((tag) => (
-            <option key={tag} value={tag}>
-              {tag}
-            </option>
-          ))}
-        </Select>
+          onChange={(value) => setFilters((prev) => ({ ...prev, tag: value }))}
+          options={[{ label: "Any", value: "" }, ...tags.map((tag) => ({ label: tag, value: tag }))]}
+        />
         <Select
           label="Sort"
           value={filters.sort}
-          onChange={(e) =>
-            setFilters((prev) => ({ ...prev, sort: e.target.value as FilterState["sort"] }))
+          onChange={(value) =>
+            setFilters((prev) => ({ ...prev, sort: value as FilterState["sort"] }))
           }
-        >
-          <option value="newest">Newest</option>
-          <option value="oldest">Oldest</option>
-          <option value="hall-of-fame">Hall of fame first</option>
-        </Select>
+          options={sortOptions}
+        />
+        </div>
       </div>
 
       <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-subtle">

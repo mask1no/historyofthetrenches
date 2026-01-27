@@ -15,23 +15,35 @@ const playfair = Playfair_Display({
   display: "swap"
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+const canonicalSiteUrl = "https://www.historyofthetrenches.xyz";
 
 export const metadata: Metadata = {
   title: "History of the Trenches",
   description: "Community-maintained crypto history archive and timeline.",
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(canonicalSiteUrl),
+  alternates: {
+    canonical: canonicalSiteUrl
+  },
   openGraph: {
     title: "History of the Trenches",
     description: "Community-maintained crypto history archive and timeline.",
-    url: siteUrl,
+    url: canonicalSiteUrl,
     siteName: "History of the Trenches",
-    type: "website"
+    type: "website",
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: "History of the Trenches"
+      }
+    ]
   },
   twitter: {
     card: "summary_large_image",
     title: "History of the Trenches",
-    description: "Community-maintained crypto history archive and timeline."
+    description: "Community-maintained crypto history archive and timeline.",
+    images: ["/og.png"]
   },
   icons: {
     icon: "/favicon.svg"

@@ -4,7 +4,10 @@ import { EraTimeline } from "@/components/EraTimeline";
 
 export const metadata: Metadata = {
   title: "Timeline | History of the Trenches",
-  description: "Era-based view of crypto's defining moments."
+  description: "Era-based view of crypto's defining moments.",
+  alternates: {
+    canonical: "https://www.historyofthetrenches.xyz/timeline"
+  }
 };
 
 export default function TimelinePage() {
