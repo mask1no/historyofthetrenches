@@ -23,7 +23,7 @@ export function RecentAdditions() {
           className="text-2xl font-semibold text-fg"
           style={{ fontFamily: "var(--font-playfair)" }}
         >
-          Recently Added
+          Archive Picks
         </h2>
         <div className="flex flex-wrap items-center gap-2 text-sm text-muted">
           <Bell className="h-4 w-4" />
@@ -31,7 +31,7 @@ export function RecentAdditions() {
           <a
             href="https://x.com/historytrenches"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             className="underline"
           >
             @historytrenches
@@ -64,6 +64,7 @@ export function RecentAdditions() {
             </div>
             <div className="flex items-center gap-2">
               <Badge variant={typeVariant[item.type]}>{typeLabel[item.type]}</Badge>
+              {item.hallOfFame && <Badge variant="gold">Hall of Fame</Badge>}
               <span className="text-xs text-muted uppercase tracking-wide">
                 New
               </span>

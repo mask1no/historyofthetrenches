@@ -43,6 +43,11 @@ export function Hero() {
               <Play className="h-4 w-4" />
             </Button>
           </Link>
+          <Link href="/community">
+            <Button size="lg" variant="ghost">
+              Community
+            </Button>
+          </Link>
         </div>
       </div>
       <div className="w-full max-w-sm rounded-2xl border border-border bg-card p-6 shadow-subtle">

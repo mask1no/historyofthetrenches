@@ -3,14 +3,14 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { Download, Menu, Sparkles, X } from "lucide-react";
+import { Download, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const navItems = [
+  { label: "Community", href: "/community" },
   { label: "Archive", href: "/archive" },
   { label: "Timeline", href: "/timeline" },
-  { label: "$HOT", href: "/hot" },
-  { label: "Community", href: "https://x.com/historytrenches" }
+  { label: "$HOT", href: "/hot" }
 ];
 
 export function NavBar() {
@@ -49,19 +49,13 @@ export function NavBar() {
           </nav>
         </div>
         <div className="flex items-center gap-3">
-          <Link href="/hot" className="hidden md:inline-flex">
-            <Button variant="secondary" className="gap-2">
-              <Sparkles className="h-4 w-4" />
-              About $HOT
-            </Button>
-          </Link>
           <a href="/trench-manual.pdf" download className="hidden md:inline-flex">
             <Button
               variant="default"
               className="gap-2 bg-accentGold text-fg hover:bg-accentGold/90"
             >
               <Download className="h-4 w-4" />
-              Download TM
+              Download Trench Manual
             </Button>
           </a>
           <Button
@@ -118,23 +112,12 @@ export function NavBar() {
             ))}
           </div>
           <div className="mt-6 flex flex-col gap-3">
-            <Link href="/hot" onClick={() => setShowMobileNav(false)}>
-              <Button variant="secondary" className="w-full justify-center gap-2">
-                <Sparkles className="h-4 w-4" />
-                About $HOT
-              </Button>
-            </Link>
             <a href="/trench-manual.pdf" download onClick={() => setShowMobileNav(false)}>
               <Button className="w-full justify-center gap-2 bg-accentGold text-fg hover:bg-accentGold/90">
                 <Download className="h-4 w-4" />
-                Download TM
+                Download Trench Manual
               </Button>
             </a>
-            <Link href="/archive" onClick={() => setShowMobileNav(false)}>
-              <Button variant="secondary" className="w-full justify-center">
-                Explore
-              </Button>
-            </Link>
           </div>
         </div>
       </div>

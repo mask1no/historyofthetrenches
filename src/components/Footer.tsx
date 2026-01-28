@@ -2,9 +2,9 @@ import Link from "next/link";
 
 const links = {
   explore: [
+    { label: "Community", href: "/community" },
     { label: "Archive", href: "/archive" },
     { label: "Timeline", href: "/timeline" },
-    { label: "$HOT", href: "/hot" },
     { label: "Hall of Fame", href: "/#token" }
   ],
   community: [
@@ -18,8 +18,8 @@ export function Footer() {
   return (
     <footer className="border-t border-border/80 bg-card/95">
       <div className="mx-auto flex max-w-6xl flex-col gap-8 px-6 py-10">
-        <div className="relative overflow-hidden rounded-2xl border border-border bg-bg/70 p-6 shadow-subtle">
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(90%_90%_at_10%_10%,rgba(214,177,94,0.12),rgba(12,12,12,0)_60%)]" />
+        <div className="relative overflow-hidden rounded-2xl border border-border bg-bg/80 p-6 shadow-subtle">
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(90%_90%_at_10%_10%,rgba(214,177,94,0.12),rgba(255,255,255,0)_65%)]" />
           <div className="relative flex flex-col gap-3">
             <div className="text-lg font-semibold text-fg">History of the Trenches</div>
             <p className="max-w-2xl text-sm text-muted">

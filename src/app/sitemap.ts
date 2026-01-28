@@ -4,7 +4,7 @@ import { events } from "@/data/events";
 const baseUrl = "https://www.historyofthetrenches.xyz";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticRoutes = ["", "/archive", "/timeline", "/hot"].map((path) => ({
+  const staticRoutes = ["", "/archive", "/timeline", "/community", "/hot"].map((path) => ({
     url: `${baseUrl}${path}`,
     lastModified: new Date(),
     changeFrequency: (path === "" ? "weekly" : "monthly") as "weekly" | "monthly",

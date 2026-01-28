@@ -8,8 +8,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { getEventBySlug } from "@/data/events";
 
 export const metadata: Metadata = {
-  title: "Timeline | History of the Trenches",
-  description: "Era-based view of crypto's defining moments.",
+  title: "Crypto Timeline | History of the Trenches",
+  description: "Chronological chapters with featured events that led to major onboarding waves.",
   alternates: {
     canonical: "https://www.historyofthetrenches.xyz/timeline"
   }
@@ -27,11 +27,10 @@ export default function TimelinePage() {
             className="text-4xl font-semibold"
             style={{ fontFamily: "var(--font-playfair)" }}
           >
-            Crypto Onboarding Eras
+            Crypto Timeline
           </h1>
           <p className="text-base text-muted">
-            Chronological chapters with featured events and sources to trace how narratives
-            evolved.
+            Chronological chapters with featured events that led to major onboarding waves.
           </p>
         </div>
         <div className="mb-8 grid grid-cols-1 gap-6 md:grid-cols-12">

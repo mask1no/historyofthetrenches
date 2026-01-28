@@ -140,6 +140,7 @@ export default function EventPage({ params }: EventPageProps) {
             <Badge variant={typeVariant[event!.type]}>{typeLabel[event!.type]}</Badge>
             <Badge variant="muted">{event!.chain}</Badge>
             <Badge variant="muted">{event!.year}</Badge>
+            {event!.hallOfFame && <Badge variant="gold">Hall of Fame</Badge>}
           </div>
           <h1
             className="text-4xl font-semibold"

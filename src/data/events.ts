@@ -2227,6 +2227,93 @@ export const events: Event[] = [
         year: 2021
       }
     ]
+  },
+  {
+    slug: "bitcoin-halving-2016",
+    title: "Bitcoin Second Halving",
+    type: "milestone",
+    chain: "Bitcoin",
+    year: 2016,
+    date: "2016-07-09",
+    era: "ICO Boom",
+    status: "issuance change",
+    summary: "Bitcoin’s block reward dropped from 25 to 12.5 BTC, reinforcing the fixed supply schedule.",
+    peakMetric: "Block 420,000",
+    outcome: "Issuance rate halved",
+    tags: ["bitcoin", "halving", "issuance"],
+    chartUrl: "https://tradingview.com/symbols/BTCUSD/",
+    sources: [
+      {
+        label: "Halving overview",
+        url: "https://bitcoin.org/en/bitcoin-halving",
+        publisher: "Bitcoin.org",
+        year: 2016
+      },
+      {
+        label: "Halving day coverage",
+        url: "https://www.coindesk.com/markets/2016/07/09/bitcoin-halving/",
+        publisher: "CoinDesk",
+        year: 2016
+      }
+    ]
+  },
+  {
+    slug: "segwit-activation",
+    title: "SegWit Activation",
+    type: "milestone",
+    chain: "Bitcoin",
+    year: 2017,
+    date: "2017-08-24",
+    era: "ICO Boom",
+    status: "protocol upgrade",
+    summary: "SegWit activated on Bitcoin, increasing block capacity and enabling future scaling solutions.",
+    peakMetric: "Block 481,824",
+    outcome: "Transaction format upgrade",
+    tags: ["bitcoin", "scaling", "upgrade"],
+    chartUrl: "https://tradingview.com/symbols/BTCUSD/",
+    sources: [
+      {
+        label: "SegWit FAQ",
+        url: "https://bitcoin.org/en/segwit",
+        publisher: "Bitcoin.org",
+        year: 2017
+      },
+      {
+        label: "Activation coverage",
+        url: "https://www.reuters.com/article/us-bitcoin-segwit/bitcoin-activates-segwit-upgrade-idUSKCN1B40H6",
+        publisher: "Reuters",
+        year: 2017
+      }
+    ]
+  },
+  {
+    slug: "lightning-network-launch",
+    title: "Lightning Network Mainnet Launch",
+    type: "milestone",
+    chain: "Bitcoin",
+    year: 2018,
+    date: "2018-03-15",
+    era: "ICO Boom",
+    status: "layer 2 launch",
+    summary: "Lightning Network went live on Bitcoin mainnet, enabling fast, low-fee payments off-chain.",
+    peakMetric: "First mainnet release",
+    outcome: "Layer 2 payments expand",
+    tags: ["bitcoin", "layer-2", "payments"],
+    chartUrl: "https://tradingview.com/symbols/BTCUSD/",
+    sources: [
+      {
+        label: "Lightning mainnet announcement",
+        url: "https://lightning.engineering/posts/2018-03-15-lightning-rls/",
+        publisher: "Lightning Labs",
+        year: 2018
+      },
+      {
+        label: "Mainnet coverage",
+        url: "https://www.coindesk.com/tech/2018/03/15/bitcoin-lightning-network-launches-on-mainnet/",
+        publisher: "CoinDesk",
+        year: 2018
+      }
+    ]
   }
 ];
 
