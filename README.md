@@ -18,7 +18,3 @@ Open `http://localhost:3000`.
 - Structured data and social metadata for SEO
 - Local data source: `src/data/events.ts` and `src/data/eras.ts`
 
-### Contributing
-
-Add or edit events in `src/data/events.ts` and include at least two sources per entry. Small, focused PRs are welcome.
-
