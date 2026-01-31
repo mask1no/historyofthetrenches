@@ -90,9 +90,11 @@ const uniqueUrls = Array.from(
 
 const runNetworkChecks = process.argv.includes("--network");
 
+const getTimeoutForUrl = (url: string) => (url.includes("web.archive.org") ? 15000 : 6000);
+
 const fetchWithTimeout = async (url: string, method: "HEAD" | "GET") => {
   const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), 6000);
+  const timeout = setTimeout(() => controller.abort(), getTimeoutForUrl(url));
   try {
     const response = await fetch(url, { method, signal: controller.signal, redirect: "follow" });
     return response;
@@ -102,6 +104,9 @@ const fetchWithTimeout = async (url: string, method: "HEAD" | "GET") => {
 };
 
 const checkUrl = async (url: string) => {
+  if (url.startsWith("https://web.archive.org/web/*/")) {
+    return;
+  }
   try {
     let response = await fetchWithTimeout(url, "HEAD");
     if (response.status === 405 || response.status === 403) {

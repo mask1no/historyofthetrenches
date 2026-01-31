@@ -7,6 +7,27 @@ export const metadata: Metadata = {
   description: "Filter and explore the community-maintained crypto history archive.",
   alternates: {
     canonical: "https://www.historyofthetrenches.xyz/archive"
+  },
+  openGraph: {
+    title: "Archive | History of the Trenches",
+    description: "Filter and explore the community-maintained crypto history archive.",
+    url: "https://www.historyofthetrenches.xyz/archive",
+    siteName: "History of the Trenches",
+    type: "website",
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: "History of the Trenches"
+      }
+    ]
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Archive | History of the Trenches",
+    description: "Filter and explore the community-maintained crypto history archive.",
+    images: ["/og.png"]
   }
 };
 

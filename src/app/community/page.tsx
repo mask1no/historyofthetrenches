@@ -9,6 +9,27 @@ export const metadata: Metadata = {
   description: "A cypherpunk toolkit for self-custody, privacy, and technical sovereignty.",
   alternates: {
     canonical: "https://www.historyofthetrenches.xyz/community"
+  },
+  openGraph: {
+    title: "Community | History of the Trenches",
+    description: "A cypherpunk toolkit for self-custody, privacy, and technical sovereignty.",
+    url: "https://www.historyofthetrenches.xyz/community",
+    siteName: "History of the Trenches",
+    type: "website",
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: "History of the Trenches"
+      }
+    ]
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Community | History of the Trenches",
+    description: "A cypherpunk toolkit for self-custody, privacy, and technical sovereignty.",
+    images: ["/og.png"]
   }
 };
 
@@ -49,7 +70,7 @@ export default function CommunityPage() {
         <div className="grid grid-cols-1 gap-6">
           <Card>
             <CardHeader>
-              <CardTitle>Top KYC Wallets &amp; On‑Ramps</CardTitle>
+            <CardTitle>Top KYC Exchanges &amp; On‑Ramps</CardTitle>
               <p className="text-sm text-muted">
                 Use these only for fiat conversion. Always withdraw to self‑custody.
               </p>
@@ -116,8 +137,8 @@ export default function CommunityPage() {
 
           <Card>
             <CardHeader>
-              <CardTitle>Top Non‑KYC Wallets</CardTitle>
-              <p className="text-sm text-muted">True self‑custody. Your keys, your coins.</p>
+            <CardTitle>Non‑KYC Wallets (Self‑Custody)</CardTitle>
+            <p className="text-sm text-muted">True self‑custody. Your keys, your coins.</p>
             </CardHeader>
             <CardContent className="grid gap-3 text-sm text-muted md:grid-cols-2">
               <div className="rounded-lg border border-border bg-bg/60 p-3">
@@ -246,6 +267,110 @@ export default function CommunityPage() {
                   <a href="https://glassnode.com" target="_blank" rel="noopener noreferrer">Glassnode</a>
                 </p>
               </div>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle>Privacy Mobility Stack (2026)</CardTitle>
+              <p className="text-sm text-muted">
+                Practical privacy tools beyond mixers—cross-chain, P2P, and operationally sane.
+              </p>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="overflow-auto rounded-xl border border-border bg-bg/60 p-3">
+                <table className="w-full text-left text-sm">
+                  <thead className="text-xs uppercase text-muted">
+                    <tr>
+                      <th className="pb-2">Tool Category</th>
+                      <th className="pb-2">Specific Tool(s)</th>
+                      <th className="pb-2">Primary Function &amp; Key Features</th>
+                      <th className="pb-2">Key Considerations &amp; Cypherpunk View</th>
+                    </tr>
+                  </thead>
+                  <tbody className="text-muted">
+                    <tr className="border-t border-border/70">
+                      <td className="py-3 font-semibold text-fg">Privacy DEX Aggregators</td>
+                      <td className="py-3">SilentSwap, 1inch</td>
+                      <td className="py-3">
+                        SilentSwap (Secret): privacy-first routing with a toggle. 1inch: best‑price
+                        routing, no KYC.
+                      </td>
+                      <td className="py-3">
+                        SilentSwap is chain‑specific; vet privacy claims. 1inch isn’t private by
+                        default—use clean wallets + Tor/VPN.
+                      </td>
+                    </tr>
+                    <tr className="border-t border-border/70">
+                      <td className="py-3 font-semibold text-fg">Non‑Custodial Swap Services</td>
+                      <td className="py-3">StealthEX, ChangeNOW, SimpleSwap</td>
+                      <td className="py-3">
+                        Instant, account‑free swaps. Non‑custodial UX, fast routing.
+                      </td>
+                      <td className="py-3">
+                        Semi‑private. KYC can be triggered. Use clean sources and staggered amounts.
+                      </td>
+                    </tr>
+                    <tr className="border-t border-border/70">
+                      <td className="py-3 font-semibold text-fg">Decentralized P2P Exchanges</td>
+                      <td className="py-3">Bisq, Hodl Hodl</td>
+                      <td className="py-3">
+                        Bisq: fully decentralized, Tor, no KYC. Hodl Hodl: multisig escrow, no custody.
+                      </td>
+                      <td className="py-3">
+                        Bisq is the gold standard but requires BTC deposit + always‑on client.
+                        Hodl Hodl is simpler but relies on escrow trust.
+                      </td>
+                    </tr>
+                    <tr className="border-t border-border/70">
+                      <td className="py-3 font-semibold text-fg">Lightning‑First P2P</td>
+                      <td className="py-3">RoboSats</td>
+                      <td className="py-3">
+                        Lightning‑native P2P with random robot aliases; no accounts or KYC.
+                      </td>
+                      <td className="py-3">
+                        Great for small, fast trades. Not ideal for large size due to LN limits.
+                      </td>
+                    </tr>
+                    <tr className="border-t border-border/70">
+                      <td className="py-3 font-semibold text-fg">Social/Personal Network P2P</td>
+                      <td className="py-3">Vexl</td>
+                      <td className="py-3">
+                        Trade with trusted contacts via web‑of‑trust. No custody, no KYC.
+                      </td>
+                      <td className="py-3">
+                        Requires a phone number (hashed). Good for local trust‑based trades.
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div className="grid gap-3 text-sm text-muted md:grid-cols-3">
+                <div className="rounded-lg border border-border bg-bg/60 p-3">
+                  <div className="text-xs uppercase tracking-[0.2em] text-muted">OpSec</div>
+                  <div className="mt-2 text-sm">
+                    Understand the trust model—each tool trades convenience for different risks.
+                  </div>
+                </div>
+                <div className="rounded-lg border border-border bg-bg/60 p-3">
+                  <div className="text-xs uppercase tracking-[0.2em] text-muted">Layering</div>
+                  <div className="mt-2 text-sm">
+                    Chain your moves: non‑KYC acquire → private swap → cold storage.
+                  </div>
+                </div>
+                <div className="rounded-lg border border-border bg-bg/60 p-3">
+                  <div className="text-xs uppercase tracking-[0.2em] text-muted">Hygiene</div>
+                  <div className="mt-2 text-sm">
+                    Use your own node, coin control, and never mix KYC + non‑KYC funds.
+                  </div>
+                </div>
+              </div>
+
+              <p className="text-xs text-muted">
+                The privacy landscape keeps moving; re‑evaluate tools as policies and attack
+                surfaces evolve.
+              </p>
             </CardContent>
           </Card>
 

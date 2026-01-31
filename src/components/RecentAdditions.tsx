@@ -65,7 +65,7 @@ export function RecentAdditions() {
               <Badge variant={typeVariant[item.type]}>{typeLabel[item.type]}</Badge>
               {item.hallOfFame && <Badge variant="gold">Hall of Fame</Badge>}
               <span className="text-xs text-muted uppercase tracking-wide">
-                New
+                Recent
               </span>
             </div>
           </Link>

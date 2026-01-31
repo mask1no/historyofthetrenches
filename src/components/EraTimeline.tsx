@@ -21,7 +21,7 @@ export function EraTimeline() {
         <div className="absolute left-8 top-10 bottom-8 w-px bg-border" />
         <div className="flex flex-col gap-6">
           {eras.map((era, idx) => (
-            <div key={era.id} className="relative grid gap-3 rounded-xl border border-border bg-bg p-5 shadow-sm transition duration-400 ease-out hover:-translate-y-0.5 hover:shadow-subtle md:grid-cols-[200px_1fr]">
+            <div key={era.id} className="relative grid gap-3 rounded-xl border border-border bg-bg p-5 shadow-sm transition duration-700 ease-in-out hover:-translate-y-0.5 hover:shadow-subtle md:grid-cols-[200px_1fr]">
               <div className="flex items-start gap-3">
                 <div className="relative mt-1 h-3 w-3 rounded-full bg-accentGold shadow-subtle">
                   <span className="absolute left-1/2 top-3 h-full w-px -translate-x-1/2 bg-border/60" />
@@ -38,7 +38,7 @@ export function EraTimeline() {
                     <Link
                       key={event.slug}
                       href={`/event/${event.slug}`}
-                      className="flex items-center justify-between rounded-lg border border-border px-3 py-2 text-sm transition duration-400 ease-out hover:border-accentGold"
+                      className="flex items-center justify-between rounded-lg border border-border px-3 py-2 text-sm transition duration-500 ease-in-out hover:border-accentGold"
                     >
                       <span className="flex flex-col">
                         <span className="font-medium">{event.title}</span>

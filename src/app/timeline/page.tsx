@@ -7,6 +7,27 @@ export const metadata: Metadata = {
   description: "Chronological chapters with featured events that led to major onboarding waves.",
   alternates: {
     canonical: "https://www.historyofthetrenches.xyz/timeline"
+  },
+  openGraph: {
+    title: "Crypto Timeline | History of the Trenches",
+    description: "Chronological chapters with featured events that led to major onboarding waves.",
+    url: "https://www.historyofthetrenches.xyz/timeline",
+    siteName: "History of the Trenches",
+    type: "website",
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: "History of the Trenches"
+      }
+    ]
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Crypto Timeline | History of the Trenches",
+    description: "Chronological chapters with featured events that led to major onboarding waves.",
+    images: ["/og.png"]
   }
 };
 

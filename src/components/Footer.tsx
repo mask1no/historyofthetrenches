@@ -5,7 +5,7 @@ const links = {
     { label: "Community", href: "/community" },
     { label: "Archive", href: "/archive" },
     { label: "Timeline", href: "/timeline" },
-    { label: "Hall of Fame", href: "/#token" }
+    { label: "$HOT Note", href: "/#token" }
   ],
   community: [
     { label: "X (Twitter)", href: "https://x.com/historytrenches" },
@@ -89,7 +89,7 @@ export function Footer() {
               Community Ritual
             </div>
             <p className="mt-2 text-sm text-muted">
-              Monthly $HOT buys are tracked for fun, not promises. This is a living web3 diary.
+              Monthly $HOT buys are logged for transparency, not promises. This is a living web3 diary.
             </p>
           </div>
           <div className="rounded-xl border border-border bg-bg/60 p-4 shadow-subtle">

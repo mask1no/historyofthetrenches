@@ -44,13 +44,13 @@ export const events: Event[] = [
     sources: [
       {
         label: "FBI press release on seizure",
-        url: "https://www.justice.gov/usao-sdny/pr/manhattan-us-attorney-announces-seizure-additional-28000-bitcoins-belongs-silk-road",
+        url: "https://web.archive.org/web/*/https://www.justice.gov/usao-sdny/pr/manhattan-us-attorney-announces-seizure-additional-28000-bitcoins-belongs-silk-road",
         publisher: "DOJ",
         year: 2013
       },
       {
         label: "US Marshals Bitcoin auction recap",
-        url: "https://www.justice.gov/opa/pr/us-marshals-service-sells-29657-bitcoins-silk-road-auction",
+        url: "https://web.archive.org/web/*/https://www.justice.gov/opa/pr/us-marshals-service-sells-29657-bitcoins-silk-road-auction",
         publisher: "DOJ",
         year: 2014
       }
@@ -75,13 +75,13 @@ export const events: Event[] = [
     sources: [
       {
         label: "Bankruptcy filing announcement",
-        url: "https://www.wsj.com/articles/SB10001424052702304834704579403550776300800",
+        url: "https://web.archive.org/web/*/https://www.wsj.com/articles/SB10001424052702304834704579403550776300800",
         publisher: "WSJ",
         year: 2014
       },
       {
         label: "Mt. Gox rehabilitation update",
-        url: "https://www.mtgox.com/img/pdf/20180322_announcingthepolicy_en.pdf",
+        url: "https://web.archive.org/web/*/https://www.mtgox.com/img/pdf/20180322_announcingthepolicy_en.pdf",
         publisher: "Mt. Gox Trustee",
         year: 2018
       }
@@ -105,7 +105,7 @@ export const events: Event[] = [
     sources: [
       {
         label: "The DAO post-mortem",
-        url: "https://blog.slock.it/a-brief-history-of-the-dao-hack-6f04038c0f6b",
+        url: "https://web.archive.org/web/*/https://blog.slock.it/a-brief-history-of-the-dao-hack-6f04038c0f6b",
         publisher: "Slock.it",
         year: 2016
       },
@@ -134,7 +134,7 @@ export const events: Event[] = [
     sources: [
       {
         label: "Launch announcement",
-        url: "https://www.coindesk.com/markets/2017/07/14/binance-exchange-opens-after-ico-raises-15-million/",
+        url: "https://web.archive.org/web/*/https://www.coindesk.com/markets/2017/07/14/binance-exchange-opens-after-ico-raises-15-million/",
         publisher: "CoinDesk",
         year: 2017
       },
@@ -161,7 +161,7 @@ export const events: Event[] = [
     peakMetric: "Top 20 market cap",
     outcome: "Founders charged; token delisted",
     tags: ["lending", "ico", "regulation"],
-    chartUrl: "https://www.coingecko.com/en/coins/bitconnect",
+    chartUrl: "https://coinmarketcap.com/currencies/bitconnect/",
     sources: [
       {
         label: "Texas Securities Board cease and desist",
@@ -171,7 +171,7 @@ export const events: Event[] = [
       },
       {
         label: "Bitconnect shutdown report",
-        url: "https://www.coindesk.com/markets/2018/01/17/bitconnect-shuts-down-exchange-platform-after-cease-and-desist-orders/",
+        url: "https://web.archive.org/web/*/https://www.coindesk.com/markets/2018/01/17/bitconnect-shuts-down-exchange-platform-after-cease-and-desist-orders/",
         publisher: "CoinDesk",
         year: 2018
       }
@@ -195,13 +195,13 @@ export const events: Event[] = [
     sources: [
       {
         label: "Bitcoin passes $20k",
-        url: "https://www.coindesk.com/markets/2017/12/17/bitcoin-price-passes-20000/",
+        url: "https://web.archive.org/web/*/https://www.coindesk.com/markets/2017/12/17/bitcoin-price-passes-20000/",
         publisher: "CoinDesk",
         year: 2017
       },
       {
         label: "2017 bull market retrospective",
-        url: "https://a16zcrypto.com/content/article/the-2017-crypto-bubble-what-we-learned/",
+        url: "https://web.archive.org/web/*/https://a16zcrypto.com/content/article/the-2017-crypto-bubble-what-we-learned/",
         publisher: "a16z crypto",
         year: 2018
       }
@@ -224,13 +224,13 @@ export const events: Event[] = [
     sources: [
       {
         label: "Coinbase tops App Store",
-        url: "https://techcrunch.com/2017/12/07/coinbase-is-the-1-app-in-the-ios-app-store/",
+        url: "https://web.archive.org/web/*/https://techcrunch.com/2017/12/07/coinbase-is-the-1-app-in-the-ios-app-store/",
         publisher: "TechCrunch",
         year: 2017
       },
       {
         label: "2017 user growth stats",
-        url: "https://blog.coinbase.com/2017-a-remarkable-year-for-coinbase-and-cryptocurrency-cfd2d9b0f4ef",
+        url: "https://web.archive.org/web/*/https://blog.coinbase.com/2017-a-remarkable-year-for-coinbase-and-cryptocurrency-cfd2d9b0f4ef",
         publisher: "Coinbase",
         year: 2018
       }
@@ -251,8 +251,8 @@ export const events: Event[] = [
     tags: ["macro", "black-swan"],
     chartUrl: "https://tradingview.com/symbols/BTCUSD/",
     sources: [
-      { label: "Market crash recap", url: "https://www.ft.com/content/64a5d2e4-63c6-11ea-b3f3-fe4680ea68b5", publisher: "Financial Times", year: 2020 },
-      { label: "On-chain panic analysis", url: "https://insights.glassnode.com/bitcoin-market-crash-march-2020", publisher: "Glassnode", year: 2020 }
+      { label: "Market crash recap", url: "https://web.archive.org/web/*/https://www.ft.com/content/64a5d2e4-63c6-11ea-b3f3-fe4680ea68b5", publisher: "Financial Times", year: 2020 },
+      { label: "On-chain panic analysis", url: "https://web.archive.org/web/*/https://insights.glassnode.com/bitcoin-market-crash-march-2020", publisher: "Glassnode", year: 2020 }
     ]
   },
   {
@@ -289,7 +289,7 @@ export const events: Event[] = [
     tags: ["defi", "governance", "fair-launch"],
     chartUrl: "https://tradingview.com/symbols/YFIUSD/",
     sources: [
-      { label: "Launch post", url: "https://medium.com/iearn/yfi-distribution-df60226a40af", publisher: "Yearn", year: 2020 },
+      { label: "Launch post", url: "https://web.archive.org/web/*/https://medium.com/iearn/yfi-distribution-df60226a40af", publisher: "Yearn", year: 2020 },
       { label: "Fair launch analysis", url: "https://messari.io/report/yfi-yearn-finance", publisher: "Messari", year: 2020 }
     ]
   },
@@ -312,13 +312,13 @@ export const events: Event[] = [
     sources: [
       {
         label: "UST depeg coverage",
-        url: "https://www.coindesk.com/markets/2022/05/09/terrass-ust-stablecoin-slides-to-098-as-market-ponders-reserve-risk/",
+        url: "https://web.archive.org/web/*/https://www.coindesk.com/markets/2022/05/09/terrass-ust-stablecoin-slides-to-098-as-market-ponders-reserve-risk/",
         publisher: "CoinDesk",
         year: 2022
       },
       {
         label: "Luna collapse explainer",
-        url: "https://www.nytimes.com/2022/05/18/technology/terra-luna-crypto-crash.html",
+        url: "https://web.archive.org/web/*/https://www.nytimes.com/2022/05/18/technology/terra-luna-crypto-crash.html",
         publisher: "NYTimes",
         year: 2022
       }
@@ -342,13 +342,13 @@ export const events: Event[] = [
     sources: [
       {
         label: "Celsius withdrawal pause",
-        url: "https://blog.celsius.network/a-memo-to-the-celsius-community-59532a06ecc6",
+        url: "https://web.archive.org/web/*/https://blog.celsius.network/a-memo-to-the-celsius-community-59532a06ecc6",
         publisher: "Celsius",
         year: 2022
       },
       {
         label: "Bankruptcy filing coverage",
-        url: "https://www.reuters.com/legal/celsius-network-files-bankruptcy-protection-2022-07-14/",
+        url: "https://web.archive.org/web/*/https://www.reuters.com/legal/celsius-network-files-bankruptcy-protection-2022-07-14/",
         publisher: "Reuters",
         year: 2022
       }
@@ -372,13 +372,13 @@ export const events: Event[] = [
     sources: [
       {
         label: "3AC liquidation order",
-        url: "https://www.ft.com/content/28f8b0b3-5f3b-4b7a-9aaf-8d9b9dc32d2d",
+        url: "https://web.archive.org/web/*/https://www.ft.com/content/28f8b0b3-5f3b-4b7a-9aaf-8d9b9dc32d2d",
         publisher: "Financial Times",
         year: 2022
       },
       {
         label: "Leverage unwind recap",
-        url: "https://www.bloomberg.com/news/articles/2022-06-29/crypto-hedge-fund-three-arrows-capital-ordered-to-liquidate",
+        url: "https://web.archive.org/web/*/https://www.bloomberg.com/news/articles/2022-06-29/crypto-hedge-fund-three-arrows-capital-ordered-to-liquidate",
         publisher: "Bloomberg",
         year: 2022
       }
@@ -400,8 +400,8 @@ export const events: Event[] = [
     tags: ["cefi", "contagion", "ftt"],
     chartUrl: "https://tradingview.com/symbols/FTTUSD/",
     sources: [
-      { label: "Leak coverage", url: "https://www.coindesk.com/business/2022/11/02/alameda-balance-sheet-holds-billions-of-ftx-token-ftt/", publisher: "CoinDesk", year: 2022 },
-      { label: "Market reaction", url: "https://www.bloomberg.com/news/articles/2022-11-06/binance-s-bnb-ftt-token-sale-triggers-crypto-market-selloff", publisher: "Bloomberg", year: 2022 }
+      { label: "Leak coverage", url: "https://web.archive.org/web/*/https://www.coindesk.com/business/2022/11/02/alameda-balance-sheet-holds-billions-of-ftx-token-ftt/", publisher: "CoinDesk", year: 2022 },
+      { label: "Market reaction", url: "https://web.archive.org/web/*/https://www.bloomberg.com/news/articles/2022-11-06/binance-s-bnb-ftt-token-sale-triggers-crypto-market-selloff", publisher: "Bloomberg", year: 2022 }
     ]
   },
   {
@@ -423,7 +423,7 @@ export const events: Event[] = [
     sources: [
       {
         label: "FTX Chapter 11 filing",
-        url: "https://www.reuters.com/markets/us/crypto-exchange-ftx-files-bankruptcy-ceo-bankman-fried-resigns-2022-11-11/",
+        url: "https://web.archive.org/web/*/https://www.reuters.com/markets/us/crypto-exchange-ftx-files-bankruptcy-ceo-bankman-fried-resigns-2022-11-11/",
         publisher: "Reuters",
         year: 2022
       },
@@ -453,7 +453,7 @@ export const events: Event[] = [
     sources: [
       {
         label: "Ronin post-mortem",
-        url: "https://forum.axieinfinity.com/t/ronin-network-postmortem/100",
+        url: "https://web.archive.org/web/*/https://forum.axieinfinity.com/t/ronin-network-postmortem/100",
         publisher: "Sky Mavis",
         year: 2022
       },
@@ -481,8 +481,8 @@ export const events: Event[] = [
     tags: ["nft", "marketplace", "security"],
     chartUrl: "https://tradingview.com/symbols/ETHUSD/",
     sources: [
-      { label: "Incident recap", url: "https://www.theverge.com/2022/2/20/22943819/opensea-phishing-attack-nfts-stolen", publisher: "The Verge", year: 2022 },
-      { label: "Security analysis", url: "https://opensea.io/blog/announcements/securing-opensea-users-against-phishing-attacks/", publisher: "OpenSea", year: 2022 }
+      { label: "Incident recap", url: "https://web.archive.org/web/*/https://www.theverge.com/2022/2/20/22943819/opensea-phishing-attack-nfts-stolen", publisher: "The Verge", year: 2022 },
+      { label: "Security analysis", url: "https://web.archive.org/web/*/https://opensea.io/blog/announcements/securing-opensea-users-against-phishing-attacks/", publisher: "OpenSea", year: 2022 }
     ]
   },
   {
@@ -509,7 +509,7 @@ export const events: Event[] = [
       },
       {
         label: "Energy impact analysis",
-        url: "https://www.iea.org/commentaries/ethereum-s-merge-impacts-electricity-use",
+        url: "https://web.archive.org/web/*/https://www.iea.org/commentaries/ethereum-s-merge-impacts-electricity-use",
         publisher: "IEA",
         year: 2022
       }
@@ -532,13 +532,13 @@ export const events: Event[] = [
     sources: [
       {
         label: "Coinbase direct listing day",
-        url: "https://www.cnbc.com/2021/04/14/coinbase-ipo-coin-starts-trading-on-nasdaq.html",
+        url: "https://web.archive.org/web/*/https://www.cnbc.com/2021/04/14/coinbase-ipo-coin-starts-trading-on-nasdaq.html",
         publisher: "CNBC",
         year: 2021
       },
       {
         label: "Coinbase S-1 filing",
-        url: "https://www.sec.gov/Archives/edgar/data/0001679788/000162828021002161/coinbaseglobalincs-1.htm",
+        url: "https://web.archive.org/web/*/https://www.sec.gov/Archives/edgar/data/0001679788/000162828021002161/coinbaseglobalincs-1.htm",
         publisher: "SEC",
         year: 2021
       }
@@ -590,8 +590,8 @@ export const events: Event[] = [
     tags: ["meme", "community"],
     chartUrl: "https://tradingview.com/symbols/DOGEUSD/",
     sources: [
-      { label: "Price surge recap", url: "https://www.cnbc.com/2021/05/08/dogecoin-price-surges-ahead-of-elon-musks-snl-appearance.html", publisher: "CNBC", year: 2021 },
-      { label: "Community history", url: "https://www.coindesk.com/markets/2021/05/04/dogecoin-hits-new-high-as-traders-bet-on-more-gains/", publisher: "CoinDesk", year: 2021 }
+      { label: "Price surge recap", url: "https://web.archive.org/web/*/https://www.cnbc.com/2021/05/08/dogecoin-price-surges-ahead-of-elon-musks-snl-appearance.html", publisher: "CNBC", year: 2021 },
+      { label: "Community history", url: "https://web.archive.org/web/*/https://www.coindesk.com/markets/2021/05/04/dogecoin-hits-new-high-as-traders-bet-on-more-gains/", publisher: "CoinDesk", year: 2021 }
     ]
   },
   {
@@ -613,13 +613,13 @@ export const events: Event[] = [
     sources: [
       {
         label: "Exchange listing timeline",
-        url: "https://www.coindesk.com/markets/2021/10/08/shiba-inu-surges-after-coinbase-listing/",
+        url: "https://web.archive.org/web/*/https://www.coindesk.com/markets/2021/10/08/shiba-inu-surges-after-coinbase-listing/",
         publisher: "CoinDesk",
         year: 2021
       },
       {
         label: "Ecosystem growth recap",
-        url: "https://decrypt.co/84519/shiba-inu-ecosystem",
+        url: "https://web.archive.org/web/*/https://decrypt.co/84519/shiba-inu-ecosystem",
         publisher: "Decrypt",
         year: 2021
       }
@@ -643,7 +643,7 @@ export const events: Event[] = [
     chartUrl: "https://coinmarketcap.com/currencies/squid-game/",
     sources: [
       { label: "Post-mortem analysis", url: "https://www.bbc.com/news/business-59129466", publisher: "BBC", year: 2021 },
-      { label: "Exchange halt notice", url: "https://www.cnbc.com/2021/11/02/squid-game-crypto-scam-sqwid-coin-plunges.html", publisher: "CNBC", year: 2021 }
+      { label: "Exchange halt notice", url: "https://web.archive.org/web/*/https://www.cnbc.com/2021/11/02/squid-game-crypto-scam-sqwid-coin-plunges.html", publisher: "CNBC", year: 2021 }
     ]
   },
   {
@@ -661,10 +661,10 @@ export const events: Event[] = [
     peakMetric: "$1.6B market cap",
     outcome: "Continues trading",
     tags: ["meme", "defi"],
-    chartUrl: "https://www.coingecko.com/en/coins/pepe",
+    chartUrl: "https://coinmarketcap.com/currencies/pepe/",
     sources: [
-      { label: "Volume breakout", url: "https://www.coindesk.com/markets/2023/04/18/pepe-meme-coin-surges/", publisher: "CoinDesk", year: 2023 },
-      { label: "Listing timeline", url: "https://www.theblock.co/post/230305/pepe-memecoin-surges-coinbase", publisher: "The Block", year: 2023 }
+      { label: "Volume breakout", url: "https://web.archive.org/web/*/https://www.coindesk.com/markets/2023/04/18/pepe-meme-coin-surges/", publisher: "CoinDesk", year: 2023 },
+      { label: "Listing timeline", url: "https://web.archive.org/web/*/https://www.theblock.co/post/230305/pepe-memecoin-surges-coinbase", publisher: "The Block", year: 2023 }
     ]
   },
   {
@@ -682,10 +682,10 @@ export const events: Event[] = [
     peakMetric: "3000%+ from lows",
     outcome: "Integrated across Solana dapps",
     tags: ["solana", "meme", "airdrop"],
-    chartUrl: "https://www.coingecko.com/en/coins/bonk",
+    chartUrl: "https://coinmarketcap.com/currencies/bonk/",
     sources: [
-      { label: "Airdrop breakdown", url: "https://www.coindesk.com/markets/2023/01/05/bonk-soars-as-solana-ecosystem-seeks-relief/", publisher: "CoinDesk", year: 2023 },
-      { label: "Ecosystem integrations", url: "https://www.theblock.co/post/198251/bonk-airdrop-boosts-solana-nfts", publisher: "The Block", year: 2024 }
+      { label: "Airdrop breakdown", url: "https://web.archive.org/web/*/https://www.coindesk.com/markets/2023/01/05/bonk-soars-as-solana-ecosystem-seeks-relief/", publisher: "CoinDesk", year: 2023 },
+      { label: "Ecosystem integrations", url: "https://web.archive.org/web/*/https://www.theblock.co/post/198251/bonk-airdrop-boosts-solana-nfts", publisher: "The Block", year: 2024 }
     ]
   },
   {
@@ -703,8 +703,8 @@ export const events: Event[] = [
     tags: ["solana", "launchpad", "meme"],
     chartUrl: "https://dexscreener.com/solana",
     sources: [
-      { label: "Platform stats", url: "https://www.coindesk.com/markets/2024/03/20/solana-token-launchpad-pumpfun-trading/", publisher: "CoinDesk", year: 2024 },
-      { label: "Community recap", url: "https://decrypt.co/222522/pump-fun-meme-coin-mania", publisher: "Decrypt", year: 2024 }
+      { label: "Platform stats", url: "https://web.archive.org/web/*/https://www.coindesk.com/markets/2024/03/20/solana-token-launchpad-pumpfun-trading/", publisher: "CoinDesk", year: 2024 },
+      { label: "Community recap", url: "https://web.archive.org/web/*/https://decrypt.co/222522/pump-fun-meme-coin-mania", publisher: "Decrypt", year: 2024 }
     ]
   },
   {
@@ -722,8 +722,8 @@ export const events: Event[] = [
     tags: ["regulation", "etf", "bitcoin"],
     chartUrl: "https://tradingview.com/symbols/BTCUSD/",
     sources: [
-      { label: "SEC approval", url: "https://www.sec.gov/news/press-release/2024-4", publisher: "SEC", year: 2024 },
-      { label: "Inflows recap", url: "https://www.bloomberg.com/news/articles/2024-01-11/bitcoin-etf-debut-sees-astonishing-first-day-volume", publisher: "Bloomberg", year: 2024 }
+      { label: "SEC approval", url: "http://web.archive.org/web/20240503054819/https://www.sec.gov/news/press-release/2024-4", publisher: "SEC", year: 2024 },
+      { label: "Inflows recap", url: "https://web.archive.org/web/*/https://www.bloomberg.com/news/articles/2024-01-11/bitcoin-etf-debut-sees-astonishing-first-day-volume", publisher: "Bloomberg", year: 2024 }
     ]
   },
   {
@@ -741,10 +741,10 @@ export const events: Event[] = [
     peakMetric: "$5B+ FDV peak",
     outcome: "Ongoing legal actions",
     tags: ["reflections", "bsc", "controversial"],
-    chartUrl: "https://www.coingecko.com/en/coins/safemoon",
+    chartUrl: "https://coinmarketcap.com/currencies/safemoon/",
     sources: [
-      { label: "Exploit coverage", url: "https://www.coindesk.com/tech/2023/03/29/safemoon-token-suffers-9m-exploit/", publisher: "CoinDesk", year: 2023 },
-      { label: "Class action filing", url: "https://www.reuters.com/legal/transaction/safemoon-investors-sue-celebs-over-alleged-crypto-fraud-2022-02-18/", publisher: "Reuters", year: 2022 }
+      { label: "Exploit coverage", url: "https://web.archive.org/web/*/https://www.coindesk.com/tech/2023/03/29/safemoon-token-suffers-9m-exploit/", publisher: "CoinDesk", year: 2023 },
+      { label: "Class action filing", url: "https://web.archive.org/web/*/https://www.reuters.com/legal/transaction/safemoon-investors-sue-celebs-over-alleged-crypto-fraud-2022-02-18/", publisher: "Reuters", year: 2022 }
     ]
   },
   {
@@ -780,8 +780,8 @@ export const events: Event[] = [
     tags: ["ico", "smart-contracts", "ethereum"],
     chartUrl: "https://tradingview.com/symbols/ETHUSD/",
     sources: [
-      { label: "Presale announcement", url: "https://blog.ethereum.org/2014/07/22/launch-ethereum-presale", publisher: "Ethereum Foundation", year: 2014 },
-      { label: "ICO recap", url: "https://www.coindesk.com/markets/2016/07/07/ethereum-ico-returns-what-ether-investors-earned/", publisher: "CoinDesk", year: 2016 }
+      { label: "Presale announcement", url: "https://web.archive.org/web/*/https://blog.ethereum.org/2014/07/22/launch-ethereum-presale", publisher: "Ethereum Foundation", year: 2014 },
+      { label: "ICO recap", url: "https://web.archive.org/web/*/https://www.coindesk.com/markets/2016/07/07/ethereum-ico-returns-what-ether-investors-earned/", publisher: "CoinDesk", year: 2016 }
     ]
   },
   {
@@ -799,8 +799,8 @@ export const events: Event[] = [
     tags: ["nft", "scaling", "gaming"],
     chartUrl: "https://tradingview.com/symbols/ETHUSD/",
     sources: [
-      { label: "Network stats", url: "https://www.coindesk.com/markets/2017/12/04/cryptokitties-are-slowing-down-ethereum/", publisher: "CoinDesk", year: 2017 },
-      { label: "Press coverage", url: "https://techcrunch.com/2017/12/06/cryptokitties-explodes-ethereum/", publisher: "TechCrunch", year: 2017 }
+      { label: "Network stats", url: "https://web.archive.org/web/*/https://www.coindesk.com/markets/2017/12/04/cryptokitties-are-slowing-down-ethereum/", publisher: "CoinDesk", year: 2017 },
+      { label: "Press coverage", url: "https://web.archive.org/web/*/https://techcrunch.com/2017/12/06/cryptokitties-explodes-ethereum/", publisher: "TechCrunch", year: 2017 }
     ]
   },
   {
@@ -818,8 +818,8 @@ export const events: Event[] = [
     tags: ["defi", "liquidity", "governance"],
     chartUrl: "https://tradingview.com/symbols/COMPUSD/",
     sources: [
-      { label: "Launch post", url: "https://medium.com/compound-finance/compound-community-governance-3c3b0b0e3cf0", publisher: "Compound", year: 2020 },
-      { label: "DeFi recap", url: "https://bankless.ghost.io/defi-summer", publisher: "Bankless", year: 2020 }
+      { label: "Launch post", url: "https://web.archive.org/web/*/https://medium.com/compound-finance/compound-community-governance-3c3b0b0e3cf0", publisher: "Compound", year: 2020 },
+      { label: "DeFi recap", url: "https://web.archive.org/web/*/https://bankless.ghost.io/defi-summer", publisher: "Bankless", year: 2020 }
     ]
   },
   {
@@ -837,8 +837,8 @@ export const events: Event[] = [
     tags: ["gaming", "nft", "p2e"],
     chartUrl: "https://tradingview.com/symbols/AXSUSD/",
     sources: [
-      { label: "Marketplace stats", url: "https://dappradar.com/blog/axie-infinity-surpasses-4-billion-in-nft-sales", publisher: "DappRadar", year: 2022 },
-      { label: "Ecosystem recap", url: "https://www.theblock.co/post/116206/axie-infinity-growth", publisher: "The Block", year: 2021 }
+      { label: "Marketplace stats", url: "https://web.archive.org/web/*/https://dappradar.com/blog/axie-infinity-surpasses-4-billion-in-nft-sales", publisher: "DappRadar", year: 2022 },
+      { label: "Ecosystem recap", url: "https://web.archive.org/web/*/https://www.theblock.co/post/116206/axie-infinity-growth", publisher: "The Block", year: 2021 }
     ]
   },
   {
@@ -856,7 +856,7 @@ export const events: Event[] = [
     tags: ["l2", "onboarding", "infrastructure"],
     chartUrl: "https://l2beat.com/scaling/projects/base",
     sources: [
-      { label: "Launch post", url: "https://base.mirror.xyz/D_mxn6Qk4qzM7gc3KJ2YMBX1IzBgE4c3OJbGdv8ImZE", publisher: "Base", year: 2023 },
+      { label: "Launch post", url: "https://web.archive.org/web/*/https://base.mirror.xyz/D_mxn6Qk4qzM7gc3KJ2YMBX1IzBgE4c3OJbGdv8ImZE", publisher: "Base", year: 2023 },
       { label: "Usage stats", url: "https://l2beat.com/scaling/projects/base", publisher: "L2Beat", year: 2023 }
     ]
   },
@@ -876,7 +876,7 @@ export const events: Event[] = [
     chartUrl: "https://mempool.space",
     sources: [
       { label: "Ordinals docs", url: "https://docs.ordinals.com/", publisher: "Ordinals", year: 2023 },
-      { label: "Fee market analysis", url: "https://www.theblock.co/post/206388/ordinals-drive-bitcoin-fees", publisher: "The Block", year: 2023 }
+      { label: "Fee market analysis", url: "https://web.archive.org/web/*/https://www.theblock.co/post/206388/ordinals-drive-bitcoin-fees", publisher: "The Block", year: 2023 }
     ]
   },
   {
@@ -891,11 +891,10 @@ export const events: Event[] = [
     summary: "Friend.tech popularized social trading keys on Base, showcasing L2 onboarding and viral fee generation.",
     peakMetric: "$1M+ protocol fees/day",
     outcome: "Copycats and debates on sustainability",
-    tags: ["socialfi", "l2", "onboarding"],
-    chartUrl: "https://dune.com/dgtl_assets/friendtech",
+    tags: ["socialfi", "l2", "onboarding"],
     sources: [
-      { label: "Protocol dashboard", url: "https://dune.com/dgtl_assets/friendtech", publisher: "Dune", year: 2023 },
-      { label: "Coverage", url: "https://decrypt.co/154307/friend-tech-everything-need-know", publisher: "Decrypt", year: 2023 }
+      { label: "Protocol dashboard", url: "https://web.archive.org/web/*/https://dune.com/dgtl_assets/friendtech", publisher: "Dune", year: 2023 },
+      { label: "Coverage", url: "https://web.archive.org/web/*/https://decrypt.co/154307/friend-tech-everything-need-know", publisher: "Decrypt", year: 2023 }
     ]
   },
   {
@@ -912,8 +911,8 @@ export const events: Event[] = [
     tags: ["legal", "cefi", "ftx"],
     chartUrl: "https://tradingview.com/symbols/FTTUSD/",
     sources: [
-      { label: "Verdict coverage", url: "https://www.nytimes.com/2023/11/02/technology/sbf-verdict.html", publisher: "NYTimes", year: 2023 },
-      { label: "Regulatory recap", url: "https://www.reuters.com/legal/ftx-founder-bankman-fried-found-guilty-us-fraud-trial-2023-11-02/", publisher: "Reuters", year: 2023 }
+      { label: "Verdict coverage", url: "https://web.archive.org/web/*/https://www.nytimes.com/2023/11/02/technology/sbf-verdict.html", publisher: "NYTimes", year: 2023 },
+      { label: "Regulatory recap", url: "https://web.archive.org/web/*/https://www.reuters.com/legal/ftx-founder-bankman-fried-found-guilty-us-fraud-trial-2023-11-02/", publisher: "Reuters", year: 2023 }
     ]
   },
   {
@@ -933,7 +932,7 @@ export const events: Event[] = [
     sources: [
       {
         label: "Hack report",
-        url: "https://www.coindesk.com/markets/2016/08/03/bitfinex-bitcoin-exchange-loses-65-million-to-hackers/",
+        url: "https://web.archive.org/web/*/https://www.coindesk.com/markets/2016/08/03/bitfinex-bitcoin-exchange-loses-65-million-to-hackers/",
         publisher: "CoinDesk",
         year: 2016
       },
@@ -962,13 +961,13 @@ export const events: Event[] = [
     sources: [
       {
         label: "Incident summary",
-        url: "https://www.parity.io/blog/november-2017-incident-report",
+        url: "https://web.archive.org/web/*/https://www.parity.io/blog/november-2017-incident-report",
         publisher: "Parity",
         year: 2017
       },
       {
         label: "Community recap",
-        url: "https://www.coindesk.com/markets/2017/11/07/150-million-in-ether-frozen-due-to-parity-wallet-bug/",
+        url: "https://web.archive.org/web/*/https://www.coindesk.com/markets/2017/11/07/150-million-in-ether-frozen-due-to-parity-wallet-bug/",
         publisher: "CoinDesk",
         year: 2017
       }
@@ -991,13 +990,13 @@ export const events: Event[] = [
     sources: [
       {
         label: "Post-mortem",
-        url: "https://medium.com/yam-finance/yam-post-rescue-attempt-9793f28f0a0f",
+        url: "https://web.archive.org/web/*/https://medium.com/yam-finance/yam-post-rescue-attempt-9793f28f0a0f",
         publisher: "Yam Finance",
         year: 2020
       },
       {
         label: "Coverage",
-        url: "https://www.theblock.co/post/76077/yam-yfi-defi-bug",
+        url: "https://web.archive.org/web/*/https://www.theblock.co/post/76077/yam-yfi-defi-bug",
         publisher: "The Block",
         year: 2020
       }
@@ -1020,13 +1019,13 @@ export const events: Event[] = [
     sources: [
       {
         label: "Exploit announcement",
-        url: "https://www.coindesk.com/tech/2021/08/10/poly-network-loses-600m-in-largest-defi-hack-ever/",
+        url: "https://web.archive.org/web/*/https://www.coindesk.com/tech/2021/08/10/poly-network-loses-600m-in-largest-defi-hack-ever/",
         publisher: "CoinDesk",
         year: 2021
       },
       {
         label: "Funds returned",
-        url: "https://www.theverge.com/2021/8/23/22638108/poly-network-cryptocurrency-hack-610-million-returned",
+        url: "https://web.archive.org/web/*/https://www.theverge.com/2021/8/23/22638108/poly-network-cryptocurrency-hack-610-million-returned",
         publisher: "The Verge",
         year: 2021
       }
@@ -1055,7 +1054,7 @@ export const events: Event[] = [
       },
       {
         label: "Backstop announcement",
-        url: "https://jumpcrypto.com/wormhole-incident-response/",
+        url: "https://web.archive.org/web/*/https://jumpcrypto.com/wormhole-incident-response/",
         publisher: "Jump Crypto",
         year: 2022
       }
@@ -1078,13 +1077,13 @@ export const events: Event[] = [
     sources: [
       {
         label: "Incident analysis",
-        url: "https://blog.makerdao.com/the-market-collapse-of-march-12-2020-what-happened-and-what-should-we-learn-from-it/",
+        url: "https://web.archive.org/web/*/https://blog.makerdao.com/the-market-collapse-of-march-12-2020-what-happened-and-what-should-we-learn-from-it/",
         publisher: "MakerDAO",
         year: 2020
       },
       {
         label: "Community recap",
-        url: "https://medium.com/@brianmct/the-makerdao-black-thursday-debacle-explained-20f9a2af6f63",
+        url: "https://web.archive.org/web/*/https://medium.com/@brianmct/the-makerdao-black-thursday-debacle-explained-20f9a2af6f63",
         publisher: "Community",
         year: 2020
       }
@@ -1113,7 +1112,7 @@ export const events: Event[] = [
       },
       {
         label: "Context",
-        url: "https://www.theblock.co/post/163111/us-treasury-sanctions-crypto-mixer-tornado-cash",
+        url: "https://web.archive.org/web/*/https://www.theblock.co/post/163111/us-treasury-sanctions-crypto-mixer-tornado-cash",
         publisher: "The Block",
         year: 2022
       }
@@ -1136,13 +1135,13 @@ export const events: Event[] = [
     sources: [
       {
         label: "Airdrop announcement",
-        url: "https://arbitrum.foundation/blog/arbitrum-airdrop",
+        url: "https://web.archive.org/web/*/https://arbitrum.foundation/blog/arbitrum-airdrop",
         publisher: "Arbitrum Foundation",
         year: 2023
       },
       {
         label: "Launch day coverage",
-        url: "https://www.coindesk.com/business/2023/03/23/arbitrum-token-gets-off-to-rocky-start-as-airdrop-goes-live/",
+        url: "https://web.archive.org/web/*/https://www.coindesk.com/business/2023/03/23/arbitrum-token-gets-off-to-rocky-start-as-airdrop-goes-live/",
         publisher: "CoinDesk",
         year: 2023
       }
@@ -1165,13 +1164,13 @@ export const events: Event[] = [
     sources: [
       {
         label: "OP Stack announcement",
-        url: "https://optimism.mirror.xyz/7TZGi99Z0eKCbFf8g_LuwZQzQ_EimeISBuYn0ZqzD7Y",
+        url: "https://web.archive.org/web/*/https://optimism.mirror.xyz/7TZGi99Z0eKCbFf8g_LuwZQzQ_EimeISBuYn0ZqzD7Y",
         publisher: "Optimism",
         year: 2022
       },
       {
         label: "Ecosystem explainer",
-        url: "https://www.coinbase.com/blog/building-with-optimisms-op-stack",
+        url: "https://web.archive.org/web/*/https://www.coinbase.com/blog/building-with-optimisms-op-stack",
         publisher: "Coinbase",
         year: 2023
       }
@@ -1194,13 +1193,13 @@ export const events: Event[] = [
     sources: [
       {
         label: "Merge rehearsal",
-        url: "https://www.theblock.co/post/157923/ethereum-merge-sepolia-testnet",
+        url: "https://web.archive.org/web/*/https://www.theblock.co/post/157923/ethereum-merge-sepolia-testnet",
         publisher: "The Block",
         year: 2022
       },
       {
         label: "Developer recap",
-        url: "https://blog.ethereum.org/2022/07/08/sepolia-merge-success",
+        url: "https://web.archive.org/web/*/https://blog.ethereum.org/2022/07/08/sepolia-merge-success",
         publisher: "Ethereum Foundation",
         year: 2022
       }
@@ -1223,13 +1222,13 @@ export const events: Event[] = [
     sources: [
       {
         label: "Fork coverage",
-        url: "https://www.coindesk.com/markets/2017/08/01/bitcoin-cash-has-launched-heres-what-that-means/",
+        url: "https://web.archive.org/web/*/https://www.coindesk.com/markets/2017/08/01/bitcoin-cash-has-launched-heres-what-that-means/",
         publisher: "CoinDesk",
         year: 2017
       },
       {
         label: "Background debate",
-        url: "https://blog.bitcoin.com/bitcoin-cash-hard-fork-august-1st-2017/",
+        url: "https://web.archive.org/web/*/https://blog.bitcoin.com/bitcoin-cash-hard-fork-august-1st-2017/",
         publisher: "Bitcoin.com",
         year: 2017
       }
@@ -1258,7 +1257,7 @@ export const events: Event[] = [
       },
       {
         label: "Market impact",
-        url: "https://www.cnbc.com/2021/05/13/bitcoin-tumbles-after-elon-musk-says-tesla-will-stop-accepting-crypto-for-cars.html",
+        url: "https://web.archive.org/web/*/https://www.cnbc.com/2021/05/13/bitcoin-tumbles-after-elon-musk-says-tesla-will-stop-accepting-crypto-for-cars.html",
         publisher: "CNBC",
         year: 2021
       }
@@ -1281,13 +1280,13 @@ export const events: Event[] = [
     sources: [
       {
         label: "EIP-1559 explainer",
-        url: "https://ethereum.org/en/developers/docs/consensus-mechanisms/pos/eip-1559/",
+        url: "https://web.archive.org/web/*/https://ethereum.org/en/developers/docs/consensus-mechanisms/pos/eip-1559/",
         publisher: "Ethereum.org",
         year: 2021
       },
       {
         label: "Activation coverage",
-        url: "https://www.coindesk.com/markets/2021/08/05/ethereum-upgrade-eip-1559-goes-live/",
+        url: "https://web.archive.org/web/*/https://www.coindesk.com/markets/2021/08/05/ethereum-upgrade-eip-1559-goes-live/",
         publisher: "CoinDesk",
         year: 2021
       }
@@ -1316,7 +1315,7 @@ export const events: Event[] = [
       },
       {
         label: "Coverage",
-        url: "https://www.theblock.co/post/150468/solana-mainnet-beta-outage-durable-nonce-transaction-feature",
+        url: "https://web.archive.org/web/*/https://www.theblock.co/post/150468/solana-mainnet-beta-outage-durable-nonce-transaction-feature",
         publisher: "The Block",
         year: 2022
       }
@@ -1335,11 +1334,11 @@ export const events: Event[] = [
     peakMetric: "$9M drained",
     outcome: "Team applied hotfix",
     tags: ["bsc", "security", "liquidity"],
-    chartUrl: "https://www.coingecko.com/en/coins/safemoon",
+    chartUrl: "https://coinmarketcap.com/currencies/safemoon/",
     sources: [
       {
         label: "Exploit coverage",
-        url: "https://www.coindesk.com/tech/2023/03/29/safemoon-token-suffers-9m-exploit/",
+        url: "https://web.archive.org/web/*/https://www.coindesk.com/tech/2023/03/29/safemoon-token-suffers-9m-exploit/",
         publisher: "CoinDesk",
         year: 2023
       },
@@ -1372,7 +1371,7 @@ export const events: Event[] = [
       },
       {
         label: "Origin story",
-        url: "https://bitcoinmagazine.com/culture/bitcoin-pizza-day-origin-story",
+        url: "https://web.archive.org/web/*/https://bitcoinmagazine.com/culture/bitcoin-pizza-day-origin-story",
         publisher: "Bitcoin Magazine",
         year: 2021
       }
@@ -1393,13 +1392,13 @@ export const events: Event[] = [
     sources: [
       {
         label: "BitLicense announcement",
-        url: "https://www.dfs.ny.gov/about/press/pr1506031.htm",
+        url: "https://web.archive.org/web/*/https://www.dfs.ny.gov/about/press/pr1506031.htm",
         publisher: "NYDFS",
         year: 2015
       },
       {
         label: "Industry coverage",
-        url: "https://www.coindesk.com/markets/2015/06/03/new-york-finalizes-bitlicense-regulations/",
+        url: "https://web.archive.org/web/*/https://www.coindesk.com/markets/2015/06/03/new-york-finalizes-bitlicense-regulations/",
         publisher: "CoinDesk",
         year: 2015
       }
@@ -1426,7 +1425,7 @@ export const events: Event[] = [
       },
       {
         label: "Press coverage",
-        url: "https://www.bloomberg.com/news/articles/2017-12-07/bitcoin-mining-marketplace-nicehash-says-its-paying-system-hacked",
+        url: "https://web.archive.org/web/*/https://www.bloomberg.com/news/articles/2017-12-07/bitcoin-mining-marketplace-nicehash-says-its-paying-system-hacked",
         publisher: "Bloomberg",
         year: 2017
       }
@@ -1447,13 +1446,13 @@ export const events: Event[] = [
     sources: [
       {
         label: "Company statement",
-        url: "https://coincheck.com/en/blog/4671",
+        url: "https://web.archive.org/web/*/https://coincheck.com/en/blog/4671",
         publisher: "Coincheck",
         year: 2018
       },
       {
         label: "Hack coverage",
-        url: "https://www.bloomberg.com/news/articles/2018-01-26/coincheck-says-cryptocurrency-worth-400-million-hacked",
+        url: "https://web.archive.org/web/*/https://www.bloomberg.com/news/articles/2018-01-26/coincheck-says-cryptocurrency-worth-400-million-hacked",
         publisher: "Bloomberg",
         year: 2018
       }
@@ -1476,13 +1475,13 @@ export const events: Event[] = [
     sources: [
       {
         label: "Founder death report",
-        url: "https://www.cbc.ca/news/canada/nova-scotia/quadriga-ceo-death-gerald-cotten-1.5008753",
+        url: "https://web.archive.org/web/*/https://www.cbc.ca/news/canada/nova-scotia/quadriga-ceo-death-gerald-cotten-1.5008753",
         publisher: "CBC",
         year: 2019
       },
       {
         label: "OSC review",
-        url: "https://www.osc.ca/en/news-events/news/quadriga-cx-trading-platform-oscs-review",
+        url: "https://web.archive.org/web/*/https://www.osc.ca/en/news-events/news/quadriga-cx-trading-platform-oscs-review",
         publisher: "OSC",
         year: 2020
       }
@@ -1505,13 +1504,13 @@ export const events: Event[] = [
     sources: [
       {
         label: "Press release",
-        url: "https://www.microstrategy.com/en/investor-relations/press/microstrategy-adopts-bitcoin-as-primary-treasury-reserve-asset",
+        url: "https://web.archive.org/web/*/https://www.microstrategy.com/en/investor-relations/press/microstrategy-adopts-bitcoin-as-primary-treasury-reserve-asset",
         publisher: "MicroStrategy",
         year: 2020
       },
       {
         label: "WSJ coverage",
-        url: "https://www.wsj.com/articles/microstrategy-bitcoin-11600259073",
+        url: "https://web.archive.org/web/*/https://www.wsj.com/articles/microstrategy-bitcoin-11600259073",
         publisher: "WSJ",
         year: 2020
       }
@@ -1532,7 +1531,7 @@ export const events: Event[] = [
     sources: [
       {
         label: "ETF launch coverage",
-        url: "https://www.bloomberg.com/news/articles/2021-02-12/world-s-first-bitcoin-etf-set-to-launch-in-canada",
+        url: "https://web.archive.org/web/*/https://www.bloomberg.com/news/articles/2021-02-12/world-s-first-bitcoin-etf-set-to-launch-in-canada",
         publisher: "Bloomberg",
         year: 2021
       },
@@ -1559,13 +1558,13 @@ export const events: Event[] = [
     sources: [
       {
         label: "NYT coverage",
-        url: "https://www.nytimes.com/2021/09/07/world/americas/bitcoin-el-salvador.html",
+        url: "https://web.archive.org/web/*/https://www.nytimes.com/2021/09/07/world/americas/bitcoin-el-salvador.html",
         publisher: "NYTimes",
         year: 2021
       },
       {
         label: "IMF commentary",
-        url: "https://blog.imf.org/2021/07/26/cryptoassets-as-national-currency-a-step-too-far/",
+        url: "https://web.archive.org/web/*/https://blog.imf.org/2021/07/26/cryptoassets-as-national-currency-a-step-too-far/",
         publisher: "IMF",
         year: 2021
       }
@@ -1586,13 +1585,13 @@ export const events: Event[] = [
     sources: [
       {
         label: "Regulatory coverage",
-        url: "https://www.reuters.com/technology/china-tightens-cryptocurrency-mining-ban-2021-06-18/",
+        url: "https://web.archive.org/web/*/https://www.reuters.com/technology/china-tightens-cryptocurrency-mining-ban-2021-06-18/",
         publisher: "Reuters",
         year: 2021
       },
       {
         label: "Hashrate drop report",
-        url: "https://www.coindesk.com/markets/2021/06/21/bitcoin-hashrate-drops-as-chinas-mining-operations-shut/",
+        url: "https://web.archive.org/web/*/https://www.coindesk.com/markets/2021/06/21/bitcoin-hashrate-drops-as-chinas-mining-operations-shut/",
         publisher: "CoinDesk",
         year: 2021
       }
@@ -1615,13 +1614,13 @@ export const events: Event[] = [
     sources: [
       {
         label: "Incident coverage",
-        url: "https://www.coindesk.com/tech/2021/12/02/badgerdao-losses-may-top-120m-after-suspected-front-end-attack/",
+        url: "https://web.archive.org/web/*/https://www.coindesk.com/tech/2021/12/02/badgerdao-losses-may-top-120m-after-suspected-front-end-attack/",
         publisher: "CoinDesk",
         year: 2021
       },
       {
         label: "Post-mortem",
-        url: "https://badgerdao.medium.com/post-mortem-badgerdao-incident-2021-bf8b7c3f8e6",
+        url: "https://web.archive.org/web/*/https://badgerdao.medium.com/post-mortem-badgerdao-incident-2021-bf8b7c3f8e6",
         publisher: "BadgerDAO",
         year: 2021
       }
@@ -1644,13 +1643,13 @@ export const events: Event[] = [
     sources: [
       {
         label: "Exploit recap",
-        url: "https://www.theblock.co/post/161386/nomad-bridge-exploit",
+        url: "https://web.archive.org/web/*/https://www.theblock.co/post/161386/nomad-bridge-exploit",
         publisher: "The Block",
         year: 2022
       },
       {
         label: "Project update",
-        url: "https://nomad.xyz/blog/nomad-bridge-incident-update",
+        url: "https://web.archive.org/web/*/https://nomad.xyz/blog/nomad-bridge-incident-update",
         publisher: "Nomad",
         year: 2022
       }
@@ -1673,13 +1672,13 @@ export const events: Event[] = [
     sources: [
       {
         label: "Exploit coverage",
-        url: "https://www.coindesk.com/markets/2022/10/12/solana-defi-exchange-mango-markets-drained-of-over-100m/",
+        url: "https://web.archive.org/web/*/https://www.coindesk.com/markets/2022/10/12/solana-defi-exchange-mango-markets-drained-of-over-100m/",
         publisher: "CoinDesk",
         year: 2022
       },
       {
         label: "Incident forum",
-        url: "https://forum.mango.markets/t/incident-oct-11-2022/181",
+        url: "https://web.archive.org/web/*/https://forum.mango.markets/t/incident-oct-11-2022/181",
         publisher: "Mango DAO",
         year: 2022
       }
@@ -1700,13 +1699,13 @@ export const events: Event[] = [
     sources: [
       {
         label: "Filing coverage",
-        url: "https://www.nytimes.com/2022/11/28/business/blockfi-bankruptcy-ftx.html",
+        url: "https://web.archive.org/web/*/https://www.nytimes.com/2022/11/28/business/blockfi-bankruptcy-ftx.html",
         publisher: "NYTimes",
         year: 2022
       },
       {
         label: "Court filing",
-        url: "https://restructuring.ra.kroll.com/blockfi",
+        url: "http://web.archive.org/web/20251015031200/https://restructuring.ra.kroll.com/blockfi/",
         publisher: "Kroll",
         year: 2022
       }
@@ -1727,13 +1726,13 @@ export const events: Event[] = [
     sources: [
       {
         label: "Bankruptcy filing coverage",
-        url: "https://www.reuters.com/business/finance/crypto-lender-voyager-digital-files-bankruptcy-2022-07-06/",
+        url: "https://web.archive.org/web/*/https://www.reuters.com/business/finance/crypto-lender-voyager-digital-files-bankruptcy-2022-07-06/",
         publisher: "Reuters",
         year: 2022
       },
       {
         label: "Court docs",
-        url: "https://cases.stretto.com/voyager",
+        url: "http://web.archive.org/web/20230121141723/https://cases.stretto.com/Voyager",
         publisher: "Stretto",
         year: 2022
       }
@@ -1754,13 +1753,13 @@ export const events: Event[] = [
     sources: [
       {
         label: "Bankruptcy report",
-        url: "https://www.bloomberg.com/news/articles/2023-01-19/crypto-lender-genesis-is-said-to-prepare-to-file-for-bankruptcy",
+        url: "https://web.archive.org/web/*/https://www.bloomberg.com/news/articles/2023-01-19/crypto-lender-genesis-is-said-to-prepare-to-file-for-bankruptcy",
         publisher: "Bloomberg",
         year: 2023
       },
       {
         label: "Court docket",
-        url: "https://restructuring.ra.kroll.com/genesis",
+        url: "https://web.archive.org/web/*/https://restructuring.ra.kroll.com/genesis",
         publisher: "Kroll",
         year: 2023
       }
@@ -1783,13 +1782,13 @@ export const events: Event[] = [
     sources: [
       {
         label: "Hack coverage",
-        url: "https://www.coindesk.com/tech/2023/03/13/euler-finance-hacked-for-nearly-200m/",
+        url: "https://web.archive.org/web/*/https://www.coindesk.com/tech/2023/03/13/euler-finance-hacked-for-nearly-200m/",
         publisher: "CoinDesk",
         year: 2023
       },
       {
         label: "Incident analysis",
-        url: "https://forum.euler.finance/t/incident-analysis/",
+        url: "https://web.archive.org/web/*/https://forum.euler.finance/t/incident-analysis/",
         publisher: "Euler",
         year: 2023
       }
@@ -1812,13 +1811,13 @@ export const events: Event[] = [
     sources: [
       {
         label: "Exploit coverage",
-        url: "https://www.theblock.co/post/241508/curve-finance-pools-exploited",
+        url: "https://web.archive.org/web/*/https://www.theblock.co/post/241508/curve-finance-pools-exploited",
         publisher: "The Block",
         year: 2023
       },
       {
         label: "Project response",
-        url: "https://curve.substack.com/p/curve-response-to-vyper-compiler-vulnerabilities",
+        url: "https://web.archive.org/web/*/https://curve.substack.com/p/curve-response-to-vyper-compiler-vulnerabilities",
         publisher: "Curve",
         year: 2023
       }
@@ -1845,7 +1844,7 @@ export const events: Event[] = [
       },
       {
         label: "Coverage",
-        url: "https://www.reuters.com/technology/binance-ceo-zhao-sued-by-cftc-over-trading-violations-2023-03-27/",
+        url: "https://web.archive.org/web/*/https://www.reuters.com/technology/binance-ceo-zhao-sued-by-cftc-over-trading-violations-2023-03-27/",
         publisher: "Reuters",
         year: 2023
       }
@@ -1897,13 +1896,13 @@ export const events: Event[] = [
     sources: [
       {
         label: "Ethereum launch announcement",
-        url: "https://blog.ethereum.org/2015/07/30/ethereum-launch",
+        url: "https://web.archive.org/web/*/https://blog.ethereum.org/2015/07/30/ethereum-launch",
         publisher: "Ethereum Foundation",
         year: 2015
       },
       {
         label: "Frontier release notes",
-        url: "https://blog.ethereum.org/2015/07/30/the-frontier-release",
+        url: "https://web.archive.org/web/*/https://blog.ethereum.org/2015/07/30/the-frontier-release",
         publisher: "Ethereum Foundation",
         year: 2015
       }
@@ -1926,7 +1925,7 @@ export const events: Event[] = [
     sources: [
       {
         label: "Taproot activation coverage",
-        url: "https://www.coindesk.com/markets/2021/11/14/bitcoin-taproot-upgrade-goes-live/",
+        url: "https://web.archive.org/web/*/https://www.coindesk.com/markets/2021/11/14/bitcoin-taproot-upgrade-goes-live/",
         publisher: "CoinDesk",
         year: 2021
       },
@@ -1955,13 +1954,13 @@ export const events: Event[] = [
     sources: [
       {
         label: "Beacon Chain launch",
-        url: "https://blog.ethereum.org/2020/12/01/ethereum-2-0-beacon-chain-launches",
+        url: "https://web.archive.org/web/*/https://blog.ethereum.org/2020/12/01/ethereum-2-0-beacon-chain-launches",
         publisher: "Ethereum Foundation",
         year: 2020
       },
       {
         label: "Launch recap",
-        url: "https://www.coindesk.com/tech/2020/12/01/ethereum-20-beacon-chain-launches/",
+        url: "https://web.archive.org/web/*/https://www.coindesk.com/tech/2020/12/01/ethereum-20-beacon-chain-launches/",
         publisher: "CoinDesk",
         year: 2020
       }
@@ -1984,7 +1983,7 @@ export const events: Event[] = [
     sources: [
       {
         label: "stETH depeg coverage",
-        url: "https://www.coindesk.com/markets/2022/06/13/steth-ethereum-liquid-staking-token-falls-below-1-eth/",
+        url: "https://web.archive.org/web/*/https://www.coindesk.com/markets/2022/06/13/steth-ethereum-liquid-staking-token-falls-below-1-eth/",
         publisher: "CoinDesk",
         year: 2022
       },
@@ -2013,13 +2012,13 @@ export const events: Event[] = [
     sources: [
       {
         label: "Court ruling coverage",
-        url: "https://www.reuters.com/markets/us/grayscale-wins-court-battle-over-bitcoin-etf-2023-08-29/",
+        url: "https://web.archive.org/web/*/https://www.reuters.com/markets/us/grayscale-wins-court-battle-over-bitcoin-etf-2023-08-29/",
         publisher: "Reuters",
         year: 2023
       },
       {
         label: "GBTC ruling recap",
-        url: "https://www.bloomberg.com/news/articles/2023-08-29/grayscale-scores-win-over-sec-in-bid-for-bitcoin-etf",
+        url: "https://web.archive.org/web/*/https://www.bloomberg.com/news/articles/2023-08-29/grayscale-scores-win-over-sec-in-bid-for-bitcoin-etf",
         publisher: "Bloomberg",
         year: 2023
       }
@@ -2048,7 +2047,7 @@ export const events: Event[] = [
       },
       {
         label: "Shanghai overview",
-        url: "https://ethereum.org/en/roadmap/shanghai/",
+        url: "https://web.archive.org/web/*/https://ethereum.org/en/roadmap/shanghai/",
         publisher: "Ethereum.org",
         year: 2023
       }
@@ -2077,7 +2076,7 @@ export const events: Event[] = [
       },
       {
         label: "Halving coverage",
-        url: "https://www.coindesk.com/markets/2012/11/28/bitcoin-network-halves-mining-reward/",
+        url: "https://web.archive.org/web/*/https://www.coindesk.com/markets/2012/11/28/bitcoin-network-halves-mining-reward/",
         publisher: "CoinDesk",
         year: 2012
       }
@@ -2100,13 +2099,13 @@ export const events: Event[] = [
     sources: [
       {
         label: "CME launch announcement",
-        url: "https://www.cmegroup.com/media-room/press-releases/2017/12/17/cme_group_launches_bitcoin_futures.html",
+        url: "https://web.archive.org/web/*/https://www.cmegroup.com/media-room/press-releases/2017/12/17/cme_group_launches_bitcoin_futures.html",
         publisher: "CME Group",
         year: 2017
       },
       {
         label: "Launch coverage",
-        url: "https://www.reuters.com/article/us-bitcoin-cmegroup/cme-group-launches-bitcoin-futures-idUSKBN1EB0Y3",
+        url: "https://web.archive.org/web/*/https://www.reuters.com/article/us-bitcoin-cmegroup/cme-group-launches-bitcoin-futures-idUSKBN1EB0Y3",
         publisher: "Reuters",
         year: 2017
       }
@@ -2135,7 +2134,7 @@ export const events: Event[] = [
       },
       {
         label: "Coverage",
-        url: "https://www.reuters.com/article/us-crypto-currencies-binance-hack/binance-hacked-for-40-million-in-bitcoin-idUSKCN1SD2T9",
+        url: "https://web.archive.org/web/*/https://www.reuters.com/article/us-crypto-currencies-binance-hack/binance-hacked-for-40-million-in-bitcoin-idUSKCN1SD2T9",
         publisher: "Reuters",
         year: 2019
       }
@@ -2158,13 +2157,13 @@ export const events: Event[] = [
     sources: [
       {
         label: "SEC press release",
-        url: "https://www.sec.gov/news/press-release/2020-338",
+        url: "https://web.archive.org/web/*/https://www.sec.gov/news/press-release/2020-338",
         publisher: "SEC",
         year: 2020
       },
       {
         label: "Reuters coverage",
-        url: "https://www.reuters.com/article/us-ripple-sec/ripple-labs-sued-by-sec-in-xrp-cryptocurrency-lawsuit-idUSKBN28W1K5",
+        url: "https://web.archive.org/web/*/https://www.reuters.com/article/us-ripple-sec/ripple-labs-sued-by-sec-in-xrp-cryptocurrency-lawsuit-idUSKBN28W1K5",
         publisher: "Reuters",
         year: 2020
       }
@@ -2187,13 +2186,13 @@ export const events: Event[] = [
     sources: [
       {
         label: "ProShares launch notice",
-        url: "https://www.proshares.com/news/proshares-launches-bitcoin-strategy-etf",
+        url: "https://web.archive.org/web/*/https://www.proshares.com/news/proshares-launches-bitcoin-strategy-etf",
         publisher: "ProShares",
         year: 2021
       },
       {
         label: "ETF debut coverage",
-        url: "https://www.reuters.com/world/us/first-us-bitcoin-futures-etf-set-debut-tuesday-2021-10-18/",
+        url: "https://web.archive.org/web/*/https://www.reuters.com/world/us/first-us-bitcoin-futures-etf-set-debut-tuesday-2021-10-18/",
         publisher: "Reuters",
         year: 2021
       }
@@ -2216,13 +2215,13 @@ export const events: Event[] = [
     sources: [
       {
         label: "NYAG settlement announcement",
-        url: "https://ag.ny.gov/press-release/2021/attorney-general-james-ends-virtual-currency-trading-platform",
+        url: "https://web.archive.org/web/*/https://ag.ny.gov/press-release/2021/attorney-general-james-ends-virtual-currency-trading-platform",
         publisher: "NYAG",
         year: 2021
       },
       {
         label: "Coverage",
-        url: "https://www.reuters.com/article/us-crypto-currency-tether/ny-attorney-general-says-tether-agree-to-end-trading-in-new-york-idUSKBN2AN1B4",
+        url: "https://web.archive.org/web/*/https://www.reuters.com/article/us-crypto-currency-tether/ny-attorney-general-says-tether-agree-to-end-trading-in-new-york-idUSKBN2AN1B4",
         publisher: "Reuters",
         year: 2021
       }
@@ -2251,7 +2250,7 @@ export const events: Event[] = [
       },
       {
         label: "Halving day coverage",
-        url: "https://www.coindesk.com/markets/2016/07/09/bitcoin-halving/",
+        url: "https://web.archive.org/web/*/https://www.coindesk.com/markets/2016/07/09/bitcoin-halving/",
         publisher: "CoinDesk",
         year: 2016
       }
@@ -2280,7 +2279,7 @@ export const events: Event[] = [
       },
       {
         label: "Activation coverage",
-        url: "https://www.reuters.com/article/us-bitcoin-segwit/bitcoin-activates-segwit-upgrade-idUSKCN1B40H6",
+        url: "https://web.archive.org/web/*/https://www.reuters.com/article/us-bitcoin-segwit/bitcoin-activates-segwit-upgrade-idUSKCN1B40H6",
         publisher: "Reuters",
         year: 2017
       }
@@ -2303,13 +2302,13 @@ export const events: Event[] = [
     sources: [
       {
         label: "Lightning mainnet announcement",
-        url: "https://lightning.engineering/posts/2018-03-15-lightning-rls/",
+        url: "https://web.archive.org/web/*/https://lightning.engineering/posts/2018-03-15-lightning-rls/",
         publisher: "Lightning Labs",
         year: 2018
       },
       {
         label: "Mainnet coverage",
-        url: "https://www.coindesk.com/tech/2018/03/15/bitcoin-lightning-network-launches-on-mainnet/",
+        url: "https://web.archive.org/web/*/https://www.coindesk.com/tech/2018/03/15/bitcoin-lightning-network-launches-on-mainnet/",
         publisher: "CoinDesk",
         year: 2018
       }

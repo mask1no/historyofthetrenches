@@ -9,6 +9,27 @@ export const metadata: Metadata = {
   description: "A playful Web3 diary around the $HOT memecoin, with a simple monthly buy ritual.",
   alternates: {
     canonical: "https://www.historyofthetrenches.xyz/hot"
+  },
+  openGraph: {
+    title: "$HOT | History of the Trenches",
+    description: "A playful Web3 diary around the $HOT memecoin, with a simple monthly buy ritual.",
+    url: "https://www.historyofthetrenches.xyz/hot",
+    siteName: "History of the Trenches",
+    type: "website",
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: "History of the Trenches"
+      }
+    ]
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "$HOT | History of the Trenches",
+    description: "A playful Web3 diary around the $HOT memecoin, with a simple monthly buy ritual.",
+    images: ["/og.png"]
   }
 };
 
