@@ -87,7 +87,6 @@ export default function CommunityPage() {
                   <tr>
                     <th className="pb-2">Platform</th>
                     <th className="pb-2">Best For</th>
-                    <th className="pb-2">Cypherpunk Note</th>
                   </tr>
                 </thead>
                 <tbody className="text-muted">
@@ -98,7 +97,6 @@ export default function CommunityPage() {
                       </a>
                     </td>
                     <td className="py-3">Low fees, advanced trading</td>
-                    <td className="py-3">Oldest US exchange, fully KYC.</td>
                   </tr>
                   <tr className="border-t border-border/70">
                     <td className="py-3 font-semibold text-fg">
@@ -107,7 +105,6 @@ export default function CommunityPage() {
                       </a>
                     </td>
                     <td className="py-3">Beginner on‑ramp</td>
-                    <td className="py-3">Use for fiat only, withdraw immediately.</td>
                   </tr>
                   <tr className="border-t border-border/70">
                     <td className="py-3 font-semibold text-fg">
@@ -116,7 +113,6 @@ export default function CommunityPage() {
                       </a>
                     </td>
                     <td className="py-3">Wide alt selection</td>
-                    <td className="py-3">Bridge, not storage.</td>
                   </tr>
                   <tr className="border-t border-border/70">
                     <td className="py-3 font-semibold text-fg">
@@ -125,7 +121,6 @@ export default function CommunityPage() {
                       </a>
                     </td>
                     <td className="py-3">Liquidity</td>
-                    <td className="py-3">Convert and exit quickly.</td>
                   </tr>
                   <tr className="border-t border-border/70">
                     <td className="py-3 font-semibold text-fg">
@@ -134,7 +129,6 @@ export default function CommunityPage() {
                       </a>
                     </td>
                     <td className="py-3">Compliance focused</td>
-                    <td className="py-3">KYC‑bound, treat as a tool.</td>
                   </tr>
                 </tbody>
               </table>
@@ -278,9 +272,9 @@ export default function CommunityPage() {
 
           <Card>
             <CardHeader>
-              <CardTitle>Privacy Mobility Stack (2026)</CardTitle>
+              <CardTitle>Operational Privacy Stack</CardTitle>
               <p className="text-sm text-muted">
-                Practical privacy tools beyond mixers—cross-chain, P2P, and operationally sane.
+                Practical privacy tooling beyond mixers—cross‑chain, P2P, and operationally sane.
               </p>
             </CardHeader>
             <CardContent className="space-y-4">
@@ -291,15 +285,33 @@ export default function CommunityPage() {
                       <th className="pb-2">Tool Category</th>
                       <th className="pb-2">Specific Tool(s)</th>
                       <th className="pb-2">Primary Function &amp; Key Features</th>
-                      <th className="pb-2">Key Considerations &amp; Cypherpunk View</th>
+                      <th className="pb-2">Operational Notes</th>
                     </tr>
                   </thead>
                   <tbody className="text-muted">
                     <tr className="border-t border-border/70">
                       <td className="py-3 font-semibold text-fg">Privacy DEX Aggregators</td>
-                      <td className="py-3">SilentSwap, 1inch</td>
                       <td className="py-3">
-                        SilentSwap (Secret): privacy-first routing with a toggle. 1inch: best‑price
+                        <a
+                          href="https://silentswap.com"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-fg underline"
+                        >
+                          SilentSwap
+                        </a>
+                        ,{" "}
+                        <a
+                          href="https://1inch.io"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-fg underline"
+                        >
+                          1inch
+                        </a>
+                      </td>
+                      <td className="py-3">
+                        SilentSwap (Secret): privacy‑first routing with a toggle. 1inch: best‑price
                         routing, no KYC.
                       </td>
                       <td className="py-3">
@@ -309,7 +321,34 @@ export default function CommunityPage() {
                     </tr>
                     <tr className="border-t border-border/70">
                       <td className="py-3 font-semibold text-fg">Non‑Custodial Swap Services</td>
-                      <td className="py-3">StealthEX, ChangeNOW, SimpleSwap</td>
+                      <td className="py-3">
+                        <a
+                          href="https://stealthex.io"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-fg underline"
+                        >
+                          StealthEX
+                        </a>
+                        ,{" "}
+                        <a
+                          href="https://changenow.io"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-fg underline"
+                        >
+                          ChangeNOW
+                        </a>
+                        ,{" "}
+                        <a
+                          href="https://simpleswap.io"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-fg underline"
+                        >
+                          SimpleSwap
+                        </a>
+                      </td>
                       <td className="py-3">
                         Instant, account‑free swaps. Non‑custodial UX, fast routing.
                       </td>
@@ -319,7 +358,25 @@ export default function CommunityPage() {
                     </tr>
                     <tr className="border-t border-border/70">
                       <td className="py-3 font-semibold text-fg">Decentralized P2P Exchanges</td>
-                      <td className="py-3">Bisq, Hodl Hodl</td>
+                      <td className="py-3">
+                        <a
+                          href="https://bisq.network"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-fg underline"
+                        >
+                          Bisq
+                        </a>
+                        ,{" "}
+                        <a
+                          href="https://hodlhodl.com"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-fg underline"
+                        >
+                          Hodl Hodl
+                        </a>
+                      </td>
                       <td className="py-3">
                         Bisq: fully decentralized, Tor, no KYC. Hodl Hodl: multisig escrow, no custody.
                       </td>
@@ -330,7 +387,16 @@ export default function CommunityPage() {
                     </tr>
                     <tr className="border-t border-border/70">
                       <td className="py-3 font-semibold text-fg">Lightning‑First P2P</td>
-                      <td className="py-3">RoboSats</td>
+                      <td className="py-3">
+                        <a
+                          href="https://robosats.com"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-fg underline"
+                        >
+                          RoboSats
+                        </a>
+                      </td>
                       <td className="py-3">
                         Lightning‑native P2P with random robot aliases; no accounts or KYC.
                       </td>
@@ -340,7 +406,16 @@ export default function CommunityPage() {
                     </tr>
                     <tr className="border-t border-border/70">
                       <td className="py-3 font-semibold text-fg">Social/Personal Network P2P</td>
-                      <td className="py-3">Vexl</td>
+                      <td className="py-3">
+                        <a
+                          href="https://vexl.it"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-fg underline"
+                        >
+                          Vexl
+                        </a>
+                      </td>
                       <td className="py-3">
                         Trade with trusted contacts via web‑of‑trust. No custody, no KYC.
                       </td>
@@ -405,11 +480,26 @@ export default function CommunityPage() {
               </div>
               <div className="rounded-lg border border-border bg-bg/60 p-3">
                 <div className="font-semibold text-fg">Hardware</div>
-                <p className="text-xs">Raspberry Pi 5, Intel NUC, or spare laptop.</p>
+                <p className="text-xs">
+                  <a href="https://www.raspberrypi.com/products/raspberry-pi-5/" target="_blank" rel="noopener noreferrer">
+                    Raspberry Pi 5
+                  </a>
+                  ,{" "}
+                  <a href="https://www.intel.com/content/www/us/en/products/details/nuc.html" target="_blank" rel="noopener noreferrer">
+                    Intel NUC
+                  </a>
+                  , or spare laptop.
+                </p>
               </div>
               <div className="rounded-lg border border-border bg-bg/60 p-3">
                 <div className="font-semibold text-fg">Self‑hosted</div>
-                <p className="text-xs">Run RPCs to reduce dependency on centralized gateways.</p>
+                <p className="text-xs">
+                  Run RPCs to reduce dependency on centralized gateways with{" "}
+                  <a href="https://start9.com" target="_blank" rel="noopener noreferrer">
+                    Start9
+                  </a>
+                  .
+                </p>
               </div>
             </CardContent>
           </Card>

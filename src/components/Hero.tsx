@@ -4,8 +4,14 @@ import { Button } from "@/components/ui/button";
 import { events } from "@/data/events";
 
 export function Hero() {
-  const hallOfFameCount = events.filter((e) => e.hallOfFame).length;
+  const totalEvents = events.length;
+  const hallOfFameRugs = events.filter((e) => e.hallOfFame && e.type === "rugpull").length;
+  const hallOfFameRunners = events.filter((e) => e.hallOfFame && e.type === "runner").length;
   const chainCount = new Set(events.map((e) => e.chain)).size;
+  const latestEventDate = events.reduce(
+    (latest, event) => (event.date > latest ? event.date : latest),
+    "0000-00-00"
+  );
 
   return (
     <section className="mx-auto flex max-w-6xl flex-col gap-8 px-6 pb-12 pt-10 md:flex-row md:items-start md:gap-12">
@@ -43,11 +49,6 @@ export function Hero() {
               <Play className="h-4 w-4" />
             </Button>
           </Link>
-          <Link href="/community">
-            <Button size="lg" variant="ghost">
-              Community
-            </Button>
-          </Link>
         </div>
       </div>
       <div className="w-full max-w-sm rounded-2xl border border-border bg-card p-6 shadow-subtle">
@@ -57,17 +58,24 @@ export function Hero() {
         <div className="space-y-3">
           <div className="flex items-center justify-between rounded-xl border border-border bg-bg px-3 py-3">
             <div className="space-y-1">
-              <div className="text-sm font-semibold">Hall of Fame</div>
-              <div className="text-xs text-muted">Rugs & runners we never forget.</div>
+              <div className="text-sm font-semibold">Events tracked</div>
+              <div className="text-xs text-muted">Total entries in the archive.</div>
             </div>
-            <span className="text-lg font-semibold text-accentGold">{hallOfFameCount}</span>
+            <span className="text-lg font-semibold text-accentGold">{totalEvents}</span>
           </div>
           <div className="flex items-center justify-between rounded-xl border border-border bg-bg px-3 py-3">
             <div className="space-y-1">
-              <div className="text-sm font-semibold">Verified sources</div>
-              <div className="text-xs text-muted">Every entry cites its receipts.</div>
+              <div className="text-sm font-semibold">Hall of Fame rugs</div>
+              <div className="text-xs text-muted">Hard lessons, never forgotten.</div>
             </div>
-            <span className="text-lg font-semibold text-accentGreen">2+</span>
+            <span className="text-lg font-semibold text-accentRed">{hallOfFameRugs}</span>
+          </div>
+          <div className="flex items-center justify-between rounded-xl border border-border bg-bg px-3 py-3">
+            <div className="space-y-1">
+              <div className="text-sm font-semibold">Hall of Fame runners</div>
+              <div className="text-xs text-muted">Community-powered runs.</div>
+            </div>
+            <span className="text-lg font-semibold text-accentGreen">{hallOfFameRunners}</span>
           </div>
           <div className="flex items-center justify-between rounded-xl border border-border bg-bg px-3 py-3">
             <div className="space-y-1">
@@ -75,6 +83,13 @@ export function Hero() {
               <div className="text-xs text-muted">Cross-ecosystem view, one archive.</div>
             </div>
             <span className="text-lg font-semibold text-fg">{chainCount}</span>
+          </div>
+          <div className="flex items-center justify-between rounded-xl border border-border bg-bg px-3 py-3">
+            <div className="space-y-1">
+              <div className="text-sm font-semibold">Latest entry</div>
+              <div className="text-xs text-muted">Most recent archive date.</div>
+            </div>
+            <span className="text-sm font-semibold text-fg">{latestEventDate}</span>
           </div>
         </div>
       </div>

@@ -88,21 +88,21 @@ export function BentoGrid() {
             <Link
               key={event.slug}
               href={`/event/${event.slug}`}
-              className="flex h-full items-center justify-between rounded-lg border border-accentRed/30 bg-accentRed/5 px-4 py-3 transition duration-500 ease-out hover:border-accentRed/60 hover:bg-accentRed/10"
+              className="flex h-full items-center justify-between gap-3 rounded-lg border border-accentRed/30 bg-accentRed/5 px-4 py-3 transition duration-500 ease-out hover:border-accentRed/60 hover:bg-accentRed/10"
             >
-              <div>
-                <div className="flex items-center gap-2 text-sm font-semibold">
-                  <span className="line-clamp-1">{event.title}</span>
+              <div className="min-w-0">
+                <div className="text-sm font-semibold line-clamp-2">{event.title}</div>
+                <div className="mt-1 flex flex-wrap items-center gap-2 text-xs text-muted">
                   <Badge variant="gold" className="text-[10px]">
                     Hall of Fame
                   </Badge>
-                </div>
-                <div className="text-xs text-muted line-clamp-1">
-                  {event.chain} • {event.date} • {event.status}
+                  <span className="line-clamp-1">
+                    {event.chain} • {event.date}
+                  </span>
                 </div>
               </div>
-              <div className="flex items-center gap-2 text-xs text-muted font-medium text-accentRed">
-                {event.outcome ?? "—"}
+              <div className="text-right text-xs font-semibold text-accentRed">
+                {event.peakMetric ?? "—"}
               </div>
             </Link>
           ))}
@@ -124,20 +124,20 @@ export function BentoGrid() {
             <Link
               key={event.slug}
               href={`/event/${event.slug}`}
-              className="flex h-full items-center justify-between rounded-lg border border-accentGreen/30 bg-accentGreen/5 px-4 py-3 transition duration-500 ease-out hover:border-accentGreen/60 hover:bg-accentGreen/10"
+              className="flex h-full items-center justify-between gap-3 rounded-lg border border-accentGreen/30 bg-accentGreen/5 px-4 py-3 transition duration-500 ease-out hover:border-accentGreen/60 hover:bg-accentGreen/10"
             >
-              <div>
-                <div className="flex items-center gap-2 text-sm font-semibold">
-                  <span className="line-clamp-1">{event.title}</span>
+              <div className="min-w-0">
+                <div className="text-sm font-semibold line-clamp-2">{event.title}</div>
+                <div className="mt-1 flex flex-wrap items-center gap-2 text-xs text-muted">
                   <Badge variant="gold" className="text-[10px]">
                     Hall of Fame
                   </Badge>
-                </div>
-                <div className="text-xs text-muted line-clamp-1">
-                  {event.chain} • {event.date} • {event.status}
+                  <span className="line-clamp-1">
+                    {event.chain} • {event.date}
+                  </span>
                 </div>
               </div>
-              <div className="flex items-center gap-2 text-xs text-muted font-medium text-accentGreen">
+              <div className="text-right text-xs font-semibold text-accentGreen">
                 {event.peakMetric ?? "—"}
               </div>
             </Link>
@@ -180,6 +180,7 @@ export function BentoGrid() {
               className="hidden h-10 w-10 border border-border bg-card shadow-subtle hover:border-accentGold md:inline-flex z-10"
               onClick={() => scrollToEra(clampedIndex - 1)}
               aria-label="Previous era"
+              disabled={clampedIndex === 0}
             >
               <ArrowLeft className="h-4 w-4" />
             </Button>
@@ -197,9 +198,9 @@ export function BentoGrid() {
                 {eras.map((era) => (
                   <div
                     key={era.id}
-                    className="flex-none snap-start basis-[78%] sm:basis-[52%] md:basis-[38%] lg:basis-[30%] xl:basis-[24%] max-w-[320px]"
+                    className="flex-none snap-start basis-[70%] sm:basis-[48%] md:basis-[34%] lg:basis-[28%] xl:basis-[22%] max-w-[300px]"
                   >
-                    <div className="flex h-full min-h-[260px] flex-col rounded-2xl border border-border/80 bg-gradient-to-br from-card via-bg to-card/90 p-5 shadow-subtle aspect-[3/4]">
+                    <div className="flex h-full min-h-[220px] flex-col rounded-2xl border border-border/80 bg-gradient-to-br from-card via-bg to-card/90 p-5 shadow-subtle aspect-[4/5]">
                       <div className="text-xs font-semibold uppercase text-muted">{era.range}</div>
                       <div className="text-base font-semibold line-clamp-2">{era.title}</div>
                       <p className="mt-3 text-sm text-muted line-clamp-4">{era.description}</p>
@@ -214,6 +215,7 @@ export function BentoGrid() {
               className="hidden h-10 w-10 border border-border bg-card shadow-subtle hover:border-accentGold md:inline-flex z-10"
               onClick={() => scrollToEra(clampedIndex + 1)}
               aria-label="Next era"
+              disabled={clampedIndex === eras.length - 1}
             >
               <ArrowRight className="h-4 w-4" />
             </Button>
