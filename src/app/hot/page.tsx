@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { NavBar } from "@/components/NavBar";
 import { Footer } from "@/components/Footer";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { events } from "@/data/events";
 
 export const metadata: Metadata = {
   title: "$HOT | History of the Trenches",
@@ -34,6 +36,10 @@ export const metadata: Metadata = {
 };
 
 export default function HotPage() {
+  const featuredEvents = [...events]
+    .sort((a, b) => b.date.localeCompare(a.date))
+    .slice(0, 3);
+
   return (
     <main id="main-content" className="min-h-screen pb-16">
       <NavBar />
@@ -120,6 +126,37 @@ export default function HotPage() {
               </div>
             </CardContent>
           </Card>
+        </div>
+
+        <div className="mt-8 rounded-2xl border border-border bg-card p-6">
+          <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted">
+            Explore the archive
+          </div>
+          <p className="mt-2 text-sm text-muted">
+            Jump into the archive or read recent entries to track the broader story.
+          </p>
+          <div className="mt-4 flex flex-wrap gap-3">
+            <Link href="/archive" className="text-sm text-accentGold underline">
+              View the archive
+            </Link>
+            <Link href="/timeline" className="text-sm text-accentGold underline">
+              Explore the timeline
+            </Link>
+          </div>
+          <div className="mt-4 grid gap-3 md:grid-cols-3">
+            {featuredEvents.map((event) => (
+              <Link
+                key={event.slug}
+                href={`/event/${event.slug}`}
+                className="rounded-xl border border-border bg-bg/70 px-4 py-3 text-sm transition hover:border-accentGold"
+              >
+                <div className="font-semibold">{event.title}</div>
+                <div className="text-xs text-muted">
+                  {event.chain} • {event.date}
+                </div>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
       <Footer />

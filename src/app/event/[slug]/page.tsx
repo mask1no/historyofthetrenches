@@ -121,6 +121,14 @@ export default function EventPage({ params }: EventPageProps) {
     )
     .slice(0, 4);
 
+  const sortedByDate = [...events].sort((a, b) => a.date.localeCompare(b.date));
+  const currentIndex = sortedByDate.findIndex((e) => e.slug === event!.slug);
+  const previousEvent = currentIndex > 0 ? sortedByDate[currentIndex - 1] : undefined;
+  const nextEvent =
+    currentIndex >= 0 && currentIndex < sortedByDate.length - 1
+      ? sortedByDate[currentIndex + 1]
+      : undefined;
+
   return (
     <main id="main-content" className="min-h-screen pb-16">
       <Script
@@ -299,6 +307,44 @@ export default function EventPage({ params }: EventPageProps) {
             )}
           </div>
         </div>
+
+        {(previousEvent || nextEvent) && (
+          <div className="mt-8">
+            <h2 className="text-xl font-semibold" style={{ fontFamily: "var(--font-playfair)" }}>
+              Continue the timeline
+            </h2>
+            <div className="mt-4 grid grid-cols-1 gap-3 md:grid-cols-2">
+              {previousEvent && (
+                <Link
+                  href={`/event/${previousEvent.slug}`}
+                  className="flex items-center justify-between rounded-xl border border-border bg-card px-4 py-3 shadow-sm transition hover:border-accentGold"
+                >
+                  <div>
+                    <div className="text-xs uppercase text-muted">Previous</div>
+                    <div className="text-sm font-semibold">{previousEvent.title}</div>
+                    <div className="text-xs text-muted">
+                      {previousEvent.chain} • {previousEvent.date}
+                    </div>
+                  </div>
+                  <Badge variant="muted">{previousEvent.year}</Badge>
+                </Link>
+              )}
+              {nextEvent && (
+                <Link
+                  href={`/event/${nextEvent.slug}`}
+                  className="flex items-center justify-between rounded-xl border border-border bg-card px-4 py-3 shadow-sm transition hover:border-accentGold"
+                >
+                  <div>
+                    <div className="text-xs uppercase text-muted">Next</div>
+                    <div className="text-sm font-semibold">{nextEvent.title}</div>
+                    <div className="text-xs text-muted">{nextEvent.chain} • {nextEvent.date}</div>
+                  </div>
+                  <Badge variant="muted">{nextEvent.year}</Badge>
+                </Link>
+              )}
+            </div>
+          </div>
+        )}
       </section>
     </main>
   );
