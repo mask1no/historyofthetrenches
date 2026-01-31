@@ -73,7 +73,7 @@ export function BentoGrid() {
 
   return (
     <section className="mx-auto grid max-w-6xl grid-cols-1 gap-6 px-6 pb-12 md:grid-cols-12">
-      <Card className="md:col-span-6 border-l-4 border-l-accentRed bg-card/95 transition duration-500 ease-out hover:-translate-y-0.5 hover:shadow-[0_18px_42px_rgba(196,77,77,0.12)]">
+      <Card className="md:col-span-6 flex h-full flex-col border-l-4 border-l-accentRed bg-card/95 transition duration-500 ease-out hover:-translate-y-0.5 hover:shadow-[0_18px_42px_rgba(196,77,77,0.12)]">
         <CardHeader className="flex flex-row items-center justify-between">
           <div className="space-y-1">
             <CardTitle className="flex items-center gap-2 text-xl">
@@ -83,21 +83,21 @@ export function BentoGrid() {
           </div>
           <Badge variant="red">Rugs</Badge>
         </CardHeader>
-        <CardContent className="space-y-3">
+        <CardContent className="grid flex-1 auto-rows-[minmax(72px,1fr)] gap-3">
           {rugs.map((event) => (
             <Link
               key={event.slug}
               href={`/event/${event.slug}`}
-              className="flex items-center justify-between rounded-lg border border-accentRed/30 bg-accentRed/5 px-4 py-3 transition duration-500 ease-out hover:border-accentRed/60 hover:bg-accentRed/10"
+              className="flex h-full items-center justify-between rounded-lg border border-accentRed/30 bg-accentRed/5 px-4 py-3 transition duration-500 ease-out hover:border-accentRed/60 hover:bg-accentRed/10"
             >
               <div>
                 <div className="flex items-center gap-2 text-sm font-semibold">
-                  <span>{event.title}</span>
+                  <span className="line-clamp-1">{event.title}</span>
                   <Badge variant="gold" className="text-[10px]">
                     Hall of Fame
                   </Badge>
                 </div>
-                <div className="text-xs text-muted">
+                <div className="text-xs text-muted line-clamp-1">
                   {event.chain} • {event.date} • {event.status}
                 </div>
               </div>
@@ -109,7 +109,7 @@ export function BentoGrid() {
         </CardContent>
       </Card>
 
-      <Card className="md:col-span-6 border-l-4 border-l-accentGreen bg-card/95 transition duration-500 ease-out hover:-translate-y-0.5 hover:shadow-[0_18px_42px_rgba(47,158,111,0.12)]">
+      <Card className="md:col-span-6 flex h-full flex-col border-l-4 border-l-accentGreen bg-card/95 transition duration-500 ease-out hover:-translate-y-0.5 hover:shadow-[0_18px_42px_rgba(47,158,111,0.12)]">
         <CardHeader className="flex flex-row items-center justify-between">
           <div className="space-y-1">
             <CardTitle className="flex items-center gap-2 text-xl">
@@ -119,21 +119,21 @@ export function BentoGrid() {
           </div>
           <Badge variant="green">Runners</Badge>
         </CardHeader>
-        <CardContent className="space-y-3">
+        <CardContent className="grid flex-1 auto-rows-[minmax(72px,1fr)] gap-3">
           {runners.map((event) => (
             <Link
               key={event.slug}
               href={`/event/${event.slug}`}
-              className="flex items-center justify-between rounded-lg border border-accentGreen/30 bg-accentGreen/5 px-4 py-3 transition duration-500 ease-out hover:border-accentGreen/60 hover:bg-accentGreen/10"
+              className="flex h-full items-center justify-between rounded-lg border border-accentGreen/30 bg-accentGreen/5 px-4 py-3 transition duration-500 ease-out hover:border-accentGreen/60 hover:bg-accentGreen/10"
             >
               <div>
                 <div className="flex items-center gap-2 text-sm font-semibold">
-                  <span>{event.title}</span>
+                  <span className="line-clamp-1">{event.title}</span>
                   <Badge variant="gold" className="text-[10px]">
                     Hall of Fame
                   </Badge>
                 </div>
-                <div className="text-xs text-muted">
+                <div className="text-xs text-muted line-clamp-1">
                   {event.chain} • {event.date} • {event.status}
                 </div>
               </div>
@@ -171,13 +171,13 @@ export function BentoGrid() {
               ))}
             </div>
           </div>
-          <div className="pointer-events-none absolute inset-y-0 left-0 hidden w-12 bg-gradient-to-r from-card to-transparent sm:block" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-12 bg-gradient-to-l from-card to-transparent sm:block" />
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-8 bg-gradient-to-r from-card to-transparent sm:w-10 md:w-12" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-8 bg-gradient-to-l from-card to-transparent sm:w-10 md:w-12" />
           <div className="relative flex items-center gap-3">
             <Button
               variant="ghost"
               size="icon"
-              className="hidden h-10 w-10 border border-border bg-card shadow-subtle hover:border-accentGold sm:inline-flex z-10"
+              className="hidden h-10 w-10 border border-border bg-card shadow-subtle hover:border-accentGold md:inline-flex z-10"
               onClick={() => scrollToEra(clampedIndex - 1)}
               aria-label="Previous era"
             >
@@ -186,7 +186,7 @@ export function BentoGrid() {
             <div className="relative flex-1">
               <div
                 ref={scrollRef}
-                className={`flex gap-4 overflow-x-auto pb-4 pr-2 scroll-smooth snap-x snap-mandatory sm:snap-proximity overscroll-x-contain ${
+                className={`flex gap-4 overflow-x-auto pb-4 pr-2 scroll-smooth snap-x snap-mandatory overscroll-x-contain ${
                   isDragging ? "cursor-grabbing select-none" : "cursor-grab"
                 }`}
                 onMouseDown={handleDragStart}
@@ -197,12 +197,12 @@ export function BentoGrid() {
                 {eras.map((era) => (
                   <div
                     key={era.id}
-                    className="flex-none snap-start basis-[82%] sm:basis-[65%] md:basis-[45%] lg:basis-[32%] xl:basis-[26%] max-w-[360px]"
+                    className="flex-none snap-start basis-[78%] sm:basis-[52%] md:basis-[38%] lg:basis-[30%] xl:basis-[24%] max-w-[320px]"
                   >
-                    <div className="flex h-full min-h-[220px] flex-col rounded-2xl border border-border/80 bg-gradient-to-br from-card via-bg to-card/90 p-5 shadow-subtle aspect-[4/3]">
+                    <div className="flex h-full min-h-[260px] flex-col rounded-2xl border border-border/80 bg-gradient-to-br from-card via-bg to-card/90 p-5 shadow-subtle aspect-[3/4]">
                       <div className="text-xs font-semibold uppercase text-muted">{era.range}</div>
-                      <div className="text-base font-semibold">{era.title}</div>
-                      <p className="mt-3 text-sm text-muted">{era.description}</p>
+                      <div className="text-base font-semibold line-clamp-2">{era.title}</div>
+                      <p className="mt-3 text-sm text-muted line-clamp-4">{era.description}</p>
                     </div>
                   </div>
                 ))}
@@ -211,7 +211,7 @@ export function BentoGrid() {
             <Button
               variant="ghost"
               size="icon"
-              className="hidden h-10 w-10 border border-border bg-card shadow-subtle hover:border-accentGold sm:inline-flex z-10"
+              className="hidden h-10 w-10 border border-border bg-card shadow-subtle hover:border-accentGold md:inline-flex z-10"
               onClick={() => scrollToEra(clampedIndex + 1)}
               aria-label="Next era"
             >
@@ -223,32 +223,40 @@ export function BentoGrid() {
 
       <Card className="md:col-span-12" id="token">
         <CardHeader className="flex flex-col items-start gap-2">
-          <CardTitle className="text-xl">Community &amp; $HOT</CardTitle>
+          <CardTitle className="text-xl">$HOT Archive Note</CardTitle>
           <p className="text-sm text-muted">
-            Community-first. $HOT is a playful note in the archive, not a promise.
+            $HOT is the trench scribble in the margins: a reminder that memory outlasts mania.
           </p>
         </CardHeader>
         <CardContent className="space-y-3">
           <ul className="space-y-2 text-sm">
             <li className="flex items-start gap-2">
               <span className="mt-1 h-2 w-2 rounded-full bg-accentGold" />
-              Community‑submitted events, sourced and verified.
+              Indexed in the archive, not pitched as a promise.
             </li>
             <li className="flex items-start gap-2">
               <span className="mt-1 h-2 w-2 rounded-full bg-accentGreen" />
-              A lightweight monthly ritual to keep the story grounded.
+              Community rituals logged for continuity, not hype.
             </li>
             <li className="flex items-start gap-2">
               <span className="mt-1 h-2 w-2 rounded-full bg-accentRed" />
-              Red‑flag awareness to protect future readers.
+              A reminder to verify sources before chasing momentum.
             </li>
           </ul>
           <div className="flex flex-wrap gap-3">
             <Button asChild variant="subtle" className="flex-1 min-w-[200px] justify-center">
-              <Link href="/community">Visit Community</Link>
+              <a
+                href="https://dexscreener.com/solana"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View on DexScreener
+              </a>
             </Button>
             <Button asChild variant="ghost" className="flex-1 min-w-[200px] justify-center">
-              <Link href="/hot">Read the $HOT note</Link>
+              <a href="https://pump.fun" target="_blank" rel="noopener noreferrer">
+                Buy on Pump.Fun
+              </a>
             </Button>
           </div>
         </CardContent>

@@ -11,16 +11,12 @@ import { typeLabel, typeVariant } from "@/lib/eventType";
 type FilterState = {
   type: EventType | "all";
   chain: string;
-  year: string;
   tag: string;
   search: string;
-  sort: "newest" | "oldest" | "hall-of-fame";
+  sort: "newest" | "oldest";
 };
 
 const chains = Array.from(new Set(events.map((e) => e.chain)));
-const years = Array.from(new Set(events.map((e) => e.year))).sort(
-  (a, b) => b - a
-);
 const tags = Array.from(new Set(events.flatMap((e) => e.tags))).sort();
 
 const typeOptions = [
@@ -32,9 +28,8 @@ const typeOptions = [
 ];
 
 const sortOptions = [
-  { label: "Newest", value: "newest" },
-  { label: "Oldest", value: "oldest" },
-  { label: "Hall of fame first", value: "hall-of-fame" }
+  { label: "Newest → Oldest", value: "newest" },
+  { label: "Oldest → Newest", value: "oldest" }
 ];
 
 function matchesFilters(event: Event, filters: FilterState) {
@@ -52,7 +47,6 @@ function matchesFilters(event: Event, filters: FilterState) {
   return (
     (filters.type === "all" || event.type === filters.type) &&
     (filters.chain === "all" || event.chain === filters.chain) &&
-    (filters.year === "all" || event.year === Number(filters.year)) &&
     (!tag || event.tags.some((t) => t.toLowerCase().includes(tag))) &&
     (!search || haystack.includes(search))
   );
@@ -63,11 +57,13 @@ export function EventTable() {
   const [filters, setFilters] = useState<FilterState>({
     type: "all",
     chain: "all",
-    year: "all",
     tag: "",
     search: "",
     sort: "newest"
   });
+  const [showAllTags, setShowAllTags] = useState(false);
+  const curatedTags = ["bitcoin", "ethereum", "defi", "meme", "cefi", "regulation", "hack", "nft", "solana", "exchange"];
+  const topTags = curatedTags.filter((tag) => tags.includes(tag));
 
   const filtered = useMemo(
     () => events.filter((event) => matchesFilters(event, filters)),
@@ -76,9 +72,6 @@ export function EventTable() {
 
   const sorted = useMemo(() => {
     const list = [...filtered];
-    if (filters.sort === "hall-of-fame") {
-      return list.sort((a, b) => Number(b.hallOfFame ?? false) - Number(a.hallOfFame ?? false));
-    }
     if (filters.sort === "oldest") {
       return list.sort((a, b) => Number(new Date(a.date)) - Number(new Date(b.date)));
     }
@@ -88,7 +81,7 @@ export function EventTable() {
   return (
     <section className="space-y-4">
       <div className="rounded-2xl border border-border bg-bg p-4 shadow-subtle">
-        <div className="grid grid-cols-1 gap-3 md:grid-cols-6">
+        <div className="grid grid-cols-1 gap-3 md:grid-cols-6 items-end">
           <Select
             label="Type"
             value={filters.type}
@@ -101,26 +94,19 @@ export function EventTable() {
             onChange={(value) => setFilters((prev) => ({ ...prev, chain: value }))}
             options={[{ label: "All", value: "all" }, ...chains.map((chain) => ({ label: chain, value: chain }))]}
           />
-          <Select
-            label="Year"
-            value={filters.year}
-            onChange={(value) => setFilters((prev) => ({ ...prev, year: value }))}
-            options={[{ label: "All", value: "all" }, ...years.map((year) => ({ label: String(year), value: String(year) }))]}
-          />
-          <Input
-            className="md:col-span-2"
-            placeholder="Search title, tags, chain, or type"
-            value={filters.search}
-            onChange={(e) =>
-              setFilters((prev) => ({ ...prev, search: e.target.value }))
-            }
-          />
-          <Select
-            label="Tag"
-            value={filters.tag}
-            onChange={(value) => setFilters((prev) => ({ ...prev, tag: value }))}
-            options={[{ label: "Any", value: "" }, ...tags.map((tag) => ({ label: tag, value: tag }))]}
-          />
+          <div className="md:col-span-2">
+            <label className="mb-1 block text-xs font-semibold uppercase tracking-[0.18em] text-muted">
+              Search
+            </label>
+            <Input
+              className="h-11 rounded-2xl"
+              placeholder="Search title, tags, chain, or type"
+              value={filters.search}
+              onChange={(e) =>
+                setFilters((prev) => ({ ...prev, search: e.target.value }))
+              }
+            />
+          </div>
           <Select
             label="Sort"
             value={filters.sort}
@@ -128,7 +114,64 @@ export function EventTable() {
               setFilters((prev) => ({ ...prev, sort: value as FilterState["sort"] }))
             }
             options={sortOptions}
+            className="md:col-span-2"
           />
+        </div>
+        <div className="mt-4 space-y-2">
+          <div className="flex flex-wrap items-center gap-2 text-xs">
+            <button
+              type="button"
+              className={`rounded-full border px-3 py-1 uppercase tracking-[0.16em] transition ${
+                filters.tag === ""
+                  ? "border-accentGold bg-accentGold/15 text-fg"
+                  : "border-border text-muted hover:border-accentGold"
+              }`}
+              onClick={() => setFilters((prev) => ({ ...prev, tag: "" }))}
+            >
+              All tags
+            </button>
+            {topTags.map((tag) => (
+              <button
+                key={tag}
+                type="button"
+                className={`rounded-full border px-3 py-1 uppercase tracking-[0.16em] transition ${
+                  filters.tag === tag
+                    ? "border-accentGold bg-accentGold/15 text-fg"
+                    : "border-border text-muted hover:border-accentGold"
+                }`}
+                onClick={() => setFilters((prev) => ({ ...prev, tag }))}
+              >
+                {tag}
+              </button>
+            ))}
+            <button
+              type="button"
+              className="rounded-full border border-border px-3 py-1 uppercase tracking-[0.16em] text-muted transition hover:border-accentGold"
+              onClick={() => setShowAllTags((prev) => !prev)}
+            >
+              {showAllTags ? "Less..." : "More..."}
+            </button>
+          </div>
+          {showAllTags && (
+            <div className="flex flex-wrap gap-2 border-t border-border/60 pt-2 text-xs">
+              {tags
+                .filter((tag) => !topTags.includes(tag))
+                .map((tag) => (
+                  <button
+                    key={tag}
+                    type="button"
+                    className={`rounded-full border px-3 py-1 uppercase tracking-[0.16em] transition ${
+                      filters.tag === tag
+                        ? "border-accentGold bg-accentGold/15 text-fg"
+                        : "border-border text-muted hover:border-accentGold"
+                    }`}
+                    onClick={() => setFilters((prev) => ({ ...prev, tag }))}
+                  >
+                    {tag}
+                  </button>
+                ))}
+            </div>
+          )}
         </div>
       </div>
 

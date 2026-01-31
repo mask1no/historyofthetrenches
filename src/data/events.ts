@@ -120,7 +120,7 @@ export const events: Event[] = [
   {
     slug: "binance-launch",
     title: "Binance Exchange Launch",
-    type: "hack",
+    type: "milestone",
     chain: "Multi-chain",
     year: 2017,
     date: "2017-07-14",
@@ -161,7 +161,7 @@ export const events: Event[] = [
     peakMetric: "Top 20 market cap",
     outcome: "Founders charged; token delisted",
     tags: ["lending", "ico", "regulation"],
-    chartUrl: "https://tradingview.com/symbols/BCCUSD/",
+    chartUrl: "https://www.coingecko.com/en/coins/bitconnect",
     sources: [
       {
         label: "Texas Securities Board cease and desist",
@@ -210,7 +210,7 @@ export const events: Event[] = [
   {
     slug: "coinbase-onboarding-2017",
     title: "Coinbase App Onboarding Boom",
-    type: "hack",
+    type: "milestone",
     chain: "Multi-chain",
     year: 2017,
     date: "2017-12-01",
@@ -239,7 +239,7 @@ export const events: Event[] = [
   {
     slug: "covid-black-swan",
     title: "COVID-19 Black Swan",
-    type: "hack",
+    type: "milestone",
     chain: "Multi-chain",
     year: 2020,
     date: "2020-03-12",
@@ -258,7 +258,7 @@ export const events: Event[] = [
   {
     slug: "uniswap-v2-launch",
     title: "Uniswap V2 Launch",
-    type: "hack",
+    type: "milestone",
     chain: "Ethereum",
     year: 2020,
     date: "2020-05-18",
@@ -277,7 +277,7 @@ export const events: Event[] = [
   {
     slug: "yfi-fair-launch",
     title: "YFI Fair Launch",
-    type: "hack",
+    type: "milestone",
     chain: "Ethereum",
     year: 2020,
     date: "2020-07-17",
@@ -488,7 +488,7 @@ export const events: Event[] = [
   {
     slug: "ethereum-merge",
     title: "Ethereum Merge",
-    type: "hack",
+    type: "milestone",
     chain: "Ethereum",
     year: 2022,
     date: "2022-09-15",
@@ -518,7 +518,7 @@ export const events: Event[] = [
   {
     slug: "coinbase-ipo",
     title: "Coinbase NASDAQ Listing",
-    type: "hack",
+    type: "milestone",
     chain: "Multi-chain",
     year: 2021,
     date: "2021-04-14",
@@ -640,7 +640,7 @@ export const events: Event[] = [
     peakMetric: "23,000% run-up pre-rug",
     outcome: "Liquidity removed; trading halted",
     tags: ["meme", "bsc", "rugpull"],
-    chartUrl: "https://dexscreener.com/bsc/squid",
+    chartUrl: "https://coinmarketcap.com/currencies/squid-game/",
     sources: [
       { label: "Post-mortem analysis", url: "https://www.bbc.com/news/business-59129466", publisher: "BBC", year: 2021 },
       { label: "Exchange halt notice", url: "https://www.cnbc.com/2021/11/02/squid-game-crypto-scam-sqwid-coin-plunges.html", publisher: "CNBC", year: 2021 }
@@ -661,7 +661,7 @@ export const events: Event[] = [
     peakMetric: "$1.6B market cap",
     outcome: "Continues trading",
     tags: ["meme", "defi"],
-    chartUrl: "https://dexscreener.com/ethereum/pepe",
+    chartUrl: "https://www.coingecko.com/en/coins/pepe",
     sources: [
       { label: "Volume breakout", url: "https://www.coindesk.com/markets/2023/04/18/pepe-meme-coin-surges/", publisher: "CoinDesk", year: 2023 },
       { label: "Listing timeline", url: "https://www.theblock.co/post/230305/pepe-memecoin-surges-coinbase", publisher: "The Block", year: 2023 }
@@ -682,7 +682,7 @@ export const events: Event[] = [
     peakMetric: "3000%+ from lows",
     outcome: "Integrated across Solana dapps",
     tags: ["solana", "meme", "airdrop"],
-    chartUrl: "https://dexscreener.com/solana/bonk",
+    chartUrl: "https://www.coingecko.com/en/coins/bonk",
     sources: [
       { label: "Airdrop breakdown", url: "https://www.coindesk.com/markets/2023/01/05/bonk-soars-as-solana-ecosystem-seeks-relief/", publisher: "CoinDesk", year: 2023 },
       { label: "Ecosystem integrations", url: "https://www.theblock.co/post/198251/bonk-airdrop-boosts-solana-nfts", publisher: "The Block", year: 2024 }
@@ -741,7 +741,7 @@ export const events: Event[] = [
     peakMetric: "$5B+ FDV peak",
     outcome: "Ongoing legal actions",
     tags: ["reflections", "bsc", "controversial"],
-    chartUrl: "https://dexscreener.com/bsc/safemoon",
+    chartUrl: "https://www.coingecko.com/en/coins/safemoon",
     sources: [
       { label: "Exploit coverage", url: "https://www.coindesk.com/tech/2023/03/29/safemoon-token-suffers-9m-exploit/", publisher: "CoinDesk", year: 2023 },
       { label: "Class action filing", url: "https://www.reuters.com/legal/transaction/safemoon-investors-sue-celebs-over-alleged-crypto-fraud-2022-02-18/", publisher: "Reuters", year: 2022 }
@@ -892,7 +892,7 @@ export const events: Event[] = [
     peakMetric: "$1M+ protocol fees/day",
     outcome: "Copycats and debates on sustainability",
     tags: ["socialfi", "l2", "onboarding"],
-    chartUrl: "https://dune.com",
+    chartUrl: "https://dune.com/dgtl_assets/friendtech",
     sources: [
       { label: "Protocol dashboard", url: "https://dune.com/dgtl_assets/friendtech", publisher: "Dune", year: 2023 },
       { label: "Coverage", url: "https://decrypt.co/154307/friend-tech-everything-need-know", publisher: "Decrypt", year: 2023 }
@@ -919,7 +919,7 @@ export const events: Event[] = [
   {
     slug: "bitfinex-hack",
     title: "Bitfinex Hack",
-    type: "milestone",
+    type: "hack",
     chain: "Bitcoin",
     year: 2016,
     date: "2016-08-02",
@@ -1006,7 +1006,7 @@ export const events: Event[] = [
   {
     slug: "poly-network-hack",
     title: "Poly Network Hack",
-    type: "milestone",
+    type: "hack",
     chain: "Multi-chain",
     year: 2021,
     date: "2021-08-10",
@@ -1035,7 +1035,7 @@ export const events: Event[] = [
   {
     slug: "wormhole-hack",
     title: "Wormhole Bridge Hack",
-    type: "milestone",
+    type: "hack",
     chain: "Solana/Ethereum",
     year: 2022,
     date: "2022-02-02",
@@ -1325,7 +1325,7 @@ export const events: Event[] = [
   {
     slug: "apeswap-safemoon-exploit",
     title: "BSC ApeSwap / SafeMoon Exploit",
-    type: "rugpull",
+    type: "hack",
     chain: "BSC",
     year: 2023,
     date: "2023-03-28",
@@ -1335,7 +1335,7 @@ export const events: Event[] = [
     peakMetric: "$9M drained",
     outcome: "Team applied hotfix",
     tags: ["bsc", "security", "liquidity"],
-    chartUrl: "https://dexscreener.com/bsc/safemoon",
+    chartUrl: "https://www.coingecko.com/en/coins/safemoon",
     sources: [
       {
         label: "Exploit coverage",

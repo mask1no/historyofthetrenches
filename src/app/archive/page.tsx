@@ -23,8 +23,8 @@ export default function ArchivePage() {
             Archive
           </h1>
           <p className="text-base text-muted">
-            Filter by type, chain, year, or tags. Each entry cites sources so you can verify
-            claims quickly.
+            Filter by type, chain, or tags. Each entry cites sources so you can verify claims
+            quickly.
           </p>
           <div className="h-px w-full bg-border" />
         </div>

@@ -47,7 +47,7 @@ export function RecentAdditions() {
           <Link
             key={item.slug}
             href={`/event/${item.slug}`}
-            className="group relative flex items-center justify-between overflow-hidden rounded-xl border border-border bg-card px-4 py-3 shadow-sm transition hover:-translate-y-0.5 hover:border-accentGold hover:shadow-subtle"
+            className="group relative flex items-center justify-between overflow-hidden rounded-xl border border-border bg-card px-4 py-3 shadow-sm transition duration-700 ease-out hover:-translate-y-0.5 hover:border-accentGold hover:shadow-subtle"
           >
             <span
               className={`absolute inset-y-0 left-0 w-1 ${typeDot[item.type] ?? "bg-border"}`}
@@ -55,7 +55,6 @@ export function RecentAdditions() {
             />
             <div>
               <div className="flex items-center gap-2 text-sm font-semibold">
-                <span className="h-2 w-2 rounded-full bg-accentGold opacity-0 transition group-hover:opacity-100" />
                 <span>{item.title}</span>
               </div>
               <div className="text-xs text-muted">

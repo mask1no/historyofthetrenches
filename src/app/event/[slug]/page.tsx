@@ -214,6 +214,29 @@ export default function EventPage({ params }: EventPageProps) {
           </Card>
         </div>
 
+        {event!.slug === "bitcoin-genesis-block" && (
+          <div className="mt-8">
+            <Card className="border border-border/80 bg-card/95">
+              <CardHeader>
+                <CardTitle>Read the Bitcoin Whitepaper</CardTitle>
+                <p className="text-sm text-muted">
+                  The original source document that framed the genesis moment.
+                </p>
+              </CardHeader>
+              <CardContent>
+                <Link
+                  href="https://bitcoin.org/bitcoin.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-accentGold underline"
+                >
+                  Open the official PDF →
+                </Link>
+              </CardContent>
+            </Card>
+          </div>
+        )}
+
         <div className="mt-8">
           <Card>
             <CardHeader>

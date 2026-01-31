@@ -13,10 +13,17 @@ export const eras: Era[] = [
   {
     id: "genesis",
     title: "Genesis & Early Infrastructure",
-    range: "2010–2015",
-    description: "From pizza payments to early exchange custody lessons and first state regulation.",
+    range: "2008–2015",
+    description: "From the whitepaper and genesis block to early exchange lessons and first state regulation.",
     featured: events.filter((e) =>
-      ["bitcoin-pizza-day", "silk-road-closure", "mt-gox-bankruptcy", "bitlicense-new-york"].includes(e.slug)
+      [
+        "bitcoin-whitepaper",
+        "bitcoin-genesis-block",
+        "bitcoin-pizza-day",
+        "silk-road-closure",
+        "mt-gox-bankruptcy",
+        "bitlicense-new-york"
+      ].includes(e.slug)
     )
   },
   {
