@@ -220,7 +220,7 @@ export function BentoGrid() {
             >
               <ArrowLeft className="h-4 w-4" />
             </Button>
-            <div className="relative flex-1">
+            <div className="relative flex-1 min-w-0">
               <div
                 ref={scrollRef}
                 className={`flex gap-4 overflow-x-auto pb-4 pr-2 scroll-smooth snap-x snap-mandatory overscroll-x-contain touch-pan-x ${
