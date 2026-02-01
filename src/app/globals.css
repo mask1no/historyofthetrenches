@@ -11,6 +11,7 @@
   --accentGold: #d6b15e;
   --accentRed: #c44d4d;
   --accentGreen: #2f9e6f;
+  --footerGlow: rgba(214, 177, 94, 0.18);
 }
 
 .dark {
@@ -22,6 +23,7 @@
   --accentGold: #d6b15e;
   --accentRed: #d16a6a;
   --accentGreen: #45b887;
+  --footerGlow: rgba(214, 177, 94, 0.12);
 }
 
 * {

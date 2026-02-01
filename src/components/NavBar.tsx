@@ -26,10 +26,8 @@ export function NavBar() {
       document.documentElement.classList.toggle("dark", stored === "dark");
       return;
     }
-    const prefersDark = window.matchMedia?.("(prefers-color-scheme: dark)").matches;
-    const nextTheme = prefersDark ? "dark" : "light";
-    setTheme(nextTheme);
-    document.documentElement.classList.toggle("dark", prefersDark);
+    setTheme("light");
+    document.documentElement.classList.remove("dark");
   }, []);
 
   const toggleTheme = () => {
