@@ -133,9 +133,9 @@ export function BentoGrid() {
         <CardHeader className="flex flex-row items-center justify-between">
           <div className="space-y-1">
             <CardTitle className="flex items-center gap-2 text-xl">
-              Curated Hall of Fame Rugpulls
+              Hall of Fame Rugpulls
             </CardTitle>
-            <p className="text-sm text-muted">Editorial picks of the most defining collapses.</p>
+            <p className="text-sm text-muted">The most impactful collapses in web3 history.</p>
           </div>
           <Badge variant="red">Rugs</Badge>
         </CardHeader>
@@ -169,9 +169,9 @@ export function BentoGrid() {
         <CardHeader className="flex flex-row items-center justify-between">
           <div className="space-y-1">
             <CardTitle className="flex items-center gap-2 text-xl">
-              Curated Hall of Fame Runners
+              Hall of Fame Runners
             </CardTitle>
-            <p className="text-sm text-muted">Editorial picks of the most defining runs.</p>
+            <p className="text-sm text-muted">The most impactful community runs in web3.</p>
           </div>
           <Badge variant="green">Runners</Badge>
         </CardHeader>

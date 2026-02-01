@@ -54,15 +54,15 @@ export function Hero() {
         <div className="space-y-3">
           <div className="flex items-center justify-between rounded-xl border border-border bg-bg px-3 py-3">
             <div className="space-y-1">
-              <div className="text-sm font-semibold">Events tracked</div>
-              <div className="text-xs text-muted">Total entries in the archive.</div>
+              <div className="text-sm font-semibold">Total events</div>
+              <div className="text-xs text-muted">All archived entries.</div>
             </div>
             <span className="text-lg font-semibold text-accentGold">{totalEvents}</span>
           </div>
           <div className="flex items-center justify-between rounded-xl border border-border bg-bg px-3 py-3">
             <div className="space-y-1">
-              <div className="text-sm font-semibold">Hall of Fame rugs</div>
-              <div className="text-xs text-muted">Hard lessons, never forgotten.</div>
+              <div className="text-sm font-semibold">Hall of Fame rugpulls</div>
+              <div className="text-xs text-muted">Highest-impact failures tracked.</div>
             </div>
             <span className="text-lg font-semibold text-accentRed">{hallOfFameRugs}</span>
           </div>
