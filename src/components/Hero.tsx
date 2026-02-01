@@ -6,7 +6,10 @@ import { compareEventDatesDesc } from "@/lib/utils";
 
 export function Hero() {
   const totalEvents = events.length;
-  const hallOfFameRugs = events.filter((e) => e.hallOfFame && e.type === "rugpull").length;
+  const hallOfFameCount = events.filter((e) => e.hallOfFame).length;
+  const years = events.map((event) => event.year);
+  const earliestYear = years.length ? Math.min(...years) : undefined;
+  const latestYear = years.length ? Math.max(...years) : undefined;
   const latestEventDate = [...events].sort(compareEventDatesDesc)[0]?.date ?? "—";
 
   return (
@@ -51,24 +54,24 @@ export function Hero() {
         <div className="text-xs font-semibold uppercase tracking-[0.24em] text-muted">
           At a glance
         </div>
-        <div className="mt-4 overflow-hidden rounded-xl border border-border bg-bg/60">
+          <div className="mt-4 overflow-hidden rounded-xl border border-border bg-bg/60">
           <div className="divide-y divide-border">
             <div className="flex items-center justify-between px-4 py-3">
               <div className="space-y-1">
-                <div className="text-sm font-semibold">Total events</div>
-                <div className="text-xs text-muted">All archived entries.</div>
+                  <div className="text-sm font-semibold">Years covered</div>
+                  <div className="text-xs text-muted">From genesis to today.</div>
               </div>
-              <span className="text-lg font-semibold text-accentGold tabular-nums">
-                {totalEvents}
+                <span className="text-sm font-semibold text-fg tabular-nums">
+                  {earliestYear && latestYear ? `${earliestYear}–${latestYear}` : "—"}
               </span>
             </div>
             <div className="flex items-center justify-between px-4 py-3">
               <div className="space-y-1">
-                <div className="text-sm font-semibold">Hall of Fame rugpulls</div>
-                <div className="text-xs text-muted">Highest-impact failures tracked.</div>
+                  <div className="text-sm font-semibold">Hall of Fame entries</div>
+                  <div className="text-xs text-muted">Most impactful events.</div>
               </div>
-              <span className="text-lg font-semibold text-accentRed tabular-nums">
-                {hallOfFameRugs}
+                <span className="text-lg font-semibold text-accentGold tabular-nums">
+                  {hallOfFameCount}
               </span>
             </div>
             <div className="flex items-center justify-between px-4 py-3">

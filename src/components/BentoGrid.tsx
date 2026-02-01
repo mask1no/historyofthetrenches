@@ -51,7 +51,7 @@ export function BentoGrid() {
     }
   };
 
-  const getScrollStep = () => {
+  const getScrollStep = useCallback(() => {
     const container = scrollRef.current;
     if (!container) return 0;
     const firstChild = container.children[0] as HTMLElement | undefined;
@@ -60,7 +60,7 @@ export function BentoGrid() {
     const gap = Number.parseFloat(gapValue) || 0;
     const cardWidth = firstChild?.getBoundingClientRect().width ?? container.clientWidth * 0.8;
     return cardWidth + gap;
-  };
+  }, []);
 
   const scrollByStep = (direction: -1 | 1) => {
     const container = scrollRef.current;
@@ -71,21 +71,12 @@ export function BentoGrid() {
   const updateIndexFromScroll = useCallback(() => {
     const container = scrollRef.current;
     if (!container) return;
-    const children = Array.from(container.children) as HTMLElement[];
-    if (children.length === 0) return;
-    const containerCenter = container.scrollLeft + container.clientWidth / 2;
-    let closestIndex = 0;
-    let closestDistance = Number.POSITIVE_INFINITY;
-    children.forEach((child, idx) => {
-      const childCenter = child.offsetLeft + child.clientWidth / 2;
-      const distance = Math.abs(containerCenter - childCenter);
-      if (distance < closestDistance) {
-        closestDistance = distance;
-        closestIndex = idx;
-      }
-    });
-    setEraIndex((prev) => (prev === closestIndex ? prev : closestIndex));
-  }, []);
+    const step = getScrollStep();
+    if (!step) return;
+    const nextIndex = Math.round(container.scrollLeft / step);
+    const clamped = Math.max(0, Math.min(nextIndex, eras.length - 1));
+    setEraIndex((prev) => (prev === clamped ? prev : clamped));
+  }, [getScrollStep]);
 
   const handleScroll = () => {
     if (scrollRaf.current !== null) {
@@ -120,12 +111,15 @@ export function BentoGrid() {
   };
 
   useEffect(() => {
+    const handleResize = () => updateIndexFromScroll();
+    window.addEventListener("resize", handleResize);
     return () => {
+      window.removeEventListener("resize", handleResize);
       if (scrollRaf.current !== null) {
         cancelAnimationFrame(scrollRaf.current);
       }
     };
-  }, []);
+  }, [updateIndexFromScroll]);
 
   return (
     <section className="mx-auto grid max-w-6xl grid-cols-1 gap-6 px-6 pb-12 md:grid-cols-12">
