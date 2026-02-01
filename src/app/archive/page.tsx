@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { NavBar } from "@/components/NavBar";
 import { EventTable } from "@/components/EventTable";
+import { Footer } from "@/components/Footer";
 import { events } from "@/data/events";
+import { compareEventDatesDesc } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Archive | History of the Trenches",
@@ -35,7 +37,7 @@ export const metadata: Metadata = {
 
 export default function ArchivePage() {
   const featuredEvents = [...events]
-    .sort((a, b) => b.date.localeCompare(a.date))
+    .sort(compareEventDatesDesc)
     .slice(0, 4);
 
   return (
@@ -84,6 +86,7 @@ export default function ArchivePage() {
           <EventTable />
         </div>
       </section>
+      <Footer />
     </main>
   );
 }

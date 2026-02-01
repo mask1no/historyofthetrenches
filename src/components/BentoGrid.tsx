@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { events } from "@/data/events";
 import { eras } from "@/data/eras";
 import { Button } from "@/components/ui/button";
@@ -35,6 +35,7 @@ export function BentoGrid() {
   const [isDragging, setIsDragging] = useState(false);
   const scrollRef = useRef<HTMLDivElement | null>(null);
   const dragState = useRef({ isDown: false, startX: 0, scrollLeft: 0 });
+  const scrollRaf = useRef<number | null>(null);
 
   const clampedIndex = useMemo(
     () => Math.max(0, Math.min(eraIndex, eras.length - 1)),
@@ -50,26 +51,64 @@ export function BentoGrid() {
     }
   };
 
-  const handleDragStart = (event: React.MouseEvent<HTMLDivElement>) => {
+  const updateIndexFromScroll = useCallback(() => {
+    const container = scrollRef.current;
+    if (!container) return;
+    const children = Array.from(container.children) as HTMLElement[];
+    if (children.length === 0) return;
+    const containerCenter = container.scrollLeft + container.clientWidth / 2;
+    let closestIndex = 0;
+    let closestDistance = Number.POSITIVE_INFINITY;
+    children.forEach((child, idx) => {
+      const childCenter = child.offsetLeft + child.clientWidth / 2;
+      const distance = Math.abs(containerCenter - childCenter);
+      if (distance < closestDistance) {
+        closestDistance = distance;
+        closestIndex = idx;
+      }
+    });
+    setEraIndex((prev) => (prev === closestIndex ? prev : closestIndex));
+  }, []);
+
+  const handleScroll = () => {
+    if (scrollRaf.current !== null) {
+      cancelAnimationFrame(scrollRaf.current);
+    }
+    scrollRaf.current = requestAnimationFrame(updateIndexFromScroll);
+  };
+
+  const handleDragStart = (event: React.PointerEvent<HTMLDivElement>) => {
     if (!scrollRef.current) return;
     dragState.current.isDown = true;
     setIsDragging(true);
-    dragState.current.startX = event.pageX - scrollRef.current.offsetLeft;
+    dragState.current.startX = event.clientX;
     dragState.current.scrollLeft = scrollRef.current.scrollLeft;
+    scrollRef.current.setPointerCapture(event.pointerId);
   };
 
-  const handleDragEnd = () => {
+  const handleDragEnd = (event?: React.PointerEvent<HTMLDivElement>) => {
+    if (event?.pointerId && scrollRef.current?.hasPointerCapture(event.pointerId)) {
+      scrollRef.current.releasePointerCapture(event.pointerId);
+    }
     dragState.current.isDown = false;
     setIsDragging(false);
   };
 
-  const handleDragMove = (event: React.MouseEvent<HTMLDivElement>) => {
+  const handleDragMove = (event: React.PointerEvent<HTMLDivElement>) => {
     if (!dragState.current.isDown || !scrollRef.current) return;
     event.preventDefault();
-    const x = event.pageX - scrollRef.current.offsetLeft;
+    const x = event.clientX;
     const walk = x - dragState.current.startX;
     scrollRef.current.scrollLeft = dragState.current.scrollLeft - walk;
   };
+
+  useEffect(() => {
+    return () => {
+      if (scrollRaf.current !== null) {
+        cancelAnimationFrame(scrollRaf.current);
+      }
+    };
+  }, []);
 
   return (
     <section className="mx-auto grid max-w-6xl grid-cols-1 gap-6 px-6 pb-12 md:grid-cols-12">
@@ -177,7 +216,7 @@ export function BentoGrid() {
             <Button
               variant="ghost"
               size="icon"
-              className="hidden h-10 w-10 border border-border bg-card shadow-subtle hover:border-accentGold md:inline-flex z-10"
+              className="hidden h-10 w-10 border border-border bg-card shadow-subtle hover:border-accentGold sm:inline-flex z-10"
               onClick={() => scrollToEra(clampedIndex - 1)}
               aria-label="Previous era"
               disabled={clampedIndex === 0}
@@ -187,13 +226,15 @@ export function BentoGrid() {
             <div className="relative flex-1">
               <div
                 ref={scrollRef}
-                className={`flex gap-4 overflow-x-auto pb-4 pr-2 scroll-smooth snap-x snap-mandatory overscroll-x-contain ${
+                className={`flex gap-4 overflow-x-auto pb-4 pr-2 scroll-smooth snap-x snap-mandatory overscroll-x-contain touch-pan-x ${
                   isDragging ? "cursor-grabbing select-none" : "cursor-grab"
                 }`}
-                onMouseDown={handleDragStart}
-                onMouseUp={handleDragEnd}
-                onMouseLeave={handleDragEnd}
-                onMouseMove={handleDragMove}
+                onPointerDown={handleDragStart}
+                onPointerUp={handleDragEnd}
+                onPointerCancel={handleDragEnd}
+                onPointerLeave={handleDragEnd}
+                onPointerMove={handleDragMove}
+                onScroll={handleScroll}
               >
                 {eras.map((era) => (
                   <div
@@ -212,7 +253,7 @@ export function BentoGrid() {
             <Button
               variant="ghost"
               size="icon"
-              className="hidden h-10 w-10 border border-border bg-card shadow-subtle hover:border-accentGold md:inline-flex z-10"
+              className="hidden h-10 w-10 border border-border bg-card shadow-subtle hover:border-accentGold sm:inline-flex z-10"
               onClick={() => scrollToEra(clampedIndex + 1)}
               aria-label="Next era"
               disabled={clampedIndex === eras.length - 1}

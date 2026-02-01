@@ -9,6 +9,8 @@ import { events, getEventBySlug } from "@/data/events";
 import { ShareButtons } from "@/components/ShareButtons";
 import Link from "next/link";
 import { typeLabel, typeVariant } from "@/lib/eventType";
+import { compareEventDatesAsc } from "@/lib/utils";
+import { Footer } from "@/components/Footer";
 
 type EventPageProps = {
   params: { slug: string };
@@ -121,7 +123,7 @@ export default function EventPage({ params }: EventPageProps) {
     )
     .slice(0, 4);
 
-  const sortedByDate = [...events].sort((a, b) => a.date.localeCompare(b.date));
+  const sortedByDate = [...events].sort(compareEventDatesAsc);
   const currentIndex = sortedByDate.findIndex((e) => e.slug === event!.slug);
   const previousEvent = currentIndex > 0 ? sortedByDate[currentIndex - 1] : undefined;
   const nextEvent =
@@ -346,6 +348,7 @@ export default function EventPage({ params }: EventPageProps) {
           </div>
         )}
       </section>
+      <Footer />
     </main>
   );
 }

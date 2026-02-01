@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
-import { Download, Menu, X } from "lucide-react";
+import { useEffect, useState } from "react";
+import { Download, Menu, Moon, Sun, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const navItems = [
@@ -17,6 +17,27 @@ export function NavBar() {
   const pathname = usePathname();
   const [showMobileNav, setShowMobileNav] = useState(false);
   const isMenuOpen = showMobileNav;
+  const [theme, setTheme] = useState<"light" | "dark">("light");
+
+  useEffect(() => {
+    const stored = window.localStorage.getItem("hot-theme");
+    if (stored === "light" || stored === "dark") {
+      setTheme(stored);
+      document.documentElement.classList.toggle("dark", stored === "dark");
+      return;
+    }
+    const prefersDark = window.matchMedia?.("(prefers-color-scheme: dark)").matches;
+    const nextTheme = prefersDark ? "dark" : "light";
+    setTheme(nextTheme);
+    document.documentElement.classList.toggle("dark", prefersDark);
+  }, []);
+
+  const toggleTheme = () => {
+    const nextTheme = theme === "dark" ? "light" : "dark";
+    setTheme(nextTheme);
+    document.documentElement.classList.toggle("dark", nextTheme === "dark");
+    window.localStorage.setItem("hot-theme", nextTheme);
+  };
 
   return (
     <header className="sticky top-0 z-20 border-b border-border/80 bg-bg/85 backdrop-blur">
@@ -49,6 +70,15 @@ export function NavBar() {
           </nav>
         </div>
         <div className="flex items-center gap-3">
+          <Button
+            variant="ghost"
+            size="icon"
+            className="hidden md:inline-flex border border-border text-muted"
+            aria-label="Toggle theme"
+            onClick={toggleTheme}
+          >
+            {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+          </Button>
           <a href="/trench-manual.pdf" download className="hidden md:inline-flex">
             <Button
               variant="default"
@@ -112,6 +142,15 @@ export function NavBar() {
             ))}
           </div>
           <div className="mt-6 flex flex-col gap-3">
+            <Button
+              variant="ghost"
+              className="w-full justify-center gap-2 border border-border text-muted"
+              aria-label="Toggle theme"
+              onClick={toggleTheme}
+            >
+              {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+              {theme === "dark" ? "Light mode" : "Dark mode"}
+            </Button>
             <a href="/trench-manual.pdf" download onClick={() => setShowMobileNav(false)}>
               <Button className="w-full justify-center gap-2 bg-accentGold text-fg hover:bg-accentGold/90">
                 <Download className="h-4 w-4" />

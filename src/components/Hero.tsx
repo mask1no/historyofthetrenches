@@ -2,16 +2,14 @@ import { ArrowRight, Play } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { events } from "@/data/events";
+import { compareEventDatesDesc } from "@/lib/utils";
 
 export function Hero() {
   const totalEvents = events.length;
   const hallOfFameRugs = events.filter((e) => e.hallOfFame && e.type === "rugpull").length;
   const hallOfFameRunners = events.filter((e) => e.hallOfFame && e.type === "runner").length;
   const chainCount = new Set(events.map((e) => e.chain)).size;
-  const latestEventDate = events.reduce(
-    (latest, event) => (event.date > latest ? event.date : latest),
-    "0000-00-00"
-  );
+  const latestEventDate = [...events].sort(compareEventDatesDesc)[0]?.date ?? "—";
 
   return (
     <section className="mx-auto flex max-w-6xl flex-col gap-8 px-6 pb-12 pt-10 md:flex-row md:items-start md:gap-12">

@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Select } from "@/components/ui/select";
 import { typeLabel, typeVariant } from "@/lib/eventType";
+import { compareEventDatesAsc, compareEventDatesDesc } from "@/lib/utils";
 
 type FilterState = {
   type: EventType | "all";
@@ -73,9 +74,9 @@ export function EventTable() {
   const sorted = useMemo(() => {
     const list = [...filtered];
     if (filters.sort === "oldest") {
-      return list.sort((a, b) => Number(new Date(a.date)) - Number(new Date(b.date)));
+      return list.sort(compareEventDatesAsc);
     }
-    return list.sort((a, b) => Number(new Date(b.date)) - Number(new Date(a.date)));
+    return list.sort(compareEventDatesDesc);
   }, [filtered, filters.sort]);
 
   return (

@@ -19,7 +19,7 @@ export function Footer() {
     <footer className="border-t border-border/80 bg-card/95">
       <div className="mx-auto flex max-w-6xl flex-col gap-8 px-6 py-10">
         <div className="relative overflow-hidden rounded-2xl border border-border bg-bg/85 p-6 shadow-subtle">
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(90%_90%_at_12%_12%,rgba(214,177,94,0.18),rgba(20,23,32,0)_65%)]" />
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(90%_90%_at_12%_12%,rgba(214,177,94,0.18),rgba(247,246,243,0)_65%)]" />
           <div className="relative flex flex-col gap-3">
             <div className="text-lg font-semibold text-fg">History of the Trenches</div>
             <p className="max-w-2xl text-sm text-muted">

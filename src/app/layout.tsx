@@ -19,8 +19,11 @@ const playfair = Playfair_Display({
 const canonicalSiteUrl = "https://www.historyofthetrenches.xyz";
 
 export const viewport = {
-  themeColor: "#0f0f0f",
-  colorScheme: "dark"
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f7f6f3" },
+    { media: "(prefers-color-scheme: dark)", color: "#0b0b0b" }
+  ],
+  colorScheme: "light dark"
 };
 
 export const metadata: Metadata = {

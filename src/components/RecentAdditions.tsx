@@ -3,9 +3,10 @@ import { events } from "@/data/events";
 import { Badge } from "@/components/ui/badge";
 import { Bell } from "lucide-react";
 import { typeLabel, typeVariant } from "@/lib/eventType";
+import { compareEventDatesDesc } from "@/lib/utils";
 
 const recent = [...events]
-  .sort((a, b) => b.year - a.year)
+  .sort(compareEventDatesDesc)
   .slice(0, 3);
 
 export function RecentAdditions() {
@@ -53,15 +54,15 @@ export function RecentAdditions() {
               className={`absolute inset-y-0 left-0 w-1 ${typeDot[item.type] ?? "bg-border"}`}
               aria-hidden
             />
-            <div>
+            <div className="min-w-0">
               <div className="flex items-center gap-2 text-sm font-semibold">
-                <span>{item.title}</span>
+                <span className="line-clamp-1">{item.title}</span>
               </div>
-              <div className="text-xs text-muted">
+              <div className="text-xs text-muted line-clamp-2">
                 {item.chain} • {item.date} • {item.summary}
               </div>
             </div>
-            <div className="flex items-center gap-2">
+            <div className="flex flex-shrink-0 items-center gap-2">
               <Badge variant={typeVariant[item.type]}>{typeLabel[item.type]}</Badge>
               {item.hallOfFame && <Badge variant="gold">Hall of Fame</Badge>}
               <span className="text-xs text-muted uppercase tracking-wide">

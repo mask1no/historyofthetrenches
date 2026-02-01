@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { NavBar } from "@/components/NavBar";
 import { EraTimeline } from "@/components/EraTimeline";
+import { Footer } from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Crypto Timeline | History of the Trenches",
@@ -61,6 +62,7 @@ export default function TimelinePage() {
           </Link>
         </div>
       </section>
+      <Footer />
     </main>
   );
 }

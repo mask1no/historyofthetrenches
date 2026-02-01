@@ -5,6 +5,7 @@ import { Footer } from "@/components/Footer";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { events } from "@/data/events";
+import { compareEventDatesDesc } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "$HOT | History of the Trenches",
@@ -37,7 +38,7 @@ export const metadata: Metadata = {
 
 export default function HotPage() {
   const featuredEvents = [...events]
-    .sort((a, b) => b.date.localeCompare(a.date))
+    .sort(compareEventDatesDesc)
     .slice(0, 3);
 
   return (

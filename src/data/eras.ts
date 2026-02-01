@@ -45,8 +45,9 @@ export const eras: Era[] = [
   {
     id: "defi-summer",
     title: "Macro Shock & DeFi Summer",
-    range: "2020–2021",
-    description: "COVID liquidity shock, on-chain liquidity bootstrapping, and corporate Bitcoin adoption.",
+    range: "2020–2022",
+    description:
+      "COVID liquidity shock, on-chain liquidity bootstrapping, and the road to the Merge’s execution.",
     featured: events.filter((e) =>
       [
         "covid-black-swan",
