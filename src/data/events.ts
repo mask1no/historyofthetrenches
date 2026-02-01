@@ -722,7 +722,7 @@ export const events: Event[] = [
     tags: ["regulation", "etf", "bitcoin"],
     chartUrl: "https://tradingview.com/symbols/BTCUSD/",
     sources: [
-      { label: "SEC approval", url: "http://web.archive.org/web/20240503054819/https://www.sec.gov/news/press-release/2024-4", publisher: "SEC", year: 2024 },
+      { label: "SEC approval", url: "https://web.archive.org/web/20240503054819/https://www.sec.gov/news/press-release/2024-4", publisher: "SEC", year: 2024 },
       { label: "Inflows recap", url: "https://web.archive.org/web/*/https://www.bloomberg.com/news/articles/2024-01-11/bitcoin-etf-debut-sees-astonishing-first-day-volume", publisher: "Bloomberg", year: 2024 }
     ]
   },
@@ -1732,7 +1732,7 @@ export const events: Event[] = [
       },
       {
         label: "Court docs",
-        url: "http://web.archive.org/web/20230121141723/https://cases.stretto.com/Voyager",
+        url: "https://web.archive.org/web/20230121141723/https://cases.stretto.com/Voyager",
         publisher: "Stretto",
         year: 2022
       }

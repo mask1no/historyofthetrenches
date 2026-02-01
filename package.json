@@ -10,7 +10,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "audit:events": "tsx scripts/audit-events.ts --network"
+    "audit:events": "tsx scripts/audit-events.ts --network",
+    "check:data": "tsx scripts/audit-events.ts"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.2.4",

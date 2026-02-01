@@ -21,6 +21,16 @@ const requiredFields: Array<keyof (typeof events)[number]> = [
 ];
 
 const isValidDate = (value: string) => /^\d{4}-\d{2}-\d{2}$/.test(value);
+const isRealDate = (value: string) => {
+  if (!isValidDate(value)) return false;
+  const [year, month, day] = value.split("-").map(Number);
+  const date = new Date(Date.UTC(year, month - 1, day));
+  return (
+    date.getUTCFullYear() === year &&
+    date.getUTCMonth() === month - 1 &&
+    date.getUTCDate() === day
+  );
+};
 
 const isValidUrl = (value: string) => {
   try {
@@ -36,6 +46,8 @@ const addIssue = (level: AuditIssue["level"], message: string) => {
 };
 
 const slugCounts = new Map<string, number>();
+const titleCounts = new Map<string, number>();
+const tagCounts = new Map<string, number>();
 
 events.forEach((event) => {
   requiredFields.forEach((field) => {
@@ -47,10 +59,34 @@ events.forEach((event) => {
 
   if (!isValidDate(event.date)) {
     addIssue("error", `Invalid date format for ${event.slug}: "${event.date}".`);
+  } else if (!isRealDate(event.date)) {
+    addIssue("error", `Invalid calendar date for ${event.slug}: "${event.date}".`);
+  }
+
+  if (event.date && event.year && Number(event.date.slice(0, 4)) !== event.year) {
+    addIssue(
+      "error",
+      `Year mismatch for ${event.slug}: year=${event.year}, date=${event.date}.`
+    );
   }
 
   if (!Array.isArray(event.tags) || event.tags.length === 0) {
     addIssue("warn", `No tags listed for ${event.slug}.`);
+  } else {
+    const seenTags = new Set<string>();
+    event.tags.forEach((tag) => {
+      if (tag.trim() !== tag) {
+        addIssue("warn", `Tag has leading/trailing whitespace on ${event.slug}: "${tag}".`);
+      }
+      if (tag !== tag.toLowerCase()) {
+        addIssue("warn", `Tag should be lowercase on ${event.slug}: "${tag}".`);
+      }
+      if (seenTags.has(tag.toLowerCase())) {
+        addIssue("warn", `Duplicate tag on ${event.slug}: "${tag}".`);
+      }
+      seenTags.add(tag.toLowerCase());
+      tagCounts.set(tag.toLowerCase(), (tagCounts.get(tag.toLowerCase()) ?? 0) + 1);
+    });
   }
 
   if (!Array.isArray(event.sources) || event.sources.length < 2) {
@@ -59,6 +95,8 @@ events.forEach((event) => {
 
   if (event.chartUrl && !isValidUrl(event.chartUrl)) {
     addIssue("error", `Invalid chartUrl on ${event.slug}: "${event.chartUrl}".`);
+  } else if (event.chartUrl?.startsWith("http://")) {
+    addIssue("warn", `Chart URL should use https on ${event.slug}: "${event.chartUrl}".`);
   }
 
   event.sources.forEach((source) => {
@@ -68,15 +106,38 @@ events.forEach((event) => {
         `Invalid source URL on ${event.slug}: "${source.url ?? "missing"}".`
       );
     }
+    if (source.url?.startsWith("http://")) {
+      addIssue("warn", `Source URL should use https on ${event.slug}: "${source.url}".`);
+    }
+    if (!source.label || source.label.trim().length === 0) {
+      addIssue("error", `Source label missing on ${event.slug}.`);
+    }
+    if (!source.publisher || source.publisher.trim().length === 0) {
+      addIssue("error", `Source publisher missing on ${event.slug}.`);
+    }
+    if (!Number.isInteger(source.year) || source.year < 1990 || source.year > 2100) {
+      addIssue("warn", `Source year looks invalid on ${event.slug}: "${source.year}".`);
+    }
   });
 
   slugCounts.set(event.slug, (slugCounts.get(event.slug) ?? 0) + 1);
+  titleCounts.set(event.title, (titleCounts.get(event.title) ?? 0) + 1);
+
+  if (!/^[a-z0-9-]+$/.test(event.slug)) {
+    addIssue("warn", `Slug should be lowercase kebab-case: "${event.slug}".`);
+  }
 });
 
 Array.from(slugCounts.entries())
   .filter(([, count]) => count > 1)
   .forEach(([slug, count]) => {
     addIssue("error", `Duplicate slug "${slug}" found ${count} times.`);
+  });
+
+Array.from(titleCounts.entries())
+  .filter(([, count]) => count > 1)
+  .forEach(([title, count]) => {
+    addIssue("warn", `Duplicate title "${title}" found ${count} times.`);
   });
 
 const uniqueUrls = Array.from(
