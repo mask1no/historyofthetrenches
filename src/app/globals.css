@@ -35,6 +35,11 @@ body {
   color: var(--fg);
   margin: 0;
   font-feature-settings: "liga" 1, "calt" 1;
+  overflow-x: hidden;
+}
+
+html {
+  overflow-x: hidden;
 }
 
 a {
