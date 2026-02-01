@@ -9,7 +9,7 @@ export default function HomePage() {
     <main id="main-content" className="min-h-screen pb-16">
       <NavBar />
       <Hero />
-      <div className="mx-auto max-w-6xl px-6 pb-10 mt-4 md:mt-6">
+      <div className="mx-auto mt-0 max-w-6xl px-6 pb-10 md:mt-2">
         <div className="mb-6 max-w-2xl space-y-2">
           <h2
             className="text-3xl font-semibold"

@@ -7,8 +7,6 @@ import { compareEventDatesDesc } from "@/lib/utils";
 export function Hero() {
   const totalEvents = events.length;
   const hallOfFameRugs = events.filter((e) => e.hallOfFame && e.type === "rugpull").length;
-  const hallOfFameRunners = events.filter((e) => e.hallOfFame && e.type === "runner").length;
-  const chainCount = new Set(events.map((e) => e.chain)).size;
   const latestEventDate = [...events].sort(compareEventDatesDesc)[0]?.date ?? "—";
 
   return (
@@ -67,20 +65,6 @@ export function Hero() {
               <div className="text-xs text-muted">Hard lessons, never forgotten.</div>
             </div>
             <span className="text-lg font-semibold text-accentRed">{hallOfFameRugs}</span>
-          </div>
-          <div className="flex items-center justify-between rounded-xl border border-border bg-bg px-3 py-3">
-            <div className="space-y-1">
-              <div className="text-sm font-semibold">Hall of Fame runners</div>
-              <div className="text-xs text-muted">Community-powered runs.</div>
-            </div>
-            <span className="text-lg font-semibold text-accentGreen">{hallOfFameRunners}</span>
-          </div>
-          <div className="flex items-center justify-between rounded-xl border border-border bg-bg px-3 py-3">
-            <div className="space-y-1">
-              <div className="text-sm font-semibold">Chains covered</div>
-              <div className="text-xs text-muted">Cross-ecosystem view, one archive.</div>
-            </div>
-            <span className="text-lg font-semibold text-fg">{chainCount}</span>
           </div>
           <div className="flex items-center justify-between rounded-xl border border-border bg-bg px-3 py-3">
             <div className="space-y-1">
