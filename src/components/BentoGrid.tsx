@@ -51,6 +51,23 @@ export function BentoGrid() {
     }
   };
 
+  const getScrollStep = () => {
+    const container = scrollRef.current;
+    if (!container) return 0;
+    const firstChild = container.children[0] as HTMLElement | undefined;
+    const styles = window.getComputedStyle(container);
+    const gapValue = styles.columnGap || styles.gap || "0";
+    const gap = Number.parseFloat(gapValue) || 0;
+    const cardWidth = firstChild?.getBoundingClientRect().width ?? container.clientWidth * 0.8;
+    return cardWidth + gap;
+  };
+
+  const scrollByStep = (direction: -1 | 1) => {
+    const container = scrollRef.current;
+    if (!container) return;
+    container.scrollBy({ left: direction * getScrollStep(), behavior: "smooth" });
+  };
+
   const updateIndexFromScroll = useCallback(() => {
     const container = scrollRef.current;
     if (!container) return;
@@ -214,7 +231,7 @@ export function BentoGrid() {
               variant="ghost"
               size="icon"
               className="hidden h-10 w-10 flex-shrink-0 border border-border bg-card shadow-subtle hover:border-accentGold sm:inline-flex z-10"
-              onClick={() => scrollToEra(clampedIndex - 1)}
+              onClick={() => scrollByStep(-1)}
               aria-label="Previous era"
               disabled={clampedIndex === 0}
             >
@@ -251,7 +268,7 @@ export function BentoGrid() {
               variant="ghost"
               size="icon"
               className="hidden h-10 w-10 flex-shrink-0 border border-border bg-card shadow-subtle hover:border-accentGold sm:inline-flex z-10"
-              onClick={() => scrollToEra(clampedIndex + 1)}
+              onClick={() => scrollByStep(1)}
               aria-label="Next era"
               disabled={clampedIndex === eras.length - 1}
             >
