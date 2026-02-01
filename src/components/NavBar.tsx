@@ -30,6 +30,26 @@ export function NavBar() {
     document.documentElement.classList.remove("dark");
   }, []);
 
+  useEffect(() => {
+    const root = document.documentElement;
+    const body = document.body;
+    if (isMenuOpen) {
+      const scrollBarWidth = window.innerWidth - root.clientWidth;
+      body.style.overflow = "hidden";
+      body.style.paddingRight = scrollBarWidth > 0 ? `${scrollBarWidth}px` : "";
+      root.style.overflow = "hidden";
+    } else {
+      body.style.overflow = "";
+      body.style.paddingRight = "";
+      root.style.overflow = "";
+    }
+    return () => {
+      body.style.overflow = "";
+      body.style.paddingRight = "";
+      root.style.overflow = "";
+    };
+  }, [isMenuOpen]);
+
   const toggleTheme = () => {
     const nextTheme = theme === "dark" ? "light" : "dark";
     setTheme(nextTheme);

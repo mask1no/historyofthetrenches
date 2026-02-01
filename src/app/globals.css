@@ -47,6 +47,11 @@ a {
   text-decoration: none;
 }
 
+:focus-visible {
+  outline: 2px solid var(--accentGold);
+  outline-offset: 2px;
+}
+
 .paper-card {
   background: var(--card);
   border: 1px solid var(--border);

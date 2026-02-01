@@ -18,7 +18,10 @@ type FilterState = {
 };
 
 const chains = Array.from(new Set(events.map((e) => e.chain)));
-const tags = Array.from(new Set(events.flatMap((e) => e.tags))).sort();
+const chainTagSet = new Set(chains.map((chain) => chain.toLowerCase()));
+const tags = Array.from(
+  new Set(events.flatMap((e) => e.tags.filter((tag) => !chainTagSet.has(tag.toLowerCase()))))
+).sort();
 
 const typeOptions = [
   { label: "All", value: "all" },
@@ -63,7 +66,7 @@ export function EventTable() {
     sort: "newest"
   });
   const [showAllTags, setShowAllTags] = useState(false);
-  const curatedTags = ["bitcoin", "ethereum", "defi", "meme", "cefi", "regulation", "hack", "nft", "solana", "exchange"];
+  const curatedTags = ["defi", "meme", "cefi", "regulation", "hack", "nft", "exchange"];
   const topTags = curatedTags.filter((tag) => tags.includes(tag));
 
   const filtered = useMemo(

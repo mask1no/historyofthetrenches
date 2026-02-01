@@ -1705,7 +1705,7 @@ export const events: Event[] = [
       },
       {
         label: "Court filing",
-        url: "https://restructuring.ra.kroll.com/blockfi/",
+        url: "https://web.archive.org/web/*/https://restructuring.ra.kroll.com/blockfi/",
         publisher: "Kroll",
         year: 2022
       }

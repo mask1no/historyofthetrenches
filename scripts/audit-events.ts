@@ -49,6 +49,37 @@ const slugCounts = new Map<string, number>();
 const titleCounts = new Map<string, number>();
 const tagCounts = new Map<string, number>();
 
+const tradingViewSymbolMap: Record<string, string> = {
+  bitcoin: "BTC"
+};
+
+const checkChartSymbol = (
+  eventSlug: string,
+  eventTitle: string,
+  chain: string,
+  chartUrl?: string
+) => {
+  if (!chartUrl) return;
+  const match = chartUrl.match(/tradingview\.com\/symbols\/([^/]+)\//i);
+  if (!match) return;
+  const symbol = match[1].toUpperCase();
+  const expected = tradingViewSymbolMap[chain.toLowerCase()];
+  if (!expected) return;
+  if (
+    expected === "BTC" &&
+    symbol.includes("BCH") &&
+    (eventSlug.includes("bch") || eventTitle.toLowerCase().includes("bitcoin cash"))
+  ) {
+    return;
+  }
+  if (!symbol.includes(expected)) {
+    addIssue(
+      "warn",
+      `Chart URL symbol may not match chain on ${eventSlug}: "${chartUrl}".`
+    );
+  }
+};
+
 events.forEach((event) => {
   requiredFields.forEach((field) => {
     const value = event[field];
@@ -98,6 +129,7 @@ events.forEach((event) => {
   } else if (event.chartUrl?.startsWith("http://")) {
     addIssue("warn", `Chart URL should use https on ${event.slug}: "${event.chartUrl}".`);
   }
+  checkChartSymbol(event.slug, event.title, event.chain, event.chartUrl);
 
   event.sources.forEach((source) => {
     if (!source.url || !isValidUrl(source.url)) {
