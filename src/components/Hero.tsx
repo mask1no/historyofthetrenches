@@ -48,30 +48,38 @@ export function Hero() {
         </div>
       </div>
       <div className="w-full max-w-sm rounded-2xl border border-border bg-card p-6 shadow-subtle">
-        <div className="mb-3 text-sm font-semibold uppercase tracking-[0.12em] text-muted">
+        <div className="text-xs font-semibold uppercase tracking-[0.24em] text-muted">
           At a glance
         </div>
-        <div className="space-y-3">
-          <div className="flex items-center justify-between rounded-xl border border-border bg-bg px-3 py-3">
-            <div className="space-y-1">
-              <div className="text-sm font-semibold">Total events</div>
-              <div className="text-xs text-muted">All archived entries.</div>
+        <div className="mt-4 overflow-hidden rounded-xl border border-border bg-bg/60">
+          <div className="divide-y divide-border">
+            <div className="flex items-center justify-between px-4 py-3">
+              <div className="space-y-1">
+                <div className="text-sm font-semibold">Total events</div>
+                <div className="text-xs text-muted">All archived entries.</div>
+              </div>
+              <span className="text-lg font-semibold text-accentGold tabular-nums">
+                {totalEvents}
+              </span>
             </div>
-            <span className="text-lg font-semibold text-accentGold">{totalEvents}</span>
-          </div>
-          <div className="flex items-center justify-between rounded-xl border border-border bg-bg px-3 py-3">
-            <div className="space-y-1">
-              <div className="text-sm font-semibold">Hall of Fame rugpulls</div>
-              <div className="text-xs text-muted">Highest-impact failures tracked.</div>
+            <div className="flex items-center justify-between px-4 py-3">
+              <div className="space-y-1">
+                <div className="text-sm font-semibold">Hall of Fame rugpulls</div>
+                <div className="text-xs text-muted">Highest-impact failures tracked.</div>
+              </div>
+              <span className="text-lg font-semibold text-accentRed tabular-nums">
+                {hallOfFameRugs}
+              </span>
             </div>
-            <span className="text-lg font-semibold text-accentRed">{hallOfFameRugs}</span>
-          </div>
-          <div className="flex items-center justify-between rounded-xl border border-border bg-bg px-3 py-3">
-            <div className="space-y-1">
-              <div className="text-sm font-semibold">Latest entry</div>
-              <div className="text-xs text-muted">Most recent archive date.</div>
+            <div className="flex items-center justify-between px-4 py-3">
+              <div className="space-y-1">
+                <div className="text-sm font-semibold">Latest entry</div>
+                <div className="text-xs text-muted">Most recent archive date.</div>
+              </div>
+              <span className="text-sm font-semibold text-fg tabular-nums">
+                {latestEventDate}
+              </span>
             </div>
-            <span className="text-sm font-semibold text-fg">{latestEventDate}</span>
           </div>
         </div>
       </div>
