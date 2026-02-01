@@ -46,8 +46,8 @@ export function BentoGrid() {
     const safeIndex = Math.max(0, Math.min(nextIndex, eras.length - 1));
     setEraIndex(safeIndex);
     const target = scrollRef.current?.children?.[safeIndex] as HTMLElement | undefined;
-    if (target) {
-      target.scrollIntoView({ behavior: "smooth", inline: "start", block: "nearest" });
+    if (target && scrollRef.current) {
+      scrollRef.current.scrollTo({ left: target.offsetLeft, behavior: "smooth" });
     }
   };
 
