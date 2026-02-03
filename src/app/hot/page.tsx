@@ -46,10 +46,6 @@ export default function HotPage() {
       <NavBar />
       <section className="mx-auto max-w-6xl px-6 pb-12 pt-8">
         <div className="mb-6 space-y-3">
-          <div className="flex items-center gap-2">
-            <Badge variant="gold">$HOT</Badge>
-            <Badge variant="muted">Web3 diary</Badge>
-          </div>
           <h1 className="text-4xl font-semibold" style={{ fontFamily: "var(--font-playfair)" }}>
             The $HOT Experiment
           </h1>
@@ -127,6 +123,33 @@ export default function HotPage() {
               </div>
             </CardContent>
           </Card>
+        </div>
+
+        <div className="mt-8 rounded-2xl border border-border bg-bg/70 p-6">
+          <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted">
+            Transparency
+          </div>
+          <p className="mt-2 text-sm text-muted">
+            Public wallet views are linked on Solscan.
+          </p>
+          <div className="mt-4 flex flex-wrap gap-4 text-sm">
+            <a
+              href="https://solscan.io"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-accentGold underline"
+            >
+              Dev: Solscan
+            </a>
+            <a
+              href="https://solscan.io"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-accentGold underline"
+            >
+              Ritual: Solscan
+            </a>
+          </div>
         </div>
 
         <div className="mt-8 rounded-2xl border border-border bg-card p-6">

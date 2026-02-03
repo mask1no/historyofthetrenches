@@ -49,35 +49,96 @@ export default function StackPage() {
       <NavBar />
       <section className="mx-auto max-w-6xl px-6 pb-12 pt-8">
         <div className="mb-6 space-y-3">
-          <div className="flex items-center gap-2">
-            <Badge variant="gold">Stack</Badge>
-            <Badge variant="muted">Deep Dive</Badge>
-          </div>
           <h1 className="text-4xl font-semibold" style={{ fontFamily: "var(--font-playfair)" }}>
             The Stack
           </h1>
           <p className="max-w-3xl text-base text-muted">
-            A guided bridge for already‑onboarded traders. Build depth in custody, research,
-            privacy, and infrastructure. Move from app‑level clicks to first‑principles control.
+            A toolkit bridge for already‑onboarded traders who want to move from app‑level clicks
+            to first‑principles control. Learn the systems, the risks, and the habits that keep you
+            safe as you go deeper into web3.
           </p>
         </div>
 
         <div className="mb-8 grid grid-cols-1 gap-4 md:grid-cols-3">
           <div className="rounded-xl border border-border bg-bg/70 px-4 py-3 text-sm">
             <div className="text-xs uppercase tracking-[0.2em] text-muted">Principle</div>
-            <div className="text-lg font-semibold text-fg">Verify, then scale</div>
+            <div className="text-lg font-semibold text-fg">Don’t trust, verify</div>
           </div>
           <div className="rounded-xl border border-border bg-bg/70 px-4 py-3 text-sm">
             <div className="text-xs uppercase tracking-[0.2em] text-muted">Goal</div>
-            <div className="text-lg font-semibold text-fg">Control over convenience</div>
+            <div className="text-lg font-semibold text-fg">Control is convenience</div>
           </div>
           <div className="rounded-xl border border-border bg-bg/70 px-4 py-3 text-sm">
             <div className="text-xs uppercase tracking-[0.2em] text-muted">Signal</div>
-            <div className="text-lg font-semibold text-fg">Own the keys, own the outcomes</div>
+            <div className="text-lg font-semibold text-fg">Not your keys, not your crypto</div>
           </div>
         </div>
 
         <div className="grid grid-cols-1 gap-6">
+          <Card>
+            <CardHeader>
+            <CardTitle>Memecoin Risk Toolkit</CardTitle>
+              <p className="text-sm text-muted">
+              Educational signals to recognize manipulation patterns. Use to avoid traps, not to
+              exploit them.
+              </p>
+            </CardHeader>
+            <CardContent className="overflow-auto">
+              <table className="w-full text-left text-sm">
+                <thead className="text-xs uppercase text-muted">
+                  <tr>
+                    <th className="pb-2">Tool</th>
+                    <th className="pb-2">Why it matters</th>
+                  </tr>
+                </thead>
+                <tbody className="text-muted">
+                  <tr className="border-t border-border/70">
+                    <td className="py-3 font-semibold text-fg">Flash‑loan providers</td>
+                    <td className="py-3">
+                      Can spike prices in seconds without collateral, creating artificial pumps.
+                    </td>
+                  </tr>
+                  <tr className="border-t border-border/70">
+                    <td className="py-3 font-semibold text-fg">MEV bots</td>
+                    <td className="py-3">
+                      Front‑running in thin liquidity can move price 10–20% and punish retail
+                      entries.
+                    </td>
+                  </tr>
+                  <tr className="border-t border-border/70">
+                    <td className="py-3 font-semibold text-fg">Liquidity sniffers</td>
+                    <td className="py-3">
+                      Identify pools with extreme price impact that often hide traps or mispricing.
+                    </td>
+                  </tr>
+                  <tr className="border-t border-border/70">
+                    <td className="py-3 font-semibold text-fg">Honeypot detectors</td>
+                    <td className="py-3">
+                      Surface hidden fees and blocked sells that silently extract value.
+                    </td>
+                  </tr>
+                  <tr className="border-t border-border/70">
+                    <td className="py-3 font-semibold text-fg">Mixers / obfuscators</td>
+                    <td className="py-3">
+                      Used to hide fund trails after a pull; a major red flag in post‑launch flows.
+                    </td>
+                  </tr>
+                  <tr className="border-t border-border/70">
+                    <td className="py-3 font-semibold text-fg">Social‑pump bots</td>
+                    <td className="py-3">
+                      Coordinated hype can manufacture momentum and exit liquidity.
+                    </td>
+                  </tr>
+                  <tr className="border-t border-border/70">
+                    <td className="py-3 font-semibold text-fg">Deploy platforms</td>
+                    <td className="py-3">
+                      Fast deploy stacks enable rapid launches; check provenance and audits.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </CardContent>
+          </Card>
           <Card>
             <CardHeader>
               <CardTitle>Fiat On‑Ramps (KYC)</CardTitle>
