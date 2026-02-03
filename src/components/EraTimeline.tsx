@@ -52,6 +52,8 @@ export function EraTimeline() {
                             ? "green"
                             : event.type === "hack"
                             ? "dark"
+                            : event.type === "collapse"
+                            ? "dark"
                             : "gold"
                         }
                       >

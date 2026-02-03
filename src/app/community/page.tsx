@@ -8,14 +8,16 @@ import { events } from "@/data/events";
 import { compareEventDatesDesc } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "Community | History of the Trenches",
-  description: "A cypherpunk toolkit for self-custody, privacy, and technical sovereignty.",
+  title: "Stack | History of the Trenches",
+  description:
+    "A guided stack for onboarded traders to deepen custody, research, privacy, and infra skills.",
   alternates: {
     canonical: "https://www.historyofthetrenches.xyz/community"
   },
   openGraph: {
-    title: "Community | History of the Trenches",
-    description: "A cypherpunk toolkit for self-custody, privacy, and technical sovereignty.",
+    title: "Stack | History of the Trenches",
+    description:
+      "A guided stack for onboarded traders to deepen custody, research, privacy, and infra skills.",
     url: "https://www.historyofthetrenches.xyz/community",
     siteName: "History of the Trenches",
     type: "website",
@@ -30,13 +32,14 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Community | History of the Trenches",
-    description: "A cypherpunk toolkit for self-custody, privacy, and technical sovereignty.",
+    title: "Stack | History of the Trenches",
+    description:
+      "A guided stack for onboarded traders to deepen custody, research, privacy, and infra skills.",
     images: ["/og.png"]
   }
 };
 
-export default function CommunityPage() {
+export default function StackPage() {
   const featuredEvents = [...events]
     .sort(compareEventDatesDesc)
     .slice(0, 3);
@@ -47,39 +50,39 @@ export default function CommunityPage() {
       <section className="mx-auto max-w-6xl px-6 pb-12 pt-8">
         <div className="mb-6 space-y-3">
           <div className="flex items-center gap-2">
-            <Badge variant="gold">Community</Badge>
-            <Badge variant="muted">Toolkit</Badge>
+            <Badge variant="gold">Stack</Badge>
+            <Badge variant="muted">Deep Dive</Badge>
           </div>
           <h1 className="text-4xl font-semibold" style={{ fontFamily: "var(--font-playfair)" }}>
-            The Sovereign Stack
+            The Stack
           </h1>
           <p className="max-w-3xl text-base text-muted">
-            A cypherpunk‑minded toolkit for self‑custody, privacy, and technical sovereignty.
-            Built for builders and newcomers who want to navigate crypto from first principles.
+            A guided bridge for already‑onboarded traders. Build depth in custody, research,
+            privacy, and infrastructure. Move from app‑level clicks to first‑principles control.
           </p>
         </div>
 
         <div className="mb-8 grid grid-cols-1 gap-4 md:grid-cols-3">
           <div className="rounded-xl border border-border bg-bg/70 px-4 py-3 text-sm">
             <div className="text-xs uppercase tracking-[0.2em] text-muted">Principle</div>
-            <div className="text-lg font-semibold text-fg">Verify, don’t trust</div>
+            <div className="text-lg font-semibold text-fg">Verify, then scale</div>
           </div>
           <div className="rounded-xl border border-border bg-bg/70 px-4 py-3 text-sm">
             <div className="text-xs uppercase tracking-[0.2em] text-muted">Goal</div>
-            <div className="text-lg font-semibold text-fg">Sovereignty over convenience</div>
+            <div className="text-lg font-semibold text-fg">Control over convenience</div>
           </div>
           <div className="rounded-xl border border-border bg-bg/70 px-4 py-3 text-sm">
             <div className="text-xs uppercase tracking-[0.2em] text-muted">Signal</div>
-            <div className="text-lg font-semibold text-fg">Self‑custody first</div>
+            <div className="text-lg font-semibold text-fg">Own the keys, own the outcomes</div>
           </div>
         </div>
 
         <div className="grid grid-cols-1 gap-6">
           <Card>
             <CardHeader>
-            <CardTitle>Top KYC Exchanges &amp; On‑Ramps</CardTitle>
+              <CardTitle>Fiat On‑Ramps (KYC)</CardTitle>
               <p className="text-sm text-muted">
-                Use these only for fiat conversion. Always withdraw to self‑custody.
+                Use for entry only. Exit to self‑custody fast and keep trading off‑platform.
               </p>
             </CardHeader>
             <CardContent className="overflow-auto">
@@ -138,8 +141,8 @@ export default function CommunityPage() {
 
           <Card>
             <CardHeader>
-            <CardTitle>Non‑KYC Wallets (Self‑Custody)</CardTitle>
-            <p className="text-sm text-muted">True self‑custody. Your keys, your coins.</p>
+              <CardTitle>Self‑Custody Wallets</CardTitle>
+              <p className="text-sm text-muted">The foundation layer: keys under your control.</p>
             </CardHeader>
             <CardContent className="grid gap-3 text-sm text-muted md:grid-cols-2">
               <div className="rounded-lg border border-border bg-bg/60 p-3">
@@ -195,7 +198,7 @@ export default function CommunityPage() {
 
           <Card>
             <CardHeader>
-              <CardTitle>Cold Storage (Premium + Budget)</CardTitle>
+              <CardTitle>Cold Storage</CardTitle>
             </CardHeader>
             <CardContent className="grid gap-3 text-sm text-muted md:grid-cols-2">
               <div className="rounded-lg border border-border bg-bg/60 p-3">
@@ -235,7 +238,7 @@ export default function CommunityPage() {
 
           <Card>
             <CardHeader>
-              <CardTitle>Research Toolkit</CardTitle>
+              <CardTitle>Research Stack</CardTitle>
             </CardHeader>
             <CardContent className="grid gap-3 text-sm text-muted md:grid-cols-2">
               <div className="rounded-lg border border-border bg-bg/60 p-3">
@@ -273,9 +276,9 @@ export default function CommunityPage() {
 
           <Card>
             <CardHeader>
-              <CardTitle>Operational Privacy Stack</CardTitle>
+              <CardTitle>Operational Privacy</CardTitle>
               <p className="text-sm text-muted">
-                Practical privacy tooling beyond mixers—cross‑chain, P2P, and operationally sane.
+                Practical privacy for real trading: swaps, P2P paths, and sane opsec.
               </p>
             </CardHeader>
             <CardContent className="space-y-4">
@@ -432,37 +435,36 @@ export default function CommunityPage() {
                 <div className="rounded-lg border border-border bg-bg/60 p-3">
                   <div className="text-xs uppercase tracking-[0.2em] text-muted">OpSec</div>
                   <div className="mt-2 text-sm">
-                    Understand the trust model—each tool trades convenience for different risks.
+                    Know the trust model—every shortcut shifts your risk surface.
                   </div>
                 </div>
                 <div className="rounded-lg border border-border bg-bg/60 p-3">
                   <div className="text-xs uppercase tracking-[0.2em] text-muted">Layering</div>
                   <div className="mt-2 text-sm">
-                    Chain your moves: non‑KYC acquire → private swap → cold storage.
+                    Chain your moves: acquire → isolate → swap → cold storage.
                   </div>
                 </div>
                 <div className="rounded-lg border border-border bg-bg/60 p-3">
                   <div className="text-xs uppercase tracking-[0.2em] text-muted">Hygiene</div>
                   <div className="mt-2 text-sm">
-                    Use your own node, coin control, and never mix KYC + non‑KYC funds.
+                    Use your own node, coin control, and avoid KYC/non‑KYC mixing.
                   </div>
                 </div>
               </div>
 
               <p className="text-xs text-muted">
-                The privacy landscape keeps moving; re‑evaluate tools as policies and attack
-                surfaces evolve.
+                The privacy landscape shifts fast; revisit tools as policies and threats evolve.
               </p>
             </CardContent>
           </Card>
 
           <Card>
             <CardHeader>
-              <CardTitle>Node &amp; Infrastructure</CardTitle>
+              <CardTitle>Infrastructure</CardTitle>
             </CardHeader>
             <CardContent className="grid gap-3 text-sm text-muted md:grid-cols-2">
               <div className="rounded-lg border border-border bg-bg/60 p-3">
-                <div className="font-semibold text-fg">Run a node</div>
+                <div className="font-semibold text-fg">Run your own node</div>
                 <p className="text-xs">
                   <a href="https://bitcoincore.org" target="_blank" rel="noopener noreferrer">Bitcoin Core</a>{" "}
                   with{" "}
@@ -493,7 +495,7 @@ export default function CommunityPage() {
                 </p>
               </div>
               <div className="rounded-lg border border-border bg-bg/60 p-3">
-                <div className="font-semibold text-fg">Self‑hosted</div>
+                <div className="font-semibold text-fg">Self‑hosted infra</div>
                 <p className="text-xs">
                   Run RPCs to reduce dependency on centralized gateways with{" "}
                   <a href="https://start9.com" target="_blank" rel="noopener noreferrer">
@@ -508,7 +510,7 @@ export default function CommunityPage() {
 
         <div className="mt-8 rounded-2xl border border-border bg-bg/70 p-6 text-sm text-muted">
           <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted">
-            Disclaimer
+            Risk note
           </div>
           <p className="mt-2">
             This is educational content, not financial advice. Verify sources independently and
@@ -518,10 +520,10 @@ export default function CommunityPage() {
 
         <div className="mt-8 rounded-2xl border border-border bg-card p-6">
           <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted">
-            Explore the archive
+            Next steps
           </div>
           <p className="mt-2 text-sm text-muted">
-            Continue with recent entries or browse the full archive.
+            Go deeper with context, timelines, and the latest entries.
           </p>
           <div className="mt-4 flex flex-wrap gap-3">
             <Link href="/archive" className="text-sm text-accentGold underline">

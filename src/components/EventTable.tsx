@@ -26,6 +26,7 @@ const tags = Array.from(
 const typeOptions = [
   { label: "All", value: "all" },
   { label: "Rugpull", value: "rugpull" },
+  { label: "Collapse", value: "collapse" },
   { label: "Runner", value: "runner" },
   { label: "Milestone", value: "milestone" },
   { label: "Hack", value: "hack" }

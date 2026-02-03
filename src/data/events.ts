@@ -1,4 +1,4 @@
-export type EventType = "rugpull" | "runner" | "milestone" | "hack";
+export type EventType = "rugpull" | "runner" | "milestone" | "hack" | "collapse";
 
 export type Source = {
   label: string;
@@ -59,7 +59,7 @@ export const events: Event[] = [
   {
     slug: "mt-gox-bankruptcy",
     title: "Mt. Gox Collapse",
-    type: "rugpull",
+    type: "collapse",
     chain: "Bitcoin",
     year: 2014,
     date: "2014-02-28",
@@ -296,7 +296,7 @@ export const events: Event[] = [
   {
     slug: "terra-luna-collapse",
     title: "Terra/Luna Collapse",
-    type: "rugpull",
+    type: "collapse",
     chain: "Terra",
     year: 2022,
     date: "2022-05-09",
@@ -327,7 +327,7 @@ export const events: Event[] = [
   {
     slug: "celsius-bankruptcy",
     title: "Celsius Bankruptcy",
-    type: "rugpull",
+    type: "collapse",
     chain: "CeFi",
     year: 2022,
     date: "2022-07-13",
@@ -357,7 +357,7 @@ export const events: Event[] = [
   {
     slug: "three-arrows-capital",
     title: "Three Arrows Capital Collapse",
-    type: "rugpull",
+    type: "collapse",
     chain: "Multi-chain",
     year: 2022,
     date: "2022-06-27",
@@ -407,7 +407,7 @@ export const events: Event[] = [
   {
     slug: "ftx-collapse",
     title: "FTX Exchange Collapse",
-    type: "rugpull",
+    type: "collapse",
     chain: "CeFi",
     year: 2022,
     date: "2022-11-11",
@@ -708,6 +708,36 @@ export const events: Event[] = [
     ]
   },
   {
+    slug: "openclaw-moltbook-incident",
+    title: "Moltbook Agent Takeover Exposure",
+    type: "rugpull",
+    chain: "Solana",
+    year: 2026,
+    date: "2026-01-31",
+    era: "Pump.fun Era",
+    hallOfFame: true,
+    status: "platform integrity breach",
+    summary:
+      "A backend exposure reportedly allowed outsiders to impersonate agents, edit posts, and manipulate visibility. That integrity break created fertile ground for multiple memecoin scams rather than a single isolated rugpull.",
+    peakMetric: "Agent impersonation + post edits",
+    outcome: "Exposure reported; access tightened after disclosure",
+    tags: ["solana", "launchpad", "exploit", "rugpull", "moltbook", "security", "integrity"],
+    sources: [
+      {
+        label: "Exposed Moltbook database report",
+        url: "https://www.404media.co/exposed-moltbook-database-let-anyone-take-control-of-any-ai-agent-on-the-site/",
+        publisher: "404 Media",
+        year: 2026
+      },
+      {
+        label: "Wiz research on exposed keys",
+        url: "https://www.wiz.io/blog/exposed-moltbook-database-reveals-millions-of-api-keys",
+        publisher: "Wiz",
+        year: 2026
+      }
+    ]
+  },
+  {
     slug: "btc-etf-approval",
     title: "Bitcoin Spot ETF Approvals",
     type: "milestone",
@@ -891,7 +921,8 @@ export const events: Event[] = [
     summary: "Friend.tech popularized social trading keys on Base, showcasing L2 onboarding and viral fee generation.",
     peakMetric: "$1M+ protocol fees/day",
     outcome: "Copycats and debates on sustainability",
-    tags: ["socialfi", "l2", "onboarding"],
+    tags: ["socialfi", "l2", "onboarding"],
+
     sources: [
       { label: "Protocol dashboard", url: "https://web.archive.org/web/*/https://dune.com/dgtl_assets/friendtech", publisher: "Dune", year: 2023 },
       { label: "Coverage", url: "https://web.archive.org/web/*/https://decrypt.co/154307/friend-tech-everything-need-know", publisher: "Decrypt", year: 2023 }
@@ -1461,7 +1492,7 @@ export const events: Event[] = [
   {
     slug: "quadriga-collapse",
     title: "QuadrigaCX Collapse",
-    type: "rugpull",
+    type: "collapse",
     chain: "CeFi",
     year: 2019,
     date: "2019-02-05",
@@ -1687,7 +1718,7 @@ export const events: Event[] = [
   {
     slug: "blockfi-bankruptcy",
     title: "BlockFi Bankruptcy",
-    type: "rugpull",
+    type: "collapse",
     chain: "CeFi",
     year: 2022,
     date: "2022-11-28",
@@ -1714,7 +1745,7 @@ export const events: Event[] = [
   {
     slug: "voyager-bankruptcy",
     title: "Voyager Digital Bankruptcy",
-    type: "rugpull",
+    type: "collapse",
     chain: "CeFi",
     year: 2022,
     date: "2022-07-06",
@@ -1741,7 +1772,7 @@ export const events: Event[] = [
   {
     slug: "genesis-bankruptcy",
     title: "Genesis Global Bankruptcy",
-    type: "rugpull",
+    type: "collapse",
     chain: "CeFi",
     year: 2023,
     date: "2023-01-19",

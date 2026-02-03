@@ -4,14 +4,16 @@ export const typeLabel: Record<EventType, string> = {
   rugpull: "Rugpull",
   runner: "Runner",
   milestone: "Milestone",
-  hack: "Hack"
+  hack: "Hack",
+  collapse: "Collapse"
 };
 
 export const typeVariant: Record<EventType, "red" | "green" | "gold" | "dark"> = {
   rugpull: "red",
   runner: "green",
   milestone: "gold",
-  hack: "dark"
+  hack: "dark",
+  collapse: "dark"
 };
 
 

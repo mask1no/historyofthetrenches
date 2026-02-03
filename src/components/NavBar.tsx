@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 const navItems = [
   { label: "Archive", href: "/archive" },
   { label: "Timeline", href: "/timeline" },
-  { label: "Community", href: "/community" },
+  { label: "Stack", href: "/community" },
   { label: "$HOT", href: "/hot" }
 ];
 
@@ -63,7 +63,7 @@ export function NavBar() {
         <div className="flex items-center gap-8">
           <Link
             href="/"
-            className="text-lg font-semibold tracking-tight"
+            className="text-xl font-semibold tracking-tight"
             style={{ fontFamily: "var(--font-playfair)" }}
           >
             History of the Trenches
@@ -91,7 +91,7 @@ export function NavBar() {
           <Button
             variant="ghost"
             size="icon"
-            className="hidden md:inline-flex border border-border text-muted"
+            className="hidden md:inline-flex border border-border text-muted transition hover:border-accentGold hover:text-fg hover:bg-card"
             aria-label="Toggle theme"
             onClick={toggleTheme}
           >

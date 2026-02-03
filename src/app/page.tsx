@@ -1,7 +1,6 @@
 import { BentoGrid } from "@/components/BentoGrid";
 import { Hero } from "@/components/Hero";
 import { NavBar } from "@/components/NavBar";
-import { RecentAdditions } from "@/components/RecentAdditions";
 import { Footer } from "@/components/Footer";
 
 export default function HomePage() {
@@ -24,7 +23,6 @@ export default function HomePage() {
         </div>
       </div>
       <BentoGrid />
-      <RecentAdditions />
       <Footer />
     </main>
   );

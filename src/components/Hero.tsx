@@ -14,13 +14,13 @@ export function Hero() {
 
   return (
     <section className="mx-auto flex max-w-6xl flex-col gap-8 px-6 pb-12 pt-10 md:flex-row md:items-start md:gap-12">
-      <div className="flex-1 space-y-6">
+      <div className="flex-1 space-y-7">
         <p className="text-sm uppercase tracking-[0.18em] text-muted">
           Community-Maintained Archive
         </p>
-        <div className="space-y-4">
+        <div className="space-y-5">
           <h1
-            className="text-4xl font-bold leading-tight text-fg sm:text-5xl md:text-6xl"
+            className="text-[2.3rem] font-bold leading-tight text-fg sm:text-[2.9rem] md:text-[3.4rem]"
             style={{ fontFamily: "var(--font-playfair)" }}
           >
             History of the Trenches
@@ -35,7 +35,7 @@ export function Hero() {
               : "Tracking a growing archive of crypto’s defining moments."}
           </p>
         </div>
-        <div className="flex flex-wrap items-center gap-3">
+        <div className="flex flex-wrap items-center gap-3 pt-1">
           <Link href="/archive">
             <Button size="lg" className="shadow-subtle">
               Enter the Archive
@@ -50,7 +50,7 @@ export function Hero() {
           </Link>
         </div>
       </div>
-      <div className="w-full max-w-sm rounded-2xl border border-border bg-card p-6 shadow-subtle">
+      <div className="w-full max-w-sm rounded-2xl border border-border bg-card p-6 shadow-subtle md:mt-2">
         <div className="text-xs font-semibold uppercase tracking-[0.24em] text-muted">
           At a glance
         </div>

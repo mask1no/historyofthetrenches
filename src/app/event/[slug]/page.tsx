@@ -297,6 +297,8 @@ export default function EventPage({ params }: EventPageProps) {
                       ? "green"
                       : item.type === "hack"
                       ? "dark"
+                      : item.type === "collapse"
+                      ? "dark"
                       : "gold"
                   }
                 >
