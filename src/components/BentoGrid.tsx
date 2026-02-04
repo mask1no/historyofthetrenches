@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { events } from "@/data/events";
 import { eras } from "@/data/eras";
 import { Button } from "@/components/ui/button";
@@ -29,111 +29,204 @@ const rugs = events
 const runners = events
   .filter((e) => e.type === "runner" && e.hallOfFame && runnerOrder.includes(e.slug))
   .sort((a, b) => runnerOrder.indexOf(a.slug) - runnerOrder.indexOf(b.slug));
+
+const useIntersectionObserver = (
+  rootRef: React.RefObject<HTMLElement>,
+  options: IntersectionObserverInit
+) => {
+  const [visibleIndices, setVisibleIndices] = useState<Set<number>>(new Set());
+  const itemRefs = useRef<(HTMLElement | null)[]>([]);
+
+  useEffect(() => {
+    const root = rootRef.current;
+    if (!root || typeof IntersectionObserver === "undefined") return;
+
+    const observer = new IntersectionObserver((entries) => {
+      setVisibleIndices((prev) => {
+        const next = new Set(prev);
+        entries.forEach((entry) => {
+          const index = Number(entry.target.getAttribute("data-index"));
+          if (!Number.isFinite(index)) return;
+          if (entry.isIntersecting) {
+            next.add(index);
+          } else {
+            next.delete(index);
+          }
+        });
+        return next;
+      });
+    }, options);
+
+    itemRefs.current.forEach((node) => node && observer.observe(node));
+    return () => observer.disconnect();
+  }, [options.rootMargin, options.threshold, rootRef]);
+
+  return { visibleIndices, itemRefs };
+};
+
+class CarouselErrorBoundary extends React.Component<
+  React.PropsWithChildren,
+  { hasError: boolean }
+> {
+  state = { hasError: false };
+
+  static getDerivedStateFromError() {
+    return { hasError: true };
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div className="rounded-2xl border border-border bg-card p-5 text-sm text-muted">
+          Carousel temporarily unavailable.
+        </div>
+      );
+    }
+    return this.props.children;
+  }
+}
 export function BentoGrid() {
   const [eraIndex, setEraIndex] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
   const scrollRef = useRef<HTMLDivElement | null>(null);
-  const dragState = useRef({ isDown: false, startX: 0, scrollLeft: 0 });
+  const dragStart = useRef({ x: 0, scrollLeft: 0 });
   const scrollRaf = useRef<number | null>(null);
   const isInitialized = useRef(false);
 
-  const loopEras = useMemo(() => [...eras, ...eras, ...eras], []);
+  const extendedEras = useMemo(() => {
+    const buffer = 2;
+    if (eras.length <= buffer) return eras;
+    return [...eras.slice(-buffer), ...eras, ...eras.slice(0, buffer)];
+  }, [eras]);
+  const { visibleIndices, itemRefs } = useIntersectionObserver(scrollRef, {
+    threshold: 0.5,
+    rootMargin: "-50px"
+  });
 
   const clampedIndex = useMemo(
     () => Math.max(0, Math.min(eraIndex, eras.length - 1)),
     [eraIndex]
   );
 
-  const getScrollStep = useCallback(() => {
+  const getItemWidth = useCallback(() => {
     const container = scrollRef.current;
-    if (!container) return 0;
-    const firstChild = container.children[0] as HTMLElement | undefined;
-    const styles = window.getComputedStyle(container);
-    const gapValue = styles.columnGap || styles.gap || "0";
-    const gap = Number.parseFloat(gapValue) || 0;
-    const cardWidth = firstChild?.getBoundingClientRect().width ?? container.clientWidth * 0.8;
-    return cardWidth + gap;
-  }, []);
+    if (!container || extendedEras.length === 0) return 0;
+    return container.scrollWidth / extendedEras.length;
+  }, [extendedEras.length]);
 
-  const updateIndexFromScroll = useCallback(() => {
+  const handleScrollEnd = useCallback(() => {
     const container = scrollRef.current;
     if (!container) return;
-    const step = getScrollStep();
-    if (!step) return;
-    const total = eras.length;
-    const sectionWidth = container.scrollWidth / 3;
-    if (!Number.isFinite(sectionWidth) || sectionWidth === 0) return;
-
-    const middleStart = sectionWidth;
-    const middleEnd = sectionWidth * 2;
-    const current = container.scrollLeft;
-
-    if (current < middleStart * 0.1) {
-      container.style.scrollBehavior = "auto";
-      container.scrollLeft = current + sectionWidth;
-      requestAnimationFrame(() => {
-        container.style.scrollBehavior = "";
-      });
-      return;
+    const itemWidth = getItemWidth();
+    if (!itemWidth) return;
+    const currentScroll = container.scrollLeft;
+    const centerPosition = eras.length * itemWidth;
+    if (currentScroll < itemWidth * 2) {
+      container.scrollLeft = currentScroll + centerPosition;
+    } else if (currentScroll > itemWidth * (extendedEras.length - 2)) {
+      container.scrollLeft = currentScroll - centerPosition;
     }
+  }, [extendedEras.length, eras.length, getItemWidth]);
 
-    if (current > middleEnd - middleStart * 0.1) {
-      container.style.scrollBehavior = "auto";
-      container.scrollLeft = current - sectionWidth;
-      requestAnimationFrame(() => {
-        container.style.scrollBehavior = "";
-      });
-      return;
-    }
+  const getVisibleIndex = useCallback(() => {
+    const container = scrollRef.current;
+    if (!container) return 0;
+    const itemWidth = getItemWidth();
+    if (!itemWidth) return 0;
+    const centerOffset = eras.length * itemWidth;
+    const adjustedScroll = container.scrollLeft - centerOffset;
+    const rawIndex = Math.round(adjustedScroll / itemWidth);
+    return Math.max(0, Math.min(rawIndex, eras.length - 1));
+  }, [eras.length, getItemWidth]);
 
-    const adjusted = current - middleStart;
-    const rawIndex = Math.round(adjusted / step);
-    const normalized = ((rawIndex % total) + total) % total;
+  const updateIndexFromScroll = useCallback(() => {
+    if (!eras.length) return;
+    const normalized = getVisibleIndex();
     setEraIndex((prev) => (prev === normalized ? prev : normalized));
-  }, [getScrollStep]);
+    handleScrollEnd();
+  }, [eras.length, getVisibleIndex, handleScrollEnd]);
 
-  const handleScroll = () => {
+  const handleScroll = useCallback(() => {
     if (scrollRaf.current !== null) {
       cancelAnimationFrame(scrollRaf.current);
     }
-    scrollRaf.current = requestAnimationFrame(updateIndexFromScroll);
-  };
+    scrollRaf.current = requestAnimationFrame(() => {
+      updateIndexFromScroll();
+      scrollRaf.current = null;
+    });
+  }, [updateIndexFromScroll]);
 
-  const handleDragStart = (event: React.PointerEvent<HTMLDivElement>) => {
+  const handlePointerDown = useCallback((event: React.PointerEvent<HTMLDivElement>) => {
     if (!scrollRef.current) return;
-    dragState.current.isDown = true;
     setIsDragging(true);
-    dragState.current.startX = event.clientX;
-    dragState.current.scrollLeft = scrollRef.current.scrollLeft;
+    dragStart.current = {
+      x: event.clientX,
+      scrollLeft: scrollRef.current.scrollLeft
+    };
     scrollRef.current.setPointerCapture(event.pointerId);
-  };
+  }, []);
 
-  const handleDragEnd = (event?: React.PointerEvent<HTMLDivElement>) => {
-    if (event?.pointerId && scrollRef.current?.hasPointerCapture(event.pointerId)) {
-      scrollRef.current.releasePointerCapture(event.pointerId);
-    }
-    dragState.current.isDown = false;
-    setIsDragging(false);
-  };
+  const handlePointerMove = useCallback(
+    (event: React.PointerEvent<HTMLDivElement>) => {
+      if (!isDragging || !scrollRef.current) return;
+      event.preventDefault();
+      const walk = event.clientX - dragStart.current.x;
+      scrollRef.current.scrollLeft = dragStart.current.scrollLeft - walk;
+    },
+    [isDragging]
+  );
 
-  const handleDragMove = (event: React.PointerEvent<HTMLDivElement>) => {
-    if (!dragState.current.isDown || !scrollRef.current) return;
-    event.preventDefault();
-    const x = event.clientX;
-    const walk = x - dragState.current.startX;
-    scrollRef.current.scrollLeft = dragState.current.scrollLeft - walk;
-  };
+  const handlePointerUp = useCallback(
+    (event?: React.PointerEvent<HTMLDivElement>) => {
+      if (event?.pointerId && scrollRef.current?.hasPointerCapture(event.pointerId)) {
+        scrollRef.current.releasePointerCapture(event.pointerId);
+      }
+      setIsDragging(false);
+      setTimeout(handleScrollEnd, 100);
+    },
+    [handleScrollEnd]
+  );
+
+  const scrollToItem = useCallback(
+    (index: number) => {
+      const container = scrollRef.current;
+      if (!container) return;
+      const itemWidth = getItemWidth();
+      if (!itemWidth) return;
+      const clamped = Math.max(0, Math.min(index, eras.length - 1));
+      const centerPosition = eras.length * itemWidth;
+      container.scrollTo({
+        left: centerPosition + clamped * itemWidth,
+        behavior: isDragging ? "auto" : "smooth"
+      });
+    },
+    [eras.length, getItemWidth, isDragging]
+  );
+
+  const handleKeyDown = useCallback(
+    (event: React.KeyboardEvent<HTMLDivElement>) => {
+      if (event.key === "ArrowLeft") {
+        event.preventDefault();
+        scrollToItem(eraIndex - 1);
+      } else if (event.key === "ArrowRight") {
+        event.preventDefault();
+        scrollToItem(eraIndex + 1);
+      }
+    },
+    [eraIndex, scrollToItem]
+  );
 
   useEffect(() => {
     if (isInitialized.current) return;
     const container = scrollRef.current;
     if (!container) return;
-    const step = getScrollStep();
-    if (!step) return;
-    container.scrollLeft = step * eras.length;
+    const itemWidth = getItemWidth();
+    if (!itemWidth) return;
+    const centerPosition = eras.length * itemWidth;
+    container.scrollLeft = centerPosition;
     isInitialized.current = true;
     setEraIndex(0);
-  }, [getScrollStep]);
+  }, [eras.length, getItemWidth]);
 
   useEffect(() => {
     const handleResize = () => updateIndexFromScroll();
@@ -231,36 +324,57 @@ export function BentoGrid() {
           <div className="mb-5 text-xs text-muted">
             Era {clampedIndex + 1} of {eras.length}
           </div>
-          <div className="relative flex items-center gap-3">
-            <div className="relative flex-1 min-w-0">
-              <div
-                ref={scrollRef}
-                className={`no-scrollbar flex gap-4 overflow-x-auto pr-2 scroll-smooth snap-x snap-mandatory overscroll-x-contain touch-pan-x ${
-                  isDragging ? "cursor-grabbing select-none" : "cursor-grab"
-                }`}
-                onPointerDown={handleDragStart}
-                onPointerUp={handleDragEnd}
-                onPointerCancel={handleDragEnd}
-                onPointerLeave={handleDragEnd}
-                onPointerMove={handleDragMove}
-                onScroll={handleScroll}
-                style={{ scrollbarWidth: "none" }}
-              >
-                {loopEras.map((era, index) => (
-                  <div
-                    key={`${era.id}-${index}`}
-                    className="flex-none snap-start basis-[70%] sm:basis-[48%] md:basis-[34%] lg:basis-[28%] xl:basis-[22%] max-w-[300px]"
-                  >
-                    <div className="flex h-full min-h-[220px] flex-col rounded-2xl border border-border/80 bg-card p-5 shadow-subtle aspect-[4/5]">
-                      <div className="text-xs font-semibold uppercase text-muted">{era.range}</div>
-                      <div className="text-base font-semibold line-clamp-2">{era.title}</div>
-                      <p className="mt-3 text-sm text-muted line-clamp-4">{era.description}</p>
+          <CarouselErrorBoundary>
+            <div
+              className="relative flex items-center gap-3"
+              role="region"
+              aria-label="Crypto onboarding eras carousel"
+            >
+              <div className="relative flex-1 min-w-0">
+                <div
+                  ref={scrollRef}
+                  className={`no-scrollbar flex gap-4 overflow-x-auto pr-2 snap-x snap-mandatory overscroll-x-contain touch-pan-x ${
+                    isDragging ? "cursor-grabbing select-none" : "cursor-grab"
+                  }`}
+                  onPointerDown={handlePointerDown}
+                  onPointerUp={handlePointerUp}
+                  onPointerCancel={handlePointerUp}
+                  onPointerLeave={handlePointerUp}
+                  onPointerMove={handlePointerMove}
+                  onScroll={handleScroll}
+                  onKeyDown={handleKeyDown}
+                  tabIndex={0}
+                  aria-live="polite"
+                  style={{
+                    scrollbarWidth: "none",
+                    scrollBehavior: isDragging ? "auto" : "smooth"
+                  }}
+                >
+                  {extendedEras.map((era, index) => {
+                    const isVisible = visibleIndices.size === 0 || visibleIndices.has(index);
+                    return (
+                    <div
+                      key={`${era.id}-${index}`}
+                      data-index={index}
+                      className="flex-none snap-start basis-[70%] sm:basis-[48%] md:basis-[34%] lg:basis-[28%] xl:basis-[22%] max-w-[300px]"
+                      aria-label={`${era.title} era`}
+                      aria-hidden={!isVisible}
+                      ref={(node) => {
+                        itemRefs.current[index] = node;
+                      }}
+                    >
+                      <div className="flex h-full min-h-[220px] flex-col rounded-2xl border border-border/80 bg-card p-5 shadow-subtle aspect-[4/5]">
+                        <div className="text-xs font-semibold uppercase text-muted">{era.range}</div>
+                        <div className="text-base font-semibold line-clamp-2">{era.title}</div>
+                        <p className="mt-3 text-sm text-muted line-clamp-4">{era.description}</p>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                    );
+                  })}
+                </div>
               </div>
             </div>
-          </div>
+          </CarouselErrorBoundary>
         </CardContent>
       </Card>
 
