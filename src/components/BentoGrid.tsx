@@ -60,16 +60,28 @@ export function BentoGrid() {
     if (!container) return;
     const step = getScrollStep();
     if (!step) return;
-    const rawIndex = Math.round(container.scrollLeft / step);
     const total = eras.length;
+    const sectionWidth = container.scrollWidth / 3;
+    if (!Number.isFinite(sectionWidth) || sectionWidth === 0) return;
+
+    const middleStart = sectionWidth;
+    const middleEnd = sectionWidth * 2;
+    const current = container.scrollLeft;
+
+    if (current < middleStart * 0.5) {
+      container.scrollLeft = current + sectionWidth;
+      return;
+    }
+
+    if (current > middleEnd - middleStart * 0.5) {
+      container.scrollLeft = current - sectionWidth;
+      return;
+    }
+
+    const adjusted = current - middleStart;
+    const rawIndex = Math.round(adjusted / step);
     const normalized = ((rawIndex % total) + total) % total;
     setEraIndex((prev) => (prev === normalized ? prev : normalized));
-
-    if (rawIndex < total) {
-      container.scrollLeft += step * total;
-    } else if (rawIndex >= total * 2) {
-      container.scrollLeft -= step * total;
-    }
   }, [getScrollStep]);
 
   const handleScroll = () => {
@@ -215,7 +227,7 @@ export function BentoGrid() {
             <div className="relative flex-1 min-w-0">
               <div
                 ref={scrollRef}
-                className={`no-scrollbar flex gap-4 overflow-x-auto pb-4 pr-2 scroll-smooth snap-x snap-mandatory overscroll-x-contain touch-pan-x ${
+                className={`no-scrollbar flex gap-4 overflow-x-auto pr-2 scroll-smooth snap-x snap-mandatory overscroll-x-contain touch-pan-x ${
                   isDragging ? "cursor-grabbing select-none" : "cursor-grab"
                 }`}
                 onPointerDown={handleDragStart}
@@ -224,6 +236,7 @@ export function BentoGrid() {
                 onPointerLeave={handleDragEnd}
                 onPointerMove={handleDragMove}
                 onScroll={handleScroll}
+                style={{ scrollbarWidth: "none" }}
               >
                 {loopEras.map((era, index) => (
                   <div
