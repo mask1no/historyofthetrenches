@@ -105,7 +105,7 @@ export const eras: Era[] = [
   {
     id: "pump-fun",
     title: "Pump.fun & Meme Liquidity",
-    range: "2023–2024",
+    range: "2023–2025",
     description: "Memecoin rails, L2 onboarding, and renewed ETF-driven institutional bridges.",
     featured: events.filter((e) =>
       [

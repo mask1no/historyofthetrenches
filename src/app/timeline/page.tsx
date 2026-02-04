@@ -46,7 +46,7 @@ export default function TimelinePage() {
             Crypto Timeline
           </h1>
           <p className="text-base text-muted">
-            Chronological chapters with featured events that led to major onboarding waves.
+            Chronological chapters highlighting the biggest onboarding waves in crypto history.
           </p>
         </div>
         <EraTimeline />

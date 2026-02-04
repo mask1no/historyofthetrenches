@@ -12,13 +12,44 @@ import { compareEventDatesAsc, compareEventDatesDesc } from "@/lib/utils";
 type FilterState = {
   type: EventType | "all";
   chain: string;
-  tag: string;
+  tags: string[];
   search: string;
   sort: "newest" | "oldest";
 };
 
 const chains = Array.from(new Set(events.map((e) => e.chain)));
-const chainTagSet = new Set(chains.map((chain) => chain.toLowerCase()));
+const chainTagSet = new Set<string>();
+const extraChainTags = [
+  "bnb",
+  "bsc",
+  "eth",
+  "ethereum",
+  "btc",
+  "bitcoin",
+  "sol",
+  "solana",
+  "arb",
+  "arbitrum",
+  "op",
+  "optimism",
+  "matic",
+  "polygon",
+  "avax",
+  "avalanche",
+  "base"
+];
+
+chains.forEach((chain) => {
+  chainTagSet.add(chain.toLowerCase());
+  chain
+    .split(/[^a-z0-9]+/i)
+    .map((token) => token.toLowerCase())
+    .filter((token) => token.length > 2)
+    .forEach((token) => chainTagSet.add(token));
+});
+
+extraChainTags.forEach((tag) => chainTagSet.add(tag));
+
 const tags = Array.from(
   new Set(events.flatMap((e) => e.tags.filter((tag) => !chainTagSet.has(tag.toLowerCase()))))
 ).sort();
@@ -39,7 +70,6 @@ const sortOptions = [
 
 function matchesFilters(event: Event, filters: FilterState) {
   const search = filters.search.toLowerCase();
-  const tag = filters.tag.toLowerCase();
   const haystack = [
     event.title,
     event.summary,
@@ -49,26 +79,41 @@ function matchesFilters(event: Event, filters: FilterState) {
   ]
     .join(" ")
     .toLowerCase();
+  const selectedTags = filters.tags.map((tag) => tag.toLowerCase());
   return (
     (filters.type === "all" || event.type === filters.type) &&
     (filters.chain === "all" || event.chain === filters.chain) &&
-    (!tag || event.tags.some((t) => t.toLowerCase().includes(tag))) &&
+    (selectedTags.length === 0 ||
+      selectedTags.every((tag) => event.tags.some((t) => t.toLowerCase().includes(tag)))) &&
     (!search || haystack.includes(search))
   );
 }
 
 export function EventTable() {
   const router = useRouter();
+  const defaultFilters: FilterState = {
+    type: "all",
+    chain: "all",
+    tags: [],
+    search: "",
+    sort: "newest"
+  };
   const [filters, setFilters] = useState<FilterState>({
     type: "all",
     chain: "all",
-    tag: "",
+    tags: [],
     search: "",
     sort: "newest"
   });
   const [showAllTags, setShowAllTags] = useState(false);
   const curatedTags = ["defi", "meme", "cefi", "regulation", "hack", "nft", "exchange"];
   const topTags = curatedTags.filter((tag) => tags.includes(tag));
+  const trimmedSearch = filters.search.trim();
+  const hasActiveFilters =
+    filters.type !== "all" ||
+    filters.chain !== "all" ||
+    filters.tags.length > 0 ||
+    trimmedSearch.length > 0;
 
   const filtered = useMemo(
     () => events.filter((event) => matchesFilters(event, filters)),
@@ -126,12 +171,12 @@ export function EventTable() {
           <div className="flex flex-wrap items-center gap-2 text-xs">
             <button
               type="button"
-              className={`rounded-full border px-3 py-1 uppercase tracking-[0.16em] transition ${
-                filters.tag === ""
+              className={`rounded-full border px-3 py-1 uppercase tracking-[0.16em] transition focus-visible:ring-2 focus-visible:ring-accentGold focus-visible:ring-offset-2 focus-visible:ring-offset-bg ${
+                filters.tags.length === 0
                   ? "border-accentGold bg-accentGold/15 text-fg"
                   : "border-border text-muted hover:border-accentGold"
               }`}
-              onClick={() => setFilters((prev) => ({ ...prev, tag: "" }))}
+              onClick={() => setFilters((prev) => ({ ...prev, tags: [] }))}
             >
               All tags
             </button>
@@ -139,19 +184,31 @@ export function EventTable() {
               <button
                 key={tag}
                 type="button"
-                className={`rounded-full border px-3 py-1 uppercase tracking-[0.16em] transition ${
-                  filters.tag === tag
+                className={`rounded-full border px-3 py-1 uppercase tracking-[0.16em] transition focus-visible:ring-2 focus-visible:ring-accentGold focus-visible:ring-offset-2 focus-visible:ring-offset-bg ${
+                  filters.tags.includes(tag)
                     ? "border-accentGold bg-accentGold/15 text-fg"
                     : "border-border text-muted hover:border-accentGold"
                 }`}
-                onClick={() => setFilters((prev) => ({ ...prev, tag }))}
+                onClick={() =>
+                  setFilters((prev) => ({
+                    ...prev,
+                    tags: prev.tags.includes(tag)
+                      ? prev.tags.filter((value) => value !== tag)
+                      : [...prev.tags, tag]
+                  }))
+                }
               >
-                {tag}
+                <span className="flex items-center gap-1">
+                  {tag}
+                  {filters.tags.includes(tag) && (
+                    <span className="text-[10px] font-semibold">x</span>
+                  )}
+                </span>
               </button>
             ))}
             <button
               type="button"
-              className="rounded-full border border-border px-3 py-1 uppercase tracking-[0.16em] text-muted transition hover:border-accentGold"
+              className="rounded-full border border-border px-3 py-1 uppercase tracking-[0.16em] text-muted transition hover:border-accentGold focus-visible:ring-2 focus-visible:ring-accentGold focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
               onClick={() => setShowAllTags((prev) => !prev)}
             >
               {showAllTags ? "Less..." : "More..."}
@@ -165,22 +222,100 @@ export function EventTable() {
                   <button
                     key={tag}
                     type="button"
-                    className={`rounded-full border px-3 py-1 uppercase tracking-[0.16em] transition ${
-                      filters.tag === tag
+                    className={`rounded-full border px-3 py-1 uppercase tracking-[0.16em] transition focus-visible:ring-2 focus-visible:ring-accentGold focus-visible:ring-offset-2 focus-visible:ring-offset-bg ${
+                      filters.tags.includes(tag)
                         ? "border-accentGold bg-accentGold/15 text-fg"
                         : "border-border text-muted hover:border-accentGold"
                     }`}
-                    onClick={() => setFilters((prev) => ({ ...prev, tag }))}
+                    onClick={() =>
+                      setFilters((prev) => ({
+                        ...prev,
+                        tags: prev.tags.includes(tag)
+                          ? prev.tags.filter((value) => value !== tag)
+                          : [...prev.tags, tag]
+                      }))
+                    }
                   >
-                    {tag}
+                    <span className="flex items-center gap-1">
+                      {tag}
+                      {filters.tags.includes(tag) && (
+                        <span className="text-[10px] font-semibold">x</span>
+                      )}
+                    </span>
                   </button>
                 ))}
             </div>
           )}
         </div>
       </div>
+      {hasActiveFilters && (
+        <div className="flex flex-wrap items-center gap-2 text-xs">
+          <span className="text-muted uppercase tracking-[0.18em]">Active</span>
+          {filters.type !== "all" && (
+            <button
+              type="button"
+              className="inline-flex items-center gap-1 rounded-full border border-border px-3 py-1 text-muted transition hover:border-accentGold focus-visible:ring-2 focus-visible:ring-accentGold focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
+              onClick={() => setFilters((prev) => ({ ...prev, type: "all" }))}
+              aria-label={`Clear type filter ${filters.type}`}
+            >
+              {filters.type}
+              <span className="text-[10px] font-semibold">x</span>
+            </button>
+          )}
+          {filters.chain !== "all" && (
+            <button
+              type="button"
+              className="inline-flex items-center gap-1 rounded-full border border-border px-3 py-1 text-muted transition hover:border-accentGold focus-visible:ring-2 focus-visible:ring-accentGold focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
+              onClick={() => setFilters((prev) => ({ ...prev, chain: "all" }))}
+              aria-label={`Clear chain filter ${filters.chain}`}
+            >
+              {filters.chain}
+              <span className="text-[10px] font-semibold">x</span>
+            </button>
+          )}
+          {filters.tags.map((tag) => (
+            <button
+              key={`active-${tag}`}
+              type="button"
+              className="inline-flex items-center gap-1 rounded-full border border-border px-3 py-1 text-muted transition hover:border-accentGold focus-visible:ring-2 focus-visible:ring-accentGold focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
+              onClick={() =>
+                setFilters((prev) => ({
+                  ...prev,
+                  tags: prev.tags.filter((value) => value !== tag)
+                }))
+              }
+              aria-label={`Clear tag filter ${tag}`}
+            >
+              {tag}
+              <span className="text-[10px] font-semibold">x</span>
+            </button>
+          ))}
+          {trimmedSearch.length > 0 && (
+            <button
+              type="button"
+              className="inline-flex items-center gap-1 rounded-full border border-border px-3 py-1 text-muted transition hover:border-accentGold focus-visible:ring-2 focus-visible:ring-accentGold focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
+              onClick={() => setFilters((prev) => ({ ...prev, search: "" }))}
+              aria-label="Clear search filter"
+            >
+              search
+              <span className="text-[10px] font-semibold">x</span>
+            </button>
+          )}
+          <button
+            type="button"
+            className="inline-flex items-center gap-1 rounded-full border border-border px-3 py-1 text-muted transition hover:border-accentGold focus-visible:ring-2 focus-visible:ring-accentGold focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
+            onClick={() => setFilters(defaultFilters)}
+            aria-label="Clear all filters"
+          >
+            Clear all
+          </button>
+        </div>
+      )}
 
       <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-subtle">
+        <div className="border-b border-border px-4 py-3 text-xs uppercase tracking-[0.18em] text-muted">
+          <span aria-live="polite">{sorted.length} events</span>
+        </div>
         <div className="divide-y divide-border">
           {sorted.map((event) => (
             <div

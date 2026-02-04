@@ -91,11 +91,18 @@ export function NavBar() {
           <Button
             variant="ghost"
             size="icon"
-            className="hidden md:inline-flex border border-border text-muted transition hover:border-accentGold hover:text-fg hover:bg-card"
+            className="group relative hidden md:inline-flex border border-border text-muted transition hover:shadow-subtle"
             aria-label="Toggle theme"
             onClick={toggleTheme}
           >
-            {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+            <span className="relative h-4 w-4">
+              <span className="absolute inset-0 flex items-center justify-center transition-opacity duration-200 group-hover:opacity-0">
+                {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+              </span>
+              <span className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-200 group-hover:opacity-100">
+                {theme === "dark" ? <Moon className="h-4 w-4" /> : <Sun className="h-4 w-4" />}
+              </span>
+            </span>
           </Button>
           <a href="/trench-manual.pdf" download className="hidden md:inline-flex">
             <Button

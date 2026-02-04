@@ -1,10 +1,7 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { NavBar } from "@/components/NavBar";
 import { EventTable } from "@/components/EventTable";
 import { Footer } from "@/components/Footer";
-import { events } from "@/data/events";
-import { compareEventDatesDesc } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Archive | History of the Trenches",
@@ -36,10 +33,6 @@ export const metadata: Metadata = {
 };
 
 export default function ArchivePage() {
-  const featuredEvents = [...events]
-    .sort(compareEventDatesDesc)
-    .slice(0, 4);
-
   return (
     <main id="main-content" className="min-h-screen pb-16">
       <NavBar />
@@ -52,35 +45,10 @@ export default function ArchivePage() {
             Archive
           </h1>
           <p className="text-base text-muted">
-            Filter by type, chain, or tags. Each entry cites sources so you can verify claims
-            quickly.
+            The archive holds the biggest crypto moments. Filter by type, chain, or tags to
+            explore the full history with sources attached.
           </p>
           <div className="h-px w-full bg-border" />
-        </div>
-        <div className="mb-6 rounded-2xl border border-border bg-card p-4 shadow-subtle">
-          <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted">
-            Featured entries
-          </div>
-          <div className="mt-3 grid gap-3 md:grid-cols-2">
-            {featuredEvents.map((event) => (
-              <Link
-                key={event.slug}
-                href={`/event/${event.slug}`}
-                className="rounded-xl border border-border bg-bg/70 px-4 py-3 text-sm transition hover:border-accentGold"
-              >
-                <div className="font-semibold">{event.title}</div>
-                <div className="text-xs text-muted">
-                  {event.chain} • {event.date}
-                </div>
-              </Link>
-            ))}
-          </div>
-          <div className="mt-3 text-sm text-muted">
-            Browse the full list or jump into the timeline for a guided view.
-            <Link href="/timeline" className="ml-2 text-accentGold underline">
-              View timeline
-            </Link>
-          </div>
         </div>
         <div className="rounded-2xl border border-border bg-card p-4 shadow-subtle">
           <EventTable />

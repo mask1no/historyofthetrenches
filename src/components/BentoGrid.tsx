@@ -7,20 +7,20 @@ import { eras } from "@/data/eras";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { ArrowLeft, ArrowRight } from "lucide-react";
 
 const rugOrder = [
   "openclaw-moltbook-incident",
-  "squid-game-token",
-  "bitconnect-collapse",
-  "safemoon-drain"
+  "terra-luna-collapse",
+  "anubisdao-rugpull",
+  "thodex-exit-scam",
+  "squid-game-token"
 ];
 const runnerOrder = [
   "bitcoin-run-2017",
   "dogecoin-run",
   "shiba-inu-run",
   "pepe-memecoin",
-  "bonk-solana"
+  "solana-revival-run"
 ];
 
 const rugs = events
@@ -35,30 +35,14 @@ export function BentoGrid() {
   const scrollRef = useRef<HTMLDivElement | null>(null);
   const dragState = useRef({ isDown: false, startX: 0, scrollLeft: 0 });
   const scrollRaf = useRef<number | null>(null);
+  const isInitialized = useRef(false);
+
+  const loopEras = useMemo(() => [...eras, ...eras, ...eras], []);
 
   const clampedIndex = useMemo(
     () => Math.max(0, Math.min(eraIndex, eras.length - 1)),
     [eraIndex]
   );
-
-  const scrollToEra = (nextIndex: number, wrap = false) => {
-    const total = eras.length;
-    const safeIndex = wrap
-      ? ((nextIndex % total) + total) % total
-      : Math.max(0, Math.min(nextIndex, total - 1));
-    setEraIndex(safeIndex);
-    const container = scrollRef.current;
-    const target = container?.children?.[safeIndex] as HTMLElement | undefined;
-    if (target && container) {
-      const prefersReduced =
-        typeof window !== "undefined" &&
-        window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      container.scrollTo({
-        left: target.offsetLeft,
-        behavior: prefersReduced ? "auto" : "smooth"
-      });
-    }
-  };
 
   const getScrollStep = useCallback(() => {
     const container = scrollRef.current;
@@ -71,26 +55,21 @@ export function BentoGrid() {
     return cardWidth + gap;
   }, []);
 
-  const scrollByStep = (direction: -1 | 1) => {
-    const container = scrollRef.current;
-    if (!container) return;
-    const prefersReduced =
-      typeof window !== "undefined" &&
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    container.scrollBy({
-      left: direction * getScrollStep(),
-      behavior: prefersReduced ? "auto" : "smooth"
-    });
-  };
-
   const updateIndexFromScroll = useCallback(() => {
     const container = scrollRef.current;
     if (!container) return;
     const step = getScrollStep();
     if (!step) return;
-    const nextIndex = Math.round(container.scrollLeft / step);
-    const clamped = Math.max(0, Math.min(nextIndex, eras.length - 1));
-    setEraIndex((prev) => (prev === clamped ? prev : clamped));
+    const rawIndex = Math.round(container.scrollLeft / step);
+    const total = eras.length;
+    const normalized = ((rawIndex % total) + total) % total;
+    setEraIndex((prev) => (prev === normalized ? prev : normalized));
+
+    if (rawIndex <= total * 0.5) {
+      container.scrollLeft += step * total;
+    } else if (rawIndex >= total * 2.5) {
+      container.scrollLeft -= step * total;
+    }
   }, [getScrollStep]);
 
   const handleScroll = () => {
@@ -124,6 +103,17 @@ export function BentoGrid() {
     const walk = x - dragState.current.startX;
     scrollRef.current.scrollLeft = dragState.current.scrollLeft - walk;
   };
+
+  useEffect(() => {
+    if (isInitialized.current) return;
+    const container = scrollRef.current;
+    if (!container) return;
+    const step = getScrollStep();
+    if (!step) return;
+    container.scrollLeft = step * eras.length;
+    isInitialized.current = true;
+    setEraIndex(0);
+  }, [getScrollStep]);
 
   useEffect(() => {
     const handleResize = () => updateIndexFromScroll();
@@ -222,15 +212,6 @@ export function BentoGrid() {
             Era {clampedIndex + 1} of {eras.length}
           </div>
           <div className="relative flex items-center gap-3">
-            <Button
-              variant="ghost"
-              size="icon"
-              className="hidden h-10 w-10 flex-shrink-0 border border-border bg-card shadow-subtle hover:border-accentGold sm:inline-flex z-10"
-              onClick={() => scrollToEra(clampedIndex - 1, true)}
-              aria-label="Previous era"
-            >
-              <ArrowLeft className="h-4 w-4" />
-            </Button>
             <div className="relative flex-1 min-w-0">
               <div
                 ref={scrollRef}
@@ -244,9 +225,9 @@ export function BentoGrid() {
                 onPointerMove={handleDragMove}
                 onScroll={handleScroll}
               >
-                {eras.map((era) => (
+                {loopEras.map((era, index) => (
                   <div
-                    key={era.id}
+                    key={`${era.id}-${index}`}
                     className="flex-none snap-start basis-[70%] sm:basis-[48%] md:basis-[34%] lg:basis-[28%] xl:basis-[22%] max-w-[300px]"
                   >
                     <div className="flex h-full min-h-[220px] flex-col rounded-2xl border border-border/80 bg-card p-5 shadow-subtle aspect-[4/5]">
@@ -258,15 +239,6 @@ export function BentoGrid() {
                 ))}
               </div>
             </div>
-            <Button
-              variant="ghost"
-              size="icon"
-              className="hidden h-10 w-10 flex-shrink-0 border border-border bg-card shadow-subtle hover:border-accentGold sm:inline-flex z-10"
-              onClick={() => scrollToEra(clampedIndex + 1, true)}
-              aria-label="Next era"
-            >
-              <ArrowRight className="h-4 w-4" />
-            </Button>
           </div>
         </CardContent>
       </Card>

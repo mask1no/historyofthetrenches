@@ -6,7 +6,7 @@ import { eras } from "@/data/eras";
 import { Badge } from "@/components/ui/badge";
 
 export function EraTimeline() {
-  const [openEraIds, setOpenEraIds] = useState<string[]>(() => eras.map((era) => era.id));
+  const [openEraIds, setOpenEraIds] = useState<string[]>([]);
 
   const toggleEra = (id: string) => {
     setOpenEraIds((prev) =>
@@ -33,7 +33,7 @@ export function EraTimeline() {
                 </div>
               </div>
               <div className="space-y-2">
-                {(openEraIds.includes(era.id) ? era.featured : era.featured.slice(0, 2)).map(
+                {(openEraIds.includes(era.id) ? era.featured : era.featured.slice(0, 4)).map(
                   (event) => (
                     <Link
                       key={event.slug}
@@ -63,7 +63,7 @@ export function EraTimeline() {
                   )
                 )}
               </div>
-              {era.featured.length > 2 && (
+              {era.featured.length > 4 && (
                 <div className="md:col-span-2 flex justify-center pt-3">
                   <button
                     type="button"
