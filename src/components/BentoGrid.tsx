@@ -7,6 +7,7 @@ import { eras } from "@/data/eras";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 
 const rugOrder = [
   "openclaw-moltbook-incident",
@@ -30,325 +31,223 @@ const runners = events
   .filter((e) => e.type === "runner" && e.hallOfFame && runnerOrder.includes(e.slug))
   .sort((a, b) => runnerOrder.indexOf(a.slug) - runnerOrder.indexOf(b.slug));
 
-const useIntersectionObserver = (
-  rootRef: React.RefObject<HTMLElement>,
-  options: IntersectionObserverInit
-) => {
-  const [visibleIndices, setVisibleIndices] = useState<Set<number>>(new Set());
-  const itemRefs = useRef<(HTMLElement | null)[]>([]);
-
-  useEffect(() => {
-    const root = rootRef.current;
-    if (!root || typeof IntersectionObserver === "undefined") return;
-
-    const observer = new IntersectionObserver((entries) => {
-      setVisibleIndices((prev) => {
-        const next = new Set(prev);
-        entries.forEach((entry) => {
-          const index = Number(entry.target.getAttribute("data-index"));
-          if (!Number.isFinite(index)) return;
-          if (entry.isIntersecting) {
-            next.add(index);
-          } else {
-            next.delete(index);
-          }
-        });
-        return next;
-      });
-    }, options);
-
-    itemRefs.current.forEach((node) => node && observer.observe(node));
-    return () => observer.disconnect();
-  }, [options, rootRef]);
-
-  return { visibleIndices, itemRefs };
-};
-
-class CarouselErrorBoundary extends React.Component<
-  React.PropsWithChildren,
-  { hasError: boolean }
-> {
-  state = { hasError: false };
-
-  static getDerivedStateFromError() {
-    return { hasError: true };
-  }
-
-  render() {
-    if (this.state.hasError) {
-      return (
-        <div className="rounded-2xl border border-border bg-card p-5 text-sm text-muted">
-          Carousel temporarily unavailable.
-        </div>
-      );
-    }
-    return this.props.children;
-  }
-}
-export function BentoGrid() {
-  const [eraIndex, setEraIndex] = useState(0);
+// Infinite carousel hook with auto-scroll and smooth performance
+function useInfiniteCarousel(eras: any[], itemWidth: number = 320) {
+  const [currentIndex, setCurrentIndex] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
-  const [isReady, setIsReady] = useState(false);
-  const scrollRef = useRef<HTMLDivElement | null>(null);
-  const dragStart = useRef({ x: 0, scrollLeft: 0 });
-  const scrollRaf = useRef<number | null>(null);
-  const autoScrollRaf = useRef<number | null>(null);
-  const autoScrollTime = useRef<number | null>(null);
-  const isInitialized = useRef(false);
+  const [isAutoScrolling, setIsAutoScrolling] = useState(true);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const autoScrollRef = useRef<number | null>(null);
+  const resumeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const dragStartRef = useRef({ x: 0, scrollLeft: 0 });
+  const lastFrameTimeRef = useRef(0);
+  const currentIndexRef = useRef(0);
 
-  const extendedEras = useMemo(() => {
-    const buffer = 3; // Increased buffer for safety
-    if (eras.length <= buffer) return [...eras, ...eras, ...eras]; // Triple for small arrays
-    return [...eras.slice(-buffer), ...eras, ...eras.slice(0, buffer)];
+  // Create infinite array by duplicating items
+  const infiniteEras = useMemo(() => {
+    if (!eras.length) return [];
+    // Create enough duplicates for smooth infinite scroll
+    return [...eras, ...eras, ...eras, ...eras, ...eras];
   }, [eras]);
-  const { visibleIndices, itemRefs } = useIntersectionObserver(scrollRef, {
-    threshold: 0.5,
-    rootMargin: "-50px"
-  });
 
-  const clampedIndex = useMemo(
-    () => Math.max(0, Math.min(eraIndex, eras.length - 1)),
-    [eraIndex]
-  );
-  const bufferSize = Math.min(3, Math.max(1, eras.length));
+  // Auto-scroll functionality (continuous, smooth)
+  useEffect(() => {
+    if (!isAutoScrolling || isDragging || !eras.length) return;
 
-  const getItemWidth = useCallback(() => {
-    const container = scrollRef.current;
-    if (!container || extendedEras.length === 0) return 0;
+    const container = containerRef.current;
+    if (!container) return;
 
-    // Get the first child to calculate actual item width
-    const firstChild = container.children[0] as HTMLElement;
-    if (!firstChild) return 0;
+    const itemWidthWithGap = itemWidth + 16;
+    const totalItems = eras.length;
+    const totalWidth = totalItems * itemWidthWithGap;
+    const speed = 28; // px per second
 
-    const styles = window.getComputedStyle(container);
-    const gap = parseFloat(styles.gap) || 0;
-    const itemWidth = firstChild.getBoundingClientRect().width;
+    const tick = (time: number) => {
+      if (!containerRef.current) return;
 
-    return itemWidth + gap;
-  }, [extendedEras.length]);
-
-  const handleScrollEnd = useCallback(() => {
-    const container = scrollRef.current;
-    if (!container || isDragging) return; // Don't jump during drag
-
-    const itemWidth = getItemWidth();
-    if (!itemWidth) return;
-
-    const currentScroll = container.scrollLeft;
-    const leftThreshold = itemWidth * bufferSize;
-    const rightThreshold = itemWidth * (extendedEras.length - bufferSize);
-
-    // Only jump if we're clearly outside the main content area
-    if (currentScroll < leftThreshold) {
-      const centerPosition = eras.length * itemWidth;
-      container.style.scrollBehavior = 'auto';
-      container.scrollLeft = currentScroll + centerPosition;
-      requestAnimationFrame(() => {
-        container.style.scrollBehavior = 'smooth';
-      });
-    } else if (currentScroll > rightThreshold) {
-      const centerPosition = eras.length * itemWidth;
-      container.style.scrollBehavior = 'auto';
-      container.scrollLeft = currentScroll - centerPosition;
-      requestAnimationFrame(() => {
-        container.style.scrollBehavior = 'smooth';
-      });
-    }
-  }, [bufferSize, extendedEras.length, eras.length, getItemWidth, isDragging]);
-
-  const getVisibleIndex = useCallback(() => {
-    const container = scrollRef.current;
-    if (!container) return 0;
-
-    const itemWidth = getItemWidth();
-    if (!itemWidth) return 0;
-
-    // Find which item is most visible in the center of the viewport
-    const containerRect = container.getBoundingClientRect();
-    const containerCenter = containerRect.left + containerRect.width / 2;
-
-    let closestIndex = 0;
-    let minDistance = Infinity;
-
-    // Check each item to find the one closest to center
-    Array.from(container.children).forEach((child, index) => {
-      const childRect = child.getBoundingClientRect();
-      const childCenter = childRect.left + childRect.width / 2;
-      const distance = Math.abs(childCenter - containerCenter);
-
-      if (distance < minDistance) {
-        minDistance = distance;
-        closestIndex = index;
+      if (!lastFrameTimeRef.current) {
+        lastFrameTimeRef.current = time;
       }
-    });
 
-    // Convert from extendedEras index to original eras index
-    const originalIndex = (closestIndex - bufferSize + eras.length) % eras.length;
-    return Math.max(0, Math.min(originalIndex, eras.length - 1));
-  }, [bufferSize, eras.length, getItemWidth]);
+      const delta = time - lastFrameTimeRef.current;
+      lastFrameTimeRef.current = time;
+      containerRef.current.scrollLeft += (speed * delta) / 1000;
 
-  const updateIndexFromScroll = useCallback(() => {
-    if (!eras.length) return;
-    const normalized = getVisibleIndex();
-    setEraIndex((prev) => (prev === normalized ? prev : normalized));
-  }, [eras.length, getVisibleIndex]);
-
-  // Separate scroll end handler for infinite loop adjustments
-  const handleScrollEndDebounced = useCallback(() => {
-    // Debounce scroll end to avoid excessive calls
-    if (scrollRaf.current !== null) {
-      cancelAnimationFrame(scrollRaf.current);
-    }
-    scrollRaf.current = requestAnimationFrame(() => {
-      handleScrollEnd();
-      scrollRaf.current = null;
-    });
-  }, [handleScrollEnd]);
-
-  const handleScroll = useCallback(() => {
-    if (scrollRaf.current !== null) {
-      cancelAnimationFrame(scrollRaf.current);
-    }
-    scrollRaf.current = requestAnimationFrame(() => {
-      // Only update index during non-dragging scroll (user scrolling, not programmatic jumps)
-      if (!isDragging) {
-        updateIndexFromScroll();
+      // Keep the scroll within the middle copies for seamless looping
+      if (containerRef.current.scrollLeft >= totalWidth * 4) {
+        containerRef.current.scrollLeft -= totalWidth * 2;
+      } else if (containerRef.current.scrollLeft <= totalWidth) {
+        containerRef.current.scrollLeft += totalWidth * 2;
       }
-      scrollRaf.current = null;
-    });
-  }, [updateIndexFromScroll, isDragging]);
 
-  const handlePointerDown = useCallback((event: React.PointerEvent<HTMLDivElement>) => {
-    if (!scrollRef.current) return;
-    setIsDragging(true);
-    dragStart.current = {
-      x: event.clientX,
-      scrollLeft: scrollRef.current.scrollLeft
+      const itemIndex = Math.round(containerRef.current.scrollLeft / itemWidthWithGap);
+      const normalizedIndex = ((itemIndex % totalItems) + totalItems) % totalItems;
+      if (normalizedIndex !== currentIndexRef.current) {
+        currentIndexRef.current = normalizedIndex;
+        setCurrentIndex(normalizedIndex);
+      }
+
+      autoScrollRef.current = requestAnimationFrame(tick);
     };
-    scrollRef.current.setPointerCapture(event.pointerId);
+
+    autoScrollRef.current = requestAnimationFrame(tick);
+
+    return () => {
+      if (autoScrollRef.current) {
+        cancelAnimationFrame(autoScrollRef.current);
+        autoScrollRef.current = null;
+      }
+      lastFrameTimeRef.current = 0;
+    };
+  }, [isAutoScrolling, isDragging, eras.length, itemWidth]);
+
+  // Pause auto-scroll on hover/interaction
+  const pauseAutoScroll = useCallback(() => {
+    setIsAutoScrolling(false);
   }, []);
 
-  const handlePointerMove = useCallback(
-    (event: React.PointerEvent<HTMLDivElement>) => {
-      if (!isDragging || !scrollRef.current) return;
-      event.preventDefault();
-      const walk = event.clientX - dragStart.current.x;
-      scrollRef.current.scrollLeft = dragStart.current.scrollLeft - walk;
-    },
-    [isDragging]
-  );
+  const resumeAutoScroll = useCallback(() => {
+    if (resumeTimeoutRef.current) {
+      clearTimeout(resumeTimeoutRef.current);
+    }
+    resumeTimeoutRef.current = setTimeout(() => setIsAutoScrolling(true), 1000);
+  }, []);
 
-  const handlePointerUp = useCallback(
-    (event?: React.PointerEvent<HTMLDivElement>) => {
-      if (event?.pointerId && scrollRef.current?.hasPointerCapture(event.pointerId)) {
-        scrollRef.current.releasePointerCapture(event.pointerId);
-      }
-      setIsDragging(false);
-      // Check for infinite scroll adjustments after drag ends
-      setTimeout(handleScrollEndDebounced, 150);
-    },
-    [handleScrollEndDebounced]
-  );
+  // Handle drag start
+  const handleDragStart = useCallback((e: React.PointerEvent) => {
+    if (!containerRef.current) return;
 
-  const scrollToItem = useCallback(
-    (index: number) => {
-      const container = scrollRef.current;
-      if (!container) return;
-      const itemWidth = getItemWidth();
-      if (!itemWidth) return;
-      const clamped = Math.max(0, Math.min(index, eras.length - 1));
-      const targetScroll = (bufferSize + clamped) * itemWidth; // Account for buffer offset
-      container.scrollTo({
-        left: targetScroll,
-        behavior: isDragging ? "auto" : "smooth"
-      });
-    },
-    [bufferSize, eras.length, getItemWidth, isDragging]
-  );
-
-  const handleKeyDown = useCallback(
-    (event: React.KeyboardEvent<HTMLDivElement>) => {
-      if (event.key === "ArrowLeft") {
-        event.preventDefault();
-        scrollToItem(eraIndex - 1);
-      } else if (event.key === "ArrowRight") {
-        event.preventDefault();
-        scrollToItem(eraIndex + 1);
-      }
-    },
-    [eraIndex, scrollToItem]
-  );
-
-  useEffect(() => {
-    if (isInitialized.current) return;
-
-    const initializeScroll = () => {
-      const container = scrollRef.current;
-      if (!container) return;
-
-      const itemWidth = getItemWidth();
-      if (!itemWidth) {
-        // Retry after a short delay if items aren't rendered yet
-        setTimeout(initializeScroll, 50);
-        return;
-      }
-
-      const centerPosition = eras.length * itemWidth;
-      container.scrollLeft = centerPosition;
-      isInitialized.current = true;
-      setEraIndex(0);
-      setIsReady(true);
+    setIsDragging(true);
+    setIsAutoScrolling(false);
+    dragStartRef.current = {
+      x: e.clientX,
+      scrollLeft: containerRef.current.scrollLeft
     };
+    containerRef.current.setPointerCapture(e.pointerId);
+  }, []);
 
-    // Use requestAnimationFrame to ensure DOM is ready
-    requestAnimationFrame(initializeScroll);
-  }, [eras.length, getItemWidth]);
+  // Handle drag move with smooth performance
+  const handleDragMove = useCallback((e: React.PointerEvent) => {
+    if (!isDragging || !containerRef.current) return;
+
+    e.preventDefault();
+    const walk = e.clientX - dragStartRef.current.x;
+    containerRef.current.scrollLeft = dragStartRef.current.scrollLeft - walk;
+  }, [isDragging]);
+
+  // Handle drag end and adjust for infinite scroll
+  const handleDragEnd = useCallback((e?: React.PointerEvent) => {
+    if (e?.pointerId && containerRef.current?.hasPointerCapture(e.pointerId)) {
+      containerRef.current.releasePointerCapture(e.pointerId);
+    }
+
+    setIsDragging(false);
+    resumeAutoScroll();
+
+    // Adjust scroll position for infinite effect
+    const container = containerRef.current;
+    if (!container || !eras.length) return;
+
+    const itemWidthWithGap = itemWidth + 16; // Assuming 16px gap
+    const totalItems = eras.length;
+    const scrollLeft = container.scrollLeft;
+    const itemIndex = Math.round(scrollLeft / itemWidthWithGap);
+
+    // If we're in the first copy, jump to the middle copy
+    if (itemIndex < totalItems) {
+      container.scrollLeft = scrollLeft + (totalItems * itemWidthWithGap);
+    }
+    // If we're in the last copy, jump to the middle copy
+    else if (itemIndex >= totalItems * 4) {
+      container.scrollLeft = scrollLeft - (totalItems * itemWidthWithGap);
+    }
+
+    // Update current index
+    const normalizedIndex = ((itemIndex % totalItems) + totalItems) % totalItems;
+    currentIndexRef.current = normalizedIndex;
+    setCurrentIndex(normalizedIndex);
+  }, [eras.length, itemWidth, resumeAutoScroll]);
+
+  // Manual navigation
+  const goToNext = useCallback(() => {
+    pauseAutoScroll();
+    setCurrentIndex(prev => prev + 1);
+    resumeAutoScroll();
+  }, [pauseAutoScroll, resumeAutoScroll]);
+
+  const goToPrev = useCallback(() => {
+    pauseAutoScroll();
+    setCurrentIndex(prev => prev - 1);
+    resumeAutoScroll();
+  }, [pauseAutoScroll, resumeAutoScroll]);
+
+  // Smooth scroll to position
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container || !eras.length || isAutoScrolling || isDragging) return;
+
+    const itemWidthWithGap = itemWidth + 16;
+    const totalItems = eras.length;
+    const middleOffset = totalItems * itemWidthWithGap; // Start in middle copy
+    const targetScroll = middleOffset + (currentIndex * itemWidthWithGap);
+
+    container.scrollTo({
+      left: targetScroll,
+      behavior: 'smooth'
+    });
+  }, [currentIndex, eras.length, itemWidth, isAutoScrolling, isDragging]);
 
   useEffect(() => {
-    const handleResize = () => updateIndexFromScroll();
-    window.addEventListener("resize", handleResize);
+    const container = containerRef.current;
+    if (!container || !eras.length) return;
+
+    const itemWidthWithGap = itemWidth + 16;
+    const totalItems = eras.length;
+    const middleOffset = totalItems * itemWidthWithGap * 2;
+    container.scrollLeft = middleOffset;
+  }, [eras.length, itemWidth]);
+
+  useEffect(() => {
+    currentIndexRef.current = currentIndex;
+  }, [currentIndex]);
+
+  useEffect(() => {
     return () => {
-      window.removeEventListener("resize", handleResize);
-      if (scrollRaf.current !== null) {
-        cancelAnimationFrame(scrollRaf.current);
+      if (resumeTimeoutRef.current) {
+        clearTimeout(resumeTimeoutRef.current);
       }
     };
-  }, [updateIndexFromScroll]);
+  }, []);
 
-  useEffect(() => {
-    const container = scrollRef.current;
-    if (!container || extendedEras.length === 0 || !isReady) return;
+  return {
+    containerRef,
+    infiniteEras,
+    currentIndex: ((currentIndex % eras.length) + eras.length) % eras.length,
+    isDragging,
+    handleDragStart,
+    handleDragMove,
+    handleDragEnd,
+    goToNext,
+    goToPrev,
+    pauseAutoScroll,
+    resumeAutoScroll
+  };
+}
 
-    const step = () => {
-      if (!scrollRef.current || isDragging) {
-        autoScrollTime.current = null;
-        autoScrollRaf.current = requestAnimationFrame(step);
-        return;
-      }
-
-      const now = performance.now();
-      if (autoScrollTime.current === null) {
-        autoScrollTime.current = now;
-      }
-      const delta = now - autoScrollTime.current;
-      autoScrollTime.current = now;
-
-      const speed = 18; // px per second
-      const distance = (speed * delta) / 1000;
-      scrollRef.current.scrollLeft += distance;
-      updateIndexFromScroll();
-      handleScrollEnd();
-      autoScrollRaf.current = requestAnimationFrame(step);
-    };
-
-    autoScrollRaf.current = requestAnimationFrame(step);
-    return () => {
-      autoScrollTime.current = null;
-      if (autoScrollRaf.current !== null) {
-        cancelAnimationFrame(autoScrollRaf.current);
-      }
-    };
-  }, [extendedEras.length, handleScrollEnd, isDragging, isReady, updateIndexFromScroll]);
+export function BentoGrid() {
+  const {
+    containerRef,
+    infiniteEras,
+    currentIndex,
+    isDragging,
+    handleDragStart,
+    handleDragMove,
+    handleDragEnd,
+    goToNext,
+    goToPrev,
+    pauseAutoScroll,
+    resumeAutoScroll
+  } = useInfiniteCarousel(eras, 320);
 
   return (
     <section className="mx-auto grid max-w-6xl grid-cols-1 gap-6 rounded-3xl border border-border/60 bg-card/90 px-6 pb-12 pt-6 shadow-subtle md:grid-cols-12">
@@ -433,60 +332,58 @@ export function BentoGrid() {
         </CardHeader>
         <CardContent className="relative overflow-hidden">
           <div className="mb-5 text-xs text-muted">
-            Era {clampedIndex + 1} of {eras.length}
+            Era {currentIndex + 1} of {eras.length}
           </div>
-          <CarouselErrorBoundary>
-            <div
-              className="relative flex items-center gap-3"
-              role="region"
-              aria-label="Crypto onboarding eras carousel"
+          <div className="relative flex items-center gap-3">
+            <Button
+              variant="ghost"
+              size="icon"
+              className="hidden h-10 w-10 flex-shrink-0 border border-border bg-card shadow-subtle hover:border-accentGold sm:inline-flex z-10"
+              onClick={goToPrev}
+              aria-label="Previous era"
             >
-              <div className="relative flex-1 min-w-0">
-                <div
-                  ref={scrollRef}
-                  className={`no-scrollbar flex gap-4 overflow-x-auto pr-2 snap-x snap-mandatory overscroll-x-contain touch-pan-x ${
-                    isDragging ? "cursor-grabbing select-none" : "cursor-grab"
-                  }`}
-                  onPointerDown={handlePointerDown}
-                  onPointerUp={handlePointerUp}
-                  onPointerCancel={handlePointerUp}
-                  onPointerLeave={handlePointerUp}
-                  onPointerMove={handlePointerMove}
-                  onScroll={handleScroll}
-                  onKeyDown={handleKeyDown}
-                  tabIndex={0}
-                  aria-live="polite"
-                  style={{
-                    scrollbarWidth: "none",
-                    scrollBehavior: isDragging ? "auto" : "smooth",
-                    scrollSnapType: isDragging ? "x mandatory" : "none"
-                  }}
-                >
-                  {extendedEras.map((era, index) => {
-                    const isVisible = visibleIndices.size === 0 || visibleIndices.has(index);
-                    return (
-                    <div
-                      key={`${era.id}-${index}`}
-                      data-index={index}
-                      className="flex-none snap-start basis-[70%] sm:basis-[48%] md:basis-[34%] lg:basis-[28%] xl:basis-[22%] max-w-[300px]"
-                      aria-label={`${era.title} era`}
-                      aria-hidden={!isVisible}
-                      ref={(node) => {
-                        itemRefs.current[index] = node;
-                      }}
-                    >
-                      <div className="flex h-full min-h-[220px] flex-col rounded-2xl border border-border/80 bg-card p-5 shadow-subtle aspect-[4/5]">
-                        <div className="text-xs font-semibold uppercase text-muted">{era.range}</div>
-                        <div className="text-base font-semibold line-clamp-2">{era.title}</div>
-                        <p className="mt-3 text-sm text-muted line-clamp-4">{era.description}</p>
-                      </div>
+              <ArrowLeft className="h-4 w-4" />
+            </Button>
+            <div className="relative flex-1 min-w-0">
+              <div
+                ref={containerRef}
+                className={`flex gap-4 overflow-x-auto pb-4 pr-2 overscroll-x-contain touch-pan-x ${
+                  isAutoScrolling ? "scroll-auto" : "scroll-smooth snap-x snap-mandatory"
+                } ${
+                  isDragging ? "cursor-grabbing select-none" : "cursor-grab"
+                }`}
+                onPointerDown={handleDragStart}
+                onPointerUp={handleDragEnd}
+                onPointerCancel={handleDragEnd}
+                onPointerLeave={handleDragEnd}
+                onPointerMove={handleDragMove}
+                onMouseEnter={pauseAutoScroll}
+                onMouseLeave={resumeAutoScroll}
+              >
+                {infiniteEras.map((era, index) => (
+                  <div
+                    key={`${era.id}-${index}`}
+                    className="flex-none snap-start basis-[70%] sm:basis-[48%] md:basis-[34%] lg:basis-[28%] xl:basis-[22%] max-w-[300px]"
+                  >
+                    <div className="flex h-full min-h-[220px] flex-col rounded-2xl border border-border/80 bg-card p-5 shadow-subtle aspect-[4/5]">
+                      <div className="text-xs font-semibold uppercase text-muted">{era.range}</div>
+                      <div className="text-base font-semibold line-clamp-2">{era.title}</div>
+                      <p className="mt-3 text-sm text-muted line-clamp-4">{era.description}</p>
                     </div>
-                    );
-                  })}
-                </div>
+                  </div>
+                ))}
               </div>
             </div>
-          </CarouselErrorBoundary>
+            <Button
+              variant="ghost"
+              size="icon"
+              className="hidden h-10 w-10 flex-shrink-0 border border-border bg-card shadow-subtle hover:border-accentGold sm:inline-flex z-10"
+              onClick={goToNext}
+              aria-label="Next era"
+            >
+              <ArrowRight className="h-4 w-4" />
+            </Button>
+          </div>
         </CardContent>
       </Card>
 
