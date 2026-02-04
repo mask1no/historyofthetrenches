@@ -65,9 +65,9 @@ export function BentoGrid() {
     const normalized = ((rawIndex % total) + total) % total;
     setEraIndex((prev) => (prev === normalized ? prev : normalized));
 
-    if (rawIndex <= total * 0.5) {
+    if (rawIndex < total) {
       container.scrollLeft += step * total;
-    } else if (rawIndex >= total * 2.5) {
+    } else if (rawIndex >= total * 2) {
       container.scrollLeft -= step * total;
     }
   }, [getScrollStep]);
@@ -215,7 +215,7 @@ export function BentoGrid() {
             <div className="relative flex-1 min-w-0">
               <div
                 ref={scrollRef}
-                className={`flex gap-4 overflow-x-auto pb-4 pr-2 scroll-smooth snap-x snap-mandatory overscroll-x-contain touch-pan-x ${
+                className={`no-scrollbar flex gap-4 overflow-x-auto pb-4 pr-2 scroll-smooth snap-x snap-mandatory overscroll-x-contain touch-pan-x ${
                   isDragging ? "cursor-grabbing select-none" : "cursor-grab"
                 }`}
                 onPointerDown={handleDragStart}
