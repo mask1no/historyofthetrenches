@@ -88,9 +88,12 @@ class CarouselErrorBoundary extends React.Component<
 export function BentoGrid() {
   const [eraIndex, setEraIndex] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
+  const [isReady, setIsReady] = useState(false);
   const scrollRef = useRef<HTMLDivElement | null>(null);
   const dragStart = useRef({ x: 0, scrollLeft: 0 });
   const scrollRaf = useRef<number | null>(null);
+  const autoScrollRaf = useRef<number | null>(null);
+  const autoScrollTime = useRef<number | null>(null);
   const isInitialized = useRef(false);
 
   const extendedEras = useMemo(() => {
@@ -107,6 +110,7 @@ export function BentoGrid() {
     () => Math.max(0, Math.min(eraIndex, eras.length - 1)),
     [eraIndex]
   );
+  const bufferSize = Math.min(3, Math.max(1, eras.length));
 
   const getItemWidth = useCallback(() => {
     const container = scrollRef.current;
@@ -131,7 +135,6 @@ export function BentoGrid() {
     if (!itemWidth) return;
 
     const currentScroll = container.scrollLeft;
-    const bufferSize = 3; // Match extendedEras buffer
     const leftThreshold = itemWidth * bufferSize;
     const rightThreshold = itemWidth * (extendedEras.length - bufferSize);
 
@@ -151,7 +154,7 @@ export function BentoGrid() {
         container.style.scrollBehavior = 'smooth';
       });
     }
-  }, [extendedEras.length, eras.length, getItemWidth, isDragging]);
+  }, [bufferSize, extendedEras.length, eras.length, getItemWidth, isDragging]);
 
   const getVisibleIndex = useCallback(() => {
     const container = scrollRef.current;
@@ -180,10 +183,9 @@ export function BentoGrid() {
     });
 
     // Convert from extendedEras index to original eras index
-    const buffer = 3;
-    const originalIndex = (closestIndex - buffer + eras.length) % eras.length;
+    const originalIndex = (closestIndex - bufferSize + eras.length) % eras.length;
     return Math.max(0, Math.min(originalIndex, eras.length - 1));
-  }, [eras.length, getItemWidth]);
+  }, [bufferSize, eras.length, getItemWidth]);
 
   const updateIndexFromScroll = useCallback(() => {
     if (!eras.length) return;
@@ -255,13 +257,13 @@ export function BentoGrid() {
       const itemWidth = getItemWidth();
       if (!itemWidth) return;
       const clamped = Math.max(0, Math.min(index, eras.length - 1));
-      const targetScroll = (3 + clamped) * itemWidth; // Account for buffer offset
+      const targetScroll = (bufferSize + clamped) * itemWidth; // Account for buffer offset
       container.scrollTo({
         left: targetScroll,
         behavior: isDragging ? "auto" : "smooth"
       });
     },
-    [eras.length, getItemWidth, isDragging]
+    [bufferSize, eras.length, getItemWidth, isDragging]
   );
 
   const handleKeyDown = useCallback(
@@ -295,6 +297,7 @@ export function BentoGrid() {
       container.scrollLeft = centerPosition;
       isInitialized.current = true;
       setEraIndex(0);
+      setIsReady(true);
     };
 
     // Use requestAnimationFrame to ensure DOM is ready
@@ -311,6 +314,41 @@ export function BentoGrid() {
       }
     };
   }, [updateIndexFromScroll]);
+
+  useEffect(() => {
+    const container = scrollRef.current;
+    if (!container || extendedEras.length === 0 || !isReady) return;
+
+    const step = () => {
+      if (!scrollRef.current || isDragging) {
+        autoScrollTime.current = null;
+        autoScrollRaf.current = requestAnimationFrame(step);
+        return;
+      }
+
+      const now = performance.now();
+      if (autoScrollTime.current === null) {
+        autoScrollTime.current = now;
+      }
+      const delta = now - autoScrollTime.current;
+      autoScrollTime.current = now;
+
+      const speed = 18; // px per second
+      const distance = (speed * delta) / 1000;
+      scrollRef.current.scrollLeft += distance;
+      updateIndexFromScroll();
+      handleScrollEnd();
+      autoScrollRaf.current = requestAnimationFrame(step);
+    };
+
+    autoScrollRaf.current = requestAnimationFrame(step);
+    return () => {
+      autoScrollTime.current = null;
+      if (autoScrollRaf.current !== null) {
+        cancelAnimationFrame(autoScrollRaf.current);
+      }
+    };
+  }, [extendedEras.length, handleScrollEnd, isDragging, isReady, updateIndexFromScroll]);
 
   return (
     <section className="mx-auto grid max-w-6xl grid-cols-1 gap-6 rounded-3xl border border-border/60 bg-card/90 px-6 pb-12 pt-6 shadow-subtle md:grid-cols-12">
@@ -420,7 +458,8 @@ export function BentoGrid() {
                   aria-live="polite"
                   style={{
                     scrollbarWidth: "none",
-                    scrollBehavior: isDragging ? "auto" : "smooth"
+                    scrollBehavior: isDragging ? "auto" : "smooth",
+                    scrollSnapType: isDragging ? "x mandatory" : "none"
                   }}
                 >
                   {extendedEras.map((era, index) => {
