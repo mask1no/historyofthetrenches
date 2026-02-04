@@ -59,7 +59,7 @@ const useIntersectionObserver = (
 
     itemRefs.current.forEach((node) => node && observer.observe(node));
     return () => observer.disconnect();
-  }, [options.rootMargin, options.threshold, rootRef]);
+  }, [options, rootRef]);
 
   return { visibleIndices, itemRefs };
 };
@@ -94,8 +94,8 @@ export function BentoGrid() {
   const isInitialized = useRef(false);
 
   const extendedEras = useMemo(() => {
-    const buffer = 2;
-    if (eras.length <= buffer) return eras;
+    const buffer = 3; // Increased buffer for safety
+    if (eras.length <= buffer) return [...eras, ...eras, ...eras]; // Triple for small arrays
     return [...eras.slice(-buffer), ...eras, ...eras.slice(0, buffer)];
   }, [eras]);
   const { visibleIndices, itemRefs } = useIntersectionObserver(scrollRef, {
@@ -111,50 +111,110 @@ export function BentoGrid() {
   const getItemWidth = useCallback(() => {
     const container = scrollRef.current;
     if (!container || extendedEras.length === 0) return 0;
-    return container.scrollWidth / extendedEras.length;
+
+    // Get the first child to calculate actual item width
+    const firstChild = container.children[0] as HTMLElement;
+    if (!firstChild) return 0;
+
+    const styles = window.getComputedStyle(container);
+    const gap = parseFloat(styles.gap) || 0;
+    const itemWidth = firstChild.getBoundingClientRect().width;
+
+    return itemWidth + gap;
   }, [extendedEras.length]);
 
   const handleScrollEnd = useCallback(() => {
     const container = scrollRef.current;
-    if (!container) return;
+    if (!container || isDragging) return; // Don't jump during drag
+
     const itemWidth = getItemWidth();
     if (!itemWidth) return;
+
     const currentScroll = container.scrollLeft;
-    const centerPosition = eras.length * itemWidth;
-    if (currentScroll < itemWidth * 2) {
+    const bufferSize = 3; // Match extendedEras buffer
+    const leftThreshold = itemWidth * bufferSize;
+    const rightThreshold = itemWidth * (extendedEras.length - bufferSize);
+
+    // Only jump if we're clearly outside the main content area
+    if (currentScroll < leftThreshold) {
+      const centerPosition = eras.length * itemWidth;
+      container.style.scrollBehavior = 'auto';
       container.scrollLeft = currentScroll + centerPosition;
-    } else if (currentScroll > itemWidth * (extendedEras.length - 2)) {
+      requestAnimationFrame(() => {
+        container.style.scrollBehavior = 'smooth';
+      });
+    } else if (currentScroll > rightThreshold) {
+      const centerPosition = eras.length * itemWidth;
+      container.style.scrollBehavior = 'auto';
       container.scrollLeft = currentScroll - centerPosition;
+      requestAnimationFrame(() => {
+        container.style.scrollBehavior = 'smooth';
+      });
     }
-  }, [extendedEras.length, eras.length, getItemWidth]);
+  }, [extendedEras.length, eras.length, getItemWidth, isDragging]);
 
   const getVisibleIndex = useCallback(() => {
     const container = scrollRef.current;
     if (!container) return 0;
+
     const itemWidth = getItemWidth();
     if (!itemWidth) return 0;
-    const centerOffset = eras.length * itemWidth;
-    const adjustedScroll = container.scrollLeft - centerOffset;
-    const rawIndex = Math.round(adjustedScroll / itemWidth);
-    return Math.max(0, Math.min(rawIndex, eras.length - 1));
+
+    // Find which item is most visible in the center of the viewport
+    const containerRect = container.getBoundingClientRect();
+    const containerCenter = containerRect.left + containerRect.width / 2;
+
+    let closestIndex = 0;
+    let minDistance = Infinity;
+
+    // Check each item to find the one closest to center
+    Array.from(container.children).forEach((child, index) => {
+      const childRect = child.getBoundingClientRect();
+      const childCenter = childRect.left + childRect.width / 2;
+      const distance = Math.abs(childCenter - containerCenter);
+
+      if (distance < minDistance) {
+        minDistance = distance;
+        closestIndex = index;
+      }
+    });
+
+    // Convert from extendedEras index to original eras index
+    const buffer = 3;
+    const originalIndex = (closestIndex - buffer + eras.length) % eras.length;
+    return Math.max(0, Math.min(originalIndex, eras.length - 1));
   }, [eras.length, getItemWidth]);
 
   const updateIndexFromScroll = useCallback(() => {
     if (!eras.length) return;
     const normalized = getVisibleIndex();
     setEraIndex((prev) => (prev === normalized ? prev : normalized));
-    handleScrollEnd();
-  }, [eras.length, getVisibleIndex, handleScrollEnd]);
+  }, [eras.length, getVisibleIndex]);
+
+  // Separate scroll end handler for infinite loop adjustments
+  const handleScrollEndDebounced = useCallback(() => {
+    // Debounce scroll end to avoid excessive calls
+    if (scrollRaf.current !== null) {
+      cancelAnimationFrame(scrollRaf.current);
+    }
+    scrollRaf.current = requestAnimationFrame(() => {
+      handleScrollEnd();
+      scrollRaf.current = null;
+    });
+  }, [handleScrollEnd]);
 
   const handleScroll = useCallback(() => {
     if (scrollRaf.current !== null) {
       cancelAnimationFrame(scrollRaf.current);
     }
     scrollRaf.current = requestAnimationFrame(() => {
-      updateIndexFromScroll();
+      // Only update index during non-dragging scroll (user scrolling, not programmatic jumps)
+      if (!isDragging) {
+        updateIndexFromScroll();
+      }
       scrollRaf.current = null;
     });
-  }, [updateIndexFromScroll]);
+  }, [updateIndexFromScroll, isDragging]);
 
   const handlePointerDown = useCallback((event: React.PointerEvent<HTMLDivElement>) => {
     if (!scrollRef.current) return;
@@ -182,9 +242,10 @@ export function BentoGrid() {
         scrollRef.current.releasePointerCapture(event.pointerId);
       }
       setIsDragging(false);
-      setTimeout(handleScrollEnd, 100);
+      // Check for infinite scroll adjustments after drag ends
+      setTimeout(handleScrollEndDebounced, 150);
     },
-    [handleScrollEnd]
+    [handleScrollEndDebounced]
   );
 
   const scrollToItem = useCallback(
@@ -194,9 +255,9 @@ export function BentoGrid() {
       const itemWidth = getItemWidth();
       if (!itemWidth) return;
       const clamped = Math.max(0, Math.min(index, eras.length - 1));
-      const centerPosition = eras.length * itemWidth;
+      const targetScroll = (3 + clamped) * itemWidth; // Account for buffer offset
       container.scrollTo({
-        left: centerPosition + clamped * itemWidth,
+        left: targetScroll,
         behavior: isDragging ? "auto" : "smooth"
       });
     },
@@ -218,14 +279,26 @@ export function BentoGrid() {
 
   useEffect(() => {
     if (isInitialized.current) return;
-    const container = scrollRef.current;
-    if (!container) return;
-    const itemWidth = getItemWidth();
-    if (!itemWidth) return;
-    const centerPosition = eras.length * itemWidth;
-    container.scrollLeft = centerPosition;
-    isInitialized.current = true;
-    setEraIndex(0);
+
+    const initializeScroll = () => {
+      const container = scrollRef.current;
+      if (!container) return;
+
+      const itemWidth = getItemWidth();
+      if (!itemWidth) {
+        // Retry after a short delay if items aren't rendered yet
+        setTimeout(initializeScroll, 50);
+        return;
+      }
+
+      const centerPosition = eras.length * itemWidth;
+      container.scrollLeft = centerPosition;
+      isInitialized.current = true;
+      setEraIndex(0);
+    };
+
+    // Use requestAnimationFrame to ensure DOM is ready
+    requestAnimationFrame(initializeScroll);
   }, [eras.length, getItemWidth]);
 
   useEffect(() => {

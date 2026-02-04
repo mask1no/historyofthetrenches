@@ -1,10 +1,10 @@
 /** @type {import('next').NextConfig} */
-const isWindows = process.platform === "win32";
-
 const nextConfig = {
   reactStrictMode: true,
   compress: true,
   poweredByHeader: false,
+  // Only enable standalone for non-Windows platforms (Railway uses Linux containers)
+  ...(process.platform !== "win32" ? { output: "standalone" } : {}),
   async headers() {
     return [
       {
@@ -25,6 +25,29 @@ const nextConfig = {
           {
             key: "Permissions-Policy",
             value: "camera=(), geolocation=(), microphone=()"
+          },
+          {
+            key: "Content-Security-Policy",
+            value: [
+              "default-src 'self'",
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
+              "style-src 'self' 'unsafe-inline'",
+              "img-src 'self' data: https:",
+              "font-src 'self'",
+              "connect-src 'self' https:",
+              "frame-src https:",
+              "object-src 'none'",
+              "base-uri 'self'",
+              "form-action 'self'"
+            ].join("; ")
+          },
+          {
+            key: "X-XSS-Protection",
+            value: "1; mode=block"
+          },
+          {
+            key: "Strict-Transport-Security",
+            value: "max-age=63072000; includeSubDomains; preload"
           }
         ]
       },
@@ -38,8 +61,7 @@ const nextConfig = {
         ]
       }
     ];
-  },
-  ...(isWindows ? {} : { output: "standalone" })
+  }
 };
 
 module.exports = nextConfig;
