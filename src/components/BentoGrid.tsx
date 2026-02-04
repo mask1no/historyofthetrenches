@@ -68,13 +68,21 @@ export function BentoGrid() {
     const middleEnd = sectionWidth * 2;
     const current = container.scrollLeft;
 
-    if (current < middleStart * 0.5) {
+    if (current < middleStart * 0.1) {
+      container.style.scrollBehavior = "auto";
       container.scrollLeft = current + sectionWidth;
+      requestAnimationFrame(() => {
+        container.style.scrollBehavior = "";
+      });
       return;
     }
 
-    if (current > middleEnd - middleStart * 0.5) {
+    if (current > middleEnd - middleStart * 0.1) {
+      container.style.scrollBehavior = "auto";
       container.scrollLeft = current - sectionWidth;
+      requestAnimationFrame(() => {
+        container.style.scrollBehavior = "";
+      });
       return;
     }
 
