@@ -20,7 +20,14 @@ export function EraTimeline() {
       <div className="relative overflow-hidden rounded-2xl border border-border bg-card p-6 shadow-subtle">
         <div className="absolute left-8 top-10 bottom-8 w-px bg-border" />
         <div className="flex flex-col gap-6">
-          {eras.map((era, idx) => (
+          {eras.map((era, idx) => {
+            const orderedEvents = [...era.featured].sort((a, b) =>
+              a.date.localeCompare(b.date)
+            );
+            const visibleEvents = openEraIds.includes(era.id)
+              ? orderedEvents
+              : orderedEvents.slice(0, 4);
+            return (
             <div key={era.id} className="relative grid gap-3 rounded-xl border border-border bg-bg p-5 shadow-sm transition duration-700 ease-in-out hover:-translate-y-0.5 hover:shadow-subtle md:grid-cols-[200px_1fr]">
               <div className="flex items-start gap-3">
                 <div className="relative mt-1 h-3 w-3 rounded-full bg-accentGold shadow-subtle">
@@ -33,8 +40,7 @@ export function EraTimeline() {
                 </div>
               </div>
               <div className="space-y-2">
-                {(openEraIds.includes(era.id) ? era.featured : era.featured.slice(0, 4)).map(
-                  (event) => (
+                {visibleEvents.map((event) => (
                     <Link
                       key={event.slug}
                       href={`/event/${event.slug}`}
@@ -60,10 +66,9 @@ export function EraTimeline() {
                         {event.year}
                       </Badge>
                     </Link>
-                  )
-                )}
+                  ))}
               </div>
-              {era.featured.length > 4 && (
+              {orderedEvents.length > 4 && (
                 <div className="md:col-span-2 flex justify-center pt-3">
                   <button
                     type="button"
@@ -78,7 +83,8 @@ export function EraTimeline() {
                 <div className="absolute -bottom-4 left-8 h-4 w-px bg-transparent md:hidden" />
               )}
             </div>
-          ))}
+            );
+          })}
         </div>
       </div>
       <p className="text-sm text-muted">

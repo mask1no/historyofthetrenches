@@ -91,7 +91,7 @@ export function NavBar() {
           <Button
             variant="ghost"
             size="icon"
-            className="group relative hidden md:inline-flex border border-border text-muted transition hover:shadow-subtle"
+            className="group relative hidden md:inline-flex border border-border text-muted-foreground transition hover:text-foreground hover:shadow-subtle"
             aria-label="Toggle theme"
             onClick={toggleTheme}
           >
@@ -169,7 +169,7 @@ export function NavBar() {
           <div className="mt-6 flex flex-col gap-3">
             <Button
               variant="ghost"
-              className="w-full justify-center gap-2 border border-border text-muted"
+              className="w-full justify-center gap-2 border border-border text-muted-foreground hover:text-foreground"
               aria-label="Toggle theme"
               onClick={toggleTheme}
             >

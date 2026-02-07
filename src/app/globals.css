@@ -19,11 +19,11 @@
   --fg: #f3f2ef;
   --muted: #a9a39a;
   --card: #141414;
-  --border: #2a2a2a;
+  --border: #1f1f1f;
   --accentGold: #d6b15e;
   --accentRed: #d16a6a;
   --accentGreen: #45b887;
-  --footerGlow: rgba(214, 177, 94, 0.12);
+  --footerGlow: rgba(214, 177, 94, 0.08);
 }
 
 * {
@@ -59,4 +59,5 @@ a {
   border-radius: 16px;
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.05);
 }
+
 

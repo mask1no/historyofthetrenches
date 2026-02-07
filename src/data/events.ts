@@ -2751,38 +2751,6 @@ export const events: Event[] = [
     ]
   },
   {
-    "slug": "bitcoin-halving-2012",
-    "title": "Bitcoin First Halving",
-    "type": "milestone",
-    "chain": "Bitcoin",
-    "year": 2012,
-    "date": "2012-11-28",
-    "era": "Genesis",
-    "status": "issuance change",
-    "summary": "Bitcoin’s block reward dropped from 50 to 25 BTC, marking the first programmed supply cut.",
-    "peakMetric": "Block 210,000",
-    "outcome": "Issuance rate halved",
-    "tags": [
-      "halving",
-      "issuance"
-    ],
-    "chartUrl": "https://tradingview.com/symbols/BTCUSD/",
-    "sources": [
-      {
-        "label": "Halving overview",
-        "url": "https://bitcoin.org/en/bitcoin-halving",
-        "publisher": "Bitcoin.org",
-        "year": 2012
-      },
-      {
-        "label": "Wikipedia overview for Bitcoin First Halving",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Bitcoin%20First%20Halving",
-        "publisher": "Wikipedia",
-        "year": 2012
-      }
-    ]
-  },
-  {
     "slug": "cme-bitcoin-futures-launch",
     "title": "CME Bitcoin Futures Launch",
     "type": "milestone",
@@ -2951,38 +2919,6 @@ export const events: Event[] = [
     ]
   },
   {
-    "slug": "bitcoin-halving-2016",
-    "title": "Bitcoin Second Halving",
-    "type": "milestone",
-    "chain": "Bitcoin",
-    "year": 2016,
-    "date": "2016-07-09",
-    "era": "ICO Boom",
-    "status": "issuance change",
-    "summary": "Bitcoin’s block reward dropped from 25 to 12.5 BTC, reinforcing the fixed supply schedule.",
-    "peakMetric": "Block 420,000",
-    "outcome": "Issuance rate halved",
-    "tags": [
-      "halving",
-      "issuance"
-    ],
-    "chartUrl": "https://tradingview.com/symbols/BTCUSD/",
-    "sources": [
-      {
-        "label": "Halving overview",
-        "url": "https://bitcoin.org/en/bitcoin-halving",
-        "publisher": "Bitcoin.org",
-        "year": 2016
-      },
-      {
-        "label": "Wikipedia overview for Bitcoin Second Halving",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Bitcoin%20Second%20Halving",
-        "publisher": "Wikipedia",
-        "year": 2016
-      }
-    ]
-  },
-  {
     "slug": "segwit-activation",
     "title": "SegWit Activation",
     "type": "milestone",
@@ -3051,7 +2987,71 @@ export const events: Event[] = [
         "year": 2018
       }
     ]
-  }
+  },
+  {
+    "slug": "signature-bank-closure",
+    "title": "Signature Bank Closed by Regulators",
+    "type": "collapse",
+    "chain": "CeFi",
+    "year": 2023,
+    "date": "2023-03-12",
+    "era": "CeFi Contagion",
+    "status": "bank closure",
+    "summary": "U.S. regulators shut Signature Bank after deposit outflows, further straining crypto banking access.",
+    "peakMetric": "Bank seized",
+    "outcome": "Crypto banking rails tighten",
+    "tags": [
+      "cefi",
+      "systemic-risk",
+      "policy"
+    ],
+    "sources": [
+      {
+        "label": "FDIC statement on Signature Bank",
+        "url": "https://www.fdic.gov/news/press-releases/2023/pr23017.html",
+        "publisher": "FDIC",
+        "year": 2023
+      },
+      {
+        "label": "NYDFS statement on Signature Bank",
+        "url": "https://www.dfs.ny.gov/reports_and_publications/press_releases/pr20230312",
+        "publisher": "NYDFS",
+        "year": 2023
+      }
+    ]
+  },
+  {
+    "slug": "eu-mica-regulation",
+    "title": "EU Approves MiCA Regulation",
+    "type": "milestone",
+    "chain": "Multi-chain",
+    "year": 2023,
+    "date": "2023-04-20",
+    "era": "CeFi Contagion",
+    "status": "regulation",
+    "summary": "The European Parliament approved MiCA, establishing EU-wide rules for crypto asset issuance and services.",
+    "peakMetric": "EU-wide crypto framework",
+    "outcome": "Regulatory clarity improves across the EU",
+    "tags": [
+      "regulation",
+      "policy",
+      "compliance"
+    ],
+    "sources": [
+      {
+        "label": "European Parliament press release on MiCA",
+        "url": "https://www.europarl.europa.eu/news/en/press-room/20230414IPR80132/markets-in-crypto-assets-regulation-creates-eu-rules-for-crypto-assets",
+        "publisher": "European Parliament",
+        "year": 2023
+      },
+      {
+        "label": "EU Council adopts new crypto rules",
+        "url": "https://eur-lex.europa.eu/eli/reg/2023/1114/oj",
+        "publisher": "EUR-Lex",
+        "year": 2023
+      }
+    ]
+  },
 ];
 
 export const getEventBySlug = (slug: string) =>

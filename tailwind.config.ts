@@ -12,7 +12,9 @@ const config: Config = {
       colors: {
         bg: "var(--bg)",
         fg: "var(--fg)",
+        foreground: "var(--fg)",
         muted: "var(--muted)",
+        "muted-foreground": "var(--muted)",
         card: "var(--card)",
         border: "var(--border)",
         accentGold: "var(--accentGold)",

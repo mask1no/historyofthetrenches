@@ -5,7 +5,7 @@ import { Footer } from "@/components/Footer";
 
 export default function HomePage() {
   return (
-    <main id="main-content" className="min-h-screen pb-16">
+    <main id="main-content" className="min-h-screen pb-24">
       <NavBar />
       <Hero />
       <div className="mx-auto mt-0 max-w-6xl px-6 pb-10 md:mt-2">

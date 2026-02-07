@@ -123,6 +123,49 @@ export default function HotPage() {
               </div>
             </CardContent>
           </Card>
+          <Card>
+            <CardHeader>
+              <CardTitle>How to Get $HOT</CardTitle>
+              <p className="text-sm text-muted">A quick, simple path if you want to join in.</p>
+            </CardHeader>
+            <CardContent className="space-y-4 text-sm text-muted">
+              <ol className="space-y-2">
+                <li>
+                  <span className="font-semibold text-fg">1)</span> Install Phantom (wallet) + open
+                  Jupiter (swap UI)
+                </li>
+                <li>
+                  <span className="font-semibold text-fg">2)</span> Fund your wallet with SOL
+                </li>
+                <li>
+                  <span className="font-semibold text-fg">3)</span> Swap SOL → $HOT
+                </li>
+                <li>
+                  <span className="font-semibold text-fg">4)</span> Hold + follow updates (no
+                  promises, just the story)
+                </li>
+              </ol>
+              <div className="flex flex-wrap gap-3">
+                <a
+                  href="https://x.com/historytrenches"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-accentGold underline"
+                >
+                  Join the Community
+                </a>
+                <a
+                  href="https://dexscreener.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-accentGold underline"
+                >
+                  View Chart
+                </a>
+              </div>
+              <p className="text-xs text-muted">Not financial advice.</p>
+            </CardContent>
+          </Card>
         </div>
 
         <div className="mt-8 rounded-2xl border border-border bg-bg/70 p-6">

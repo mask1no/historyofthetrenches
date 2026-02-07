@@ -77,131 +77,6 @@ export default function StackPage() {
         <div className="grid grid-cols-1 gap-6">
           <Card>
             <CardHeader>
-            <CardTitle>Memecoin Risk Toolkit</CardTitle>
-              <p className="text-sm text-muted">
-              Educational signals to recognize manipulation patterns. Use to avoid traps, not to
-              exploit them.
-              </p>
-            </CardHeader>
-            <CardContent className="overflow-auto">
-              <table className="w-full text-left text-sm">
-                <thead className="text-xs uppercase text-muted">
-                  <tr>
-                    <th className="pb-2">Tool</th>
-                    <th className="pb-2">Why it matters</th>
-                  </tr>
-                </thead>
-                <tbody className="text-muted">
-                  <tr className="border-t border-border/70">
-                    <td className="py-3 font-semibold text-fg">Flash‑loan providers</td>
-                    <td className="py-3">
-                      Can spike prices in seconds without collateral, creating artificial pumps.
-                    </td>
-                  </tr>
-                  <tr className="border-t border-border/70">
-                    <td className="py-3 font-semibold text-fg">MEV bots</td>
-                    <td className="py-3">
-                      Front‑running in thin liquidity can move price 10–20% and punish retail
-                      entries.
-                    </td>
-                  </tr>
-                  <tr className="border-t border-border/70">
-                    <td className="py-3 font-semibold text-fg">Liquidity sniffers</td>
-                    <td className="py-3">
-                      Identify pools with extreme price impact that often hide traps or mispricing.
-                    </td>
-                  </tr>
-                  <tr className="border-t border-border/70">
-                    <td className="py-3 font-semibold text-fg">Honeypot detectors</td>
-                    <td className="py-3">
-                      Surface hidden fees and blocked sells that silently extract value.
-                    </td>
-                  </tr>
-                  <tr className="border-t border-border/70">
-                    <td className="py-3 font-semibold text-fg">Mixers / obfuscators</td>
-                    <td className="py-3">
-                      Used to hide fund trails after a pull; a major red flag in post‑launch flows.
-                    </td>
-                  </tr>
-                  <tr className="border-t border-border/70">
-                    <td className="py-3 font-semibold text-fg">Social‑pump bots</td>
-                    <td className="py-3">
-                      Coordinated hype can manufacture momentum and exit liquidity.
-                    </td>
-                  </tr>
-                  <tr className="border-t border-border/70">
-                    <td className="py-3 font-semibold text-fg">Deploy platforms</td>
-                    <td className="py-3">
-                      Fast deploy stacks enable rapid launches; check provenance and audits.
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </CardContent>
-          </Card>
-          <Card>
-            <CardHeader>
-              <CardTitle>Fiat On‑Ramps (KYC)</CardTitle>
-              <p className="text-sm text-muted">
-                Use for entry only. Exit to self‑custody fast and keep trading off‑platform.
-              </p>
-            </CardHeader>
-            <CardContent className="overflow-auto">
-              <table className="w-full text-left text-sm">
-                <thead className="text-xs uppercase text-muted">
-                  <tr>
-                    <th className="pb-2">Platform</th>
-                    <th className="pb-2">Best For</th>
-                  </tr>
-                </thead>
-                <tbody className="text-muted">
-                  <tr className="border-t border-border/70">
-                    <td className="py-3 font-semibold text-fg">
-                      <a href="https://www.kraken.com" target="_blank" rel="noopener noreferrer">
-                        Kraken
-                      </a>
-                    </td>
-                    <td className="py-3">Low fees, advanced trading</td>
-                  </tr>
-                  <tr className="border-t border-border/70">
-                    <td className="py-3 font-semibold text-fg">
-                      <a href="https://www.coinbase.com/exchange" target="_blank" rel="noopener noreferrer">
-                        Coinbase Exchange
-                      </a>
-                    </td>
-                    <td className="py-3">Beginner on‑ramp</td>
-                  </tr>
-                  <tr className="border-t border-border/70">
-                    <td className="py-3 font-semibold text-fg">
-                      <a href="https://www.kucoin.com" target="_blank" rel="noopener noreferrer">
-                        KuCoin
-                      </a>
-                    </td>
-                    <td className="py-3">Wide alt selection</td>
-                  </tr>
-                  <tr className="border-t border-border/70">
-                    <td className="py-3 font-semibold text-fg">
-                      <a href="https://www.binance.com" target="_blank" rel="noopener noreferrer">
-                        Binance (Global)
-                      </a>
-                    </td>
-                    <td className="py-3">Liquidity</td>
-                  </tr>
-                  <tr className="border-t border-border/70">
-                    <td className="py-3 font-semibold text-fg">
-                      <a href="https://www.gemini.com" target="_blank" rel="noopener noreferrer">
-                        Gemini
-                      </a>
-                    </td>
-                    <td className="py-3">Compliance focused</td>
-                  </tr>
-                </tbody>
-              </table>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader>
               <CardTitle>Self‑Custody Wallets</CardTitle>
               <p className="text-sm text-muted">The foundation layer: keys under your control.</p>
             </CardHeader>
@@ -337,159 +212,140 @@ export default function StackPage() {
 
           <Card>
             <CardHeader>
-              <CardTitle>Operational Privacy</CardTitle>
+              <CardTitle>Field Ops: Safety + Risk</CardTitle>
               <p className="text-sm text-muted">
-                Practical privacy for real trading: swaps, P2P paths, and sane opsec.
+                One module to keep you safe and spot bad‑faith memecoin mechanics.
               </p>
             </CardHeader>
-            <CardContent className="space-y-4">
-              <div className="overflow-auto rounded-xl border border-border bg-bg/60 p-3">
-                <table className="w-full text-left text-sm">
-                  <thead className="text-xs uppercase text-muted">
-                    <tr>
-                      <th className="pb-2">Tool Category</th>
-                      <th className="pb-2">Specific Tool(s)</th>
-                      <th className="pb-2">Primary Function &amp; Key Features</th>
-                      <th className="pb-2">Operational Notes</th>
-                    </tr>
-                  </thead>
-                  <tbody className="text-muted">
-                    <tr className="border-t border-border/70">
-                      <td className="py-3 font-semibold text-fg">Privacy DEX Aggregators</td>
-                      <td className="py-3">
-                        <a
-                          href="https://silentswap.com"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-fg underline"
-                        >
-                          SilentSwap
-                        </a>
-                        ,{" "}
-                        <a
-                          href="https://1inch.io"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-fg underline"
-                        >
-                          1inch
-                        </a>
-                      </td>
-                      <td className="py-3">
-                        SilentSwap (Secret): privacy‑first routing with a toggle. 1inch: best‑price
-                        routing, no KYC.
-                      </td>
-                      <td className="py-3">
-                        SilentSwap is chain‑specific; vet privacy claims. 1inch isn’t private by
-                        default—use clean wallets + Tor/VPN.
-                      </td>
-                    </tr>
-                    <tr className="border-t border-border/70">
-                      <td className="py-3 font-semibold text-fg">Non‑Custodial Swap Services</td>
-                      <td className="py-3">
-                        <a
-                          href="https://stealthex.io"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-fg underline"
-                        >
-                          StealthEX
-                        </a>
-                        ,{" "}
-                        <a
-                          href="https://changenow.io"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-fg underline"
-                        >
-                          ChangeNOW
-                        </a>
-                        ,{" "}
-                        <a
-                          href="https://simpleswap.io"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-fg underline"
-                        >
-                          SimpleSwap
-                        </a>
-                      </td>
-                      <td className="py-3">
-                        Instant, account‑free swaps. Non‑custodial UX, fast routing.
-                      </td>
-                      <td className="py-3">
-                        Semi‑private. KYC can be triggered. Use clean sources and staggered amounts.
-                      </td>
-                    </tr>
-                    <tr className="border-t border-border/70">
-                      <td className="py-3 font-semibold text-fg">Decentralized P2P Exchanges</td>
-                      <td className="py-3">
-                        <a
-                          href="https://bisq.network"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-fg underline"
-                        >
-                          Bisq
-                        </a>
-                        ,{" "}
-                        <a
-                          href="https://hodlhodl.com"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-fg underline"
-                        >
-                          Hodl Hodl
-                        </a>
-                      </td>
-                      <td className="py-3">
-                        Bisq: fully decentralized, Tor, no KYC. Hodl Hodl: multisig escrow, no custody.
-                      </td>
-                      <td className="py-3">
-                        Bisq is the gold standard but requires BTC deposit + always‑on client.
-                        Hodl Hodl is simpler but relies on escrow trust.
-                      </td>
-                    </tr>
-                    <tr className="border-t border-border/70">
-                      <td className="py-3 font-semibold text-fg">Lightning‑First P2P</td>
-                      <td className="py-3">
-                        <a
-                          href="https://robosats.com"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-fg underline"
-                        >
-                          RoboSats
-                        </a>
-                      </td>
-                      <td className="py-3">
-                        Lightning‑native P2P with random robot aliases; no accounts or KYC.
-                      </td>
-                      <td className="py-3">
-                        Great for small, fast trades. Not ideal for large size due to LN limits.
-                      </td>
-                    </tr>
-                    <tr className="border-t border-border/70">
-                      <td className="py-3 font-semibold text-fg">Social/Personal Network P2P</td>
-                      <td className="py-3">
-                        <a
-                          href="https://vexl.it"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-fg underline"
-                        >
-                          Vexl
-                        </a>
-                      </td>
-                      <td className="py-3">
-                        Trade with trusted contacts via web‑of‑trust. No custody, no KYC.
-                      </td>
-                      <td className="py-3">
-                        Requires a phone number (hashed). Good for local trust‑based trades.
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+            <CardContent className="space-y-5 text-sm text-muted">
+              <div className="rounded-xl border border-border bg-bg/60 p-4">
+                <div className="text-xs uppercase tracking-[0.2em] text-muted">Operational Safety</div>
+                <div className="mt-3 grid gap-3 md:grid-cols-2">
+                  <div className="rounded-lg border border-border bg-bg/70 p-3">
+                    <div className="font-semibold text-fg">Privacy DEX aggregators</div>
+                    <p className="text-xs">
+                      Tools:{" "}
+                      <a href="https://silentswap.com" target="_blank" rel="noopener noreferrer">
+                        SilentSwap
+                      </a>
+                      ,{" "}
+                      <a href="https://1inch.io" target="_blank" rel="noopener noreferrer">
+                        1inch
+                      </a>
+                    </p>
+                    <p className="text-xs">
+                      Privacy‑first routing + best‑price execution. Vet claims; keep wallets clean.
+                    </p>
+                  </div>
+                  <div className="rounded-lg border border-border bg-bg/70 p-3">
+                    <div className="font-semibold text-fg">Non‑custodial swap services</div>
+                    <p className="text-xs">
+                      Tools:{" "}
+                      <a href="https://stealthex.io" target="_blank" rel="noopener noreferrer">
+                        StealthEX
+                      </a>
+                      ,{" "}
+                      <a href="https://changenow.io" target="_blank" rel="noopener noreferrer">
+                        ChangeNOW
+                      </a>
+                      ,{" "}
+                      <a href="https://simpleswap.io" target="_blank" rel="noopener noreferrer">
+                        SimpleSwap
+                      </a>
+                    </p>
+                    <p className="text-xs">
+                      Account‑free swaps, but KYC can be triggered. Use staggered amounts.
+                    </p>
+                  </div>
+                  <div className="rounded-lg border border-border bg-bg/70 p-3">
+                    <div className="font-semibold text-fg">Decentralized P2P exchanges</div>
+                    <p className="text-xs">
+                      Tools:{" "}
+                      <a href="https://bisq.network" target="_blank" rel="noopener noreferrer">
+                        Bisq
+                      </a>
+                      ,{" "}
+                      <a href="https://hodlhodl.com" target="_blank" rel="noopener noreferrer">
+                        Hodl Hodl
+                      </a>
+                    </p>
+                    <p className="text-xs">
+                      Tor‑native and multisig paths. More setup, but strongest privacy posture.
+                    </p>
+                  </div>
+                  <div className="rounded-lg border border-border bg-bg/70 p-3">
+                    <div className="font-semibold text-fg">Lightning‑first P2P</div>
+                    <p className="text-xs">
+                      Tool:{" "}
+                      <a href="https://robosats.com" target="_blank" rel="noopener noreferrer">
+                        RoboSats
+                      </a>
+                    </p>
+                    <p className="text-xs">
+                      Fast and anonymous for small size. Not ideal for large tickets.
+                    </p>
+                  </div>
+                  <div className="rounded-lg border border-border bg-bg/70 p-3 md:col-span-2">
+                    <div className="font-semibold text-fg">Social/Personal network P2P</div>
+                    <p className="text-xs">
+                      Tool:{" "}
+                      <a href="https://vexl.it" target="_blank" rel="noopener noreferrer">
+                        Vexl
+                      </a>
+                    </p>
+                    <p className="text-xs">
+                      Trust‑based trades via web‑of‑trust. Requires a phone number (hashed).
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="rounded-xl border border-border bg-bg/60 p-4">
+                <div className="text-xs uppercase tracking-[0.2em] text-muted">Memecoin Risk</div>
+                <div className="mt-3 grid gap-3 md:grid-cols-2">
+                  <div className="rounded-lg border border-border bg-bg/70 p-3">
+                    <div className="font-semibold text-fg">Flash‑loan providers</div>
+                    <p className="text-xs">
+                      Can spike prices in seconds without collateral, creating artificial pumps.
+                    </p>
+                  </div>
+                  <div className="rounded-lg border border-border bg-bg/70 p-3">
+                    <div className="font-semibold text-fg">MEV bots</div>
+                    <p className="text-xs">
+                      Front‑running in thin liquidity can move price 10–20% and punish retail entries.
+                    </p>
+                  </div>
+                  <div className="rounded-lg border border-border bg-bg/70 p-3">
+                    <div className="font-semibold text-fg">Liquidity sniffers</div>
+                    <p className="text-xs">
+                      Find pools with extreme price impact that hide traps or mispricing.
+                    </p>
+                  </div>
+                  <div className="rounded-lg border border-border bg-bg/70 p-3">
+                    <div className="font-semibold text-fg">Honeypot detectors</div>
+                    <p className="text-xs">
+                      Surface blocked sells and silent fees that extract value.
+                    </p>
+                  </div>
+                  <div className="rounded-lg border border-border bg-bg/70 p-3">
+                    <div className="font-semibold text-fg">Mixers / obfuscators</div>
+                    <p className="text-xs">
+                      Often used to hide fund trails after a pull; major post‑launch red flag.
+                    </p>
+                  </div>
+                  <div className="rounded-lg border border-border bg-bg/70 p-3">
+                    <div className="font-semibold text-fg">Social‑pump bots</div>
+                    <p className="text-xs">
+                      Coordinated hype can manufacture momentum and exit liquidity.
+                    </p>
+                  </div>
+                  <div className="rounded-lg border border-border bg-bg/70 p-3 md:col-span-2">
+                    <div className="font-semibold text-fg">Deploy platforms</div>
+                    <p className="text-xs">
+                      Fast deploy stacks enable rapid launches; check provenance and audits.
+                    </p>
+                  </div>
+                </div>
               </div>
 
               <div className="grid gap-3 text-sm text-muted md:grid-cols-3">
@@ -516,6 +372,57 @@ export default function StackPage() {
               <p className="text-xs text-muted">
                 The privacy landscape shifts fast; revisit tools as policies and threats evolve.
               </p>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle>Fiat On‑Ramps (KYC)</CardTitle>
+              <p className="text-sm text-muted">
+                Use for entry only. Exit to self‑custody fast and keep trading off‑platform.
+              </p>
+            </CardHeader>
+            <CardContent className="grid gap-3 text-sm text-muted md:grid-cols-2">
+              <div className="rounded-lg border border-border bg-bg/60 p-3">
+                <div className="font-semibold text-fg">
+                  <a href="https://www.kraken.com" target="_blank" rel="noopener noreferrer">
+                    Kraken
+                  </a>
+                </div>
+                <p className="text-xs">Low fees, advanced trading</p>
+              </div>
+              <div className="rounded-lg border border-border bg-bg/60 p-3">
+                <div className="font-semibold text-fg">
+                  <a href="https://www.coinbase.com/exchange" target="_blank" rel="noopener noreferrer">
+                    Coinbase Exchange
+                  </a>
+                </div>
+                <p className="text-xs">Beginner on‑ramp</p>
+              </div>
+              <div className="rounded-lg border border-border bg-bg/60 p-3">
+                <div className="font-semibold text-fg">
+                  <a href="https://www.kucoin.com" target="_blank" rel="noopener noreferrer">
+                    KuCoin
+                  </a>
+                </div>
+                <p className="text-xs">Wide alt selection</p>
+              </div>
+              <div className="rounded-lg border border-border bg-bg/60 p-3">
+                <div className="font-semibold text-fg">
+                  <a href="https://www.binance.com" target="_blank" rel="noopener noreferrer">
+                    Binance (Global)
+                  </a>
+                </div>
+                <p className="text-xs">Liquidity</p>
+              </div>
+              <div className="rounded-lg border border-border bg-bg/60 p-3 md:col-span-2">
+                <div className="font-semibold text-fg">
+                  <a href="https://www.gemini.com" target="_blank" rel="noopener noreferrer">
+                    Gemini
+                  </a>
+                </div>
+                <p className="text-xs">Compliance focused</p>
+              </div>
             </CardContent>
           </Card>
 
