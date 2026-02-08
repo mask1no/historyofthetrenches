@@ -11,6 +11,7 @@ import Link from "next/link";
 import { typeLabel, typeVariant } from "@/lib/eventType";
 import { compareEventDatesAsc } from "@/lib/utils";
 import { Footer } from "@/components/Footer";
+import { getEventSourceQuality } from "@/lib/sourceQuality";
 
 type EventPageProps = {
   params: { slug: string };
@@ -131,6 +132,14 @@ export default function EventPage({ params }: EventPageProps) {
       ? sortedByDate[currentIndex + 1]
       : undefined;
 
+  const sourceQuality = getEventSourceQuality(event);
+  const sourceQualityVariant =
+    sourceQuality.level === "primary-backed"
+      ? "green"
+      : sourceQuality.level === "secondary-only"
+      ? "gold"
+      : "muted";
+
   return (
     <main id="main-content" className="min-h-screen pb-16">
       <Script
@@ -150,6 +159,7 @@ export default function EventPage({ params }: EventPageProps) {
             <Badge variant={typeVariant[event!.type]}>{typeLabel[event!.type]}</Badge>
             <Badge variant="muted">{event!.chain}</Badge>
             <Badge variant="muted">{event!.year}</Badge>
+            <Badge variant={sourceQualityVariant}>{sourceQuality.label}</Badge>
             {event!.hallOfFame && <Badge variant="gold">Hall of Fame</Badge>}
           </div>
           <h1

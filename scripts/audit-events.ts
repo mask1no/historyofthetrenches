@@ -45,6 +45,8 @@ const addIssue = (level: AuditIssue["level"], message: string) => {
   issues.push({ level, message });
 };
 
+const validSourceKinds = new Set(["primary", "secondary", "community", "pending"]);
+
 const slugCounts = new Map<string, number>();
 const titleCounts = new Map<string, number>();
 const tagCounts = new Map<string, number>();
@@ -149,6 +151,32 @@ events.forEach((event) => {
     }
     if (!Number.isInteger(source.year) || source.year < 1990 || source.year > 2100) {
       addIssue("warn", `Source year looks invalid on ${event.slug}: "${source.year}".`);
+    }
+    if (!source.kind) {
+      addIssue("warn", `Source kind missing on ${event.slug}: "${source.label}".`);
+    } else if (!validSourceKinds.has(source.kind)) {
+      addIssue(
+        "error",
+        `Invalid source kind on ${event.slug}: "${source.kind}".`
+      );
+    }
+    if (source.dateAccessed && !isValidDate(source.dateAccessed)) {
+      addIssue(
+        "warn",
+        `Invalid dateAccessed on ${event.slug}: "${source.dateAccessed}".`
+      );
+    }
+    if (source.excerpt && source.excerpt.length > 160) {
+      addIssue(
+        "warn",
+        `Source excerpt too long on ${event.slug}: "${source.label}".`
+      );
+    }
+    if (source.archivedUrl && !isValidUrl(source.archivedUrl)) {
+      addIssue(
+        "warn",
+        `Invalid archivedUrl on ${event.slug}: "${source.archivedUrl}".`
+      );
     }
   });
 

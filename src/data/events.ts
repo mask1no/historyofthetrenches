@@ -11,6 +11,10 @@ export type Source = {
   url: string;
   publisher: string;
   year: number;
+  kind?: "primary" | "secondary" | "community" | "pending";
+  dateAccessed?: string;
+  archivedUrl?: string;
+  excerpt?: string;
 };
 
 export type Event = {
@@ -3026,6 +3030,7 @@ export const events: Event[] = [
       }
     ]
   },
+  {
     "slug": "btc-e-fincen-penalty",
     "title": "BTC-e FinCEN Civil Penalty",
     "type": "milestone",
@@ -3306,6 +3311,7 @@ export const events: Event[] = [
       }
     ]
   },
+  {
     "slug": "chipmixer-seizure",
     "title": "DOJ Seizes ChipMixer",
     "type": "seizure",

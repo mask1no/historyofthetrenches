@@ -156,42 +156,40 @@ export function BentoGrid() {
         </CardContent>
       </Card>
 
-      <Card className="md:col-span-12" id="token">
-        <CardHeader className="flex flex-col items-start gap-2">
-          <CardTitle className="text-xl">$HOT Archive Note</CardTitle>
-          <p className="text-sm text-muted">
-            $HOT is the trench scribble in the margins: a reminder that memory outlasts mania.
-          </p>
+      <Card className="md:col-span-12" id="transparency">
+        <CardHeader className="flex flex-col items-start gap-3 md:flex-row md:items-center md:justify-between">
+          <div className="space-y-1">
+            <CardTitle className="text-xl">Transparency</CardTitle>
+            <p className="text-sm text-muted">
+              Proof-of-ritual receipts and curator wallets are public and linked.
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            <Badge variant="gold">Transparency</Badge>
+            <Badge variant="muted">Doxxed</Badge>
+          </div>
         </CardHeader>
         <CardContent className="space-y-3">
           <ul className="space-y-2 text-sm">
             <li className="flex items-start gap-2">
               <span className="mt-1 h-2 w-2 rounded-full bg-accentGold" />
-              Indexed in the archive, not pitched as a promise.
+              Proof-of-ritual receipts are public.
             </li>
             <li className="flex items-start gap-2">
               <span className="mt-1 h-2 w-2 rounded-full bg-accentGreen" />
-              Community rituals logged for continuity, not hype.
+              Curator wallets are publicly linked.
             </li>
             <li className="flex items-start gap-2">
               <span className="mt-1 h-2 w-2 rounded-full bg-accentRed" />
-              A reminder to verify sources before chasing momentum.
+              Sources &gt; hype.
             </li>
           </ul>
           <div className="flex flex-wrap gap-3">
             <Button asChild variant="subtle" className="flex-1 min-w-[200px] justify-center">
-              <a
-                href="https://dexscreener.com/solana"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View on DexScreener
-              </a>
+              <Link href="/hot#receipts">View Receipts</Link>
             </Button>
             <Button asChild variant="ghost" className="flex-1 min-w-[200px] justify-center">
-              <a href="https://pump.fun" target="_blank" rel="noopener noreferrer">
-                Buy on Pump.Fun
-              </a>
+              <Link href="/hot#wallets">View Wallets</Link>
             </Button>
           </div>
         </CardContent>
