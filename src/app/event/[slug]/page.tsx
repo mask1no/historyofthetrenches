@@ -290,19 +290,9 @@ export default function EventPage({ params }: EventPageProps) {
                   </div>
                 </div>
                 <Badge
-                  variant={
-                    item.type === "rugpull"
-                      ? "red"
-                      : item.type === "runner"
-                      ? "green"
-                      : item.type === "hack"
-                      ? "dark"
-                      : item.type === "collapse"
-                      ? "dark"
-                      : "gold"
-                  }
+                  variant={typeVariant[item.type]}
                 >
-                  {item.type}
+                  {typeLabel[item.type]}
                 </Badge>
               </Link>
             ))}

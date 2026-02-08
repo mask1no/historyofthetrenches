@@ -1,13 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import React from "react";
 import { events } from "@/data/events";
 import { eras } from "@/data/eras";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { ArrowLeft, ArrowRight } from "lucide-react";
 
 const rugOrder = [
   "openclaw-moltbook-incident",
@@ -31,228 +30,13 @@ const runners = events
   .filter((e) => e.type === "runner" && e.hallOfFame && runnerOrder.includes(e.slug))
   .sort((a, b) => runnerOrder.indexOf(a.slug) - runnerOrder.indexOf(b.slug));
 
-// Infinite carousel hook with auto-scroll and smooth performance
-function useInfiniteCarousel(eras: any[], itemWidth: number = 320) {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isDragging, setIsDragging] = useState(false);
-  const [isAutoScrolling, setIsAutoScrolling] = useState(true);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const autoScrollRef = useRef<number | null>(null);
-  const resumeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const dragStartRef = useRef({ x: 0, scrollLeft: 0 });
-  const lastFrameTimeRef = useRef(0);
-  const currentIndexRef = useRef(0);
-
-  // Create infinite array by duplicating items
-  const infiniteEras = useMemo(() => {
-    if (!eras.length) return [];
-    // Create enough duplicates for smooth infinite scroll
-    return [...eras, ...eras, ...eras, ...eras, ...eras];
-  }, [eras]);
-
-  // Auto-scroll functionality (continuous, smooth)
-  useEffect(() => {
-    if (!isAutoScrolling || isDragging || !eras.length) return;
-
-    const container = containerRef.current;
-    if (!container) return;
-
-    const itemWidthWithGap = itemWidth + 16;
-    const totalItems = eras.length;
-    const totalWidth = totalItems * itemWidthWithGap;
-    const speed = 28; // px per second
-
-    const tick = (time: number) => {
-      if (!containerRef.current) return;
-
-      if (!lastFrameTimeRef.current) {
-        lastFrameTimeRef.current = time;
-      }
-
-      const delta = time - lastFrameTimeRef.current;
-      lastFrameTimeRef.current = time;
-      containerRef.current.scrollLeft += (speed * delta) / 1000;
-
-      // Keep the scroll within the middle copies for seamless looping
-      if (containerRef.current.scrollLeft >= totalWidth * 4) {
-        containerRef.current.scrollLeft -= totalWidth * 2;
-      } else if (containerRef.current.scrollLeft <= totalWidth) {
-        containerRef.current.scrollLeft += totalWidth * 2;
-      }
-
-      const itemIndex = Math.round(containerRef.current.scrollLeft / itemWidthWithGap);
-      const normalizedIndex = ((itemIndex % totalItems) + totalItems) % totalItems;
-      if (normalizedIndex !== currentIndexRef.current) {
-        currentIndexRef.current = normalizedIndex;
-        setCurrentIndex(normalizedIndex);
-      }
-
-      autoScrollRef.current = requestAnimationFrame(tick);
-    };
-
-    autoScrollRef.current = requestAnimationFrame(tick);
-
-    return () => {
-      if (autoScrollRef.current) {
-        cancelAnimationFrame(autoScrollRef.current);
-        autoScrollRef.current = null;
-      }
-      lastFrameTimeRef.current = 0;
-    };
-  }, [isAutoScrolling, isDragging, eras.length, itemWidth]);
-
-  // Pause auto-scroll on hover/interaction
-  const pauseAutoScroll = useCallback(() => {
-    setIsAutoScrolling(false);
-  }, []);
-
-  const resumeAutoScroll = useCallback(() => {
-    if (resumeTimeoutRef.current) {
-      clearTimeout(resumeTimeoutRef.current);
-    }
-    resumeTimeoutRef.current = setTimeout(() => setIsAutoScrolling(true), 1000);
-  }, []);
-
-  // Handle drag start
-  const handleDragStart = useCallback((e: React.PointerEvent) => {
-    if (!containerRef.current) return;
-
-    setIsDragging(true);
-    setIsAutoScrolling(false);
-    dragStartRef.current = {
-      x: e.clientX,
-      scrollLeft: containerRef.current.scrollLeft
-    };
-    containerRef.current.setPointerCapture(e.pointerId);
-  }, []);
-
-  // Handle drag move with smooth performance
-  const handleDragMove = useCallback((e: React.PointerEvent) => {
-    if (!isDragging || !containerRef.current) return;
-
-    e.preventDefault();
-    const walk = e.clientX - dragStartRef.current.x;
-    containerRef.current.scrollLeft = dragStartRef.current.scrollLeft - walk;
-  }, [isDragging]);
-
-  // Handle drag end and adjust for infinite scroll
-  const handleDragEnd = useCallback((e?: React.PointerEvent) => {
-    if (e?.pointerId && containerRef.current?.hasPointerCapture(e.pointerId)) {
-      containerRef.current.releasePointerCapture(e.pointerId);
-    }
-
-    setIsDragging(false);
-    resumeAutoScroll();
-
-    // Adjust scroll position for infinite effect
-    const container = containerRef.current;
-    if (!container || !eras.length) return;
-
-    const itemWidthWithGap = itemWidth + 16; // Assuming 16px gap
-    const totalItems = eras.length;
-    const scrollLeft = container.scrollLeft;
-    const itemIndex = Math.round(scrollLeft / itemWidthWithGap);
-
-    // If we're in the first copy, jump to the middle copy
-    if (itemIndex < totalItems) {
-      container.scrollLeft = scrollLeft + (totalItems * itemWidthWithGap);
-    }
-    // If we're in the last copy, jump to the middle copy
-    else if (itemIndex >= totalItems * 4) {
-      container.scrollLeft = scrollLeft - (totalItems * itemWidthWithGap);
-    }
-
-    // Update current index
-    const normalizedIndex = ((itemIndex % totalItems) + totalItems) % totalItems;
-    currentIndexRef.current = normalizedIndex;
-    setCurrentIndex(normalizedIndex);
-  }, [eras.length, itemWidth, resumeAutoScroll]);
-
-  // Manual navigation
-  const goToNext = useCallback(() => {
-    pauseAutoScroll();
-    setCurrentIndex(prev => prev + 1);
-    resumeAutoScroll();
-  }, [pauseAutoScroll, resumeAutoScroll]);
-
-  const goToPrev = useCallback(() => {
-    pauseAutoScroll();
-    setCurrentIndex(prev => prev - 1);
-    resumeAutoScroll();
-  }, [pauseAutoScroll, resumeAutoScroll]);
-
-  // Smooth scroll to position
-  useEffect(() => {
-    const container = containerRef.current;
-    if (!container || !eras.length || isAutoScrolling || isDragging) return;
-
-    const itemWidthWithGap = itemWidth + 16;
-    const totalItems = eras.length;
-    const middleOffset = totalItems * itemWidthWithGap; // Start in middle copy
-    const targetScroll = middleOffset + (currentIndex * itemWidthWithGap);
-
-    container.scrollTo({
-      left: targetScroll,
-      behavior: 'smooth'
-    });
-  }, [currentIndex, eras.length, itemWidth, isAutoScrolling, isDragging]);
-
-  useEffect(() => {
-    const container = containerRef.current;
-    if (!container || !eras.length) return;
-
-    const itemWidthWithGap = itemWidth + 16;
-    const totalItems = eras.length;
-    const middleOffset = totalItems * itemWidthWithGap * 2;
-    container.scrollLeft = middleOffset;
-  }, [eras.length, itemWidth]);
-
-  useEffect(() => {
-    currentIndexRef.current = currentIndex;
-  }, [currentIndex]);
-
-  useEffect(() => {
-    return () => {
-      if (resumeTimeoutRef.current) {
-        clearTimeout(resumeTimeoutRef.current);
-      }
-    };
-  }, []);
-
-  return {
-    containerRef,
-    infiniteEras,
-    currentIndex: ((currentIndex % eras.length) + eras.length) % eras.length,
-    isDragging,
-    isAutoScrolling,
-    handleDragStart,
-    handleDragMove,
-    handleDragEnd,
-    goToNext,
-    goToPrev,
-    pauseAutoScroll,
-    resumeAutoScroll
-  };
-}
-
 export function BentoGrid() {
-  const {
-    containerRef,
-    infiniteEras,
-    currentIndex,
-    isDragging,
-    isAutoScrolling,
-    handleDragStart,
-    handleDragMove,
-    handleDragEnd,
-    goToNext,
-    goToPrev,
-    pauseAutoScroll,
-    resumeAutoScroll
-  } = useInfiniteCarousel(eras, 320);
 
   return (
-    <section className="mx-auto grid max-w-6xl grid-cols-1 gap-6 rounded-3xl border border-border/60 bg-card/90 px-6 pb-12 pt-6 shadow-subtle md:grid-cols-12">
+    <section
+      className="mx-auto grid max-w-6xl grid-cols-1 gap-6 rounded-3xl border border-border/60 bg-card/90 px-6 pb-12 pt-6 shadow-subtle md:grid-cols-12"
+      suppressHydrationWarning
+    >
       <Card className="md:col-span-6 flex h-full flex-col border-l-4 border-l-accentRed bg-card/95 transition duration-700 ease-out hover:shadow-[0_10px_24px_rgba(196,77,77,0.07)]">
         <CardHeader className="flex flex-row items-center justify-between">
           <div className="space-y-1">
@@ -333,58 +117,41 @@ export function BentoGrid() {
           </p>
         </CardHeader>
         <CardContent className="relative overflow-hidden">
-          <div className="mb-5 text-xs text-muted">
-            Era {currentIndex + 1} of {eras.length}
-          </div>
-          <div className="relative flex items-center gap-3">
-            <Button
-              variant="ghost"
-              size="icon"
-              className="hidden h-10 w-10 flex-shrink-0 border border-border bg-card shadow-subtle hover:border-accentGold sm:inline-flex z-10"
-              onClick={goToPrev}
-              aria-label="Previous era"
-            >
-              <ArrowLeft className="h-4 w-4" />
-            </Button>
-            <div className="relative flex-1 min-w-0">
-              <div
-                ref={containerRef}
-                className={`flex gap-4 overflow-x-auto pb-4 pr-2 overscroll-x-contain touch-pan-x ${
-                  isAutoScrolling ? "scroll-auto" : "scroll-smooth snap-x snap-mandatory"
-                } ${
-                  isDragging ? "cursor-grabbing select-none" : "cursor-grab"
-                }`}
-                onPointerDown={handleDragStart}
-                onPointerUp={handleDragEnd}
-                onPointerCancel={handleDragEnd}
-                onPointerLeave={handleDragEnd}
-                onPointerMove={handleDragMove}
-                onMouseEnter={pauseAutoScroll}
-                onMouseLeave={resumeAutoScroll}
-              >
-                {infiniteEras.map((era, index) => (
+          <div className="mb-5 text-xs text-muted">Eras: {eras.length}</div>
+          <div
+            className="marquee rounded-2xl border border-border/60 bg-card/60 px-3 py-4"
+            aria-label="Crypto onboarding eras carousel"
+          >
+            <div className="marquee-track">
+              <div className="marquee-group">
+                {eras.map((era) => (
                   <div
-                    key={`${era.id}-${index}`}
-                    className="flex-none snap-start basis-[70%] sm:basis-[48%] md:basis-[34%] lg:basis-[28%] xl:basis-[22%] max-w-[300px]"
+                    key={`era-${era.id}`}
+                    className="flex-none basis-[70%] sm:basis-[48%] md:basis-[34%] lg:basis-[28%] xl:basis-[22%] max-w-[300px]"
                   >
-                    <div className="flex h-full min-h-[220px] flex-col rounded-2xl border border-border/80 bg-card p-5 shadow-subtle aspect-[4/5]">
+                    <div className="flex h-full min-h-[140px] flex-col rounded-2xl border border-border/80 bg-card px-4 py-3 shadow-subtle transition duration-500 ease-out hover:-translate-y-1 hover:shadow-[0_14px_28px_rgba(0,0,0,0.08)]">
                       <div className="text-xs font-semibold uppercase text-muted">{era.range}</div>
                       <div className="text-base font-semibold line-clamp-2">{era.title}</div>
-                      <p className="mt-3 text-sm text-muted line-clamp-4">{era.description}</p>
+                      <p className="mt-2 text-sm text-muted line-clamp-3">{era.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className="marquee-group" aria-hidden="true">
+                {eras.map((era) => (
+                  <div
+                    key={`era-dup-${era.id}`}
+                    className="flex-none basis-[70%] sm:basis-[48%] md:basis-[34%] lg:basis-[28%] xl:basis-[22%] max-w-[300px]"
+                  >
+                    <div className="flex h-full min-h-[140px] flex-col rounded-2xl border border-border/80 bg-card px-4 py-3 shadow-subtle transition duration-500 ease-out hover:-translate-y-1 hover:shadow-[0_14px_28px_rgba(0,0,0,0.08)]">
+                      <div className="text-xs font-semibold uppercase text-muted">{era.range}</div>
+                      <div className="text-base font-semibold line-clamp-2">{era.title}</div>
+                      <p className="mt-2 text-sm text-muted line-clamp-3">{era.description}</p>
                     </div>
                   </div>
                 ))}
               </div>
             </div>
-            <Button
-              variant="ghost"
-              size="icon"
-              className="hidden h-10 w-10 flex-shrink-0 border border-border bg-card shadow-subtle hover:border-accentGold sm:inline-flex z-10"
-              onClick={goToNext}
-              aria-label="Next era"
-            >
-              <ArrowRight className="h-4 w-4" />
-            </Button>
           </div>
         </CardContent>
       </Card>

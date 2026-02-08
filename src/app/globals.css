@@ -60,4 +60,69 @@ a {
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.05);
 }
 
+.marquee {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  flex-wrap: nowrap;
+  gap: 16px;
+  animation: marquee-scroll 28s linear infinite;
+  animation-play-state: running;
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+.marquee-group {
+  display: flex;
+  gap: 16px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .marquee:hover .marquee-track {
+    animation-play-state: paused;
+  }
+}
+
+.marquee::before,
+.marquee::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 56px;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.marquee::before {
+  left: 0;
+  background: linear-gradient(90deg, var(--card) 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.marquee::after {
+  right: 0;
+  background: linear-gradient(270deg, var(--card) 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.dark .marquee::before {
+  background: linear-gradient(90deg, var(--card) 0%, rgba(20, 20, 20, 0) 100%);
+}
+
+.dark .marquee::after {
+  background: linear-gradient(270deg, var(--card) 0%, rgba(20, 20, 20, 0) 100%);
+}
+
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
 

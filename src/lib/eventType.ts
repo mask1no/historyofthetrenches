@@ -5,7 +5,8 @@ export const typeLabel: Record<EventType, string> = {
   runner: "Runner",
   milestone: "Milestone",
   hack: "Hack",
-  collapse: "Collapse"
+  collapse: "Collapse",
+  seizure: "Seizure"
 };
 
 export const typeVariant: Record<EventType, "red" | "green" | "gold" | "dark"> = {
@@ -13,7 +14,8 @@ export const typeVariant: Record<EventType, "red" | "green" | "gold" | "dark"> =
   runner: "green",
   milestone: "gold",
   hack: "dark",
-  collapse: "dark"
+  collapse: "dark",
+  seizure: "dark"
 };
 
 

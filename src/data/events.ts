@@ -1,4 +1,10 @@
-export type EventType = "rugpull" | "runner" | "milestone" | "hack" | "collapse";
+export type EventType =
+  | "rugpull"
+  | "runner"
+  | "milestone"
+  | "hack"
+  | "collapse"
+  | "seizure";
 
 export type Source = {
   label: string;
@@ -29,7 +35,7 @@ export const events: Event[] = [
   {
     "slug": "silk-road-closure",
     "title": "Silk Road Marketplace Closure",
-    "type": "milestone",
+    "type": "seizure",
     "chain": "Bitcoin",
     "year": 2013,
     "date": "2013-10-02",
@@ -3020,6 +3026,254 @@ export const events: Event[] = [
       }
     ]
   },
+    "slug": "btc-e-fincen-penalty",
+    "title": "BTC-e FinCEN Civil Penalty",
+    "type": "milestone",
+    "chain": "Bitcoin",
+    "year": 2017,
+    "date": "2017-07-26",
+    "era": "ICO Boom",
+    "status": "law enforcement",
+    "summary": "FinCEN assessed a $110M civil penalty against BTC-e for AML violations tied to ransomware and darknet activity.",
+    "peakMetric": "$110M penalty",
+    "outcome": "Penalty issued; operator charged",
+    "tags": [
+      "exchange",
+      "regulation",
+      "aml",
+      "law-enforcement"
+    ],
+    "sources": [
+      {
+        "label": "FinCEN civil penalty press release",
+        "url": "https://www.fincen.gov/news/news-releases/fincen-fines-btc-e-virtual-currency-exchange-110-million-facilitating-ransomware",
+        "publisher": "FinCEN",
+        "year": 2017
+      }
+    ]
+  },
+  {
+    "slug": "uniswap-uni-launch",
+    "title": "Uniswap Launches UNI",
+    "type": "milestone",
+    "chain": "Ethereum",
+    "year": 2020,
+    "date": "2020-09-16",
+    "era": "DeFi Summer",
+    "status": "governance token",
+    "summary": "Uniswap introduced the UNI governance token and a retroactive airdrop to past users.",
+    "peakMetric": "400 UNI per eligible address",
+    "outcome": "UNI governance launched",
+    "tags": [
+      "defi",
+      "dex",
+      "governance",
+      "airdrop"
+    ],
+    "chartUrl": "https://tradingview.com/symbols/UNIUSD/",
+    "sources": [
+      {
+        "label": "Introducing UNI",
+        "url": "https://blog.uniswap.org/uni",
+        "publisher": "Uniswap",
+        "year": 2020
+      }
+    ]
+  },
+  {
+    "slug": "bitmex-cftc-charges",
+    "title": "CFTC Charges BitMEX",
+    "type": "milestone",
+    "chain": "Bitcoin (derivatives)",
+    "year": 2020,
+    "date": "2020-10-01",
+    "era": "DeFi Summer",
+    "status": "regulatory action",
+    "summary": "The CFTC charged BitMEX and its founders for operating an unregistered derivatives platform and failing AML controls.",
+    "peakMetric": "Unregistered U.S. derivatives venue",
+    "outcome": "Enforcement action filed",
+    "tags": [
+      "derivatives",
+      "regulation",
+      "exchange",
+      "cefi"
+    ],
+    "sources": [
+      {
+        "label": "CFTC press release",
+        "url": "https://www.cftc.gov/PressRoom/PressReleases/8270-20",
+        "publisher": "CFTC",
+        "year": 2020
+      }
+    ]
+  },
+  {
+    "slug": "ofac-sanctions-suex",
+    "title": "OFAC Sanctions SUEX",
+    "type": "milestone",
+    "chain": "Multi-chain",
+    "year": 2021,
+    "date": "2021-09-21",
+    "era": "NFT Summer",
+    "status": "sanctions",
+    "summary": "Treasury designated SUEX, the first virtual currency exchange sanctioned for ransomware facilitation.",
+    "peakMetric": "First exchange designation",
+    "outcome": "SUEX added to SDN list",
+    "tags": [
+      "sanctions",
+      "ransomware",
+      "exchange",
+      "regulation"
+    ],
+    "sources": [
+      {
+        "label": "Treasury press release",
+        "url": "https://home.treasury.gov/news/press-releases/jy0364",
+        "publisher": "US Treasury",
+        "year": 2021
+      }
+    ]
+  },
+  {
+    "slug": "ofac-sanctions-chatex",
+    "title": "OFAC Sanctions Chatex",
+    "type": "milestone",
+    "chain": "Multi-chain",
+    "year": 2021,
+    "date": "2021-11-08",
+    "era": "NFT Summer",
+    "status": "sanctions",
+    "summary": "Treasury designated Chatex for ransomware-linked transactions and support to SUEX.",
+    "peakMetric": "Second exchange designation",
+    "outcome": "Chatex added to SDN list",
+    "tags": [
+      "sanctions",
+      "ransomware",
+      "exchange",
+      "regulation"
+    ],
+    "sources": [
+      {
+        "label": "Treasury press release",
+        "url": "https://home.treasury.gov/news/press-releases/jy0471",
+        "publisher": "US Treasury",
+        "year": 2021
+      }
+    ]
+  },
+  {
+    "slug": "ens-token-claim",
+    "title": "ENS Token Claim Opens",
+    "type": "milestone",
+    "chain": "Ethereum",
+    "year": 2021,
+    "date": "2021-11-08",
+    "era": "NFT Summer",
+    "status": "governance airdrop",
+    "summary": "ENS opened its governance token claim for .eth registrants, launching the ENS DAO.",
+    "peakMetric": "Airdrop to .eth holders",
+    "outcome": "ENS governance live",
+    "tags": [
+      "governance",
+      "airdrop",
+      "public-goods"
+    ],
+    "chartUrl": "https://tradingview.com/symbols/ENSUSD/",
+    "sources": [
+      {
+        "label": "$ENS now available for claiming",
+        "url": "https://ens.mirror.xyz/5cGl-Y37aTxtokdWk21qlULmE1aSM_NuX9fstbOPoWU",
+        "publisher": "ENS",
+        "year": 2021
+      }
+    ]
+  },
+  {
+    "slug": "hydra-garantex-action",
+    "title": "Hydra Market Seized, Garantex Designated",
+    "type": "seizure",
+    "chain": "Multi-chain",
+    "year": 2022,
+    "date": "2022-04-05",
+    "era": "DeFi Summer",
+    "status": "law enforcement",
+    "summary": "An international operation seized Hydra Market while Treasury designated Garantex for ransomware laundering.",
+    "peakMetric": "Hydra servers seized",
+    "outcome": "Hydra takedown; Garantex sanctioned",
+    "tags": [
+      "darknet",
+      "sanctions",
+      "exchange",
+      "law-enforcement"
+    ],
+    "sources": [
+      {
+        "label": "Treasury press release",
+        "url": "https://home.treasury.gov/news/press-releases/jy0701",
+        "publisher": "US Treasury",
+        "year": 2022
+      }
+    ]
+  },
+  {
+    "slug": "ofac-sanctions-blender",
+    "title": "OFAC Sanctions Blender.io",
+    "type": "milestone",
+    "chain": "Bitcoin/crypto rails",
+    "year": 2022,
+    "date": "2022-05-06",
+    "era": "DeFi Summer",
+    "status": "sanctions",
+    "summary": "Treasury designated Blender.io, the first virtual currency mixer sanctioned by OFAC.",
+    "peakMetric": "First mixer designation",
+    "outcome": "Blender.io added to SDN list",
+    "tags": [
+      "sanctions",
+      "mixer",
+      "privacy"
+    ],
+    "sources": [
+      {
+        "label": "Treasury press release",
+        "url": "https://home.treasury.gov/news/press-releases/jy0768",
+        "publisher": "US Treasury",
+        "year": 2022
+      }
+    ]
+  },
+  {
+    "slug": "usdc-depeg-svb",
+    "title": "USDC Depegs During SVB Shock",
+    "type": "milestone",
+    "chain": "Ethereum (stablecoin)",
+    "year": 2023,
+    "date": "2023-03-11",
+    "era": "DeFi Summer",
+    "status": "stablecoin stress",
+    "summary": "USDC slipped below $1 after Circle disclosed $3.3B of reserves held at Silicon Valley Bank.",
+    "peakMetric": "USDC traded near $0.88",
+    "outcome": "Peg restored after depositor backstop",
+    "tags": [
+      "stablecoin",
+      "tradfi",
+      "depeg"
+    ],
+    "chartUrl": "https://tradingview.com/symbols/USDCUSD/",
+    "sources": [
+      {
+        "label": "Circle SVB update",
+        "url": "https://web.archive.org/web/20230311202753/https:/www.circle.com/blog/an-update-on-usdc-and-silicon-valley-bank",
+        "publisher": "Circle",
+        "year": 2023
+      },
+      {
+        "label": "Reserve risk removed",
+        "url": "https://www.circle.com/en/pressroom/3.3-billion-of-usdc-reserve-risk-removed-dollar-de-peg-closes",
+        "publisher": "Circle",
+        "year": 2023
+      }
+    ]
+  },
   {
     "slug": "eu-mica-regulation",
     "title": "EU Approves MiCA Regulation",
@@ -3052,6 +3306,110 @@ export const events: Event[] = [
       }
     ]
   },
+    "slug": "chipmixer-seizure",
+    "title": "DOJ Seizes ChipMixer",
+    "type": "seizure",
+    "chain": "Bitcoin/crypto rails",
+    "year": 2023,
+    "date": "2023-03-15",
+    "era": "DeFi Summer",
+    "status": "law enforcement",
+    "summary": "U.S. and German authorities seized ChipMixer infrastructure and cryptocurrency tied to laundering activity.",
+    "peakMetric": "$46M+ crypto seized",
+    "outcome": "ChipMixer taken offline",
+    "tags": [
+      "mixer",
+      "law-enforcement",
+      "illicit-finance"
+    ],
+    "sources": [
+      {
+        "label": "DOJ press release",
+        "url": "https://www.justice.gov/archives/opa/pr/justice-department-investigation-leads-takedown-darknet-cryptocurrency-mixer-processed-over-3",
+        "publisher": "DOJ",
+        "year": 2023
+      }
+    ]
+  },
+  {
+    "slug": "binance-doj-plea",
+    "title": "Binance DOJ Resolution and Guilty Plea",
+    "type": "milestone",
+    "chain": "Multi-chain",
+    "year": 2023,
+    "date": "2023-11-21",
+    "era": "Pump.fun Era",
+    "status": "regulatory settlement",
+    "summary": "Binance and CEO Changpeng Zhao pleaded guilty and agreed to a multi-billion dollar resolution with U.S. authorities.",
+    "peakMetric": "$4.3B total resolution",
+    "outcome": "CEO stepped down; compliance monitorship",
+    "tags": [
+      "regulation",
+      "cefi",
+      "exchange"
+    ],
+    "sources": [
+      {
+        "label": "DOJ press release",
+        "url": "https://www.justice.gov/opa/pr/binance-and-ceo-plead-guilty-federal-charges-4b-resolution",
+        "publisher": "DOJ",
+        "year": 2023
+      }
+    ]
+  },
+ 
+  {
+    "slug": "ofac-sanctions-sinbad",
+    "title": "OFAC Sanctions Sinbad",
+    "type": "milestone",
+    "chain": "Bitcoin/crypto rails",
+    "year": 2023,
+    "date": "2023-11-29",
+    "era": "Pump.fun Era",
+    "status": "sanctions",
+    "summary": "Treasury sanctioned the Sinbad mixer for laundering stolen virtual currency tied to DPRK activity.",
+    "peakMetric": "Mixer infrastructure seized",
+    "outcome": "Sinbad added to SDN list",
+    "tags": [
+      "sanctions",
+      "mixer",
+      "law-enforcement"
+    ],
+    "sources": [
+      {
+        "label": "Treasury press release",
+        "url": "https://home.treasury.gov/news/press-releases/jy1933",
+        "publisher": "US Treasury",
+        "year": 2023
+      }
+    ]
+  },
+  {
+    "slug": "bestmixer-takedown",
+    "title": "Bestmixer.io Takedown",
+    "type": "seizure",
+    "chain": "Bitcoin/crypto rails",
+    "year": 2019,
+    "date": "2019-05-22",
+    "era": "Silk Road Era",
+    "status": "law enforcement",
+    "summary": "Dutch and Europol-led authorities took down Bestmixer.io, a major cryptocurrency mixing service.",
+    "peakMetric": "$200M+ mixed",
+    "outcome": "Servers and domains seized",
+    "tags": [
+      "mixer",
+      "law-enforcement",
+      "illicit-finance"
+    ],
+    "sources": [
+      {
+        "label": "Europol press release",
+        "url": "https://www.europol.europa.eu/media-press/newsroom/news/multi-million-euro-cryptocurrency-laundering-service-bestmixerio-taken-down",
+        "publisher": "Europol",
+        "year": 2019
+      }
+    ]
+  }
 ];
 
 export const getEventBySlug = (slug: string) =>

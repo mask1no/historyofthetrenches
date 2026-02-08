@@ -60,7 +60,8 @@ const typeOptions = [
   { label: "Collapse", value: "collapse" },
   { label: "Runner", value: "runner" },
   { label: "Milestone", value: "milestone" },
-  { label: "Hack", value: "hack" }
+  { label: "Hack", value: "hack" },
+  { label: "Seizure", value: "seizure" }
 ];
 
 const sortOptions = [

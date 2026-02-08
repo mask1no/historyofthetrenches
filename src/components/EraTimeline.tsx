@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { eras } from "@/data/eras";
 import { Badge } from "@/components/ui/badge";
+import { typeVariant } from "@/lib/eventType";
 
 export function EraTimeline() {
   const [openEraIds, setOpenEraIds] = useState<string[]>([]);
@@ -51,17 +52,7 @@ export function EraTimeline() {
                         <span className="text-xs text-muted">{event.date}</span>
                       </span>
                       <Badge
-                        variant={
-                          event.type === "rugpull"
-                            ? "red"
-                            : event.type === "runner"
-                            ? "green"
-                            : event.type === "hack"
-                            ? "dark"
-                            : event.type === "collapse"
-                            ? "dark"
-                            : "gold"
-                        }
+                        variant={typeVariant[event.type]}
                       >
                         {event.year}
                       </Badge>
