@@ -3054,6 +3054,12 @@ export const events: Event[] = [
         "url": "https://www.fincen.gov/news/news-releases/fincen-fines-btc-e-virtual-currency-exchange-110-million-facilitating-ransomware",
         "publisher": "FinCEN",
         "year": 2017
+      },
+      {
+        "label": "BTC-e overview",
+        "url": "https://en.wikipedia.org/wiki/BTC-e",
+        "publisher": "Wikipedia",
+        "year": 2017
       }
     ]
   },
@@ -3080,6 +3086,12 @@ export const events: Event[] = [
       {
         "label": "Introducing UNI",
         "url": "https://blog.uniswap.org/uni",
+        "publisher": "Uniswap",
+        "year": 2020
+      },
+      {
+        "label": "Uniswap Year in Review 2020",
+        "url": "https://blog.uniswap.org/year-in-review",
         "publisher": "Uniswap",
         "year": 2020
       }
@@ -3109,6 +3121,12 @@ export const events: Event[] = [
         "url": "https://www.cftc.gov/PressRoom/PressReleases/8270-20",
         "publisher": "CFTC",
         "year": 2020
+      },
+      {
+        "label": "DOJ BitMEX charges",
+        "url": "https://www.justice.gov/opa/pr/bitmex-charged-violations-bank-secrecy-act",
+        "publisher": "DOJ",
+        "year": 2020
       }
     ]
   },
@@ -3135,6 +3153,12 @@ export const events: Event[] = [
         "label": "Treasury press release",
         "url": "https://home.treasury.gov/news/press-releases/jy0364",
         "publisher": "US Treasury",
+        "year": 2021
+      },
+      {
+        "label": "OFAC recent actions",
+        "url": "https://ofac.treasury.gov/recent-actions/20210921",
+        "publisher": "OFAC",
         "year": 2021
       }
     ]
@@ -3163,6 +3187,12 @@ export const events: Event[] = [
         "url": "https://home.treasury.gov/news/press-releases/jy0471",
         "publisher": "US Treasury",
         "year": 2021
+      },
+      {
+        "label": "OFAC recent actions",
+        "url": "https://ofac.treasury.gov/recent-actions/20211108",
+        "publisher": "OFAC",
+        "year": 2021
       }
     ]
   },
@@ -3189,6 +3219,12 @@ export const events: Event[] = [
         "label": "$ENS now available for claiming",
         "url": "https://ens.mirror.xyz/5cGl-Y37aTxtokdWk21qlULmE1aSM_NuX9fstbOPoWU",
         "publisher": "ENS",
+        "year": 2021
+      },
+      {
+        "label": "ENS token documentation",
+        "url": "https://docs.ens.domains/dao/token/",
+        "publisher": "ENS Docs",
         "year": 2021
       }
     ]
@@ -3217,6 +3253,12 @@ export const events: Event[] = [
         "url": "https://home.treasury.gov/news/press-releases/jy0701",
         "publisher": "US Treasury",
         "year": 2022
+      },
+      {
+        "label": "Hydra Market seized",
+        "url": "https://www.cnbc.com/2022/04/05/darknet-hydra-market-site-seized-and-shut-down-doj-says.html",
+        "publisher": "CNBC",
+        "year": 2022
       }
     ]
   },
@@ -3242,6 +3284,12 @@ export const events: Event[] = [
         "label": "Treasury press release",
         "url": "https://home.treasury.gov/news/press-releases/jy0768",
         "publisher": "US Treasury",
+        "year": 2022
+      },
+      {
+        "label": "OFAC recent actions",
+        "url": "https://ofac.treasury.gov/recent-actions/20220506",
+        "publisher": "OFAC",
         "year": 2022
       }
     ]
@@ -3334,6 +3382,12 @@ export const events: Event[] = [
         "url": "https://www.justice.gov/archives/opa/pr/justice-department-investigation-leads-takedown-darknet-cryptocurrency-mixer-processed-over-3",
         "publisher": "DOJ",
         "year": 2023
+      },
+      {
+        "label": "ChipMixer takedown report",
+        "url": "https://www.bleepingcomputer.com/news/security/chipmixer-platform-seized-for-laundering-ransomware-payments-drug-sales/",
+        "publisher": "BleepingComputer",
+        "year": 2023
       }
     ]
   },
@@ -3359,6 +3413,12 @@ export const events: Event[] = [
         "label": "DOJ press release",
         "url": "https://www.justice.gov/opa/pr/binance-and-ceo-plead-guilty-federal-charges-4b-resolution",
         "publisher": "DOJ",
+        "year": 2023
+      },
+      {
+        "label": "Treasury press release",
+        "url": "https://home.treasury.gov/news/press-releases/jy1925",
+        "publisher": "US Treasury",
         "year": 2023
       }
     ]
@@ -3387,6 +3447,12 @@ export const events: Event[] = [
         "url": "https://home.treasury.gov/news/press-releases/jy1933",
         "publisher": "US Treasury",
         "year": 2023
+      },
+      {
+        "label": "OFAC recent actions",
+        "url": "https://ofac.treasury.gov/recent-actions/20231129",
+        "publisher": "OFAC",
+        "year": 2023
       }
     ]
   },
@@ -3412,6 +3478,12 @@ export const events: Event[] = [
         "label": "Europol press release",
         "url": "https://www.europol.europa.eu/media-press/newsroom/news/multi-million-euro-cryptocurrency-laundering-service-bestmixerio-taken-down",
         "publisher": "Europol",
+        "year": 2019
+      },
+      {
+        "label": "FIOD press release",
+        "url": "https://www.fiod.nl/the-fiod-and-the-public-prosecution-service-take-money-laundering-machine-for-cryptocurrencies-offline/",
+        "publisher": "FIOD",
         "year": 2019
       }
     ]

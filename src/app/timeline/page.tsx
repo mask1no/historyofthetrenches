@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { NavBar } from "@/components/NavBar";
 import { EraTimeline } from "@/components/EraTimeline";
 import { Footer } from "@/components/Footer";
@@ -50,17 +49,6 @@ export default function TimelinePage() {
           </p>
         </div>
         <EraTimeline />
-        <div className="mt-8 rounded-2xl border border-border bg-card p-6 text-sm text-muted">
-          <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted">
-            Explore the archive
-          </div>
-          <p className="mt-2">
-            Want the full list? Browse the archive for filters, tags, and sources.
-          </p>
-          <Link href="/archive" className="mt-3 inline-block text-accentGold underline">
-            View the archive
-          </Link>
-        </div>
       </section>
       <Footer />
     </main>

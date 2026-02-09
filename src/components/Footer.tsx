@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const links = {
   explore: [
-    { label: "Community", href: "/community" },
+    { label: "Stack", href: "/stack" },
     { label: "Archive", href: "/archive" },
     { label: "Timeline", href: "/timeline" },
     { label: "Transparency", href: "/hot#receipts" }

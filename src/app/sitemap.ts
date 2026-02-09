@@ -9,7 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ? Math.max(...events.map((event) => parseEventDate(event.date)))
     : Date.now();
   const staticLastModified = new Date(latestEventDate);
-  const staticRoutes = ["", "/archive", "/timeline", "/community", "/hot"].map((path) => ({
+  const staticRoutes = ["", "/archive", "/timeline", "/stack", "/hot"].map((path) => ({
     url: `${baseUrl}${path}`,
     lastModified: staticLastModified,
     changeFrequency: (path === "" ? "weekly" : "monthly") as "weekly" | "monthly",

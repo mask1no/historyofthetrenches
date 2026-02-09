@@ -173,7 +173,7 @@ export function BentoGrid() {
           <ul className="space-y-2 text-sm">
             <li className="flex items-start gap-2">
               <span className="mt-1 h-2 w-2 rounded-full bg-accentGold" />
-              Proof-of-ritual receipts are public.
+              Proof-of-receipts are public.
             </li>
             <li className="flex items-start gap-2">
               <span className="mt-1 h-2 w-2 rounded-full bg-accentGreen" />

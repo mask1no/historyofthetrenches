@@ -11,7 +11,6 @@ import Link from "next/link";
 import { typeLabel, typeVariant } from "@/lib/eventType";
 import { compareEventDatesAsc } from "@/lib/utils";
 import { Footer } from "@/components/Footer";
-import { getEventSourceQuality } from "@/lib/sourceQuality";
 
 type EventPageProps = {
   params: { slug: string };
@@ -132,14 +131,6 @@ export default function EventPage({ params }: EventPageProps) {
       ? sortedByDate[currentIndex + 1]
       : undefined;
 
-  const sourceQuality = getEventSourceQuality(event);
-  const sourceQualityVariant =
-    sourceQuality.level === "primary-backed"
-      ? "green"
-      : sourceQuality.level === "secondary-only"
-      ? "gold"
-      : "muted";
-
   return (
     <main id="main-content" className="min-h-screen pb-16">
       <Script
@@ -159,7 +150,6 @@ export default function EventPage({ params }: EventPageProps) {
             <Badge variant={typeVariant[event!.type]}>{typeLabel[event!.type]}</Badge>
             <Badge variant="muted">{event!.chain}</Badge>
             <Badge variant="muted">{event!.year}</Badge>
-            <Badge variant={sourceQualityVariant}>{sourceQuality.label}</Badge>
             {event!.hallOfFame && <Badge variant="gold">Hall of Fame</Badge>}
           </div>
           <h1
@@ -200,29 +190,29 @@ export default function EventPage({ params }: EventPageProps) {
               <CardTitle>Key Facts</CardTitle>
             </CardHeader>
             <CardContent className="space-y-3 text-sm">
-              <div className="flex items-center justify-between">
+              <div className="grid gap-2 sm:grid-cols-[160px_minmax(0,1fr)]">
                 <span className="text-muted">Peak metric</span>
-                <span className="font-semibold">{event!.peakMetric ?? "—"}</span>
+                <span className="font-semibold break-words">{event!.peakMetric ?? "—"}</span>
               </div>
-              <div className="flex items-center justify-between">
+              <div className="grid gap-2 sm:grid-cols-[160px_minmax(0,1fr)]">
                 <span className="text-muted">Outcome</span>
-                <span className="font-semibold">{event!.outcome ?? "—"}</span>
+                <span className="font-semibold break-words">{event!.outcome ?? "—"}</span>
               </div>
-              <div className="flex items-center justify-between">
+              <div className="grid gap-2 sm:grid-cols-[160px_minmax(0,1fr)]">
                 <span className="text-muted">Chain</span>
-                <span className="font-semibold">{event!.chain}</span>
+                <span className="font-semibold break-words">{event!.chain}</span>
               </div>
-              <div className="flex items-center justify-between">
+              <div className="grid gap-2 sm:grid-cols-[160px_minmax(0,1fr)]">
                 <span className="text-muted">Year</span>
-                <span className="font-semibold">{event!.year}</span>
+                <span className="font-semibold break-words">{event!.year}</span>
               </div>
-              <div className="flex items-center justify-between">
+              <div className="grid gap-2 sm:grid-cols-[160px_minmax(0,1fr)]">
                 <span className="text-muted">Type</span>
-                <span className="font-semibold capitalize">{event!.type}</span>
+                <span className="font-semibold capitalize break-words">{event!.type}</span>
               </div>
-              <div>
-                <div className="text-muted">Tags</div>
-                <div className="mt-2 flex flex-wrap gap-2">
+              <div className="grid gap-2 sm:grid-cols-[160px_minmax(0,1fr)]">
+                <span className="text-muted">Tags</span>
+                <div className="flex flex-wrap gap-2">
                   {event!.tags.map((tag) => (
                     <Badge key={tag} variant="muted">
                       {tag}

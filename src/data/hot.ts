@@ -24,26 +24,29 @@ export type HotLinks = {
 
 export const curatorWallets: CuratorWallet[] = [
   {
-    label: "Curator (Primary)",
+    label: "Dev",
     chain: "solana",
     address: "REPLACE_ME",
     explorerUrl: "https://example.com/solana/address/REPLACE_ME",
-    purpose: "Primary curator identity wallet (doxxed).",
+    purpose: "Wallet that created the memecoin.",
     doxxed: true
   },
   {
-    label: "Treasury",
+    label: "Public",
     chain: "solana",
     address: "REPLACE_ME",
     explorerUrl: "https://example.com/solana/address/REPLACE_ME",
-    purpose: "Treasury custody for operational costs."
+    purpose: "Wallet used for monthly buys ($100 each month).",
+    doxxed: true
   },
   {
-    label: "Ritual Wallet",
+    label: "Burn",
     chain: "solana",
     address: "REPLACE_ME",
     explorerUrl: "https://example.com/solana/address/REPLACE_ME",
-    purpose: "Monthly ritual receipts wallet."
+    purpose:
+      "Burn triggers only on new milestones (no dips/re-hits). Buy and burn 1% of supply at each +100k market cap milestone (100k, 200k, 300k, etc.).",
+    doxxed: true
   }
 ];
 

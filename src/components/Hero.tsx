@@ -6,7 +6,6 @@ import { compareEventDatesDesc } from "@/lib/utils";
 
 export function Hero() {
   const totalEvents = events.length;
-  const hallOfFameCount = events.filter((e) => e.hallOfFame).length;
   const years = events.map((event) => event.year);
   const earliestYear = years.length ? Math.min(...years) : undefined;
   const latestYear = years.length ? Math.max(...years) : undefined;
@@ -16,7 +15,7 @@ export function Hero() {
     <section className="mx-auto flex max-w-6xl flex-col gap-8 px-6 pb-12 pt-10 md:flex-row md:items-start md:gap-12">
       <div className="flex-1 space-y-7">
         <p className="text-sm uppercase tracking-[0.18em] text-muted">
-          Community-Maintained Archive
+          Digital Community Maintained Archive
         </p>
         <div className="space-y-5">
           <h1
@@ -26,8 +25,7 @@ export function Hero() {
             History of the Trenches
           </h1>
           <p className="text-lg text-muted">
-            A living record of crypto&apos;s defining moments—built by and for
-            the community.
+            A living record of crypto&apos;s defining moments—kept by the community.
           </p>
           <p className="text-sm font-medium text-fg">
             {events.length > 0
@@ -67,11 +65,11 @@ export function Hero() {
             </div>
             <div className="flex items-center justify-between px-4 py-3">
               <div className="space-y-1">
-                  <div className="text-sm font-semibold">Hall of Fame entries</div>
-                  <div className="text-xs text-muted">Most impactful events.</div>
+                  <div className="text-sm font-semibold">Total events</div>
+                  <div className="text-xs text-muted">Complete archive count.</div>
               </div>
                 <span className="text-lg font-semibold text-accentGold tabular-nums">
-                  {hallOfFameCount}
+                  {totalEvents}
               </span>
             </div>
             <div className="flex items-center justify-between px-4 py-3">
