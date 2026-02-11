@@ -19,7 +19,7 @@ export function Hero() {
         </p>
         <div className="space-y-4">
           <h1
-            className="text-[2.3rem] font-bold leading-tight text-fg sm:text-[2.9rem] md:text-[3.4rem]"
+            className="text-[2.1rem] font-bold leading-tight text-fg sm:text-[2.6rem] md:text-[3.1rem]"
             style={{ fontFamily: "var(--font-playfair)" }}
           >
             History of the Trenches

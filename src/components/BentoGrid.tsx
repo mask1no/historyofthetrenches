@@ -168,7 +168,7 @@ export function BentoGrid() {
           </div>
           <div className="flex flex-wrap gap-2">
             <Badge variant="gold">Transparency</Badge>
-            <Badge variant="muted">Doxxed</Badge>
+            <Badge variant="gold">Doxxed</Badge>
           </div>
         </CardHeader>
         <CardContent className="space-y-3">
