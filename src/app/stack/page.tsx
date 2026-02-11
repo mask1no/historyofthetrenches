@@ -45,8 +45,8 @@ export default function StackPage() {
             The Stack
           </h1>
           <p className="max-w-3xl text-base text-muted">
-            A toolkit bridge for already‑onboarded traders who want to move from app‑level clicks
-            to first‑principles control. Learn the systems, the risks, and the habits that keep you
+            A toolkit bridge for newly‑onboarded traders who want to move from app‑level clicks to
+            first‑principles control. Learn the systems, the risks, and the habits that keep you
             safe as you go deeper into web3.
           </p>
         </div>

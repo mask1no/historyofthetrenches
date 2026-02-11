@@ -3,7 +3,7 @@ import { NavBar } from "@/components/NavBar";
 import { Footer } from "@/components/Footer";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { curatorWallets, hotLinks, ritualReceipts } from "@/data/hot";
+import { curatorWallets, hotLinks } from "@/data/hot";
 import { Coins, Wallet } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -68,47 +68,6 @@ export default function HotPage() {
                 Receipts are logged openly, and wallets are linked. The record stays visible, even
                 when sentiment shifts.
               </div>
-            </CardContent>
-          </Card>
-
-          <Card className="md:col-span-1" id="receipts">
-            <CardHeader>
-              <CardTitle>Proof-of-Receipts</CardTitle>
-              <p className="text-sm text-muted">
-                Timestamped actions with on-chain receipts. Links open in a new tab.
-              </p>
-            </CardHeader>
-            <CardContent className="space-y-3 text-sm">
-              <div className="flex items-center justify-between rounded-xl border border-border bg-bg/70 px-4 py-3">
-                <div>
-                  <div className="text-xs uppercase tracking-[0.18em] text-muted">Receipts</div>
-                  <div className="text-sm font-semibold text-fg">Proof count</div>
-                </div>
-                <span className="text-lg font-semibold text-accentGold tabular-nums">
-                  {ritualReceipts.length}
-                </span>
-              </div>
-              {ritualReceipts.map((receipt) => (
-                <a
-                  key={`${receipt.txUrl}-${receipt.label}`}
-                  href={receipt.txUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex flex-col gap-3 rounded-xl border border-border bg-bg/70 px-4 py-3 transition hover:border-accentGold md:flex-row md:items-center md:justify-between"
-                >
-                  <div>
-                    <div className="font-semibold">{receipt.label}</div>
-                    <div className="mt-1 flex flex-wrap items-center gap-2 text-xs text-muted">
-                      <Badge variant="muted">{receipt.chain}</Badge>
-                      <span>{receipt.date}</span>
-                      {receipt.commit && <span>commit {receipt.commit}</span>}
-                    </div>
-                    {receipt.note && (
-                      <div className="mt-2 text-xs text-muted">{receipt.note}</div>
-                    )}
-                  </div>
-                </a>
-              ))}
             </CardContent>
           </Card>
 

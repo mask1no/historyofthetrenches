@@ -75,9 +75,9 @@ export function NavBar() {
                 href={item.href}
                 target={item.href.startsWith("http") ? "_blank" : undefined}
                 rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                className={`rounded-full px-4 py-2 transition hover:text-fg hover:bg-card hover:underline hover:decoration-2 hover:decoration-accentGold ${
+                className={`rounded-full px-4 py-2 transition hover:text-fg hover:underline hover:decoration-2 hover:decoration-accentGold ${
                   pathname === item.href
-                    ? "bg-card text-fg underline decoration-2 decoration-accentGold"
+                    ? "text-fg underline decoration-2 decoration-accentGold"
                     : ""
                 }`}
                 aria-current={pathname === item.href ? "page" : undefined}
@@ -91,7 +91,7 @@ export function NavBar() {
           <Button
             variant="ghost"
             size="icon"
-            className="group relative hidden md:inline-flex border border-border text-muted-foreground transition hover:text-foreground hover:shadow-subtle"
+            className="group relative hidden md:inline-flex border border-border bg-card/80 text-muted-foreground transition hover:text-foreground hover:bg-card hover:shadow-subtle"
             aria-label="Toggle theme"
             onClick={toggleTheme}
           >

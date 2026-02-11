@@ -5,7 +5,7 @@ const links = {
     { label: "Stack", href: "/stack" },
     { label: "Archive", href: "/archive" },
     { label: "Timeline", href: "/timeline" },
-    { label: "Transparency", href: "/hot#receipts" }
+    { label: "Transparency", href: "/hot#wallets" }
   ],
   community: [
     { label: "X (Twitter)", href: "https://x.com/historytrenches" },
