@@ -112,7 +112,7 @@ export default function HotPage() {
             </CardContent>
           </Card>
 
-          <Card className="md:col-span-2">
+          <Card className="md:col-span-3">
             <CardHeader>
               <CardTitle>How to participate</CardTitle>
               <p className="text-sm text-muted">Simple steps, if you choose to take part.</p>
@@ -244,7 +244,7 @@ export default function HotPage() {
             </CardContent>
           </Card>
 
-          <Card className="md:col-span-2">
+          <Card className="md:col-span-3">
             <CardHeader>
               <CardTitle>What $HOT is NOT</CardTitle>
               <p className="text-sm text-muted">
