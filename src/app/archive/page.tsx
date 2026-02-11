@@ -37,7 +37,7 @@ export default function ArchivePage() {
   return (
     <main id="main-content" className="min-h-screen pb-16">
       <NavBar />
-      <section className="mx-auto max-w-6xl px-6 pb-10 pt-8">
+      <section className="mx-auto max-w-6xl px-6 pb-12 pt-8">
         <div className="mb-8 space-y-3">
           <h1
             className="text-4xl font-semibold"
@@ -46,7 +46,7 @@ export default function ArchivePage() {
             Archive
           </h1>
           <p className="text-base text-muted">
-            The archive holds the biggest crypto moments. Filter by type, chain, or tags to
+            The archive holds crypto&apos;s defining moments. Filter by type, chain, or tags to
             explore the full history with sources attached.
           </p>
           <div className="h-px w-full bg-border" />

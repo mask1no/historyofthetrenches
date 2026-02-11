@@ -45,8 +45,7 @@ export default function HotPage() {
             The $HOT Experiment
           </h1>
           <p className="max-w-3xl text-base text-muted">
-            This page tracks a playful memecoin experiment. It is not financial advice and not a
-            promise of returns—just a public record to keep the story honest.
+            A playful memecoin diary. Not financial advice—just a public record to keep the story honest.
           </p>
         </div>
 
@@ -118,7 +117,7 @@ export default function HotPage() {
                   href="https://jup.ag"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm font-semibold text-accentGold underline"
+                  className="text-sm font-semibold link-accent"
                 >
                   Swap on Jupiter
                 </a>
@@ -126,7 +125,7 @@ export default function HotPage() {
                   href="https://pump.fun"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm font-semibold text-accentGold underline"
+                  className="text-sm font-semibold link-accent"
                 >
                   Pump.fun
                 </a>
@@ -136,7 +135,7 @@ export default function HotPage() {
                   href={hotLinks.communityXUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm font-semibold text-accentGold underline"
+                  className="text-sm font-semibold link-accent"
                 >
                   Join the Community
                 </a>
@@ -145,7 +144,7 @@ export default function HotPage() {
                     href={hotLinks.chartUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm font-semibold text-accentGold underline"
+                    className="text-sm font-semibold link-accent"
                   >
                     View Chart
                   </a>
@@ -155,7 +154,7 @@ export default function HotPage() {
                     href={hotLinks.buyUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm font-semibold text-accentGold underline"
+                    className="text-sm font-semibold link-accent"
                   >
                     Optional entry
                   </a>
@@ -194,7 +193,7 @@ export default function HotPage() {
                     href={wallet.explorerUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-xs font-semibold text-accentGold underline"
+                    className="text-xs font-semibold link-accent"
                   >
                     Open explorer
                   </a>

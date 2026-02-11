@@ -426,7 +426,7 @@ export function EventTable() {
                     href={event.chartUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-accentGold underline"
+                    className="link-accent"
                     onClick={(e) => e.stopPropagation()}
                   >
                     View chart

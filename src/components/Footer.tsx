@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const links = {
   explore: [
-    { label: "Stack", href: "/stack" },
+    { label: "Kit", href: "/stack" },
     { label: "Archive", href: "/archive" },
     { label: "Timeline", href: "/timeline" },
     { label: "Transparency", href: "/hot#wallets" }
@@ -23,12 +23,12 @@ export function Footer() {
           <div className="relative flex flex-col gap-3">
             <div className="text-lg font-semibold text-fg">History of the Trenches</div>
             <p className="max-w-2xl text-sm text-muted">
-              Built by the trenches. For memory, not hype. A living archive of crypto’s defining moments.
+              Built by the trenches. For memory, not hype. A living record of crypto’s defining moments.
             </p>
             <div className="flex flex-wrap items-center gap-3 text-xs uppercase tracking-[0.2em] text-muted">
               <span>historyofthetrenches.xyz</span>
               <span className="h-1 w-1 rounded-full bg-accentGold" />
-              <span>Sources first</span>
+              <span>Sources‑first</span>
             </div>
           </div>
         </div>
@@ -37,7 +37,7 @@ export function Footer() {
             <div className="text-xs font-semibold uppercase tracking-[0.2em] text-muted">
               Explore
             </div>
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-2 external-links">
               {links.explore.map((link) => (
                 <Link key={link.href} href={link.href} className="text-fg hover:text-accentGold">
                   {link.label}

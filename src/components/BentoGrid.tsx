@@ -117,11 +117,7 @@ export function BentoGrid() {
           </p>
         </CardHeader>
         <CardContent className="relative overflow-hidden px-0">
-          <div className="mb-5 text-xs text-muted">Eras: {eras.length}</div>
-          <div
-            className="marquee"
-            aria-label="Crypto onboarding eras carousel"
-          >
+          <div className="marquee" aria-label="Crypto onboarding eras carousel">
             <div className="marquee-track">
               <div className="marquee-group">
                 {eras.map((era) => (
@@ -130,7 +126,7 @@ export function BentoGrid() {
                     href={`/timeline#era-${era.id}`}
                     className="flex-none basis-[70%] sm:basis-[48%] md:basis-[34%] lg:basis-[28%] xl:basis-[22%] max-w-[300px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-accentGold focus-visible:outline-offset-2 rounded-2xl"
                   >
-                    <div className="flex h-full min-h-[140px] flex-col rounded-2xl border border-border/80 bg-card px-4 py-3 shadow-subtle transition duration-500 ease-out hover:shadow-[0_14px_28px_rgba(0,0,0,0.08)] dark:hover:shadow-[0_14px_28px_rgba(0,0,0,0.45)]">
+                    <div className="flex h-full min-h-[140px] flex-col rounded-2xl border border-border/80 bg-card px-4 py-3 shadow-subtle transition duration-500 ease-out hover:border-accentGold/70 hover:shadow-[0_0_0_1px_rgba(214,177,94,0.32),0_14px_28px_rgba(0,0,0,0.08)] dark:hover:shadow-[0_0_0_1px_rgba(214,177,94,0.3),0_14px_28px_rgba(0,0,0,0.45)]">
                       <div className="text-xs font-semibold uppercase text-muted">{era.range}</div>
                       <div className="text-base font-semibold line-clamp-2">{era.title}</div>
                       <p className="mt-2 text-sm text-muted line-clamp-3">{era.description}</p>
@@ -145,7 +141,7 @@ export function BentoGrid() {
                     href={`/timeline#era-${era.id}`}
                     className="flex-none basis-[70%] sm:basis-[48%] md:basis-[34%] lg:basis-[28%] xl:basis-[22%] max-w-[300px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-accentGold focus-visible:outline-offset-2 rounded-2xl"
                   >
-                    <div className="flex h-full min-h-[140px] flex-col rounded-2xl border border-border/80 bg-card px-4 py-3 shadow-subtle transition duration-500 ease-out hover:shadow-[0_14px_28px_rgba(0,0,0,0.08)] dark:hover:shadow-[0_14px_28px_rgba(0,0,0,0.45)]">
+                    <div className="flex h-full min-h-[140px] flex-col rounded-2xl border border-border/80 bg-card px-4 py-3 shadow-subtle transition duration-500 ease-out hover:border-accentGold/70 hover:shadow-[0_0_0_1px_rgba(214,177,94,0.32),0_14px_28px_rgba(0,0,0,0.08)] dark:hover:shadow-[0_0_0_1px_rgba(214,177,94,0.3),0_14px_28px_rgba(0,0,0,0.45)]">
                       <div className="text-xs font-semibold uppercase text-muted">{era.range}</div>
                       <div className="text-base font-semibold line-clamp-2">{era.title}</div>
                       <p className="mt-2 text-sm text-muted line-clamp-3">{era.description}</p>

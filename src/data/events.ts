@@ -356,15 +356,15 @@ export const events: Event[] = [
     "chartUrl": "https://tradingview.com/symbols/YFIUSD/",
     "sources": [
       {
-        "label": "Launch post",
-        "url": "https://medium.com/iearn/yfi-distribution-df60226a40af",
-        "publisher": "Yearn",
+        "label": "Yearn Docs: YFI distribution",
+        "url": "https://docs.yearn.fi/contributing/governance/yfi",
+        "publisher": "Yearn Docs",
         "year": 2020
       },
       {
-        "label": "Fair launch analysis",
-        "url": "https://messari.io/report/yfi-yearn-finance",
-        "publisher": "Messari",
+        "label": "Wikipedia overview for Yearn.finance",
+        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Yearn.finance",
+        "publisher": "Wikipedia",
         "year": 2020
       }
     ]
@@ -1261,8 +1261,8 @@ export const events: Event[] = [
     "chartUrl": "https://tradingview.com/symbols/COMPUSD/",
     "sources": [
       {
-        "label": "Launch post",
-        "url": "https://medium.com/compound-finance/compound-community-governance-3c3b0b0e3cf0",
+        "label": "Compound governance docs",
+        "url": "https://docs.compound.finance/governance/",
         "publisher": "Compound",
         "year": 2020
       },
@@ -1532,9 +1532,9 @@ export const events: Event[] = [
     "chartUrl": "https://tradingview.com/symbols/ETHUSD/",
     "sources": [
       {
-        "label": "Post-mortem",
-        "url": "https://medium.com/yam-finance/yam-post-rescue-attempt-9793f28f0a0f",
-        "publisher": "Yam Finance",
+        "label": "Incident analysis",
+        "url": "https://cointelegraph.com/news/how-one-line-of-code-destroyed-yam-defi",
+        "publisher": "Cointelegraph",
         "year": 2020
       },
       {
@@ -1636,9 +1636,9 @@ export const events: Event[] = [
     "chartUrl": "https://tradingview.com/symbols/ETHUSD/",
     "sources": [
       {
-        "label": "Community recap",
-        "url": "https://medium.com/@brianmct/the-makerdao-black-thursday-debacle-explained-20f9a2af6f63",
-        "publisher": "Community",
+        "label": "MakerDAO post-mortem",
+        "url": "https://blog.makerdao.com/the-market-collapse-of-march-12-2020-how-it-impacted-makerdao/",
+        "publisher": "MakerDAO",
         "year": 2020
       },
       {
@@ -1817,9 +1817,9 @@ export const events: Event[] = [
         "year": 2017
       },
       {
-        "label": "Background debate",
-        "url": "https://blog.bitcoin.com/bitcoin-cash-hard-fork-august-1st-2017/",
-        "publisher": "Bitcoin.com",
+        "label": "Wikipedia overview for Bitcoin Cash",
+        "url": "https://en.wikipedia.org/wiki/Bitcoin_Cash",
+        "publisher": "Wikipedia",
         "year": 2017
       }
     ]
@@ -1908,8 +1908,8 @@ export const events: Event[] = [
     "sources": [
       {
         "label": "Outage report",
-        "url": "https://status.solana.com/incidents/rc5l5l6s8drs",
-        "publisher": "Solana Status",
+        "url": "https://solana.com/news/06-01-22-solana-mainnet-beta-outage-report-2",
+        "publisher": "Solana",
         "year": 2022
       },
       {
@@ -2261,9 +2261,9 @@ export const events: Event[] = [
         "year": 2021
       },
       {
-        "label": "Post-mortem",
-        "url": "https://badgerdao.medium.com/post-mortem-badgerdao-incident-2021-bf8b7c3f8e6",
-        "publisher": "BadgerDAO",
+        "label": "Halborn incident analysis",
+        "url": "https://www.halborn.com/blog/post/explained-the-badgerdao-hack-december-2021",
+        "publisher": "Halborn",
         "year": 2021
       }
     ]
@@ -2357,9 +2357,9 @@ export const events: Event[] = [
         "year": 2022
       },
       {
-        "label": "Court filing",
-        "url": "https://restructuring.ra.kroll.com/blockfi/",
-        "publisher": "Kroll",
+        "label": "Wikipedia overview for BlockFi",
+        "url": "https://en.wikipedia.org/wiki/BlockFi",
+        "publisher": "Wikipedia",
         "year": 2022
       }
     ]
@@ -2382,9 +2382,9 @@ export const events: Event[] = [
     "chartUrl": "https://tradingview.com/symbols/BTCUSD/",
     "sources": [
       {
-        "label": "Court docs",
-        "url": "https://cases.stretto.com/Voyager",
-        "publisher": "Stretto",
+        "label": "Wikipedia overview for Voyager Digital",
+        "url": "https://en.wikipedia.org/wiki/Voyager_Digital",
+        "publisher": "Wikipedia",
         "year": 2022
       },
       {
@@ -2425,9 +2425,9 @@ export const events: Event[] = [
         "year": 2023
       },
       {
-        "label": "Court docket",
-        "url": "https://restructuring.ra.kroll.com/genesis",
-        "publisher": "Kroll",
+        "label": "Wikipedia overview for Genesis (cryptocurrency company)",
+        "url": "https://en.wikipedia.org/wiki/Genesis_(cryptocurrency_company)",
+        "publisher": "Wikipedia",
         "year": 2023
       }
     ]
@@ -2516,9 +2516,9 @@ export const events: Event[] = [
     "chartUrl": "https://tradingview.com/symbols/BNBUSD/",
     "sources": [
       {
-        "label": "CFTC press release",
-        "url": "https://www.cftc.gov/PressRoom/PressReleases/8680-23",
-        "publisher": "CFTC",
+        "label": "Wikipedia overview for Binance",
+        "url": "https://en.wikipedia.org/wiki/Binance",
+        "publisher": "Wikipedia",
         "year": 2023
       },
       {
@@ -3117,16 +3117,16 @@ export const events: Event[] = [
     ],
     "sources": [
       {
-        "label": "CFTC press release",
-        "url": "https://www.cftc.gov/PressRoom/PressReleases/8270-20",
-        "publisher": "CFTC",
-        "year": 2020
+        "label": "FinCEN enforcement action",
+        "url": "https://www.fincen.gov/news/news-releases/fincen-announces-100-million-enforcement-action-against-unregistered-futures",
+        "publisher": "FinCEN",
+        "year": 2021
       },
       {
-        "label": "DOJ BitMEX charges",
-        "url": "https://www.justice.gov/opa/pr/bitmex-charged-violations-bank-secrecy-act",
+        "label": "DOJ press release",
+        "url": "https://www.justice.gov/usao-sdny/pr/founders-cryptocurrency-exchange-plead-guilty-bank-secrecy-act-violations",
         "publisher": "DOJ",
-        "year": 2020
+        "year": 2022
       }
     ]
   },
@@ -3321,7 +3321,7 @@ export const events: Event[] = [
       },
       {
         "label": "Reserve risk removed",
-        "url": "https://www.circle.com/en/pressroom/3.3-billion-of-usdc-reserve-risk-removed-dollar-de-peg-closes",
+        "url": "https://circle.com/pressroom/3-3-billion-of-usdc-reserve-risk-removed-dollar-de-peg-closes",
         "publisher": "Circle",
         "year": 2023
       }

@@ -17,8 +17,7 @@ export default function HomePage() {
             Markets forget. Communities don&apos;t.
           </h2>
           <p className="text-sm text-muted">
-            We keep receipts with sources, context, and community commentary so the next
-            cycle remembers the last.
+            We keep sources, context, and community notes so the next cycle remembers the last.
           </p>
         </div>
       </div>

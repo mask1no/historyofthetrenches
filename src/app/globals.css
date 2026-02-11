@@ -48,6 +48,28 @@ a {
   text-decoration: none;
 }
 
+.link-accent {
+  color: var(--accentGold);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+
+.link-accent:hover {
+  text-decoration-thickness: 2px;
+}
+
+.external-links a {
+  color: var(--accentGold);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+
+.external-links a:hover {
+  text-decoration-thickness: 2px;
+}
+
 :focus-visible {
   outline: 2px solid var(--accentGold);
   outline-offset: 2px;
