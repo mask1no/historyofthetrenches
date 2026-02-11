@@ -71,9 +71,50 @@ export default function HotPage() {
             </CardContent>
           </Card>
 
+          <Card className="md:col-span-1" id="receipts">
+            <CardHeader>
+              <CardTitle>Proof-of-Receipts</CardTitle>
+              <p className="text-sm text-muted">
+                Timestamped actions with on-chain receipts. Links open in a new tab.
+              </p>
+            </CardHeader>
+            <CardContent className="space-y-3 text-sm">
+              <div className="flex items-center justify-between rounded-xl border border-border bg-bg/70 px-4 py-3">
+                <div>
+                  <div className="text-xs uppercase tracking-[0.18em] text-muted">Receipts</div>
+                  <div className="text-sm font-semibold text-fg">Proof count</div>
+                </div>
+                <span className="text-lg font-semibold text-accentGold tabular-nums">
+                  {ritualReceipts.length}
+                </span>
+              </div>
+              {ritualReceipts.map((receipt) => (
+                <a
+                  key={`${receipt.txUrl}-${receipt.label}`}
+                  href={receipt.txUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex flex-col gap-3 rounded-xl border border-border bg-bg/70 px-4 py-3 transition hover:border-accentGold md:flex-row md:items-center md:justify-between"
+                >
+                  <div>
+                    <div className="font-semibold">{receipt.label}</div>
+                    <div className="mt-1 flex flex-wrap items-center gap-2 text-xs text-muted">
+                      <Badge variant="muted">{receipt.chain}</Badge>
+                      <span>{receipt.date}</span>
+                      {receipt.commit && <span>commit {receipt.commit}</span>}
+                    </div>
+                    {receipt.note && (
+                      <div className="mt-2 text-xs text-muted">{receipt.note}</div>
+                    )}
+                  </div>
+                </a>
+              ))}
+            </CardContent>
+          </Card>
+
           <Card className="md:col-span-2">
             <CardHeader>
-              <CardTitle>How to buy / How to participate</CardTitle>
+              <CardTitle>How to participate</CardTitle>
               <p className="text-sm text-muted">Simple steps, if you choose to take part.</p>
             </CardHeader>
             <CardContent className="space-y-4 text-sm text-muted">
@@ -131,55 +172,39 @@ export default function HotPage() {
                   Pump.fun
                 </a>
               </div>
-              <div className="text-xs text-muted">
-                If you are a jeet, please skip steps 1–3 and go touch grass.
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card className="md:col-span-1" id="receipts">
-            <CardHeader>
-              <CardTitle>Proof-of-Receipts</CardTitle>
-              <p className="text-sm text-muted">
-                Timestamped actions with on-chain receipts. Links open in a new tab.
-              </p>
-            </CardHeader>
-            <CardContent className="space-y-3 text-sm">
-              <div className="flex items-center justify-between rounded-xl border border-border bg-bg/70 px-4 py-3">
-                <div>
-                  <div className="text-xs uppercase tracking-[0.18em] text-muted">Receipts</div>
-                  <div className="text-sm font-semibold text-fg">Proof count</div>
-                </div>
-                <span className="text-lg font-semibold text-accentGold tabular-nums">
-                  {ritualReceipts.length}
-                </span>
-              </div>
-              {ritualReceipts.map((receipt) => (
-                <div
-                  key={`${receipt.txUrl}-${receipt.label}`}
-                  className="flex flex-col gap-3 rounded-xl border border-border bg-bg/70 px-4 py-3 md:flex-row md:items-center md:justify-between"
+              <div className="flex flex-wrap gap-3">
+                <a
+                  href={hotLinks.communityXUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm font-semibold text-accentGold underline"
                 >
-                  <div>
-                    <div className="font-semibold">{receipt.label}</div>
-                    <div className="mt-1 flex flex-wrap items-center gap-2 text-xs text-muted">
-                      <Badge variant="muted">{receipt.chain}</Badge>
-                      <span>{receipt.date}</span>
-                      {receipt.commit && <span>commit {receipt.commit}</span>}
-                    </div>
-                    {receipt.note && (
-                      <div className="mt-2 text-xs text-muted">{receipt.note}</div>
-                    )}
-                  </div>
+                  Join the Community
+                </a>
+                {hotLinks.chartUrl && (
                   <a
-                    href={receipt.txUrl}
+                    href={hotLinks.chartUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-xs font-semibold text-accentGold underline"
+                    className="text-sm font-semibold text-accentGold underline"
                   >
-                    View receipt
+                    View Chart
                   </a>
-                </div>
-              ))}
+                )}
+                {hotLinks.buyUrl && (
+                  <a
+                    href={hotLinks.buyUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm font-semibold text-accentGold underline"
+                  >
+                    Optional entry
+                  </a>
+                )}
+              </div>
+              <div className="text-xs text-muted">
+                If you are a jeet, please skip step 4 and go touch grass.
+              </div>
             </CardContent>
           </Card>
 
@@ -233,45 +258,6 @@ export default function HotPage() {
               <div className="rounded-xl border border-border bg-bg/70 p-4">
                 Participation is optional and should be thoughtful, not impulsive.
               </div>
-            </CardContent>
-          </Card>
-          <Card>
-            <CardHeader>
-              <CardTitle>Community</CardTitle>
-              <p className="text-sm text-muted">Stay close to the updates.</p>
-            </CardHeader>
-            <CardContent className="space-y-4 text-sm text-muted">
-              <div className="flex flex-wrap gap-3">
-                <a
-                  href={hotLinks.communityXUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm text-accentGold underline"
-                >
-                  Join the Community
-                </a>
-                {hotLinks.chartUrl && (
-                  <a
-                    href={hotLinks.chartUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm text-accentGold underline"
-                  >
-                    View Chart
-                  </a>
-                )}
-                {hotLinks.buyUrl && (
-                  <a
-                    href={hotLinks.buyUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm text-accentGold underline"
-                  >
-                    Optional entry
-                  </a>
-                )}
-              </div>
-              <p className="text-xs text-muted">Not financial advice.</p>
             </CardContent>
           </Card>
         </div>
