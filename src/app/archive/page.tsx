@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { NavBar } from "@/components/NavBar";
 import { EventTable } from "@/components/EventTable";
+import { ScrollToTopButton } from "@/components/ScrollToTopButton";
 import { Footer } from "@/components/Footer";
 
 export const metadata: Metadata = {
@@ -50,10 +51,11 @@ export default function ArchivePage() {
           </p>
           <div className="h-px w-full bg-border" />
         </div>
-        <div className="rounded-2xl border border-border bg-card p-4 shadow-subtle">
+        <div className="rounded-2xl border border-border bg-card p-4 shadow-subtle card-lift">
           <EventTable />
         </div>
       </section>
+      <ScrollToTopButton />
       <Footer />
     </main>
   );

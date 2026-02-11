@@ -18,8 +18,8 @@
   --bg: #0b0b0b;
   --fg: #f3f2ef;
   --muted: #8f8a82;
-  --card: #141414;
-  --border: #2f2f2f;
+  --card: #101010;
+  --border: #151515;
   --accentGold: #d6b15e;
   --accentRed: #d16a6a;
   --accentGreen: #45b887;
@@ -58,6 +58,26 @@ a {
   border: 1px solid var(--border);
   border-radius: 16px;
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.05);
+}
+
+.card-lift {
+  transition: border-color 220ms ease, box-shadow 220ms ease, transform 220ms ease;
+}
+
+.card-lift:hover,
+.card-lift:focus-within {
+  border-color: rgba(214, 177, 94, 0.45);
+  box-shadow:
+    0 0 0 1px rgba(214, 177, 94, 0.22),
+    0 12px 26px rgba(0, 0, 0, 0.18);
+  transform: translateY(-2px);
+}
+
+.dark .card-lift:hover,
+.dark .card-lift:focus-within {
+  box-shadow:
+    0 0 0 1px rgba(214, 177, 94, 0.24),
+    0 16px 34px rgba(0, 0, 0, 0.55);
 }
 
 .marquee {

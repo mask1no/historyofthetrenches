@@ -12,12 +12,14 @@ import { compareEventDatesAsc, compareEventDatesDesc } from "@/lib/utils";
 type FilterState = {
   type: EventType | "all";
   chain: string;
+  year: number | "all";
   tags: string[];
   search: string;
   sort: "newest" | "oldest";
 };
 
 const chains = Array.from(new Set(events.map((e) => e.chain)));
+const years = Array.from(new Set(events.map((e) => e.year))).sort((a, b) => b - a);
 const chainTagSet = new Set<string>();
 const extraChainTags = [
   "bnb",
@@ -69,6 +71,49 @@ const sortOptions = [
   { label: "Oldest → Newest", value: "oldest" }
 ];
 
+const chipBase =
+  "rounded-full border px-3 py-1 text-[11px] uppercase tracking-[0.16em] transition focus-visible:ring-2 focus-visible:ring-accentGold focus-visible:ring-offset-2 focus-visible:ring-offset-bg";
+
+const typeChipTone: Record<EventType, string> = {
+  rugpull: "border-accentRed/40 bg-accentRed/10 text-fg",
+  collapse: "border-border/70 bg-bg/70 text-fg",
+  runner: "border-accentGreen/40 bg-accentGreen/10 text-fg",
+  milestone: "border-accentGold/40 bg-accentGold/12 text-fg",
+  hack: "border-border/70 bg-bg/70 text-fg",
+  seizure: "border-border/70 bg-bg/70 text-fg"
+};
+
+const getTypeChipClass = (value: EventType | "all", active: boolean) => {
+  if (!active) {
+    return `${chipBase} border-border text-muted hover:border-accentGold`;
+  }
+  if (value === "all") {
+    return `${chipBase} border-accentGold/40 bg-accentGold/12 text-fg`;
+  }
+  return `${chipBase} ${typeChipTone[value]}`;
+};
+
+const getChainChipClass = (active: boolean) =>
+  `${chipBase} ${
+    active
+      ? "border-accentGreen/40 bg-accentGreen/10 text-fg"
+      : "border-border text-muted hover:border-accentGold"
+  }`;
+
+const getYearChipClass = (active: boolean) =>
+  `${chipBase} ${
+    active
+      ? "border-accentGold/40 bg-accentGold/12 text-fg"
+      : "border-border text-muted hover:border-accentGold"
+  }`;
+
+const getTagChipClass = (active: boolean) =>
+  `${chipBase} ${
+    active
+      ? "border-accentGold/40 bg-accentGold/12 text-fg"
+      : "border-border text-muted hover:border-accentGold"
+  }`;
+
 function matchesFilters(event: Event, filters: FilterState) {
   const search = filters.search.toLowerCase();
   const haystack = [
@@ -84,6 +129,7 @@ function matchesFilters(event: Event, filters: FilterState) {
   return (
     (filters.type === "all" || event.type === filters.type) &&
     (filters.chain === "all" || event.chain === filters.chain) &&
+    (filters.year === "all" || event.year === filters.year) &&
     (selectedTags.length === 0 ||
       selectedTags.every((tag) => event.tags.some((t) => t.toLowerCase().includes(tag)))) &&
     (!search || haystack.includes(search))
@@ -95,6 +141,7 @@ export function EventTable() {
   const defaultFilters: FilterState = {
     type: "all",
     chain: "all",
+    year: "all",
     tags: [],
     search: "",
     sort: "newest"
@@ -102,6 +149,7 @@ export function EventTable() {
   const [filters, setFilters] = useState<FilterState>({
     type: "all",
     chain: "all",
+    year: "all",
     tags: [],
     search: "",
     sort: "newest"
@@ -113,6 +161,7 @@ export function EventTable() {
   const hasActiveFilters =
     filters.type !== "all" ||
     filters.chain !== "all" ||
+    filters.year !== "all" ||
     filters.tags.length > 0 ||
     trimmedSearch.length > 0;
 
@@ -131,8 +180,8 @@ export function EventTable() {
 
   return (
     <section className="space-y-4">
-      <div className="rounded-2xl border border-border bg-bg p-4 shadow-subtle">
-        <div className="grid grid-cols-1 gap-3 md:grid-cols-6 items-end">
+      <div className="rounded-2xl border border-border bg-bg p-4 shadow-subtle card-lift">
+        <div className="grid grid-cols-1 gap-3 items-end md:grid-cols-8">
           <Select
             label="Type"
             value={filters.type}
@@ -145,7 +194,18 @@ export function EventTable() {
             onChange={(value) => setFilters((prev) => ({ ...prev, chain: value }))}
             options={[{ label: "All", value: "all" }, ...chains.map((chain) => ({ label: chain, value: chain }))]}
           />
-          <div className="md:col-span-2">
+          <Select
+            label="Year"
+            value={filters.year === "all" ? "all" : String(filters.year)}
+            onChange={(value) =>
+              setFilters((prev) => ({
+                ...prev,
+                year: value === "all" ? "all" : Number(value)
+              }))
+            }
+            options={[{ label: "All", value: "all" }, ...years.map((year) => ({ label: String(year), value: String(year) }))]}
+          />
+          <div className="md:col-span-3">
             <label className="mb-1 block text-xs font-semibold uppercase tracking-[0.18em] text-muted">
               Search
             </label>
@@ -172,11 +232,7 @@ export function EventTable() {
           <div className="flex flex-wrap items-center gap-2 text-xs">
             <button
               type="button"
-              className={`rounded-full border px-3 py-1 uppercase tracking-[0.16em] transition focus-visible:ring-2 focus-visible:ring-accentGold focus-visible:ring-offset-2 focus-visible:ring-offset-bg ${
-                filters.tags.length === 0
-                  ? "border-accentGold bg-accentGold/15 text-fg"
-                  : "border-border text-muted hover:border-accentGold"
-              }`}
+              className={getTagChipClass(filters.tags.length === 0)}
               onClick={() => setFilters((prev) => ({ ...prev, tags: [] }))}
             >
               All tags
@@ -185,11 +241,7 @@ export function EventTable() {
               <button
                 key={tag}
                 type="button"
-                className={`rounded-full border px-3 py-1 uppercase tracking-[0.16em] transition focus-visible:ring-2 focus-visible:ring-accentGold focus-visible:ring-offset-2 focus-visible:ring-offset-bg ${
-                  filters.tags.includes(tag)
-                    ? "border-accentGold bg-accentGold/15 text-fg"
-                    : "border-border text-muted hover:border-accentGold"
-                }`}
+                className={getTagChipClass(filters.tags.includes(tag))}
                 onClick={() =>
                   setFilters((prev) => ({
                     ...prev,
@@ -209,7 +261,7 @@ export function EventTable() {
             ))}
             <button
               type="button"
-              className="rounded-full border border-border px-3 py-1 uppercase tracking-[0.16em] text-muted transition hover:border-accentGold focus-visible:ring-2 focus-visible:ring-accentGold focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
+              className={`${chipBase} border-border text-muted hover:border-accentGold`}
               onClick={() => setShowAllTags((prev) => !prev)}
             >
               {showAllTags ? "Less..." : "More..."}
@@ -223,11 +275,7 @@ export function EventTable() {
                   <button
                     key={tag}
                     type="button"
-                    className={`rounded-full border px-3 py-1 uppercase tracking-[0.16em] transition focus-visible:ring-2 focus-visible:ring-accentGold focus-visible:ring-offset-2 focus-visible:ring-offset-bg ${
-                      filters.tags.includes(tag)
-                        ? "border-accentGold bg-accentGold/15 text-fg"
-                        : "border-border text-muted hover:border-accentGold"
-                    }`}
+                    className={getTagChipClass(filters.tags.includes(tag))}
                     onClick={() =>
                       setFilters((prev) => ({
                         ...prev,
@@ -255,18 +303,18 @@ export function EventTable() {
           {filters.type !== "all" && (
             <button
               type="button"
-              className="inline-flex items-center gap-1 rounded-full border border-border px-3 py-1 text-muted transition hover:border-accentGold focus-visible:ring-2 focus-visible:ring-accentGold focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
+              className={getTypeChipClass(filters.type, true)}
               onClick={() => setFilters((prev) => ({ ...prev, type: "all" }))}
               aria-label={`Clear type filter ${filters.type}`}
             >
-              {filters.type}
+              {typeLabel[filters.type]}
               <span className="text-[10px] font-semibold">x</span>
             </button>
           )}
           {filters.chain !== "all" && (
             <button
               type="button"
-              className="inline-flex items-center gap-1 rounded-full border border-border px-3 py-1 text-muted transition hover:border-accentGold focus-visible:ring-2 focus-visible:ring-accentGold focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
+              className={getChainChipClass(true)}
               onClick={() => setFilters((prev) => ({ ...prev, chain: "all" }))}
               aria-label={`Clear chain filter ${filters.chain}`}
             >
@@ -274,11 +322,22 @@ export function EventTable() {
               <span className="text-[10px] font-semibold">x</span>
             </button>
           )}
+          {filters.year !== "all" && (
+            <button
+              type="button"
+              className={getYearChipClass(true)}
+              onClick={() => setFilters((prev) => ({ ...prev, year: "all" }))}
+              aria-label={`Clear year filter ${filters.year}`}
+            >
+              {filters.year}
+              <span className="text-[10px] font-semibold">x</span>
+            </button>
+          )}
           {filters.tags.map((tag) => (
             <button
               key={`active-${tag}`}
               type="button"
-              className="inline-flex items-center gap-1 rounded-full border border-border px-3 py-1 text-muted transition hover:border-accentGold focus-visible:ring-2 focus-visible:ring-accentGold focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
+              className={getTagChipClass(true)}
               onClick={() =>
                 setFilters((prev) => ({
                   ...prev,
@@ -294,7 +353,7 @@ export function EventTable() {
           {trimmedSearch.length > 0 && (
             <button
               type="button"
-              className="inline-flex items-center gap-1 rounded-full border border-border px-3 py-1 text-muted transition hover:border-accentGold focus-visible:ring-2 focus-visible:ring-accentGold focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
+              className={`${chipBase} border-border text-muted hover:border-accentGold`}
               onClick={() => setFilters((prev) => ({ ...prev, search: "" }))}
               aria-label="Clear search filter"
             >
@@ -304,7 +363,7 @@ export function EventTable() {
           )}
           <button
             type="button"
-            className="inline-flex items-center gap-1 rounded-full border border-border px-3 py-1 text-muted transition hover:border-accentGold focus-visible:ring-2 focus-visible:ring-accentGold focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
+            className={`${chipBase} border-border text-muted hover:border-accentGold`}
             onClick={() => setFilters(defaultFilters)}
             aria-label="Clear all filters"
           >

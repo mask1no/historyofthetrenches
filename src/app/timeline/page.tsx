@@ -3,6 +3,7 @@ import { NavBar } from "@/components/NavBar";
 import { EraTimeline } from "@/components/EraTimeline";
 import { Footer } from "@/components/Footer";
 import { TimelineScrollToHash } from "@/components/TimelineScrollToHash";
+import { ScrollToTopButton } from "@/components/ScrollToTopButton";
 
 export const metadata: Metadata = {
   title: "Crypto Timeline | History of the Trenches",
@@ -52,6 +53,7 @@ export default function TimelinePage() {
         </div>
         <EraTimeline />
       </section>
+      <ScrollToTopButton />
       <Footer />
     </main>
   );
