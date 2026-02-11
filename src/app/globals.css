@@ -17,13 +17,13 @@
 .dark {
   --bg: #0b0b0b;
   --fg: #f3f2ef;
-  --muted: #a9a39a;
+  --muted: #8f8a82;
   --card: #141414;
-  --border: #1f1f1f;
+  --border: #2f2f2f;
   --accentGold: #d6b15e;
   --accentRed: #d16a6a;
   --accentGreen: #45b887;
-  --footerGlow: rgba(214, 177, 94, 0.08);
+  --footerGlow: rgba(214, 177, 94, 0.12);
 }
 
 * {

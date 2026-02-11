@@ -12,12 +12,12 @@ export function Hero() {
   const latestEventDate = [...events].sort(compareEventDatesDesc)[0]?.date ?? "—";
 
   return (
-    <section className="mx-auto flex max-w-6xl flex-col gap-8 px-6 pb-12 pt-10 md:flex-row md:items-start md:gap-12">
-      <div className="flex-1 space-y-7">
+    <section className="mx-auto flex max-w-6xl flex-col gap-6 px-6 pb-10 pt-8 md:flex-row md:items-start md:gap-10">
+      <div className="flex-1 space-y-6">
         <p className="text-sm uppercase tracking-[0.18em] text-muted">
           Digital Community Maintained Archive
         </p>
-        <div className="space-y-5">
+        <div className="space-y-4">
           <h1
             className="text-[2.3rem] font-bold leading-tight text-fg sm:text-[2.9rem] md:text-[3.4rem]"
             style={{ fontFamily: "var(--font-playfair)" }}
@@ -48,32 +48,32 @@ export function Hero() {
           </Link>
         </div>
       </div>
-      <div className="w-full max-w-sm rounded-2xl border border-border bg-card p-6 shadow-subtle md:mt-2">
+      <div className="w-full max-w-sm rounded-2xl border border-border bg-card p-5 shadow-subtle md:mt-1">
         <div className="text-xs font-semibold uppercase tracking-[0.24em] text-muted">
           At a glance
         </div>
-          <div className="mt-4 overflow-hidden rounded-xl border border-border bg-bg/60">
+        <div className="mt-3 overflow-hidden rounded-xl border border-border bg-bg/60">
           <div className="divide-y divide-border">
-            <div className="flex items-center justify-between px-4 py-3">
-              <div className="space-y-1">
-                  <div className="text-sm font-semibold">Years covered</div>
-                  <div className="text-xs text-muted">From genesis to today.</div>
+            <div className="flex items-center justify-between px-4 py-2.5">
+              <div className="space-y-0.5">
+                <div className="text-sm font-semibold">Years covered</div>
+                <div className="text-xs text-muted">From genesis to today.</div>
               </div>
-                <span className="text-sm font-semibold text-fg tabular-nums">
-                  {earliestYear && latestYear ? `${earliestYear}–${latestYear}` : "—"}
+              <span className="text-sm font-semibold text-fg tabular-nums">
+                {earliestYear && latestYear ? `${earliestYear}–${latestYear}` : "—"}
               </span>
             </div>
-            <div className="flex items-center justify-between px-4 py-3">
-              <div className="space-y-1">
-                  <div className="text-sm font-semibold">Total events</div>
-                  <div className="text-xs text-muted">Complete archive count.</div>
+            <div className="flex items-center justify-between px-4 py-2.5">
+              <div className="space-y-0.5">
+                <div className="text-sm font-semibold">Total events</div>
+                <div className="text-xs text-muted">Complete archive count.</div>
               </div>
-                <span className="text-lg font-semibold text-accentGold tabular-nums">
-                  {totalEvents}
+              <span className="text-lg font-semibold text-accentGold tabular-nums">
+                {totalEvents}
               </span>
             </div>
-            <div className="flex items-center justify-between px-4 py-3">
-              <div className="space-y-1">
+            <div className="flex items-center justify-between px-4 py-2.5">
+              <div className="space-y-0.5">
                 <div className="text-sm font-semibold">Latest entry</div>
                 <div className="text-xs text-muted">Most recent archive date.</div>
               </div>

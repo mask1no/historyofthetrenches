@@ -37,7 +37,7 @@ export function BentoGrid() {
       className="mx-auto grid max-w-6xl grid-cols-1 gap-6 rounded-3xl border border-border/60 bg-card/90 px-6 pb-12 pt-6 shadow-subtle md:grid-cols-12"
       suppressHydrationWarning
     >
-      <Card className="md:col-span-6 flex h-full flex-col border-l-4 border-l-accentRed bg-card/95 transition duration-700 ease-out hover:shadow-[0_10px_24px_rgba(196,77,77,0.07)]">
+      <Card className="md:col-span-6 flex h-full flex-col border-l-4 border-l-accentRed bg-card/95 transition duration-700 ease-out hover:shadow-[0_10px_24px_rgba(196,77,77,0.07)] dark:hover:shadow-[0_10px_24px_rgba(0,0,0,0.45)]">
         <CardHeader className="flex flex-row items-center justify-between">
           <div className="space-y-1">
             <CardTitle className="flex items-center gap-2 text-xl">
@@ -73,7 +73,7 @@ export function BentoGrid() {
         </CardContent>
       </Card>
 
-      <Card className="md:col-span-6 flex h-full flex-col border-l-4 border-l-accentGreen bg-card/95 transition duration-700 ease-out hover:shadow-[0_10px_24px_rgba(47,158,111,0.07)]">
+      <Card className="md:col-span-6 flex h-full flex-col border-l-4 border-l-accentGreen bg-card/95 transition duration-700 ease-out hover:shadow-[0_10px_24px_rgba(47,158,111,0.07)] dark:hover:shadow-[0_10px_24px_rgba(0,0,0,0.45)]">
         <CardHeader className="flex flex-row items-center justify-between">
           <div className="space-y-1">
             <CardTitle className="flex items-center gap-2 text-xl">
@@ -125,30 +125,32 @@ export function BentoGrid() {
             <div className="marquee-track">
               <div className="marquee-group">
                 {eras.map((era) => (
-                  <div
+                  <Link
                     key={`era-${era.id}`}
-                    className="flex-none basis-[70%] sm:basis-[48%] md:basis-[34%] lg:basis-[28%] xl:basis-[22%] max-w-[300px]"
+                    href={`/timeline#era-${era.id}`}
+                    className="flex-none basis-[70%] sm:basis-[48%] md:basis-[34%] lg:basis-[28%] xl:basis-[22%] max-w-[300px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-accentGold focus-visible:outline-offset-2 rounded-2xl"
                   >
-                    <div className="flex h-full min-h-[140px] flex-col rounded-2xl border border-border/80 bg-card px-4 py-3 shadow-subtle transition duration-500 ease-out hover:-translate-y-1 hover:shadow-[0_14px_28px_rgba(0,0,0,0.08)]">
+                    <div className="flex h-full min-h-[140px] flex-col rounded-2xl border border-border/80 bg-card px-4 py-3 shadow-subtle transition duration-500 ease-out hover:-translate-y-1 hover:shadow-[0_14px_28px_rgba(0,0,0,0.08)] dark:hover:shadow-[0_14px_28px_rgba(0,0,0,0.45)]">
                       <div className="text-xs font-semibold uppercase text-muted">{era.range}</div>
                       <div className="text-base font-semibold line-clamp-2">{era.title}</div>
                       <p className="mt-2 text-sm text-muted line-clamp-3">{era.description}</p>
                     </div>
-                  </div>
+                  </Link>
                 ))}
               </div>
               <div className="marquee-group" aria-hidden="true">
                 {eras.map((era) => (
-                  <div
+                  <Link
                     key={`era-dup-${era.id}`}
-                    className="flex-none basis-[70%] sm:basis-[48%] md:basis-[34%] lg:basis-[28%] xl:basis-[22%] max-w-[300px]"
+                    href={`/timeline#era-${era.id}`}
+                    className="flex-none basis-[70%] sm:basis-[48%] md:basis-[34%] lg:basis-[28%] xl:basis-[22%] max-w-[300px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-accentGold focus-visible:outline-offset-2 rounded-2xl"
                   >
-                    <div className="flex h-full min-h-[140px] flex-col rounded-2xl border border-border/80 bg-card px-4 py-3 shadow-subtle transition duration-500 ease-out hover:-translate-y-1 hover:shadow-[0_14px_28px_rgba(0,0,0,0.08)]">
+                    <div className="flex h-full min-h-[140px] flex-col rounded-2xl border border-border/80 bg-card px-4 py-3 shadow-subtle transition duration-500 ease-out hover:-translate-y-1 hover:shadow-[0_14px_28px_rgba(0,0,0,0.08)] dark:hover:shadow-[0_14px_28px_rgba(0,0,0,0.45)]">
                       <div className="text-xs font-semibold uppercase text-muted">{era.range}</div>
                       <div className="text-base font-semibold line-clamp-2">{era.title}</div>
                       <p className="mt-2 text-sm text-muted line-clamp-3">{era.description}</p>
                     </div>
-                  </div>
+                  </Link>
                 ))}
               </div>
             </div>

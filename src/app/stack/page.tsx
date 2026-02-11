@@ -72,7 +72,7 @@ export default function StackPage() {
               <CardTitle>Wallets (Hot / KYC &amp; non-KYC)</CardTitle>
               <p className="text-sm text-muted">Clarify where you hold and how you enter.</p>
             </CardHeader>
-            <CardContent className="space-y-4 text-sm text-muted">
+            <CardContent className="space-y-4 text-[13px] text-muted">
               <div className="rounded-xl border border-border bg-bg/70 p-4">
                 <div className="text-xs uppercase tracking-[0.2em] text-muted">Hot wallets</div>
                 <div className="mt-3 grid gap-3 md:grid-cols-2">
@@ -213,7 +213,7 @@ export default function StackPage() {
             <CardHeader>
               <CardTitle>Cold Storage (Self‑Custody)</CardTitle>
             </CardHeader>
-            <CardContent className="grid gap-3 text-sm text-muted md:grid-cols-2">
+            <CardContent className="grid gap-3 text-[13px] text-muted md:grid-cols-2">
               <div className="rounded-lg border border-border bg-bg/60 p-3">
                 <div className="font-semibold text-fg">
                   <a href="https://coldcard.com" target="_blank" rel="noopener noreferrer">
@@ -253,7 +253,7 @@ export default function StackPage() {
             <CardHeader>
               <CardTitle>Contribute to the Network</CardTitle>
             </CardHeader>
-            <CardContent className="grid gap-3 text-sm text-muted md:grid-cols-2">
+            <CardContent className="grid gap-3 text-[13px] text-muted md:grid-cols-2">
               <div className="rounded-lg border border-border bg-bg/60 p-3">
                 <div className="font-semibold text-fg">Run your own node</div>
                 <p className="text-xs">
@@ -300,7 +300,7 @@ export default function StackPage() {
             <CardHeader>
               <CardTitle>Infrastructure Toolkit</CardTitle>
             </CardHeader>
-            <CardContent className="space-y-5 text-sm text-muted">
+            <CardContent className="space-y-4 text-[13px] text-muted">
               <div className="grid gap-3 md:grid-cols-2">
                 <div className="rounded-lg border border-border bg-bg/60 p-3">
                   <div className="font-semibold text-fg">Explorers</div>
@@ -342,7 +342,7 @@ export default function StackPage() {
                 </div>
               </div>
 
-              <div className="grid gap-3 text-sm text-muted md:grid-cols-3">
+              <div className="grid gap-3 text-[13px] text-muted md:grid-cols-3">
                 <div className="rounded-lg border border-border bg-bg/60 p-3">
                   <div className="text-xs uppercase tracking-[0.2em] text-muted">OpSec</div>
                   <div className="mt-2 text-sm">

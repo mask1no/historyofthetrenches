@@ -212,9 +212,9 @@ export default function EventPage({ params }: EventPageProps) {
               </div>
               <div className="grid gap-2 sm:grid-cols-[160px_minmax(0,1fr)]">
                 <span className="text-muted">Tags</span>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-2.5">
                   {event!.tags.map((tag) => (
-                    <Badge key={tag} variant="muted">
+                    <Badge key={tag} variant="muted" className="px-2 py-0.5 text-[10px]">
                       {tag}
                     </Badge>
                   ))}

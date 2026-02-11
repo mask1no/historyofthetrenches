@@ -4,6 +4,7 @@ import { Footer } from "@/components/Footer";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { curatorWallets, hotLinks, ritualReceipts } from "@/data/hot";
+import { Coins, Wallet } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "$HOT | History of the Trenches",
@@ -70,12 +71,12 @@ export default function HotPage() {
             </CardContent>
           </Card>
 
-          <Card>
+          <Card className="md:col-span-2">
             <CardHeader>
               <CardTitle>How to buy / How to participate</CardTitle>
               <p className="text-sm text-muted">Simple steps, if you choose to take part.</p>
             </CardHeader>
-            <CardContent className="space-y-3 text-sm text-muted">
+            <CardContent className="space-y-4 text-sm text-muted">
               <ol className="space-y-2 rounded-xl border border-border bg-bg/70 p-4">
                 <li>
                   <span className="font-semibold text-fg">1)</span> Download Phantom
@@ -91,13 +92,52 @@ export default function HotPage() {
                   hodl
                 </li>
               </ol>
+              <div className="grid gap-3 md:grid-cols-2">
+                <a
+                  href="https://phantom.app"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 rounded-xl border border-border bg-bg/70 px-4 py-3 transition hover:border-accentGold"
+                >
+                  <Wallet className="h-4 w-4 text-accentGold" />
+                  <div>
+                    <div className="text-xs font-semibold uppercase text-muted">Wallet</div>
+                    <div className="text-sm font-semibold text-fg">Phantom</div>
+                  </div>
+                </a>
+                <div className="flex items-center gap-3 rounded-xl border border-border bg-bg/70 px-4 py-3">
+                  <Coins className="h-4 w-4 text-accentGold" />
+                  <div>
+                    <div className="text-xs font-semibold uppercase text-muted">Chain</div>
+                    <div className="text-sm font-semibold text-fg">Solana</div>
+                  </div>
+                </div>
+              </div>
+              <div className="flex flex-wrap gap-3">
+                <a
+                  href="https://jup.ag"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm font-semibold text-accentGold underline"
+                >
+                  Swap on Jupiter
+                </a>
+                <a
+                  href="https://pump.fun"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm font-semibold text-accentGold underline"
+                >
+                  Pump.fun
+                </a>
+              </div>
               <div className="text-xs text-muted">
                 If you are a jeet, please skip steps 1–3 and go touch grass.
               </div>
             </CardContent>
           </Card>
 
-          <Card className="md:col-span-3" id="receipts">
+          <Card className="md:col-span-1" id="receipts">
             <CardHeader>
               <CardTitle>Proof-of-Receipts</CardTitle>
               <p className="text-sm text-muted">
@@ -105,6 +145,15 @@ export default function HotPage() {
               </p>
             </CardHeader>
             <CardContent className="space-y-3 text-sm">
+              <div className="flex items-center justify-between rounded-xl border border-border bg-bg/70 px-4 py-3">
+                <div>
+                  <div className="text-xs uppercase tracking-[0.18em] text-muted">Receipts</div>
+                  <div className="text-sm font-semibold text-fg">Proof count</div>
+                </div>
+                <span className="text-lg font-semibold text-accentGold tabular-nums">
+                  {ritualReceipts.length}
+                </span>
+              </div>
               {ritualReceipts.map((receipt) => (
                 <div
                   key={`${receipt.txUrl}-${receipt.label}`}

@@ -29,7 +29,11 @@ export function EraTimeline() {
               ? orderedEvents
               : orderedEvents.slice(0, 4);
             return (
-            <div key={era.id} className="relative grid gap-3 rounded-xl border border-border bg-bg p-5 shadow-sm transition duration-700 ease-in-out hover:-translate-y-0.5 hover:shadow-subtle md:grid-cols-[200px_1fr]">
+            <div
+              key={era.id}
+              id={`era-${era.id}`}
+              className="relative grid gap-3 rounded-xl border border-border bg-bg p-5 shadow-sm transition duration-700 ease-in-out hover:-translate-y-0.5 hover:shadow-subtle md:grid-cols-[200px_1fr] scroll-mt-24"
+            >
               <div className="flex items-start gap-3">
                 <div className="relative mt-1 h-3 w-3 rounded-full bg-accentGold shadow-subtle">
                   <span className="absolute left-1/2 top-3 h-full w-px -translate-x-1/2 bg-border/60" />
