@@ -51,7 +51,7 @@ export default function HotPage() {
         </div>
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-          <Card className="md:col-span-2">
+          <Card className="md:col-span-3">
             <CardHeader>
               <CardTitle>What $HOT is</CardTitle>
               <p className="text-sm text-muted">
