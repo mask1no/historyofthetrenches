@@ -20,8 +20,20 @@ export function generateMetadata({ params }: EventPageProps): Metadata {
   const event = getEventBySlug(params.slug);
   const canonicalBase = "https://www.historyofthetrenches.xyz";
   const canonical = event ? `${canonicalBase}/event/${event.slug}` : canonicalBase;
+  const clampDescription = (text: string, min = 120, max = 155) => {
+    const trimmed = text.trim().replace(/\s+/g, " ");
+    if (trimmed.length > max) {
+      const slice = trimmed.slice(0, max);
+      const lastSpace = slice.lastIndexOf(" ");
+      return `${slice.slice(0, lastSpace > 80 ? lastSpace : max).trim()}…`;
+    }
+    if (trimmed.length < min) {
+      return `${trimmed} History of the Trenches archive.`;
+    }
+    return trimmed;
+  };
   const description = event
-    ? `${event.title} — ${event.summary} (${event.chain}, ${event.date}).`
+    ? clampDescription(`${event.title} — ${event.summary} (${event.chain}, ${event.date}).`)
     : "Event details from the History of the Trenches archive.";
   const publishedTime = event ? new Date(event.date).toISOString() : undefined;
   return {

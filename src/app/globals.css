@@ -15,11 +15,11 @@
 }
 
 .dark {
-  --bg: #0b0b0b;
-  --fg: #f3f2ef;
-  --muted: #8f8a82;
-  --card: #0f0f0f;
-  --border: #1a1a1a;
+  --bg: #0d0d0d;
+  --fg: #e9e6df;
+  --muted: #9a948b;
+  --card: #121212;
+  --border: #1f1f1f;
   --accentGold: #d6b15e;
   --accentRed: #d16a6a;
   --accentGreen: #45b887;
@@ -68,6 +68,24 @@ a {
 
 .external-links a:hover {
   text-decoration-thickness: 2px;
+}
+
+.link-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 1.1rem;
+  width: 1.1rem;
+  border-radius: 9999px;
+  border: 1px solid var(--border);
+  background: rgba(0, 0, 0, 0.06);
+  font-size: 9px;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.dark .link-icon {
+  background: rgba(255, 255, 255, 0.04);
 }
 
 :focus-visible {

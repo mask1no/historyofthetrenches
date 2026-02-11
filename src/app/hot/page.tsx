@@ -127,6 +127,7 @@ export default function HotPage() {
                   rel="noopener noreferrer"
                   className="text-sm font-semibold link-accent"
                 >
+                  <span className="mr-2 inline-flex align-middle link-icon">PF</span>
                   Pump.fun
                 </a>
               </div>
@@ -137,6 +138,7 @@ export default function HotPage() {
                   rel="noopener noreferrer"
                   className="text-sm font-semibold link-accent"
                 >
+                  <span className="mr-2 inline-flex align-middle link-icon">X</span>
                   Join the Community
                 </a>
                 {hotLinks.chartUrl && (

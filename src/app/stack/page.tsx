@@ -481,6 +481,7 @@ export default function StackPage() {
                 <div className="rounded-lg border border-border bg-bg/60 p-3">
                   <div className="font-semibold text-fg">Charts</div>
                   <p className="text-xs">
+                    <span className="mr-1 inline-flex align-middle link-icon">DX</span>
                     <a href="https://dexscreener.com" target="_blank" rel="noopener noreferrer">DexScreener</a>,{" "}
                     <a href="https://www.dextools.io" target="_blank" rel="noopener noreferrer">DEXTools</a>,{" "}
                     <a href="https://birdeye.so" target="_blank" rel="noopener noreferrer">Birdeye</a>

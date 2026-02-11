@@ -8,9 +8,9 @@ const links = {
     { label: "Transparency", href: "/hot#wallets" }
   ],
   community: [
-    { label: "X (Twitter)", href: "https://x.com/historytrenches" },
-    { label: "DexScreener", href: "https://dexscreener.com" },
-    { label: "Pump.fun", href: "https://pump.fun" }
+    { label: "X (Twitter)", href: "https://x.com/historytrenches", icon: "X" },
+    { label: "DexScreener", href: "https://dexscreener.com", icon: "DX" },
+    { label: "Pump.fun", href: "https://pump.fun", icon: "PF" }
   ]
 };
 
@@ -49,15 +49,21 @@ export function Footer() {
             <div className="text-xs font-semibold uppercase tracking-[0.2em] text-muted">
               Links
             </div>
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-2 external-links">
               {links.community.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-fg hover:text-accentGold"
+                  className="flex items-center gap-2 text-fg hover:text-accentGold"
                 >
+                  <span
+                    className="flex h-5 w-5 items-center justify-center rounded-full border border-border bg-bg/70 text-[9px] font-semibold text-muted"
+                    aria-hidden="true"
+                  >
+                    {link.icon}
+                  </span>
                   {link.label}
                 </a>
               ))}
