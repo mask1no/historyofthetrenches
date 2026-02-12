@@ -17,10 +17,10 @@ const rugOrder = [
 ];
 const runnerOrder = [
   "bitcoin-run-2017",
+  "solana-revival-run",
   "dogecoin-run",
   "shiba-inu-run",
-  "pepe-memecoin",
-  "solana-revival-run"
+  "pepe-memecoin"
 ];
 
 const rugs = events

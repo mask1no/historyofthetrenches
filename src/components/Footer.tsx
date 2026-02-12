@@ -1,8 +1,9 @@
 import Link from "next/link";
+import { LinkIcon } from "@/components/LinkIcon";
 
 const links = {
   explore: [
-    { label: "Kit", href: "/stack" },
+    { label: "Kit", href: "/kit" },
     { label: "Archive", href: "/archive" },
     { label: "Timeline", href: "/timeline" },
     { label: "Transparency", href: "/hot#wallets" }
@@ -37,9 +38,9 @@ export function Footer() {
             <div className="text-xs font-semibold uppercase tracking-[0.2em] text-muted">
               Explore
             </div>
-            <div className="flex flex-col gap-2 external-links">
+            <div className="flex flex-col gap-2 link-underline">
               {links.explore.map((link) => (
-                <Link key={link.href} href={link.href} className="text-fg hover:text-accentGold">
+                <Link key={link.href} href={link.href} className="text-fg">
                   {link.label}
                 </Link>
               ))}
@@ -49,21 +50,18 @@ export function Footer() {
             <div className="text-xs font-semibold uppercase tracking-[0.2em] text-muted">
               Links
             </div>
-            <div className="flex flex-col gap-2 external-links">
+            <div className="flex flex-col gap-2 link-underline">
               {links.community.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-fg hover:text-accentGold"
+                  className="flex items-center gap-2 text-fg"
                 >
-                  <span
-                    className="flex h-5 w-5 items-center justify-center rounded-full border border-border bg-bg/70 text-[9px] font-semibold text-muted"
-                    aria-hidden="true"
-                  >
-                    {link.icon}
-                  </span>
+                  {link.icon === "X" && <LinkIcon name="x" />}
+                  {link.icon === "DX" && <LinkIcon name="dexscreener" />}
+                  {link.icon === "PF" && <LinkIcon name="pumpfun" />}
                   {link.label}
                 </a>
               ))}

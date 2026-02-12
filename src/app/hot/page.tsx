@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { NavBar } from "@/components/NavBar";
 import { Footer } from "@/components/Footer";
+import { LinkIcon } from "@/components/LinkIcon";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { curatorWallets, hotLinks } from "@/data/hot";
@@ -76,12 +77,16 @@ export default function HotPage() {
               <p className="text-sm text-muted">Simple steps, if you choose to take part.</p>
             </CardHeader>
             <CardContent className="space-y-4 text-sm text-muted">
-              <ol className="space-y-2 rounded-xl border border-border bg-bg/70 p-4">
+              <ol className="space-y-2 rounded-xl border border-border bg-bg/70 p-4 link-underline">
                 <li>
                   <span className="font-semibold text-fg">1)</span> Download Phantom
                 </li>
                 <li>
-                  <span className="font-semibold text-fg">2)</span> Fund Phantom with SOL (Solana)
+                  <span className="font-semibold text-fg">2)</span> Fund Phantom with SOL (
+                  <a href="https://solana.com" target="_blank" rel="noopener noreferrer">
+                    Solana
+                  </a>
+                  )
                 </li>
                 <li>
                   <span className="font-semibold text-fg">3)</span> Swap SOL → $HOT
@@ -127,7 +132,9 @@ export default function HotPage() {
                   rel="noopener noreferrer"
                   className="text-sm font-semibold link-accent"
                 >
-                  <span className="mr-2 inline-flex align-middle link-icon">PF</span>
+                  <span className="mr-2 inline-flex align-middle">
+                    <LinkIcon name="pumpfun" />
+                  </span>
                   Pump.fun
                 </a>
               </div>
@@ -138,7 +145,9 @@ export default function HotPage() {
                   rel="noopener noreferrer"
                   className="text-sm font-semibold link-accent"
                 >
-                  <span className="mr-2 inline-flex align-middle link-icon">X</span>
+                  <span className="mr-2 inline-flex align-middle">
+                    <LinkIcon name="x" />
+                  </span>
                   Join the Community
                 </a>
                 {hotLinks.chartUrl && (
@@ -163,7 +172,7 @@ export default function HotPage() {
                 )}
               </div>
               <div className="text-xs text-muted">
-                If you are a jeet, please skip step 4 and go touch grass.
+                If you&apos;re a jeet, skip step 4 and go touch grass.
               </div>
             </CardContent>
           </Card>

@@ -49,24 +49,30 @@ a {
 }
 
 .link-accent {
-  color: var(--accentGold);
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  text-decoration-thickness: 1px;
+  color: inherit;
+  text-decoration: none;
+  transition: color 160ms ease;
 }
 
 .link-accent:hover {
+  color: var(--fg);
+  text-decoration: underline;
+  text-decoration-color: var(--accentGold);
+  text-underline-offset: 3px;
   text-decoration-thickness: 2px;
 }
 
-.external-links a {
-  color: var(--accentGold);
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  text-decoration-thickness: 1px;
+.link-underline a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 160ms ease;
 }
 
-.external-links a:hover {
+.link-underline a:hover {
+  color: var(--fg);
+  text-decoration: underline;
+  text-decoration-color: var(--accentGold);
+  text-underline-offset: 3px;
   text-decoration-thickness: 2px;
 }
 

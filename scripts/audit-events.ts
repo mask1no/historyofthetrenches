@@ -209,6 +209,48 @@ const uniqueUrls = Array.from(
   )
 );
 
+type UrlRef = {
+  eventSlug: string;
+  eventTitle: string;
+  sourceLabel: string;
+};
+
+const urlRefs = new Map<string, UrlRef[]>();
+
+events.forEach((event) => {
+  if (event.chartUrl) {
+    const existing = urlRefs.get(event.chartUrl) ?? [];
+    existing.push({
+      eventSlug: event.slug,
+      eventTitle: event.title,
+      sourceLabel: "chartUrl"
+    });
+    urlRefs.set(event.chartUrl, existing);
+  }
+  event.sources.forEach((source) => {
+    const existing = urlRefs.get(source.url) ?? [];
+    existing.push({
+      eventSlug: event.slug,
+      eventTitle: event.title,
+      sourceLabel: source.label
+    });
+    urlRefs.set(source.url, existing);
+  });
+});
+
+const blockedStatuses = new Set([401, 402, 403, 451]);
+const paywallDomains = [
+  "bloomberg.com",
+  "wsj.com",
+  "ft.com",
+  "theinformation.com",
+  "coindesk.com/pro"
+];
+const paywalledOrBlocked: Array<{
+  url: string;
+  reason: string;
+}> = [];
+
 const runNetworkChecks = process.argv.includes("--network");
 
 const getTimeoutForUrl = (url: string) => (url.includes("web.archive.org") ? 15000 : 6000);
@@ -245,6 +287,12 @@ const checkUrl = async (url: string) => {
 
     if (response.status >= 400 && response.status < 500 && response.status !== 429) {
       addIssue("warn", `Link returned ${response.status}: ${url}`);
+      if (blockedStatuses.has(response.status)) {
+        paywalledOrBlocked.push({
+          url,
+          reason: `blocked status ${response.status}`
+        });
+      }
       return;
     }
 
@@ -274,6 +322,18 @@ const runNetworkAudit = async () => {
 };
 
 const run = async () => {
+  const lowerCaseUrls = uniqueUrls.map((url) => url.toLowerCase());
+  paywallDomains.forEach((domain) => {
+    uniqueUrls.forEach((url, index) => {
+      if (lowerCaseUrls[index]?.includes(domain)) {
+        paywalledOrBlocked.push({
+          url,
+          reason: `known paywalled domain (${domain})`
+        });
+      }
+    });
+  });
+
   if (runNetworkChecks) {
     await runNetworkAudit();
   }
@@ -290,6 +350,26 @@ const run = async () => {
   errors.forEach((issue) => console.log(`ERROR: ${issue.message}`));
   warnings.forEach((issue) => console.log(`WARN: ${issue.message}`));
   console.log(`Summary: ${errors.length} error(s), ${warnings.length} warning(s).`);
+
+  if (paywalledOrBlocked.length > 0) {
+    console.log("\nPaywalled/blocked source candidates:");
+    const seen = new Set<string>();
+    paywalledOrBlocked.forEach((entry) => {
+      const dedupeKey = `${entry.url}|${entry.reason}`;
+      if (seen.has(dedupeKey)) return;
+      seen.add(dedupeKey);
+      const refs = urlRefs.get(entry.url) ?? [];
+      if (refs.length === 0) {
+        console.log(`- [unknown-event] ${entry.reason} -> ${entry.url}`);
+        return;
+      }
+      refs.forEach((ref) => {
+        console.log(
+          `- [${ref.eventSlug}] ${ref.sourceLabel} (${entry.reason}) -> ${entry.url}`
+        );
+      });
+    });
+  }
 
   if (errors.length > 0) {
     process.exitCode = 1;

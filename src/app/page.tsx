@@ -21,7 +21,7 @@ export default function HomePage() {
           </p>
         </div>
       </div>
-      <div className="mb-12">
+      <div className="mb-16 md:mb-20">
         <BentoGrid />
       </div>
       <Footer />

@@ -1636,9 +1636,9 @@ export const events: Event[] = [
     "chartUrl": "https://tradingview.com/symbols/ETHUSD/",
     "sources": [
       {
-        "label": "MakerDAO post-mortem",
-        "url": "https://blog.makerdao.com/the-market-collapse-of-march-12-2020-how-it-impacted-makerdao/",
-        "publisher": "MakerDAO",
+        "label": "Maker debt crisis post-mortem recap",
+        "url": "https://cointelegraph.com/news/maker-debt-crisis-post-mortem-recommends-new-safeguards",
+        "publisher": "Cointelegraph",
         "year": 2020
       },
       {
@@ -3216,9 +3216,9 @@ export const events: Event[] = [
     "chartUrl": "https://tradingview.com/symbols/ENSUSD/",
     "sources": [
       {
-        "label": "$ENS now available for claiming",
-        "url": "https://ens.mirror.xyz/5cGl-Y37aTxtokdWk21qlULmE1aSM_NuX9fstbOPoWU",
-        "publisher": "ENS",
+        "label": "$ENS token allocation (claiming opens Nov 8)",
+        "url": "https://ensdomains.substack.com/p/ens-token-allocation-claiming-opens",
+        "publisher": "Ethereum Name Service",
         "year": 2021
       },
       {
