@@ -127,7 +127,7 @@ export function NavBar() {
         </div>
       </div>
       <div
-        className={`fixed inset-0 z-40 bg-black/50 backdrop-blur-sm transition-opacity duration-300 ${
+        className={`fixed inset-0 z-40 bg-black/75 backdrop-blur-sm transition-opacity duration-300 ${
           isMenuOpen ? "opacity-100" : "pointer-events-none opacity-0"
         }`}
         onClick={() => setShowMobileNav(false)}
@@ -167,6 +167,12 @@ export function NavBar() {
             ))}
           </div>
           <div className="mt-6 flex flex-col gap-3">
+            <a href="/trench-manual.pdf" download onClick={() => setShowMobileNav(false)}>
+              <Button className="w-full justify-center gap-2 bg-accentGold text-fg hover:bg-accentGold/90">
+                <Download className="h-4 w-4" />
+                Download Trench Manual
+              </Button>
+            </a>
             <Button
               variant="ghost"
               className="w-full justify-center gap-2 border border-border text-muted-foreground hover:text-foreground"
@@ -176,12 +182,6 @@ export function NavBar() {
               {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
               {theme === "dark" ? "Light mode" : "Dark mode"}
             </Button>
-            <a href="/trench-manual.pdf" download onClick={() => setShowMobileNav(false)}>
-              <Button className="w-full justify-center gap-2 bg-accentGold text-fg hover:bg-accentGold/90">
-                <Download className="h-4 w-4" />
-                Download Trench Manual
-              </Button>
-            </a>
           </div>
         </div>
       </div>
