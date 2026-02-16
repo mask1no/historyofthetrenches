@@ -58,7 +58,7 @@ export function NavBar() {
   };
 
   return (
-    <header className="sticky top-0 z-20 border-b border-border/80 bg-bg/85 backdrop-blur">
+    <header className="sticky top-0 z-20 border-b border-border/60 bg-bg/85 backdrop-blur dark:border-white/5">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <div className="flex items-center gap-8">
           <Link
@@ -127,7 +127,7 @@ export function NavBar() {
         </div>
       </div>
       <div
-        className={`fixed inset-0 z-40 bg-black/75 backdrop-blur-sm transition-opacity duration-300 ${
+        className={`fixed inset-0 z-40 bg-black/95 backdrop-blur-lg backdrop-saturate-150 transition-opacity duration-300 ${
           isMenuOpen ? "opacity-100" : "pointer-events-none opacity-0"
         }`}
         onClick={() => setShowMobileNav(false)}
@@ -135,7 +135,7 @@ export function NavBar() {
       >
         <div
           id="mobile-nav-drawer"
-          className={`absolute right-0 top-0 flex h-full w-[88vw] max-w-sm flex-col border-l border-border bg-card p-6 shadow-subtle transition-transform duration-300 ${
+          className={`absolute right-0 top-0 flex h-full w-[88vw] max-w-sm flex-col border-l border-border bg-card/95 p-6 shadow-subtle transition-transform duration-300 dark:border-white/5 ${
             isMenuOpen ? "translate-x-0" : "translate-x-full"
           }`}
           onClick={(e) => e.stopPropagation()}
