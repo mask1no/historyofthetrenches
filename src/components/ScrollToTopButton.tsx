@@ -25,7 +25,7 @@ export function ScrollToTopButton() {
       <Button
         type="button"
         variant="subtle"
-        className="rounded-full border border-border bg-card/90 px-4 py-3 shadow-subtle card-lift"
+        className="rounded-full border border-border bg-card/90 px-4 py-3 shadow-subtle card-lift dark:border-white/10 dark:bg-[#1e1e1e]"
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         aria-label="Scroll to top"
       >

@@ -51,7 +51,7 @@ export default function ArchivePage() {
           </p>
           <div className="h-px w-full bg-border" />
         </div>
-        <div className="rounded-2xl border border-border bg-card p-4 shadow-subtle card-lift">
+        <div className="rounded-2xl bg-card p-4">
           <EventTable />
         </div>
       </section>

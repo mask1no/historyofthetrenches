@@ -33,7 +33,7 @@ export function Hero() {
               : "Tracking a growing archive of crypto’s defining moments."}
           </p>
         </div>
-        <div className="grid grid-cols-2 items-center gap-2 pt-1 sm:flex sm:flex-wrap sm:gap-3">
+        <div className="grid grid-cols-1 gap-2 pt-1 sm:grid-cols-2 sm:flex sm:flex-wrap sm:gap-3">
           <Link href="/archive" className="w-full">
             <Button size="sm" className="w-full shadow-subtle sm:w-auto sm:py-2.5">
               Enter the Archive

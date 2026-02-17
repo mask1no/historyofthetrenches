@@ -19,7 +19,7 @@
   --fg: #e9e6df;
   --muted: #9a948b;
   --card: #121212;
-  --border: #141414;
+  --border: #232323;
   --accentGold: #d6b15e;
   --accentRed: #d16a6a;
   --accentGreen: #45b887;
@@ -39,8 +39,14 @@ body {
 }
 
 html {
-  font-size: 90%;
+  font-size: 100%;
   overflow-x: hidden;
+}
+
+.dark .shadow-subtle {
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.04),
+    0 8px 24px rgba(0, 0, 0, 0.4);
 }
 
 a {

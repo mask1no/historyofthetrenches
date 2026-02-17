@@ -74,7 +74,7 @@ export default function KitPage() {
               <CardTitle>Wallets</CardTitle>
               <p className="text-sm text-muted">Hot and cold setups for custody control.</p>
             </CardHeader>
-            <CardContent className="grid gap-3 text-[13px] text-muted md:grid-cols-2 link-underline">
+            <CardContent className="grid gap-3 text-[13px] text-muted md:grid-cols-2 link-underline [&>div]:dark:bg-white/[0.02]">
               <div className="rounded-lg border border-border bg-bg/60 p-3">
                 <div className="font-semibold text-fg">
                   <a href="https://sparrowwallet.com" target="_blank" rel="noopener noreferrer">
@@ -131,7 +131,7 @@ export default function KitPage() {
               <CardTitle>On-Ramps</CardTitle>
               <p className="text-sm text-muted">KYC and non-KYC routes to get started safely.</p>
             </CardHeader>
-            <CardContent className="grid gap-3 text-[13px] text-muted md:grid-cols-2 link-underline">
+            <CardContent className="grid gap-3 text-[13px] text-muted md:grid-cols-2 link-underline [&>div]:dark:bg-white/[0.02]">
               <div className="rounded-lg border border-border bg-bg/60 p-3">
                 <div className="font-semibold text-fg">
                   <a href="https://www.kraken.com" target="_blank" rel="noopener noreferrer">
@@ -199,7 +199,7 @@ export default function KitPage() {
             <CardHeader>
               <CardTitle>Contribute to the Network</CardTitle>
             </CardHeader>
-            <CardContent className="grid gap-3 text-[13px] text-muted md:grid-cols-2 link-underline">
+            <CardContent className="grid gap-3 text-[13px] text-muted md:grid-cols-2 link-underline [&>div]:dark:bg-white/[0.02]">
               <div className="rounded-lg border border-border bg-bg/60 p-3">
                 <div className="font-semibold text-fg">Run your own node</div>
                 <p className="text-xs">
@@ -258,7 +258,7 @@ export default function KitPage() {
               <CardTitle>Infrastructure Kit</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4 text-[13px] text-muted link-underline">
-              <div className="grid gap-3 md:grid-cols-2">
+              <div className="grid gap-3 md:grid-cols-2 [&>div]:dark:bg-white/[0.02]">
                 <div className="rounded-lg border border-border bg-bg/60 p-3">
                   <div className="font-semibold text-fg">Explorers</div>
                   <p className="text-xs">
@@ -332,7 +332,7 @@ export default function KitPage() {
                 </div>
               </div>
 
-              <div className="grid gap-3 md:grid-cols-3">
+              <div className="grid gap-3 md:grid-cols-3 [&>div]:dark:bg-white/[0.02]">
                 <div className="rounded-lg border border-border bg-bg/60 p-3">
                   <div className="mb-2 flex items-center gap-2 font-semibold text-fg">
                     <Shield className="h-4 w-4 text-accentGold" />

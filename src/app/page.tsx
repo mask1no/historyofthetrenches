@@ -9,12 +9,12 @@ export default function HomePage() {
       <NavBar />
       <Hero />
       <div className="mx-auto mt-0 max-w-6xl px-6 pb-10 md:mt-2">
-        <div className="mb-6 max-w-2xl space-y-2">
+        <div className="mb-4 max-w-2xl space-y-2 sm:mb-6">
           <h2
-            className="text-3xl font-semibold"
+            className="text-2xl font-semibold sm:text-3xl"
             style={{ fontFamily: "var(--font-playfair)" }}
           >
-            Markets forget. Communities don&apos;t.
+            Markets forget. <span className="whitespace-nowrap">Communities don&apos;t.</span>
           </h2>
           <p className="text-sm text-muted">
             We keep sources, context, and community notes so the next cycle remembers the last.

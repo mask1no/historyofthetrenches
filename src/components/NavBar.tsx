@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Download, Menu, Moon, Sun, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -18,6 +18,10 @@ export function NavBar() {
   const [showMobileNav, setShowMobileNav] = useState(false);
   const isMenuOpen = showMobileNav;
   const [theme, setTheme] = useState<"light" | "dark">("light");
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const mobileDrawerRef = useRef<HTMLDivElement>(null);
+  const hadMenuOpenRef = useRef(false);
 
   useEffect(() => {
     const stored = window.localStorage.getItem("hot-theme");
@@ -26,8 +30,10 @@ export function NavBar() {
       document.documentElement.classList.toggle("dark", stored === "dark");
       return;
     }
-    setTheme("light");
-    document.documentElement.classList.remove("dark");
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const fallbackTheme = prefersDark ? "dark" : "light";
+    setTheme(fallbackTheme);
+    document.documentElement.classList.toggle("dark", prefersDark);
   }, []);
 
   useEffect(() => {
@@ -50,6 +56,65 @@ export function NavBar() {
     };
   }, [isMenuOpen]);
 
+  useEffect(() => {
+    if (isMenuOpen) {
+      closeButtonRef.current?.focus();
+      hadMenuOpenRef.current = true;
+      return;
+    }
+    if (hadMenuOpenRef.current) {
+      menuButtonRef.current?.focus();
+      hadMenuOpenRef.current = false;
+    }
+  }, [isMenuOpen]);
+
+  useEffect(() => {
+    if (!isMenuOpen) {
+      return;
+    }
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setShowMobileNav(false);
+      }
+    };
+    document.addEventListener("keydown", handleKey);
+    return () => document.removeEventListener("keydown", handleKey);
+  }, [isMenuOpen]);
+
+  useEffect(() => {
+    if (!isMenuOpen) {
+      return;
+    }
+    const handleTrap = (event: KeyboardEvent) => {
+      if (event.key !== "Tab") {
+        return;
+      }
+      const drawer = mobileDrawerRef.current;
+      if (!drawer) {
+        return;
+      }
+      const focusable = Array.from(
+        drawer.querySelectorAll<HTMLElement>(
+          'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])'
+        )
+      ).filter((element) => !element.hasAttribute("disabled"));
+      if (focusable.length === 0) {
+        return;
+      }
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      } else if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      }
+    };
+    document.addEventListener("keydown", handleTrap);
+    return () => document.removeEventListener("keydown", handleTrap);
+  }, [isMenuOpen]);
+
   const toggleTheme = () => {
     const nextTheme = theme === "dark" ? "light" : "dark";
     setTheme(nextTheme);
@@ -57,9 +122,11 @@ export function NavBar() {
     window.localStorage.setItem("hot-theme", nextTheme);
   };
 
+  const closeMobileMenu = () => setShowMobileNav(false);
+
   return (
     <header className="sticky top-0 z-20 border-b border-border/60 bg-bg/85 backdrop-blur dark:border-white/5">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6 sm:py-4">
         <div className="flex items-center gap-8">
           <Link
             href="/"
@@ -91,32 +158,26 @@ export function NavBar() {
           <Button
             variant="ghost"
             size="icon"
-            className="group relative hidden md:inline-flex border border-border bg-card/80 text-muted-foreground transition hover:text-foreground hover:bg-card hover:shadow-subtle"
+            className="hidden border border-border bg-card/80 text-muted-foreground transition hover:bg-card hover:text-foreground hover:shadow-subtle md:inline-flex"
             aria-label="Toggle theme"
             onClick={toggleTheme}
           >
-            <span className="relative h-4 w-4">
-              <span className="absolute inset-0 flex items-center justify-center transition-opacity duration-200 group-hover:opacity-0">
-                {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-              </span>
-              <span className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-200 group-hover:opacity-100">
-                {theme === "dark" ? <Moon className="h-4 w-4" /> : <Sun className="h-4 w-4" />}
-              </span>
-            </span>
+            {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
           </Button>
           <a href="/trench-manual.pdf" download className="hidden md:inline-flex">
             <Button
               variant="default"
-              className="gap-2 bg-accentGold text-fg hover:bg-accentGold/90"
+              className="gap-2 bg-accentGold text-[#1a1a00] hover:bg-accentGold/90"
             >
               <Download className="h-4 w-4" />
               Download Trench Manual
             </Button>
           </a>
           <Button
+            ref={menuButtonRef}
             variant="ghost"
             size="icon"
-            className="md:hidden border border-border text-muted"
+            className="border border-border text-fg dark:border-white/10 dark:bg-white/[0.04] md:hidden"
             aria-label="Open menu"
             aria-controls="mobile-nav-drawer"
             aria-expanded={isMenuOpen}
@@ -135,7 +196,8 @@ export function NavBar() {
       >
         <div
           id="mobile-nav-drawer"
-          className={`absolute right-0 top-0 flex h-full w-[88vw] max-w-sm flex-col border-l border-border bg-card/95 p-6 shadow-subtle transition-transform duration-300 dark:border-white/5 ${
+          ref={mobileDrawerRef}
+          className={`absolute right-0 top-0 flex h-full w-[88vw] max-w-sm flex-col border-l border-border bg-card/95 p-6 shadow-subtle transition-transform duration-300 will-change-transform dark:border-white/10 dark:bg-[#1a1a1a] dark:shadow-[0_0_0_1px_rgba(255,255,255,0.06),0_16px_48px_rgba(0,0,0,0.5)] ${
             isMenuOpen ? "translate-x-0" : "translate-x-full"
           }`}
           onClick={(e) => e.stopPropagation()}
@@ -143,9 +205,10 @@ export function NavBar() {
           <div className="mb-6 flex items-center justify-between">
             <span className="text-base font-semibold">Navigate</span>
             <button
+              ref={closeButtonRef}
               aria-label="Close menu"
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-border text-muted transition hover:border-accentGold hover:text-fg"
-              onClick={() => setShowMobileNav(false)}
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-border text-fg transition hover:border-accentGold hover:text-fg dark:border-white/10"
+              onClick={closeMobileMenu}
             >
               <X className="h-4 w-4" />
             </button>
@@ -157,25 +220,25 @@ export function NavBar() {
                 href={item.href}
                 target={item.href.startsWith("http") ? "_blank" : undefined}
                 rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                className={`rounded-2xl border border-border px-4 py-4 text-base transition hover:border-accentGold hover:bg-bg ${
-                  pathname === item.href ? "border-accentGold bg-bg" : ""
+                className={`rounded-2xl border border-border px-4 py-4 text-base text-fg transition hover:border-accentGold hover:bg-bg dark:border-white/8 dark:hover:bg-white/[0.04] ${
+                  pathname === item.href ? "border-accentGold bg-bg dark:border-accentGold dark:bg-white/[0.04]" : ""
                 }`}
-                onClick={() => setShowMobileNav(false)}
+                onClick={closeMobileMenu}
               >
                 {item.label}
               </Link>
             ))}
           </div>
           <div className="mt-6 flex flex-col gap-3">
-            <a href="/trench-manual.pdf" download onClick={() => setShowMobileNav(false)}>
-              <Button className="w-full justify-center gap-2 bg-accentGold text-fg hover:bg-accentGold/90">
+            <a href="/trench-manual.pdf" download onClick={closeMobileMenu}>
+              <Button className="w-full justify-center gap-2 bg-accentGold text-[#1a1a00] hover:bg-accentGold/90">
                 <Download className="h-4 w-4" />
                 Download Trench Manual
               </Button>
             </a>
             <Button
               variant="ghost"
-              className="w-full justify-center gap-2 border border-border text-muted-foreground hover:text-foreground"
+              className="w-full justify-center gap-2 border border-border text-fg hover:text-foreground dark:border-white/10"
               aria-label="Toggle theme"
               onClick={toggleTheme}
             >

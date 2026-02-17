@@ -154,6 +154,7 @@ export function EventTable() {
     search: "",
     sort: "newest"
   });
+  const [filtersOpen, setFiltersOpen] = useState(false);
   const [showAllTags, setShowAllTags] = useState(false);
   const curatedTags = ["defi", "meme", "cefi", "regulation", "hack", "nft", "exchange"];
   const topTags = curatedTags.filter((tag) => tags.includes(tag));
@@ -164,6 +165,11 @@ export function EventTable() {
     filters.year !== "all" ||
     filters.tags.length > 0 ||
     trimmedSearch.length > 0;
+  const mobileFilterCount =
+    (filters.type !== "all" ? 1 : 0) +
+    (filters.chain !== "all" ? 1 : 0) +
+    (filters.year !== "all" ? 1 : 0) +
+    filters.tags.length;
 
   const filtered = useMemo(
     () => events.filter((event) => matchesFilters(event, filters)),
@@ -181,120 +187,134 @@ export function EventTable() {
   return (
     <section className="space-y-4">
       <div className="rounded-2xl border border-border bg-bg p-4 shadow-subtle card-lift">
-        <div className="grid grid-cols-1 gap-3 items-end md:grid-cols-8">
-          <Select
-            label="Type"
-            value={filters.type}
-            onChange={(value) => setFilters((prev) => ({ ...prev, type: value as any }))}
-            options={typeOptions}
-          />
-          <Select
-            label="Chain"
-            value={filters.chain}
-            onChange={(value) => setFilters((prev) => ({ ...prev, chain: value }))}
-            options={[{ label: "All", value: "all" }, ...chains.map((chain) => ({ label: chain, value: chain }))]}
-          />
-          <Select
-            label="Year"
-            value={filters.year === "all" ? "all" : String(filters.year)}
-            onChange={(value) =>
-              setFilters((prev) => ({
-                ...prev,
-                year: value === "all" ? "all" : Number(value)
-              }))
-            }
-            options={[{ label: "All", value: "all" }, ...years.map((year) => ({ label: String(year), value: String(year) }))]}
-          />
-          <div className="md:col-span-3">
-            <label className="mb-1 block text-xs font-semibold uppercase tracking-[0.18em] text-muted">
-              Search
-            </label>
-            <Input
-              className="h-11 rounded-2xl"
-              placeholder="Search title, tags, chain, or type"
-              value={filters.search}
-              onChange={(e) =>
-                setFilters((prev) => ({ ...prev, search: e.target.value }))
-              }
-            />
-          </div>
-          <Select
-            label="Sort"
-            value={filters.sort}
-            onChange={(value) =>
-              setFilters((prev) => ({ ...prev, sort: value as FilterState["sort"] }))
-            }
-            options={sortOptions}
-            className="md:col-span-2"
+        <div>
+          <label className="mb-1 block text-xs font-semibold uppercase tracking-[0.18em] text-muted">
+            Search
+          </label>
+          <Input
+            className="h-11 rounded-2xl"
+            placeholder="Search title, tags, chain, or type"
+            value={filters.search}
+            onChange={(e) => setFilters((prev) => ({ ...prev, search: e.target.value }))}
           />
         </div>
-        <div className="mt-4 space-y-2">
-          <div className="flex flex-wrap items-center gap-2 text-xs">
-            <button
-              type="button"
-              className={getTagChipClass(filters.tags.length === 0)}
-              onClick={() => setFilters((prev) => ({ ...prev, tags: [] }))}
-            >
-              All tags
-            </button>
-            {topTags.map((tag) => (
-              <button
-                key={tag}
-                type="button"
-                className={getTagChipClass(filters.tags.includes(tag))}
-                onClick={() =>
-                  setFilters((prev) => ({
-                    ...prev,
-                    tags: prev.tags.includes(tag)
-                      ? prev.tags.filter((value) => value !== tag)
-                      : [...prev.tags, tag]
-                  }))
-                }
-              >
-                <span className="flex items-center gap-1">
-                  {tag}
-                  {filters.tags.includes(tag) && (
-                    <span className="text-[10px] font-semibold">x</span>
-                  )}
-                </span>
-              </button>
-            ))}
-            <button
-              type="button"
-              className={`${chipBase} border-border text-muted hover:border-accentGold`}
-              onClick={() => setShowAllTags((prev) => !prev)}
-            >
-              {showAllTags ? "Less..." : "More..."}
-            </button>
+        <div className="mt-3 md:hidden">
+          <button
+            type="button"
+            className="inline-flex rounded-full border border-border px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-fg transition hover:border-accentGold"
+            onClick={() => setFiltersOpen((prev) => !prev)}
+            aria-expanded={filtersOpen}
+            aria-controls="event-filters-panel"
+          >
+            Filters ({mobileFilterCount})
+          </button>
+        </div>
+        <div
+          id="event-filters-panel"
+          className={`${filtersOpen ? "block" : "hidden"} mt-4 space-y-2 md:block`}
+        >
+          <div className="grid grid-cols-1 items-end gap-3 md:grid-cols-8">
+            <Select
+              label="Type"
+              value={filters.type}
+              onChange={(value) => setFilters((prev) => ({ ...prev, type: value as any }))}
+              options={typeOptions}
+            />
+            <Select
+              label="Chain"
+              value={filters.chain}
+              onChange={(value) => setFilters((prev) => ({ ...prev, chain: value }))}
+              options={[{ label: "All", value: "all" }, ...chains.map((chain) => ({ label: chain, value: chain }))]}
+            />
+            <Select
+              label="Year"
+              value={filters.year === "all" ? "all" : String(filters.year)}
+              onChange={(value) =>
+                setFilters((prev) => ({
+                  ...prev,
+                  year: value === "all" ? "all" : Number(value)
+                }))
+              }
+              options={[{ label: "All", value: "all" }, ...years.map((year) => ({ label: String(year), value: String(year) }))]}
+            />
+            <Select
+              label="Sort"
+              value={filters.sort}
+              onChange={(value) =>
+                setFilters((prev) => ({ ...prev, sort: value as FilterState["sort"] }))
+              }
+              options={sortOptions}
+              className="md:col-span-2 md:col-start-7"
+            />
           </div>
-          {showAllTags && (
-            <div className="flex flex-wrap gap-2 border-t border-border/60 pt-2 text-xs">
-              {tags
-                .filter((tag) => !topTags.includes(tag))
-                .map((tag) => (
-                  <button
-                    key={tag}
-                    type="button"
-                    className={getTagChipClass(filters.tags.includes(tag))}
-                    onClick={() =>
-                      setFilters((prev) => ({
-                        ...prev,
-                        tags: prev.tags.includes(tag)
-                          ? prev.tags.filter((value) => value !== tag)
-                          : [...prev.tags, tag]
-                      }))
-                    }
-                  >
-                    <span className="flex items-center gap-1">
-                      {tag}
-                      {filters.tags.includes(tag) && (
-                        <span className="text-[10px] font-semibold">x</span>
-                      )}
-                    </span>
-                  </button>
-                ))}
+          <div className="mt-4 space-y-2">
+            <div className="flex flex-wrap items-center gap-2 text-xs">
+              <button
+                type="button"
+                className={getTagChipClass(filters.tags.length === 0)}
+                onClick={() => setFilters((prev) => ({ ...prev, tags: [] }))}
+              >
+                All tags
+              </button>
+              {topTags.map((tag) => (
+                <button
+                  key={tag}
+                  type="button"
+                  className={getTagChipClass(filters.tags.includes(tag))}
+                  onClick={() =>
+                    setFilters((prev) => ({
+                      ...prev,
+                      tags: prev.tags.includes(tag)
+                        ? prev.tags.filter((value) => value !== tag)
+                        : [...prev.tags, tag]
+                    }))
+                  }
+                >
+                  <span className="flex items-center gap-1">
+                    {tag}
+                    {filters.tags.includes(tag) && (
+                      <span className="text-[10px] font-semibold">x</span>
+                    )}
+                  </span>
+                </button>
+              ))}
+              <button
+                type="button"
+                className={`${chipBase} border-border text-muted hover:border-accentGold`}
+                onClick={() => setShowAllTags((prev) => !prev)}
+              >
+                {showAllTags ? "Less..." : "More..."}
+              </button>
             </div>
-          )}
+            {showAllTags && (
+              <div className="flex flex-wrap gap-2 border-t border-border/60 pt-2 text-xs">
+                {tags
+                  .filter((tag) => !topTags.includes(tag))
+                  .map((tag) => (
+                    <button
+                      key={tag}
+                      type="button"
+                      className={getTagChipClass(filters.tags.includes(tag))}
+                      onClick={() =>
+                        setFilters((prev) => ({
+                          ...prev,
+                          tags: prev.tags.includes(tag)
+                            ? prev.tags.filter((value) => value !== tag)
+                            : [...prev.tags, tag]
+                        }))
+                      }
+                    >
+                      <span className="flex items-center gap-1">
+                        {tag}
+                        {filters.tags.includes(tag) && (
+                          <span className="text-[10px] font-semibold">x</span>
+                        )}
+                      </span>
+                    </button>
+                  ))}
+              </div>
+            )}
+          </div>
         </div>
       </div>
       {hasActiveFilters && (
@@ -391,22 +411,22 @@ export function EventTable() {
                 }
               }}
             >
-              <div className="flex flex-wrap items-start justify-between gap-3">
-                <div className="space-y-1">
+              <div className="flex flex-col gap-2 md:flex-row md:items-start md:justify-between">
+                <div className="space-y-1 md:flex-1">
                   <div className="flex items-center gap-2">
                     <div className="text-sm font-semibold">{event.title}</div>
                     {event.hallOfFame && <Badge variant="gold">Hall of Fame</Badge>}
                   </div>
                   <p className="text-xs text-muted line-clamp-2">{event.summary}</p>
-                </div>
-                <div className="flex flex-wrap items-center gap-2">
-                  <Badge variant={typeVariant[event.type]} className="w-fit text-[11px]">
-                    {typeLabel[event.type]}
-                  </Badge>
-                  <Badge variant="muted" className="text-[11px]">
-                    {event.chain}
-                  </Badge>
-                  <span className="text-xs text-muted">{event.date}</span>
+                  <div className="mt-1 flex flex-wrap items-center gap-2">
+                    <Badge variant={typeVariant[event.type]} className="w-fit text-[11px]">
+                      {typeLabel[event.type]}
+                    </Badge>
+                    <Badge variant="muted" className="text-[11px]">
+                      {event.chain}
+                    </Badge>
+                    <span className="text-xs text-muted">{event.date}</span>
+                  </div>
                 </div>
               </div>
               <div className="flex flex-wrap items-center gap-2">

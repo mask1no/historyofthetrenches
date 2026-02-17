@@ -79,7 +79,7 @@ export function Footer() {
             </div>
           </div>
         </div>
-        <div className="grid gap-4 md:grid-cols-3">
+        <div className="hidden gap-4 md:grid md:grid-cols-3">
           <div className="rounded-xl border border-border bg-bg/60 p-4 shadow-subtle dark:border-transparent">
             <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted">
               Field Notes

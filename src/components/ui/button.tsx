@@ -8,7 +8,7 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-accentGold text-fg hover:bg-accentGold/90",
+        default: "bg-accentGold text-[#1a1a00] hover:bg-accentGold/90",
         secondary: "bg-fg text-bg hover:bg-fg/90",
         ghost: "bg-transparent border border-border text-muted hover:text-fg hover:border-accentGold/60",
         subtle: "bg-card border border-border text-fg hover:border-accentGold/40 hover:shadow-subtle"

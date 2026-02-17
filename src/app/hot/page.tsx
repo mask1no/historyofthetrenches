@@ -196,7 +196,7 @@ export default function HotPage() {
                       <Badge variant="gold">Doxxed</Badge>
                     </div>
                     <div className="mt-2 text-xs text-muted">{wallet.purpose}</div>
-                    <div className="mt-1 text-xs text-muted">
+                    <div className="mt-1 text-xs text-muted break-all">
                       {wallet.chain} • {wallet.address}
                     </div>
                   </div>

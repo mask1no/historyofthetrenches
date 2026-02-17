@@ -80,6 +80,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const themeInitScript = `(function(){try{var stored=localStorage.getItem("hot-theme");var systemDark=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;var useDark=stored==="dark"||((stored!=="light"&&stored!=="dark")&&systemDark);document.documentElement.classList.toggle("dark",useDark);}catch(e){}})();`;
   const organizationJsonLd = {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -96,7 +97,10 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
       <body
         className={`${inter.variable} ${playfair.variable} bg-bg text-fg antialiased`}
         style={{ fontFamily: "var(--font-inter), system-ui, sans-serif" }}

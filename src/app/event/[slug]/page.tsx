@@ -204,15 +204,15 @@ export default function EventPage({ params }: EventPageProps) {
             <CardContent className="space-y-3 text-sm">
               <div className="grid gap-2 sm:grid-cols-[160px_minmax(0,1fr)]">
                 <span className="text-muted">Peak metric</span>
-                <span className="font-semibold break-words">{event!.peakMetric ?? "—"}</span>
+                <span className="min-w-0 font-semibold break-words">{event!.peakMetric ?? "—"}</span>
               </div>
               <div className="grid gap-2 sm:grid-cols-[160px_minmax(0,1fr)]">
                 <span className="text-muted">Outcome</span>
-                <span className="font-semibold break-words">{event!.outcome ?? "—"}</span>
+                <span className="min-w-0 font-semibold break-words">{event!.outcome ?? "—"}</span>
               </div>
               <div className="grid gap-2 sm:grid-cols-[160px_minmax(0,1fr)]">
                 <span className="text-muted">Chain</span>
-                <span className="font-semibold break-words">{event!.chain}</span>
+                <span className="min-w-0 font-semibold break-words">{event!.chain}</span>
               </div>
               <div className="grid gap-2 sm:grid-cols-[160px_minmax(0,1fr)]">
                 <span className="text-muted">Year</span>
@@ -298,7 +298,8 @@ export default function EventPage({ params }: EventPageProps) {
                 <div>
                   <div className="text-sm font-semibold">{item.title}</div>
                   <div className="text-xs text-muted">
-                    {item.chain} • {item.date} • {item.summary}
+                    {item.chain} • {item.date}
+                    <span className="hidden sm:inline"> • {item.summary}</span>
                   </div>
                 </div>
                 <Badge

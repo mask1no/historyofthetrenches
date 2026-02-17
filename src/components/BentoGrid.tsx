@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import { events } from "@/data/events";
 import { eras } from "@/data/eras";
 import { Button } from "@/components/ui/button";
@@ -31,10 +31,14 @@ const runners = events
   .sort((a, b) => runnerOrder.indexOf(a.slug) - runnerOrder.indexOf(b.slug));
 
 export function BentoGrid() {
+  const [expandRugs, setExpandRugs] = useState(false);
+  const [expandRunners, setExpandRunners] = useState(false);
+  const visibleRugs = expandRugs ? rugs : rugs.slice(0, 3);
+  const visibleRunners = expandRunners ? runners : runners.slice(0, 3);
 
   return (
     <section
-      className="mx-auto grid max-w-6xl grid-cols-1 gap-6 rounded-3xl border border-border/60 bg-card/90 px-6 pb-12 pt-6 shadow-subtle dark:border-[rgba(255,255,255,0.04)] md:grid-cols-12"
+      className="mx-auto grid max-w-6xl grid-cols-1 gap-6 rounded-3xl border border-border/60 bg-card/90 px-6 pb-12 pt-6 shadow-subtle md:grid-cols-12"
       suppressHydrationWarning
     >
       <Card className="card-lift md:col-span-6 flex h-full flex-col border-l-4 border-l-accentRed bg-card/90 transition duration-700 ease-out hover:shadow-[0_10px_24px_rgba(196,77,77,0.07)] dark:hover:shadow-[0_10px_24px_rgba(0,0,0,0.45)]">
@@ -48,7 +52,7 @@ export function BentoGrid() {
           <Badge variant="red">Rugs</Badge>
         </CardHeader>
         <CardContent className="grid flex-1 auto-rows-[minmax(72px,1fr)] gap-3">
-          {rugs.map((event) => (
+          {visibleRugs.map((event) => (
             <Link
               key={event.slug}
               href={`/event/${event.slug}`}
@@ -70,6 +74,15 @@ export function BentoGrid() {
               </div>
             </Link>
           ))}
+          {rugs.length > 3 && (
+            <button
+              type="button"
+              className="md:hidden rounded-lg border border-border px-3 py-2 text-sm font-medium text-fg transition hover:border-accentGold"
+              onClick={() => setExpandRugs((prev) => !prev)}
+            >
+              {expandRugs ? "Show less" : `Show all (${rugs.length})`}
+            </button>
+          )}
         </CardContent>
       </Card>
 
@@ -84,7 +97,7 @@ export function BentoGrid() {
           <Badge variant="green">Runners</Badge>
         </CardHeader>
         <CardContent className="grid flex-1 auto-rows-[minmax(72px,1fr)] gap-3">
-          {runners.map((event) => (
+          {visibleRunners.map((event) => (
             <Link
               key={event.slug}
               href={`/event/${event.slug}`}
@@ -106,10 +119,19 @@ export function BentoGrid() {
               </div>
             </Link>
           ))}
+          {runners.length > 3 && (
+            <button
+              type="button"
+              className="md:hidden rounded-lg border border-border px-3 py-2 text-sm font-medium text-fg transition hover:border-accentGold"
+              onClick={() => setExpandRunners((prev) => !prev)}
+            >
+              {expandRunners ? "Show less" : `Show all (${runners.length})`}
+            </button>
+          )}
         </CardContent>
       </Card>
 
-      <Card className="md:col-span-12 relative overflow-hidden border border-border/80 bg-card/95 dark:border-[rgba(255,255,255,0.04)]">
+      <Card className="md:col-span-12 relative overflow-hidden border border-border/80 bg-card/95">
         <CardHeader className="flex flex-col items-start gap-2">
           <CardTitle className="text-xl">Crypto Onboarding Eras</CardTitle>
           <p className="text-sm text-muted">
@@ -124,9 +146,9 @@ export function BentoGrid() {
                   <Link
                     key={`era-${era.id}`}
                     href={`/timeline#era-${era.id}`}
-                    className="flex-none basis-[70%] sm:basis-[48%] md:basis-[34%] lg:basis-[28%] xl:basis-[22%] max-w-[300px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-accentGold focus-visible:outline-offset-2 rounded-2xl"
+                    className="flex-none basis-[75%] sm:basis-[48%] md:basis-[34%] lg:basis-[28%] xl:basis-[22%] max-w-[300px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-accentGold focus-visible:outline-offset-2 rounded-2xl"
                   >
-                    <div className="flex h-full min-h-[140px] flex-col rounded-2xl border border-border/80 bg-card px-4 py-3 shadow-subtle transition duration-500 ease-out hover:border-accentGold/70 hover:shadow-[0_0_0_1px_rgba(214,177,94,0.32),0_14px_28px_rgba(0,0,0,0.08)] dark:border-[rgba(255,255,255,0.04)] dark:hover:shadow-[0_0_0_1px_rgba(214,177,94,0.3),0_14px_28px_rgba(0,0,0,0.45)]">
+                    <div className="flex h-full min-h-[130px] md:min-h-[140px] flex-col rounded-2xl border border-border/80 bg-card px-4 py-3 shadow-subtle transition duration-500 ease-out hover:border-accentGold/70 hover:shadow-[0_0_0_1px_rgba(214,177,94,0.32),0_14px_28px_rgba(0,0,0,0.08)] dark:hover:shadow-[0_0_0_1px_rgba(214,177,94,0.3),0_14px_28px_rgba(0,0,0,0.45)]">
                       <div className="text-xs font-semibold uppercase text-muted">{era.range}</div>
                       <div className="text-base font-semibold line-clamp-2">{era.title}</div>
                       <p className="mt-2 text-sm text-muted line-clamp-3">{era.description}</p>
@@ -139,9 +161,9 @@ export function BentoGrid() {
                   <Link
                     key={`era-dup-${era.id}`}
                     href={`/timeline#era-${era.id}`}
-                    className="flex-none basis-[70%] sm:basis-[48%] md:basis-[34%] lg:basis-[28%] xl:basis-[22%] max-w-[300px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-accentGold focus-visible:outline-offset-2 rounded-2xl"
+                    className="flex-none basis-[75%] sm:basis-[48%] md:basis-[34%] lg:basis-[28%] xl:basis-[22%] max-w-[300px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-accentGold focus-visible:outline-offset-2 rounded-2xl"
                   >
-                    <div className="flex h-full min-h-[140px] flex-col rounded-2xl border border-border/80 bg-card px-4 py-3 shadow-subtle transition duration-500 ease-out hover:border-accentGold/70 hover:shadow-[0_0_0_1px_rgba(214,177,94,0.32),0_14px_28px_rgba(0,0,0,0.08)] dark:border-[rgba(255,255,255,0.04)] dark:hover:shadow-[0_0_0_1px_rgba(214,177,94,0.3),0_14px_28px_rgba(0,0,0,0.45)]">
+                    <div className="flex h-full min-h-[130px] md:min-h-[140px] flex-col rounded-2xl border border-border/80 bg-card px-4 py-3 shadow-subtle transition duration-500 ease-out hover:border-accentGold/70 hover:shadow-[0_0_0_1px_rgba(214,177,94,0.32),0_14px_28px_rgba(0,0,0,0.08)] dark:hover:shadow-[0_0_0_1px_rgba(214,177,94,0.3),0_14px_28px_rgba(0,0,0,0.45)]">
                       <div className="text-xs font-semibold uppercase text-muted">{era.range}</div>
                       <div className="text-base font-semibold line-clamp-2">{era.title}</div>
                       <p className="mt-2 text-sm text-muted line-clamp-3">{era.description}</p>
