@@ -21,6 +21,9 @@ const config: Config = {
         accentRed: "var(--accentRed)",
         accentGreen: "var(--accentGreen)"
       },
+      fontFamily: {
+        display: ["var(--font-playfair)", "serif"]
+      },
       boxShadow: {
         subtle: "0 6px 20px rgba(0,0,0,0.06)"
       },

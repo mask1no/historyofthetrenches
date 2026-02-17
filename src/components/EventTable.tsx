@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 import { events, type Event, type EventType } from "@/data/events";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
@@ -137,7 +137,6 @@ function matchesFilters(event: Event, filters: FilterState) {
 }
 
 export function EventTable() {
-  const router = useRouter();
   const defaultFilters: FilterState = {
     type: "all",
     chain: "all",
@@ -398,18 +397,10 @@ export function EventTable() {
         </div>
         <div className="divide-y divide-border">
           {sorted.map((event) => (
-            <div
+            <Link
               key={event.slug}
-              role="button"
-              tabIndex={0}
+              href={`/event/${event.slug}`}
               className="flex flex-col gap-2 px-4 py-4 transition hover:bg-bg focus:outline-none focus-visible:ring-2 focus-visible:ring-accentGold"
-              onClick={() => router.push(`/event/${event.slug}`)}
-              onKeyDown={(e) => {
-                if (e.key === "Enter" || e.key === " ") {
-                  e.preventDefault();
-                  router.push(`/event/${event.slug}`);
-                }
-              }}
             >
               <div className="flex flex-col gap-2 md:flex-row md:items-start md:justify-between">
                 <div className="space-y-1 md:flex-1">
@@ -442,18 +433,10 @@ export function EventTable() {
               <div className="flex items-center justify-between gap-3 text-xs text-muted">
                 <span>{event.outcome ?? "Outcome pending"}</span>
                 {event.chartUrl && (
-                  <a
-                    href={event.chartUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="link-accent"
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    View chart
-                  </a>
+                  <span className="link-accent">View chart</span>
                 )}
               </div>
-            </div>
+            </Link>
           ))}
           {sorted.length === 0 && (
             <div className="px-4 py-6 text-center text-sm text-muted">

@@ -1050,17 +1050,17 @@ export const events: Event[] = [
   },
   {
     "slug": "openclaw-moltbook-incident",
-    "title": "Moltbook Agent Takeover Exposure",
-    "type": "rugpull",
+    "title": "Moltbook Agent Web Hack",
+    "type": "hack",
     "chain": "Solana",
     "year": 2026,
     "date": "2026-01-31",
     "era": "Pump.fun Era",
     "hallOfFame": true,
-    "status": "platform integrity breach",
-    "summary": "A backend exposure reportedly allowed outsiders to impersonate agents, edit posts, and manipulate visibility. That integrity break created fertile ground for multiple memecoin scams rather than a single isolated rugpull.",
-    "peakMetric": "Agent impersonation + post edits",
-    "outcome": "Exposure reported; access tightened after disclosure",
+    "status": "security breach",
+    "summary": "A critical Supabase misconfiguration left Moltbook's production database fully exposed — no Row-Level Security, no access controls. Security researchers found 1.5 million API tokens, 35,000 emails, and thousands of private agent messages accessible via basic curl commands. The platform, built using AI-generated code, failed to implement fundamental security policies.",
+    "peakMetric": "1.5M API tokens exposed",
+    "outcome": "Patched within 48 hours of Wiz disclosure",
     "tags": [
       "launchpad",
       "exploit",
@@ -1080,6 +1080,48 @@ export const events: Event[] = [
         "label": "Wiz research on exposed keys",
         "url": "https://www.wiz.io/blog/exposed-moltbook-database-reveals-millions-of-api-keys",
         "publisher": "Wiz",
+        "year": 2026
+      }
+    ]
+  },
+  {
+    "slug": "openclaw-viral-sensation",
+    "title": "OpenClaw: Solo Dev AI Sensation",
+    "type": "milestone",
+    "chain": "Solana",
+    "year": 2026,
+    "date": "2026-01-28",
+    "era": "Pump.fun Era",
+    "hallOfFame": false,
+    "status": "cultural phenomenon",
+    "summary": "Solo Austrian developer Peter Steinberger built Clawdbot, an AI coding assistant that gained 100,000+ GitHub stars in two months. Forced renames by Anthropic (trademark) and a pivot to OpenClaw spawned unauthorized memecoins that hit a $16M market cap. Steinberger publicly disavowed all tokens, calling them scams. Andrej Karpathy called the project 'the most incredible sci-fi takeoff-adjacent thing.' Steinberger was recruited by OpenAI.",
+    "peakMetric": "$16M unauthorized memecoin cap",
+    "outcome": "Creator joined OpenAI; all tokens disavowed",
+    "tags": [
+      "ai-agents",
+      "meme",
+      "solana",
+      "viral",
+      "milestone",
+      "openclaw"
+    ],
+    "sources": [
+      {
+        "label": "CLAWD reaches $16M market cap",
+        "url": "https://phemex.com/news/article/meme-coin-clawd-reaches-16m-market-cap-amid-clawdbot-hype-55979",
+        "publisher": "Phemex",
+        "year": 2026
+      },
+      {
+        "label": "Steinberger rejects memecoin launches",
+        "url": "https://cryptopress.site/crypto/moltbot-creator-peter-steinberger-rejects-memecoin-launches-warns-of-impersonation-scams/",
+        "publisher": "CryptoPress",
+        "year": 2026
+      },
+      {
+        "label": "Clawdbot chaos: forced rebrand and crypto scams",
+        "url": "https://decrypt.co/356191/clawdbot-chaos-forced-rebrand-crypto-scam-24-hour-meltdown",
+        "publisher": "Decrypt",
         "year": 2026
       }
     ]

@@ -128,12 +128,19 @@ export default function EventPage({ params }: EventPageProps) {
   };
 
   const related = events
-    .filter(
-      (e) =>
-        e.slug !== event!.slug &&
-        (e.type === event!.type || e.era === event!.era || e.chain === event!.chain)
-    )
-    .slice(0, 4);
+    .filter((e) => e.slug !== event!.slug)
+    .map((e) => ({
+      event: e,
+      score:
+        (e.type === event!.type && e.era === event!.era ? 3 : 0) +
+        (e.era === event!.era ? 2 : 0) +
+        (e.type === event!.type ? 1 : 0) +
+        (e.chain === event!.chain ? 1 : 0)
+    }))
+    .filter((e) => e.score > 0)
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 4)
+    .map((e) => e.event);
 
   const sortedByDate = [...events].sort(compareEventDatesAsc);
   const currentIndex = sortedByDate.findIndex((e) => e.slug === event!.slug);
@@ -164,10 +171,7 @@ export default function EventPage({ params }: EventPageProps) {
             <Badge variant="muted">{event!.year}</Badge>
             {event!.hallOfFame && <Badge variant="gold">Hall of Fame</Badge>}
           </div>
-          <h1
-            className="text-4xl font-semibold"
-            style={{ fontFamily: "var(--font-playfair)" }}
-          >
+          <h1 className="font-display text-4xl font-semibold">
             {event!.title}
           </h1>
           <p className="max-w-3xl text-lg text-muted">{event!.summary}</p>
@@ -263,16 +267,16 @@ export default function EventPage({ params }: EventPageProps) {
           </div>
         )}
 
-        <div className="mt-8">
-          <Card>
-            <CardHeader>
-              <CardTitle>View Chart</CardTitle>
-              <p className="text-sm text-muted">
-                External price/performance context for the historical event.
-              </p>
-            </CardHeader>
-            <CardContent>
-              {event!.chartUrl ? (
+        {event!.chartUrl && (
+          <div className="mt-8">
+            <Card>
+              <CardHeader>
+                <CardTitle>View Chart</CardTitle>
+                <p className="text-sm text-muted">
+                  External price/performance context for the historical event.
+                </p>
+              </CardHeader>
+              <CardContent>
                 <Link
                   href={event!.chartUrl}
                   target="_blank"
@@ -281,15 +285,13 @@ export default function EventPage({ params }: EventPageProps) {
                 >
                   Open chart →
                 </Link>
-              ) : (
-                <p className="text-sm text-muted">Chart link coming soon.</p>
-              )}
-            </CardContent>
-          </Card>
-        </div>
+              </CardContent>
+            </Card>
+          </div>
+        )}
 
         <div className="mt-8">
-          <h2 className="text-xl font-semibold" style={{ fontFamily: "var(--font-playfair)" }}>
+          <h2 className="font-display text-xl font-semibold">
             Related events
           </h2>
           <div className="mt-4 grid grid-cols-1 gap-3 md:grid-cols-2">
@@ -321,7 +323,7 @@ export default function EventPage({ params }: EventPageProps) {
 
         {(previousEvent || nextEvent) && (
           <div className="mt-8">
-            <h2 className="text-xl font-semibold" style={{ fontFamily: "var(--font-playfair)" }}>
+            <h2 className="font-display text-xl font-semibold">
               Continue the timeline
             </h2>
             <div className="mt-4 grid grid-cols-1 gap-3 md:grid-cols-2">

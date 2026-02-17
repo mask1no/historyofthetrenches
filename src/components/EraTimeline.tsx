@@ -24,9 +24,9 @@ export function EraTimeline() {
             const orderedEvents = [...era.featured].sort((a, b) =>
               a.date.localeCompare(b.date)
             );
-            const visibleEvents = openEraIds.includes(era.id)
-              ? orderedEvents
-              : orderedEvents.slice(0, 4);
+            const isOpen = openEraIds.includes(era.id);
+            const visibleEvents = orderedEvents.slice(0, 4);
+            const hiddenEvents = orderedEvents.slice(4);
             return (
               <div
                 key={era.id}
@@ -35,10 +35,13 @@ export function EraTimeline() {
               >
                 <div className="absolute inset-y-0 left-0 w-1 bg-border/40" aria-hidden="true" />
                 <div className="flex items-start gap-3">
-                  <div className="relative mt-1 h-3 w-3 rounded-full bg-accentGold shadow-subtle" />
+                  <div className="relative mt-1 h-4 w-4 rounded-full bg-accentGold shadow-subtle" />
                   <div>
                     <div className="text-xs font-semibold uppercase text-muted">{era.range}</div>
-                    <div className="text-lg font-semibold">{era.title}</div>
+                    <div className="mt-1 flex items-center gap-2">
+                      <span className="text-xs font-semibold text-muted">#{idx + 1}</span>
+                      <div className="text-lg font-semibold">{era.title}</div>
+                    </div>
                     <p className="mt-2 text-sm text-muted line-clamp-3 md:line-clamp-none">
                       {era.description}
                     </p>
@@ -58,15 +61,39 @@ export function EraTimeline() {
                       <Badge variant={typeVariant[event.type]}>{event.year}</Badge>
                     </Link>
                   ))}
+                  {hiddenEvents.length > 0 && (
+                    <div
+                      style={{ gridTemplateRows: isOpen ? "1fr" : "0fr" }}
+                      className="grid transition-[grid-template-rows] duration-500"
+                    >
+                      <div className="overflow-hidden">
+                        <div className="space-y-2 pt-2">
+                          {hiddenEvents.map((event) => (
+                            <Link
+                              key={event.slug}
+                              href={`/event/${event.slug}`}
+                              className="flex items-center justify-between rounded-lg border border-border px-3 py-2 text-sm transition duration-500 ease-in-out hover:border-accentGold focus-visible:ring-2 focus-visible:ring-accentGold focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
+                            >
+                              <span className="flex flex-col">
+                                <span className="font-medium">{event.title}</span>
+                                <span className="text-xs text-muted">{event.date}</span>
+                              </span>
+                              <Badge variant={typeVariant[event.type]}>{event.year}</Badge>
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  )}
                 </div>
-                {orderedEvents.length > 4 && (
+                {hiddenEvents.length > 0 && (
                   <div className="md:col-span-2 flex justify-center pt-3">
                     <button
                       type="button"
                       onClick={() => toggleEra(era.id)}
                       className="text-xs font-semibold text-accentGold underline"
                     >
-                      {openEraIds.includes(era.id) ? "Collapse" : "Expand"}
+                      {isOpen ? "Collapse" : "Expand"}
                     </button>
                   </div>
                 )}

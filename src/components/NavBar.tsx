@@ -158,7 +158,7 @@ export function NavBar() {
           <Button
             variant="ghost"
             size="icon"
-            className="hidden border border-border bg-card/80 text-muted-foreground transition-all duration-300 hover:border-accentGold/60 hover:bg-card hover:text-foreground hover:ring-1 hover:ring-accentGold/20 hover:shadow-subtle md:inline-flex"
+            className="hidden border border-border bg-card/80 text-muted-foreground transition-colors duration-200 hover:border-accentGold/50 hover:text-fg md:inline-flex"
             aria-label="Toggle theme"
             onClick={toggleTheme}
           >
@@ -188,7 +188,7 @@ export function NavBar() {
         </div>
       </div>
       <div
-        className={`fixed inset-0 z-40 bg-black/95 backdrop-blur-lg backdrop-saturate-150 transition-opacity duration-300 ${
+        className={`fixed inset-0 z-40 bg-black/80 backdrop-blur-lg backdrop-saturate-150 transition-opacity duration-300 ${
           isMenuOpen ? "opacity-100" : "pointer-events-none opacity-0"
         }`}
         onClick={() => setShowMobileNav(false)}

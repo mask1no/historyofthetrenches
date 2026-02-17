@@ -42,7 +42,7 @@ export default function HotPage() {
       <NavBar />
       <section className="mx-auto max-w-6xl px-6 pb-12 pt-8">
         <div className="mb-6 space-y-3">
-          <h1 className="text-4xl font-semibold" style={{ fontFamily: "var(--font-playfair)" }}>
+          <h1 className="font-display text-4xl font-semibold">
             The $HOT Experiment
           </h1>
           <p className="max-w-3xl text-base text-muted">
@@ -81,24 +81,17 @@ export default function HotPage() {
               <p className="text-sm text-muted">Simple steps, if you choose to take part.</p>
             </CardHeader>
             <CardContent className="space-y-4 text-sm text-muted">
-              <ol className="space-y-2 rounded-xl border border-border bg-bg/70 p-4 link-underline">
+              <ol className="list-inside list-decimal space-y-2 rounded-xl border border-border bg-bg/70 p-4 link-underline marker:font-semibold marker:text-fg [&>li]:pl-2">
+                <li>Download Phantom</li>
                 <li>
-                  <span className="font-semibold text-fg">1)</span> Download Phantom
-                </li>
-                <li>
-                  <span className="font-semibold text-fg">2)</span> Fund Phantom with SOL (
+                  Fund Phantom with SOL (
                   <a href="https://solana.com" target="_blank" rel="noopener noreferrer">
                     Solana
                   </a>
                   )
                 </li>
-                <li>
-                  <span className="font-semibold text-fg">3)</span> Swap SOL → $HOT
-                </li>
-                <li>
-                  <span className="font-semibold text-fg">4)</span> Participate in the community and
-                  hodl
-                </li>
+                <li>Swap SOL → $HOT</li>
+                <li>Participate in the community and hodl</li>
               </ol>
               <div className="grid gap-3 md:grid-cols-2">
                 <a

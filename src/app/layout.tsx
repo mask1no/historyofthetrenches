@@ -70,8 +70,10 @@ export const metadata: Metadata = {
     description: "Community-maintained crypto history archive and timeline.",
     images: ["/og.png"]
   },
+  manifest: "/manifest.json",
   icons: {
-    icon: "/favicon.svg"
+    icon: "/favicon.svg",
+    apple: "/apple-touch-icon.png"
   }
 };
 

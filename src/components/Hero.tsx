@@ -18,10 +18,7 @@ export function Hero() {
           Digital Community Maintained Archive
         </p>
         <div className="space-y-4">
-          <h1
-            className="text-[2.1rem] font-bold leading-tight text-fg sm:text-[2.6rem] md:text-[3.1rem]"
-            style={{ fontFamily: "var(--font-playfair)" }}
-          >
+          <h1 className="font-display text-[2.1rem] font-bold leading-tight text-fg sm:text-[2.6rem] md:text-[3.1rem]">
             History of the Trenches
           </h1>
           <p className="text-lg text-muted">
@@ -48,7 +45,7 @@ export function Hero() {
           </Link>
         </div>
       </div>
-      <div className="w-full max-w-sm space-y-4 rounded-2xl border border-border bg-card p-5 shadow-subtle dark:border-[#1a1a1a] md:mt-1">
+      <div className="w-full max-w-sm space-y-4 rounded-2xl border border-border bg-card p-5 shadow-subtle md:mt-1">
         <div className="text-xs font-semibold uppercase tracking-[0.24em] text-muted">
           At a glance
         </div>
@@ -62,7 +59,7 @@ export function Hero() {
               {earliestYear && latestYear ? `${earliestYear} to ${latestYear}` : "Unknown"}
             </span>
           </div>
-          <div className="h-px bg-border/40 dark:bg-white/[0.04]" />
+          <div className="h-px bg-border/40 dark:bg-white/[0.08]" />
           <div className="flex items-center justify-between">
             <div className="space-y-0.5">
               <div className="text-sm font-semibold">Total events</div>
@@ -72,7 +69,7 @@ export function Hero() {
               {totalEvents}
             </span>
           </div>
-          <div className="h-px bg-border/40 dark:bg-white/[0.04]" />
+          <div className="h-px bg-border/40 dark:bg-white/[0.08]" />
           <div className="flex items-center justify-between">
             <div className="space-y-0.5">
               <div className="text-sm font-semibold">Latest entry</div>

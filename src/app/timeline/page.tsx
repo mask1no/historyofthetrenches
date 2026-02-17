@@ -41,10 +41,7 @@ export default function TimelinePage() {
       <NavBar />
       <section className="mx-auto max-w-6xl px-6 pb-12 pt-8">
         <div className="mb-6 space-y-3">
-          <h1
-            className="text-4xl font-semibold"
-            style={{ fontFamily: "var(--font-playfair)" }}
-          >
+          <h1 className="font-display text-4xl font-semibold">
             Crypto Timeline
           </h1>
           <p className="text-base text-muted">

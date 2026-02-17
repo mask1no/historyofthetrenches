@@ -113,6 +113,7 @@ export const eras: Era[] = [
         "pepe-memecoin",
         "bonk-solana",
         "pump-fun-surge",
+        "openclaw-viral-sensation",
         "btc-etf-approval",
         "base-mainnet-launch",
         "friend-tech-summer"

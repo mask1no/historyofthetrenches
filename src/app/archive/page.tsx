@@ -39,10 +39,7 @@ export default function ArchivePage() {
       <NavBar />
       <section className="mx-auto max-w-6xl px-6 pb-12 pt-8">
         <div className="mb-8 space-y-3">
-          <h1
-            className="text-4xl font-semibold"
-            style={{ fontFamily: "var(--font-playfair)" }}
-          >
+          <h1 className="font-display text-4xl font-semibold">
             Archive
           </h1>
           <p className="text-base text-muted">
@@ -51,9 +48,7 @@ export default function ArchivePage() {
           </p>
           <div className="h-px w-full bg-border" />
         </div>
-        <div className="rounded-2xl bg-card p-4">
-          <EventTable />
-        </div>
+        <EventTable />
       </section>
       <ScrollToTopButton />
       <Footer />
