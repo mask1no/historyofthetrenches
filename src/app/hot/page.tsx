@@ -43,7 +43,7 @@ export default function HotPage() {
       <section className="mx-auto max-w-6xl px-6 pb-12 pt-8">
         <div className="mb-6 space-y-3">
           <h1 className="font-display text-4xl font-semibold">
-            The $HOT Experiment
+            $HOT
           </h1>
           <p className="max-w-3xl text-base text-muted">
             A playful memecoin diary. Not financial advice, just a public record to keep the story

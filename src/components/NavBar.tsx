@@ -130,8 +130,7 @@ export function NavBar() {
         <div className="flex items-center gap-8">
           <Link
             href="/"
-            className="text-xl font-semibold tracking-tight"
-            style={{ fontFamily: "var(--font-playfair)" }}
+            className="font-display text-xl font-semibold tracking-tight"
           >
             History of the Trenches
           </Link>

@@ -1,4 +1,4 @@
-export type EventType =
+﻿export type EventType =
   | "rugpull"
   | "runner"
   | "milestone"
@@ -56,13 +56,13 @@ export const events: Event[] = [
     "sources": [
       {
         "label": "Wikipedia overview for Silk Road Marketplace Closure",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Silk%20Road%20Marketplace%20Closure",
+        "url": "https://en.wikipedia.org/wiki/Silk_Road_(marketplace)",
         "publisher": "Wikipedia",
         "year": 2013
       },
       {
-        "label": "Wikipedia overview for Silk Road Marketplace Closure (Bitcoin)",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Silk%20Road%20Marketplace%20Closure%20Bitcoin",
+        "label": "Ross Ulbricht article",
+        "url": "https://en.wikipedia.org/wiki/Ross_Ulbricht",
         "publisher": "Wikipedia",
         "year": 2013
       }
@@ -89,13 +89,13 @@ export const events: Event[] = [
     "sources": [
       {
         "label": "Wikipedia overview for Mt. Gox Collapse",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Mt.%20Gox%20Collapse",
+        "url": "https://en.wikipedia.org/wiki/Mt._Gox_Collapse",
         "publisher": "Wikipedia",
         "year": 2014
       },
       {
         "label": "Wikipedia overview for Mt. Gox Collapse (Bitcoin)",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Mt.%20Gox%20Collapse%20Bitcoin",
+        "url": "https://en.wikipedia.org/wiki/Mt._Gox_Collapse_Bitcoin",
         "publisher": "Wikipedia",
         "year": 2014
       }
@@ -127,13 +127,13 @@ export const events: Event[] = [
       },
       {
         "label": "Wikipedia overview for The DAO Hack",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=The%20DAO%20Hack",
+        "url": "https://en.wikipedia.org/wiki/The_DAO_Hack",
         "publisher": "Wikipedia",
         "year": 2016
       },
       {
         "label": "Wikipedia overview for The DAO Hack (Ethereum)",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=The%20DAO%20Hack%20Ethereum",
+        "url": "https://en.wikipedia.org/wiki/The_DAO_Hack_Ethereum",
         "publisher": "Wikipedia",
         "year": 2016
       }
@@ -159,7 +159,7 @@ export const events: Event[] = [
     "sources": [
       {
         "label": "Wikipedia overview for Binance Exchange Launch",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Binance%20Exchange%20Launch",
+        "url": "https://en.wikipedia.org/wiki/Binance_Exchange_Launch",
         "publisher": "Wikipedia",
         "year": 2017
       },
@@ -199,7 +199,7 @@ export const events: Event[] = [
       },
       {
         "label": "Wikipedia overview for Bitconnect Collapse",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Bitconnect%20Collapse",
+        "url": "https://en.wikipedia.org/wiki/Bitconnect_Collapse",
         "publisher": "Wikipedia",
         "year": 2018
       }
@@ -226,13 +226,13 @@ export const events: Event[] = [
     "sources": [
       {
         "label": "Wikipedia overview for Bitcoin 2017 Bull Run",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Bitcoin%202017%20Bull%20Run",
+        "url": "https://en.wikipedia.org/wiki/Bitcoin_2017_Bull_Run",
         "publisher": "Wikipedia",
         "year": 2017
       },
       {
         "label": "Wikipedia overview for Bitcoin 2017 Bull Run (Bitcoin)",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Bitcoin%202017%20Bull%20Run%20Bitcoin",
+        "url": "https://en.wikipedia.org/wiki/Bitcoin_2017_Bull_Run_Bitcoin",
         "publisher": "Wikipedia",
         "year": 2017
       }
@@ -259,13 +259,13 @@ export const events: Event[] = [
     "sources": [
       {
         "label": "Wikipedia overview for Coinbase App Onboarding Boom",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Coinbase%20App%20Onboarding%20Boom",
+        "url": "https://en.wikipedia.org/wiki/Coinbase_App_Onboarding_Boom",
         "publisher": "Wikipedia",
         "year": 2017
       },
       {
         "label": "Wikipedia overview for Coinbase App Onboarding Boom (Multi-chain)",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Coinbase%20App%20Onboarding%20Boom%20Multi-chain",
+        "url": "https://en.wikipedia.org/wiki/Coinbase_App_Onboarding_Boom_Multi-chain",
         "publisher": "Wikipedia",
         "year": 2017
       }
@@ -291,13 +291,13 @@ export const events: Event[] = [
     "sources": [
       {
         "label": "Wikipedia overview for COVID-19 Black Swan",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=COVID-19%20Black%20Swan",
+        "url": "https://en.wikipedia.org/wiki/COVID-19_Black_Swan",
         "publisher": "Wikipedia",
         "year": 2020
       },
       {
         "label": "Wikipedia overview for COVID-19 Black Swan (Multi-chain)",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=COVID-19%20Black%20Swan%20Multi-chain",
+        "url": "https://en.wikipedia.org/wiki/COVID-19_Black_Swan_Multi-chain",
         "publisher": "Wikipedia",
         "year": 2020
       }
@@ -363,7 +363,7 @@ export const events: Event[] = [
       },
       {
         "label": "Wikipedia overview for Yearn.finance",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Yearn.finance",
+        "url": "https://en.wikipedia.org/wiki/Yearn.finance",
         "publisher": "Wikipedia",
         "year": 2020
       }
@@ -427,13 +427,13 @@ export const events: Event[] = [
     "sources": [
       {
         "label": "Wikipedia overview for Terra/Luna Rugpull",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Terra%2FLuna%20Rugpull",
+        "url": "https://en.wikipedia.org/wiki/Terra/Luna_Rugpull",
         "publisher": "Wikipedia",
         "year": 2022
       },
       {
         "label": "Wikipedia overview for Terra/Luna Rugpull (Terra)",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Terra%2FLuna%20Rugpull%20Terra",
+        "url": "https://en.wikipedia.org/wiki/Terra/Luna_Rugpull_Terra",
         "publisher": "Wikipedia",
         "year": 2022
       }
@@ -460,13 +460,13 @@ export const events: Event[] = [
     "sources": [
       {
         "label": "Wikipedia overview for Celsius Bankruptcy",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Celsius%20Bankruptcy",
+        "url": "https://en.wikipedia.org/wiki/Celsius_Bankruptcy",
         "publisher": "Wikipedia",
         "year": 2022
       },
       {
         "label": "Wikipedia overview for Celsius Bankruptcy (CeFi)",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Celsius%20Bankruptcy%20CeFi",
+        "url": "https://en.wikipedia.org/wiki/Celsius_Bankruptcy_CeFi",
         "publisher": "Wikipedia",
         "year": 2022
       }
@@ -493,13 +493,13 @@ export const events: Event[] = [
     "sources": [
       {
         "label": "Wikipedia overview for Three Arrows Capital Collapse",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Three%20Arrows%20Capital%20Collapse",
+        "url": "https://en.wikipedia.org/wiki/Three_Arrows_Capital_Collapse",
         "publisher": "Wikipedia",
         "year": 2022
       },
       {
         "label": "Wikipedia overview for Three Arrows Capital Collapse (Multi-chain)",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Three%20Arrows%20Capital%20Collapse%20Multi-chain",
+        "url": "https://en.wikipedia.org/wiki/Three_Arrows_Capital_Collapse_Multi-chain",
         "publisher": "Wikipedia",
         "year": 2022
       }
@@ -526,13 +526,13 @@ export const events: Event[] = [
     "sources": [
       {
         "label": "Wikipedia overview for Alameda Balance Sheet Leak",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Alameda%20Balance%20Sheet%20Leak",
+        "url": "https://en.wikipedia.org/wiki/Alameda_Balance_Sheet_Leak",
         "publisher": "Wikipedia",
         "year": 2022
       },
       {
         "label": "Wikipedia overview for Alameda Balance Sheet Leak (CeFi)",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Alameda%20Balance%20Sheet%20Leak%20CeFi",
+        "url": "https://en.wikipedia.org/wiki/Alameda_Balance_Sheet_Leak_CeFi",
         "publisher": "Wikipedia",
         "year": 2022
       }
@@ -566,13 +566,13 @@ export const events: Event[] = [
       },
       {
         "label": "Wikipedia overview for FTX Exchange Collapse",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=FTX%20Exchange%20Collapse",
+        "url": "https://en.wikipedia.org/wiki/FTX_Exchange_Collapse",
         "publisher": "Wikipedia",
         "year": 2022
       },
       {
         "label": "Wikipedia overview for FTX Exchange Collapse (CeFi)",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=FTX%20Exchange%20Collapse%20CeFi",
+        "url": "https://en.wikipedia.org/wiki/FTX_Exchange_Collapse_CeFi",
         "publisher": "Wikipedia",
         "year": 2022
       }
@@ -605,13 +605,13 @@ export const events: Event[] = [
       },
       {
         "label": "Wikipedia overview for Axie Infinity Ronin Bridge Hack",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Axie%20Infinity%20Ronin%20Bridge%20Hack",
+        "url": "https://en.wikipedia.org/wiki/Axie_Infinity_Ronin_Bridge_Hack",
         "publisher": "Wikipedia",
         "year": 2022
       },
       {
         "label": "Wikipedia overview for Axie Infinity Ronin Bridge Hack (Ethereum/Sidechain)",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Axie%20Infinity%20Ronin%20Bridge%20Hack%20Ethereum%2FSidechain",
+        "url": "https://en.wikipedia.org/wiki/Axie_Infinity_Ronin_Bridge_Hack_Ethereum/Sidechain",
         "publisher": "Wikipedia",
         "year": 2022
       }
@@ -638,13 +638,13 @@ export const events: Event[] = [
     "sources": [
       {
         "label": "Wikipedia overview for OpenSea Wyvern Exploit",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=OpenSea%20Wyvern%20Exploit",
+        "url": "https://en.wikipedia.org/wiki/OpenSea_Wyvern_Exploit",
         "publisher": "Wikipedia",
         "year": 2022
       },
       {
         "label": "Wikipedia overview for OpenSea Wyvern Exploit (Ethereum)",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=OpenSea%20Wyvern%20Exploit%20Ethereum",
+        "url": "https://en.wikipedia.org/wiki/OpenSea_Wyvern_Exploit_Ethereum",
         "publisher": "Wikipedia",
         "year": 2022
       }
@@ -676,7 +676,7 @@ export const events: Event[] = [
       },
       {
         "label": "Wikipedia overview for Ethereum Merge",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Ethereum%20Merge",
+        "url": "https://en.wikipedia.org/wiki/Ethereum_Merge",
         "publisher": "Wikipedia",
         "year": 2022
       }
@@ -703,13 +703,13 @@ export const events: Event[] = [
     "sources": [
       {
         "label": "Wikipedia overview for Coinbase NASDAQ Listing",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Coinbase%20NASDAQ%20Listing",
+        "url": "https://en.wikipedia.org/wiki/Coinbase_NASDAQ_Listing",
         "publisher": "Wikipedia",
         "year": 2021
       },
       {
         "label": "Wikipedia overview for Coinbase NASDAQ Listing (Multi-chain)",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Coinbase%20NASDAQ%20Listing%20Multi-chain",
+        "url": "https://en.wikipedia.org/wiki/Coinbase_NASDAQ_Listing_Multi-chain",
         "publisher": "Wikipedia",
         "year": 2021
       }
@@ -769,13 +769,13 @@ export const events: Event[] = [
     "sources": [
       {
         "label": "Wikipedia overview for Dogecoin Meme Run",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Dogecoin%20Meme%20Run",
+        "url": "https://en.wikipedia.org/wiki/Dogecoin_Meme_Run",
         "publisher": "Wikipedia",
         "year": 2021
       },
       {
         "label": "Wikipedia overview for Dogecoin Meme Run (Multi-chain)",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Dogecoin%20Meme%20Run%20Multi-chain",
+        "url": "https://en.wikipedia.org/wiki/Dogecoin_Meme_Run_Multi-chain",
         "publisher": "Wikipedia",
         "year": 2021
       }
@@ -803,13 +803,13 @@ export const events: Event[] = [
     "sources": [
       {
         "label": "Wikipedia overview for Shiba Inu Ascent",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Shiba%20Inu%20Ascent",
+        "url": "https://en.wikipedia.org/wiki/Shiba_Inu_Ascent",
         "publisher": "Wikipedia",
         "year": 2021
       },
       {
         "label": "Wikipedia overview for Shiba Inu Ascent (Ethereum)",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Shiba%20Inu%20Ascent%20Ethereum",
+        "url": "https://en.wikipedia.org/wiki/Shiba_Inu_Ascent_Ethereum",
         "publisher": "Wikipedia",
         "year": 2021
       }
@@ -836,13 +836,13 @@ export const events: Event[] = [
     "sources": [
       {
         "label": "Wikipedia overview for AnubisDAO Rugpull",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=AnubisDAO%20Rugpull",
+        "url": "https://en.wikipedia.org/wiki/AnubisDAO_Rugpull",
         "publisher": "Wikipedia",
         "year": 2021
       },
       {
         "label": "Wikipedia overview for AnubisDAO Rugpull (Ethereum)",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=AnubisDAO%20Rugpull%20Ethereum",
+        "url": "https://en.wikipedia.org/wiki/AnubisDAO_Rugpull_Ethereum",
         "publisher": "Wikipedia",
         "year": 2021
       }
@@ -871,13 +871,13 @@ export const events: Event[] = [
     "sources": [
       {
         "label": "Wikipedia overview for Thodex Exchange Exit Scam",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Thodex%20Exchange%20Exit%20Scam",
+        "url": "https://en.wikipedia.org/wiki/Thodex_Exchange_Exit_Scam",
         "publisher": "Wikipedia",
         "year": 2021
       },
       {
         "label": "Wikipedia overview for Thodex Exchange Exit Scam (CeFi)",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Thodex%20Exchange%20Exit%20Scam%20CeFi",
+        "url": "https://en.wikipedia.org/wiki/Thodex_Exchange_Exit_Scam_CeFi",
         "publisher": "Wikipedia",
         "year": 2021
       }
@@ -910,7 +910,7 @@ export const events: Event[] = [
       },
       {
         "label": "Wikipedia overview for Squid Game Token Rugpull",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Squid%20Game%20Token%20Rugpull",
+        "url": "https://en.wikipedia.org/wiki/Squid_Game_Token_Rugpull",
         "publisher": "Wikipedia",
         "year": 2021
       }
@@ -937,13 +937,13 @@ export const events: Event[] = [
     "sources": [
       {
         "label": "Wikipedia overview for PEPE Meme Rally",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=PEPE%20Meme%20Rally",
+        "url": "https://en.wikipedia.org/wiki/PEPE_Meme_Rally",
         "publisher": "Wikipedia",
         "year": 2023
       },
       {
         "label": "Wikipedia overview for PEPE Meme Rally (Ethereum)",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=PEPE%20Meme%20Rally%20Ethereum",
+        "url": "https://en.wikipedia.org/wiki/PEPE_Meme_Rally_Ethereum",
         "publisher": "Wikipedia",
         "year": 2023
       }
@@ -970,13 +970,13 @@ export const events: Event[] = [
     "sources": [
       {
         "label": "Wikipedia overview for BONK on Solana",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=BONK%20on%20Solana",
+        "url": "https://en.wikipedia.org/wiki/BONK_on_Solana",
         "publisher": "Wikipedia",
         "year": 2023
       },
       {
         "label": "Wikipedia overview for BONK on Solana (Solana)",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=BONK%20on%20Solana%20Solana",
+        "url": "https://en.wikipedia.org/wiki/BONK_on_Solana_Solana",
         "publisher": "Wikipedia",
         "year": 2023
       }
@@ -993,7 +993,7 @@ export const events: Event[] = [
     "hallOfFame": true,
     "status": "ecosystem rebound",
     "summary": "SOL rebounded from post-FTX lows as developer activity, DeFi liquidity, and memecoin momentum reignited Solana demand.",
-    "peakMetric": "$8 → $300",
+    "peakMetric": "$8 Ã”Ã¥Ã† $300",
     "outcome": "Network sentiment reversal",
     "tags": [
       "runner",
@@ -1004,13 +1004,13 @@ export const events: Event[] = [
     "sources": [
       {
         "label": "Wikipedia overview for Solana Post-FTX Revival Run",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Solana%20Post-FTX%20Revival%20Run",
+        "url": "https://en.wikipedia.org/wiki/Solana_Post-FTX_Revival_Run",
         "publisher": "Wikipedia",
         "year": 2024
       },
       {
         "label": "Wikipedia overview for Solana Post-FTX Revival Run (Solana)",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Solana%20Post-FTX%20Revival%20Run%20Solana",
+        "url": "https://en.wikipedia.org/wiki/Solana_Post-FTX_Revival_Run_Solana",
         "publisher": "Wikipedia",
         "year": 2024
       }
@@ -1036,13 +1036,13 @@ export const events: Event[] = [
     "sources": [
       {
         "label": "Wikipedia overview for Pump.fun Era Emerges",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Pump.fun%20Era%20Emerges",
+        "url": "https://en.wikipedia.org/wiki/Pump.fun_Era_Emerges",
         "publisher": "Wikipedia",
         "year": 2024
       },
       {
         "label": "Wikipedia overview for Pump.fun Era Emerges (Solana)",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Pump.fun%20Era%20Emerges%20Solana",
+        "url": "https://en.wikipedia.org/wiki/Pump.fun_Era_Emerges_Solana",
         "publisher": "Wikipedia",
         "year": 2024
       }
@@ -1056,15 +1056,14 @@ export const events: Event[] = [
     "year": 2026,
     "date": "2026-01-31",
     "era": "Pump.fun Era",
-    "hallOfFame": true,
     "status": "security breach",
-    "summary": "A critical Supabase misconfiguration left Moltbook's production database fully exposed — no Row-Level Security, no access controls. Security researchers found 1.5 million API tokens, 35,000 emails, and thousands of private agent messages accessible via basic curl commands. The platform, built using AI-generated code, failed to implement fundamental security policies.",
+    "summary": "A critical Supabase misconfiguration left Moltbook's production database fully exposed Ã”Ã‡Ã¶ no Row-Level Security, no access controls. Security researchers found 1.5 million API tokens, 35,000 emails, and thousands of private agent messages accessible via basic curl commands. The platform, built using AI-generated code, failed to implement fundamental security policies.",
     "peakMetric": "1.5M API tokens exposed",
     "outcome": "Patched within 48 hours of Wiz disclosure",
     "tags": [
       "launchpad",
       "exploit",
-      "rugpull",
+      "web-security",
       "moltbook",
       "security",
       "integrity"
@@ -1146,13 +1145,13 @@ export const events: Event[] = [
     "sources": [
       {
         "label": "Wikipedia overview for Bitcoin Spot ETF Approvals",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Bitcoin%20Spot%20ETF%20Approvals",
+        "url": "https://en.wikipedia.org/wiki/Bitcoin_Spot_ETF_Approvals",
         "publisher": "Wikipedia",
         "year": 2024
       },
       {
         "label": "Wikipedia overview for Bitcoin Spot ETF Approvals (Bitcoin)",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Bitcoin%20Spot%20ETF%20Approvals%20Bitcoin",
+        "url": "https://en.wikipedia.org/wiki/Bitcoin_Spot_ETF_Approvals_Bitcoin",
         "publisher": "Wikipedia",
         "year": 2024
       }
@@ -1178,16 +1177,16 @@ export const events: Event[] = [
     "chartUrl": "https://coinmarketcap.com/currencies/safemoon/",
     "sources": [
       {
-        "label": "Wikipedia overview for SafeMoon Liquidity Drain",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=SafeMoon%20Liquidity%20Drain",
+        "label": "SafeMoon article",
+        "url": "https://en.wikipedia.org/wiki/SafeMoon",
         "publisher": "Wikipedia",
         "year": 2021
       },
       {
-        "label": "Wikipedia overview for SafeMoon Liquidity Drain (BSC)",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=SafeMoon%20Liquidity%20Drain%20BSC",
-        "publisher": "Wikipedia",
-        "year": 2021
+        "label": "SEC charges SafeMoon executives",
+        "url": "https://www.sec.gov/newsroom/press-releases/2023-229",
+        "publisher": "U.S. SEC",
+        "year": 2023
       }
     ]
   },
@@ -1201,7 +1200,7 @@ export const events: Event[] = [
     "era": "DeFi Summer",
     "hallOfFame": true,
     "status": "vault drained",
-    "summary": "Meerkat Finance’s vault funds vanished shortly after launch, sparking a scramble across BSC as liquidity providers realized the contracts had been emptied.",
+    "summary": "Meerkat FinanceÃ”Ã‡Ã–s vault funds vanished shortly after launch, sparking a scramble across BSC as liquidity providers realized the contracts had been emptied.",
     "peakMetric": "$31M TVL drained",
     "outcome": "Project claimed exploit; users left with losses",
     "tags": [
@@ -1210,15 +1209,15 @@ export const events: Event[] = [
     ],
     "sources": [
       {
-        "label": "Wikipedia overview for Meerkat Finance Rugpull",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Meerkat%20Finance%20Rugpull",
-        "publisher": "Wikipedia",
+        "label": "Meerkat Finance disappears with $31M",
+        "url": "https://www.coindesk.com/markets/2021/03/05/binance-smart-chain-defi-project-meerkat-finance-disappears-with-31m/",
+        "publisher": "CoinDesk",
         "year": 2021
       },
       {
-        "label": "Wikipedia overview for Meerkat Finance Rugpull (BSC)",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Meerkat%20Finance%20Rugpull%20BSC",
-        "publisher": "Wikipedia",
+        "label": "Binance Smart Chain project Meerkat vanishes",
+        "url": "https://www.theblock.co/post/97032/binance-smart-chain-project-meerkat-finance-disappears-with-31-million",
+        "publisher": "The Block",
         "year": 2021
       }
     ]
@@ -1274,13 +1273,13 @@ export const events: Event[] = [
     "sources": [
       {
         "label": "Wikipedia overview for Ethereum ICO Launch",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Ethereum%20ICO%20Launch",
+        "url": "https://en.wikipedia.org/wiki/Ethereum_ICO_Launch",
         "publisher": "Wikipedia",
         "year": 2014
       },
       {
         "label": "Wikipedia overview for Ethereum ICO Launch (Ethereum)",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Ethereum%20ICO%20Launch%20Ethereum",
+        "url": "https://en.wikipedia.org/wiki/Ethereum_ICO_Launch_Ethereum",
         "publisher": "Wikipedia",
         "year": 2014
       }
@@ -1307,13 +1306,13 @@ export const events: Event[] = [
     "sources": [
       {
         "label": "Wikipedia overview for CryptoKitties Chain Congestion",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=CryptoKitties%20Chain%20Congestion",
+        "url": "https://en.wikipedia.org/wiki/CryptoKitties_Chain_Congestion",
         "publisher": "Wikipedia",
         "year": 2017
       },
       {
         "label": "Wikipedia overview for CryptoKitties Chain Congestion (Ethereum)",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=CryptoKitties%20Chain%20Congestion%20Ethereum",
+        "url": "https://en.wikipedia.org/wiki/CryptoKitties_Chain_Congestion_Ethereum",
         "publisher": "Wikipedia",
         "year": 2017
       }
@@ -1346,7 +1345,7 @@ export const events: Event[] = [
       },
       {
         "label": "Wikipedia overview for Compound Launches Yield Farming",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Compound%20Launches%20Yield%20Farming",
+        "url": "https://en.wikipedia.org/wiki/Compound_Launches_Yield_Farming",
         "publisher": "Wikipedia",
         "year": 2020
       }
@@ -1373,13 +1372,13 @@ export const events: Event[] = [
     "sources": [
       {
         "label": "Wikipedia overview for Axie Infinity Play-to-Earn Peak",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Axie%20Infinity%20Play-to-Earn%20Peak",
+        "url": "https://en.wikipedia.org/wiki/Axie_Infinity_Play-to-Earn_Peak",
         "publisher": "Wikipedia",
         "year": 2021
       },
       {
         "label": "Wikipedia overview for Axie Infinity Play-to-Earn Peak (Ethereum/Sidechain)",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Axie%20Infinity%20Play-to-Earn%20Peak%20Ethereum%2FSidechain",
+        "url": "https://en.wikipedia.org/wiki/Axie_Infinity_Play-to-Earn_Peak_Ethereum/Sidechain",
         "publisher": "Wikipedia",
         "year": 2021
       }
@@ -1412,13 +1411,13 @@ export const events: Event[] = [
       },
       {
         "label": "Wikipedia overview for Base Mainnet Launch",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Base%20Mainnet%20Launch",
+        "url": "https://en.wikipedia.org/wiki/Base_Mainnet_Launch",
         "publisher": "Wikipedia",
         "year": 2023
       },
       {
         "label": "Wikipedia overview for Base Mainnet Launch (Ethereum L2)",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Base%20Mainnet%20Launch%20Ethereum%20L2",
+        "url": "https://en.wikipedia.org/wiki/Base_Mainnet_Launch_Ethereum_L2",
         "publisher": "Wikipedia",
         "year": 2023
       }
@@ -1450,13 +1449,13 @@ export const events: Event[] = [
       },
       {
         "label": "Wikipedia overview for Bitcoin Ordinals Minting Launch",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Bitcoin%20Ordinals%20Minting%20Launch",
+        "url": "https://en.wikipedia.org/wiki/Bitcoin_Ordinals_Minting_Launch",
         "publisher": "Wikipedia",
         "year": 2023
       },
       {
         "label": "Wikipedia overview for Bitcoin Ordinals Minting Launch (Bitcoin)",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Bitcoin%20Ordinals%20Minting%20Launch%20Bitcoin",
+        "url": "https://en.wikipedia.org/wiki/Bitcoin_Ordinals_Minting_Launch_Bitcoin",
         "publisher": "Wikipedia",
         "year": 2023
       }
@@ -1482,13 +1481,13 @@ export const events: Event[] = [
     "sources": [
       {
         "label": "Wikipedia overview for Friend.tech Social Token Summer",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Friend.tech%20Social%20Token%20Summer",
+        "url": "https://en.wikipedia.org/wiki/Friend.tech_Social_Token_Summer",
         "publisher": "Wikipedia",
         "year": 2023
       },
       {
         "label": "Wikipedia overview for Friend.tech Social Token Summer (Base)",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Friend.tech%20Social%20Token%20Summer%20Base",
+        "url": "https://en.wikipedia.org/wiki/Friend.tech_Social_Token_Summer_Base",
         "publisher": "Wikipedia",
         "year": 2023
       }
@@ -1514,13 +1513,13 @@ export const events: Event[] = [
     "sources": [
       {
         "label": "Wikipedia overview for SBF Trial Verdict",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=SBF%20Trial%20Verdict",
+        "url": "https://en.wikipedia.org/wiki/SBF_Trial_Verdict",
         "publisher": "Wikipedia",
         "year": 2023
       },
       {
         "label": "Wikipedia overview for SBF Trial Verdict (CeFi)",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=SBF%20Trial%20Verdict%20CeFi",
+        "url": "https://en.wikipedia.org/wiki/SBF_Trial_Verdict_CeFi",
         "publisher": "Wikipedia",
         "year": 2023
       }
@@ -1546,7 +1545,7 @@ export const events: Event[] = [
     "sources": [
       {
         "label": "Wikipedia overview for Bitfinex Hack",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Bitfinex%20Hack",
+        "url": "https://en.wikipedia.org/wiki/Bitfinex_Hack",
         "publisher": "Wikipedia",
         "year": 2016
       },
@@ -1578,13 +1577,13 @@ export const events: Event[] = [
     "sources": [
       {
         "label": "Wikipedia overview for Parity Multisig Freeze",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Parity%20Multisig%20Freeze",
+        "url": "https://en.wikipedia.org/wiki/Parity_Multisig_Freeze",
         "publisher": "Wikipedia",
         "year": 2017
       },
       {
         "label": "Wikipedia overview for Parity Multisig Freeze (Ethereum)",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Parity%20Multisig%20Freeze%20Ethereum",
+        "url": "https://en.wikipedia.org/wiki/Parity_Multisig_Freeze_Ethereum",
         "publisher": "Wikipedia",
         "year": 2017
       }
@@ -1617,13 +1616,13 @@ export const events: Event[] = [
       },
       {
         "label": "Wikipedia overview for YAM Finance Launch Bug",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=YAM%20Finance%20Launch%20Bug",
+        "url": "https://en.wikipedia.org/wiki/YAM_Finance_Launch_Bug",
         "publisher": "Wikipedia",
         "year": 2020
       },
       {
         "label": "Wikipedia overview for YAM Finance Launch Bug (Ethereum)",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=YAM%20Finance%20Launch%20Bug%20Ethereum",
+        "url": "https://en.wikipedia.org/wiki/YAM_Finance_Launch_Bug_Ethereum",
         "publisher": "Wikipedia",
         "year": 2020
       }
@@ -1650,13 +1649,13 @@ export const events: Event[] = [
     "sources": [
       {
         "label": "Wikipedia overview for Poly Network Hack",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Poly%20Network%20Hack",
+        "url": "https://en.wikipedia.org/wiki/Poly_Network_Hack",
         "publisher": "Wikipedia",
         "year": 2021
       },
       {
         "label": "Wikipedia overview for Poly Network Hack (Multi-chain)",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Poly%20Network%20Hack%20Multi-chain",
+        "url": "https://en.wikipedia.org/wiki/Poly_Network_Hack_Multi-chain",
         "publisher": "Wikipedia",
         "year": 2021
       }
@@ -1688,7 +1687,7 @@ export const events: Event[] = [
       },
       {
         "label": "Wikipedia overview for Wormhole Bridge Hack",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Wormhole%20Bridge%20Hack",
+        "url": "https://en.wikipedia.org/wiki/Wormhole_Bridge_Hack",
         "publisher": "Wikipedia",
         "year": 2022
       }
@@ -1721,13 +1720,13 @@ export const events: Event[] = [
       },
       {
         "label": "Wikipedia overview for MakerDAO Black Thursday",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=MakerDAO%20Black%20Thursday",
+        "url": "https://en.wikipedia.org/wiki/MakerDAO_Black_Thursday",
         "publisher": "Wikipedia",
         "year": 2020
       },
       {
         "label": "Wikipedia overview for MakerDAO Black Thursday (Ethereum)",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=MakerDAO%20Black%20Thursday%20Ethereum",
+        "url": "https://en.wikipedia.org/wiki/MakerDAO_Black_Thursday_Ethereum",
         "publisher": "Wikipedia",
         "year": 2020
       }
@@ -1760,13 +1759,13 @@ export const events: Event[] = [
       },
       {
         "label": "Wikipedia overview for Tornado Cash Sanctions",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Tornado%20Cash%20Sanctions",
+        "url": "https://en.wikipedia.org/wiki/Tornado_Cash_Sanctions",
         "publisher": "Wikipedia",
         "year": 2022
       },
       {
         "label": "Wikipedia overview for Tornado Cash Sanctions (Ethereum)",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Tornado%20Cash%20Sanctions%20Ethereum",
+        "url": "https://en.wikipedia.org/wiki/Tornado_Cash_Sanctions_Ethereum",
         "publisher": "Wikipedia",
         "year": 2022
       }
@@ -1793,13 +1792,13 @@ export const events: Event[] = [
     "sources": [
       {
         "label": "Wikipedia overview for Arbitrum Airdrop",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Arbitrum%20Airdrop",
+        "url": "https://en.wikipedia.org/wiki/Arbitrum_Airdrop",
         "publisher": "Wikipedia",
         "year": 2023
       },
       {
         "label": "Wikipedia overview for Arbitrum Airdrop (Ethereum L2)",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Arbitrum%20Airdrop%20Ethereum%20L2",
+        "url": "https://en.wikipedia.org/wiki/Arbitrum_Airdrop_Ethereum_L2",
         "publisher": "Wikipedia",
         "year": 2023
       }
@@ -1826,13 +1825,13 @@ export const events: Event[] = [
     "sources": [
       {
         "label": "Wikipedia overview for OP Stack Announced",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=OP%20Stack%20Announced",
+        "url": "https://en.wikipedia.org/wiki/OP_Stack_Announced",
         "publisher": "Wikipedia",
         "year": 2022
       },
       {
         "label": "Wikipedia overview for OP Stack Announced (Ethereum L2)",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=OP%20Stack%20Announced%20Ethereum%20L2",
+        "url": "https://en.wikipedia.org/wiki/OP_Stack_Announced_Ethereum_L2",
         "publisher": "Wikipedia",
         "year": 2022
       }
@@ -1858,13 +1857,13 @@ export const events: Event[] = [
     "sources": [
       {
         "label": "Wikipedia overview for Sepolia Testnet Merge",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Sepolia%20Testnet%20Merge",
+        "url": "https://en.wikipedia.org/wiki/Sepolia_Testnet_Merge",
         "publisher": "Wikipedia",
         "year": 2022
       },
       {
         "label": "Wikipedia overview for Sepolia Testnet Merge (Ethereum)",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Sepolia%20Testnet%20Merge%20Ethereum",
+        "url": "https://en.wikipedia.org/wiki/Sepolia_Testnet_Merge_Ethereum",
         "publisher": "Wikipedia",
         "year": 2022
       }
@@ -1890,7 +1889,7 @@ export const events: Event[] = [
     "sources": [
       {
         "label": "Wikipedia overview for Bitcoin Cash Hard Fork",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Bitcoin%20Cash%20Hard%20Fork",
+        "url": "https://en.wikipedia.org/wiki/Bitcoin_Cash_Hard_Fork",
         "publisher": "Wikipedia",
         "year": 2017
       },
@@ -1928,7 +1927,7 @@ export const events: Event[] = [
       },
       {
         "label": "Wikipedia overview for Elon Musk Suspends BTC Payments",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Elon%20Musk%20Suspends%20BTC%20Payments",
+        "url": "https://en.wikipedia.org/wiki/Elon_Musk_Suspends_BTC_Payments",
         "publisher": "Wikipedia",
         "year": 2021
       }
@@ -1954,13 +1953,13 @@ export const events: Event[] = [
     "sources": [
       {
         "label": "Wikipedia overview for London Upgrade (EIP-1559) (Ethereum)",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=London%20Upgrade%20(EIP-1559)%20Ethereum",
+        "url": "https://en.wikipedia.org/wiki/London_Upgrade_(EIP-1559)_Ethereum",
         "publisher": "Wikipedia",
         "year": 2021
       },
       {
         "label": "Wikipedia overview for London Upgrade (EIP-1559)",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=London%20Upgrade%20(EIP-1559)",
+        "url": "https://en.wikipedia.org/wiki/London_Upgrade_(EIP-1559)",
         "publisher": "Wikipedia",
         "year": 2021
       }
@@ -1992,13 +1991,13 @@ export const events: Event[] = [
       },
       {
         "label": "Wikipedia overview for Solana Major Outage",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Solana%20Major%20Outage",
+        "url": "https://en.wikipedia.org/wiki/Solana_Major_Outage",
         "publisher": "Wikipedia",
         "year": 2022
       },
       {
         "label": "Wikipedia overview for Solana Major Outage (Solana)",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Solana%20Major%20Outage%20Solana",
+        "url": "https://en.wikipedia.org/wiki/Solana_Major_Outage_Solana",
         "publisher": "Wikipedia",
         "year": 2022
       }
@@ -2024,7 +2023,7 @@ export const events: Event[] = [
     "sources": [
       {
         "label": "Wikipedia overview for BSC ApeSwap / SafeMoon Exploit",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=BSC%20ApeSwap%20%2F%20SafeMoon%20Exploit",
+        "url": "https://en.wikipedia.org/wiki/BSC_ApeSwap_/_SafeMoon_Exploit",
         "publisher": "Wikipedia",
         "year": 2023
       },
@@ -2060,7 +2059,7 @@ export const events: Event[] = [
       },
       {
         "label": "Wikipedia overview for Bitcoin Pizza Day Purchase",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Bitcoin%20Pizza%20Day%20Purchase",
+        "url": "https://en.wikipedia.org/wiki/Bitcoin_Pizza_Day_Purchase",
         "publisher": "Wikipedia",
         "year": 2010
       }
@@ -2085,13 +2084,13 @@ export const events: Event[] = [
     "sources": [
       {
         "label": "Wikipedia overview for New York BitLicense Introduced",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=New%20York%20BitLicense%20Introduced",
+        "url": "https://en.wikipedia.org/wiki/New_York_BitLicense_Introduced",
         "publisher": "Wikipedia",
         "year": 2015
       },
       {
         "label": "Wikipedia overview for New York BitLicense Introduced (Multi-chain)",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=New%20York%20BitLicense%20Introduced%20Multi-chain",
+        "url": "https://en.wikipedia.org/wiki/New_York_BitLicense_Introduced_Multi-chain",
         "publisher": "Wikipedia",
         "year": 2015
       }
@@ -2122,7 +2121,7 @@ export const events: Event[] = [
       },
       {
         "label": "Wikipedia overview for NiceHash Wallet Breach",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=NiceHash%20Wallet%20Breach",
+        "url": "https://en.wikipedia.org/wiki/NiceHash_Wallet_Breach",
         "publisher": "Wikipedia",
         "year": 2017
       }
@@ -2146,13 +2145,13 @@ export const events: Event[] = [
     "sources": [
       {
         "label": "Wikipedia overview for Coincheck NEM Hack",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Coincheck%20NEM%20Hack",
+        "url": "https://en.wikipedia.org/wiki/Coincheck_NEM_Hack",
         "publisher": "Wikipedia",
         "year": 2018
       },
       {
         "label": "Wikipedia overview for Coincheck NEM Hack (NEM)",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Coincheck%20NEM%20Hack%20NEM",
+        "url": "https://en.wikipedia.org/wiki/Coincheck_NEM_Hack_NEM",
         "publisher": "Wikipedia",
         "year": 2018
       }
@@ -2179,13 +2178,13 @@ export const events: Event[] = [
     "sources": [
       {
         "label": "Wikipedia overview for QuadrigaCX Collapse",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=QuadrigaCX%20Collapse",
+        "url": "https://en.wikipedia.org/wiki/QuadrigaCX_Collapse",
         "publisher": "Wikipedia",
         "year": 2019
       },
       {
         "label": "Wikipedia overview for QuadrigaCX Collapse (CeFi)",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=QuadrigaCX%20Collapse%20CeFi",
+        "url": "https://en.wikipedia.org/wiki/QuadrigaCX_Collapse_CeFi",
         "publisher": "Wikipedia",
         "year": 2019
       }
@@ -2211,13 +2210,13 @@ export const events: Event[] = [
     "sources": [
       {
         "label": "Wikipedia overview for MicroStrategy Bitcoin Treasury Allocation",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=MicroStrategy%20Bitcoin%20Treasury%20Allocation",
+        "url": "https://en.wikipedia.org/wiki/MicroStrategy_Bitcoin_Treasury_Allocation",
         "publisher": "Wikipedia",
         "year": 2020
       },
       {
         "label": "Wikipedia overview for MicroStrategy Bitcoin Treasury Allocation (Bitcoin)",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=MicroStrategy%20Bitcoin%20Treasury%20Allocation%20Bitcoin",
+        "url": "https://en.wikipedia.org/wiki/MicroStrategy_Bitcoin_Treasury_Allocation_Bitcoin",
         "publisher": "Wikipedia",
         "year": 2020
       }
@@ -2241,7 +2240,7 @@ export const events: Event[] = [
     "sources": [
       {
         "label": "Wikipedia overview for First Bitcoin ETF (Canada)",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=First%20Bitcoin%20ETF%20(Canada)",
+        "url": "https://en.wikipedia.org/wiki/First_Bitcoin_ETF_(Canada)",
         "publisher": "Wikipedia",
         "year": 2021
       },
@@ -2271,13 +2270,13 @@ export const events: Event[] = [
     "sources": [
       {
         "label": "Wikipedia overview for El Salvador Adopts Bitcoin as Legal Tender",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=El%20Salvador%20Adopts%20Bitcoin%20as%20Legal%20Tender",
+        "url": "https://en.wikipedia.org/wiki/El_Salvador_Adopts_Bitcoin_as_Legal_Tender",
         "publisher": "Wikipedia",
         "year": 2021
       },
       {
         "label": "Wikipedia overview for El Salvador Adopts Bitcoin as Legal Tender (Bitcoin)",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=El%20Salvador%20Adopts%20Bitcoin%20as%20Legal%20Tender%20Bitcoin",
+        "url": "https://en.wikipedia.org/wiki/El_Salvador_Adopts_Bitcoin_as_Legal_Tender_Bitcoin",
         "publisher": "Wikipedia",
         "year": 2021
       }
@@ -2301,13 +2300,13 @@ export const events: Event[] = [
     "sources": [
       {
         "label": "Wikipedia overview for China Mining Ban Escalates",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=China%20Mining%20Ban%20Escalates",
+        "url": "https://en.wikipedia.org/wiki/China_Mining_Ban_Escalates",
         "publisher": "Wikipedia",
         "year": 2021
       },
       {
         "label": "Wikipedia overview for China Mining Ban Escalates (Bitcoin)",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=China%20Mining%20Ban%20Escalates%20Bitcoin",
+        "url": "https://en.wikipedia.org/wiki/China_Mining_Ban_Escalates_Bitcoin",
         "publisher": "Wikipedia",
         "year": 2021
       }
@@ -2334,7 +2333,7 @@ export const events: Event[] = [
     "sources": [
       {
         "label": "Wikipedia overview for BadgerDAO Front-end Exploit",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=BadgerDAO%20Front-end%20Exploit",
+        "url": "https://en.wikipedia.org/wiki/BadgerDAO_Front-end_Exploit",
         "publisher": "Wikipedia",
         "year": 2021
       },
@@ -2355,7 +2354,7 @@ export const events: Event[] = [
     "date": "2022-08-01",
     "era": "DeFi Summer",
     "status": "bridge exploit",
-    "summary": "Nomad bridge vulnerability let users copy the attacker’s transaction, draining ~$190M in a free-for-all.",
+    "summary": "Nomad bridge vulnerability let users copy the attackerÃ”Ã‡Ã–s transaction, draining ~$190M in a free-for-all.",
     "peakMetric": "$190M drained",
     "outcome": "Partial funds returned",
     "tags": [
@@ -2367,13 +2366,13 @@ export const events: Event[] = [
     "sources": [
       {
         "label": "Wikipedia overview for Nomad Bridge Exploit",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Nomad%20Bridge%20Exploit",
+        "url": "https://en.wikipedia.org/wiki/Nomad_Bridge_Exploit",
         "publisher": "Wikipedia",
         "year": 2022
       },
       {
         "label": "Wikipedia overview for Nomad Bridge Exploit (Multi-chain)",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Nomad%20Bridge%20Exploit%20Multi-chain",
+        "url": "https://en.wikipedia.org/wiki/Nomad_Bridge_Exploit_Multi-chain",
         "publisher": "Wikipedia",
         "year": 2022
       }
@@ -2399,13 +2398,13 @@ export const events: Event[] = [
     "sources": [
       {
         "label": "Wikipedia overview for Mango Markets Price Manipulation",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Mango%20Markets%20Price%20Manipulation",
+        "url": "https://en.wikipedia.org/wiki/Mango_Markets_Price_Manipulation",
         "publisher": "Wikipedia",
         "year": 2022
       },
       {
         "label": "Wikipedia overview for Mango Markets Price Manipulation (Solana)",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Mango%20Markets%20Price%20Manipulation%20Solana",
+        "url": "https://en.wikipedia.org/wiki/Mango_Markets_Price_Manipulation_Solana",
         "publisher": "Wikipedia",
         "year": 2022
       }
@@ -2430,7 +2429,7 @@ export const events: Event[] = [
     "sources": [
       {
         "label": "Wikipedia overview for BlockFi Bankruptcy",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=BlockFi%20Bankruptcy",
+        "url": "https://en.wikipedia.org/wiki/BlockFi_Bankruptcy",
         "publisher": "Wikipedia",
         "year": 2022
       },
@@ -2467,13 +2466,13 @@ export const events: Event[] = [
       },
       {
         "label": "Wikipedia overview for Voyager Digital Bankruptcy",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Voyager%20Digital%20Bankruptcy",
+        "url": "https://en.wikipedia.org/wiki/Voyager_Digital_Bankruptcy",
         "publisher": "Wikipedia",
         "year": 2022
       },
       {
         "label": "Wikipedia overview for Voyager Digital Bankruptcy (CeFi)",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Voyager%20Digital%20Bankruptcy%20CeFi",
+        "url": "https://en.wikipedia.org/wiki/Voyager_Digital_Bankruptcy_CeFi",
         "publisher": "Wikipedia",
         "year": 2022
       }
@@ -2498,7 +2497,7 @@ export const events: Event[] = [
     "sources": [
       {
         "label": "Wikipedia overview for Genesis Global Bankruptcy",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Genesis%20Global%20Bankruptcy",
+        "url": "https://en.wikipedia.org/wiki/Genesis_Global_Bankruptcy",
         "publisher": "Wikipedia",
         "year": 2023
       },
@@ -2531,13 +2530,13 @@ export const events: Event[] = [
     "sources": [
       {
         "label": "Wikipedia overview for Euler Finance Hack",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Euler%20Finance%20Hack",
+        "url": "https://en.wikipedia.org/wiki/Euler_Finance_Hack",
         "publisher": "Wikipedia",
         "year": 2023
       },
       {
         "label": "Wikipedia overview for Euler Finance Hack (Ethereum)",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Euler%20Finance%20Hack%20Ethereum",
+        "url": "https://en.wikipedia.org/wiki/Euler_Finance_Hack_Ethereum",
         "publisher": "Wikipedia",
         "year": 2023
       }
@@ -2564,13 +2563,13 @@ export const events: Event[] = [
     "sources": [
       {
         "label": "Wikipedia overview for Curve Stable Pools Exploit",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Curve%20Stable%20Pools%20Exploit",
+        "url": "https://en.wikipedia.org/wiki/Curve_Stable_Pools_Exploit",
         "publisher": "Wikipedia",
         "year": 2023
       },
       {
         "label": "Wikipedia overview for Curve Stable Pools Exploit (Ethereum)",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Curve%20Stable%20Pools%20Exploit%20Ethereum",
+        "url": "https://en.wikipedia.org/wiki/Curve_Stable_Pools_Exploit_Ethereum",
         "publisher": "Wikipedia",
         "year": 2023
       }
@@ -2601,13 +2600,13 @@ export const events: Event[] = [
       },
       {
         "label": "Wikipedia overview for Binance CFTC Enforcement",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Binance%20CFTC%20Enforcement",
+        "url": "https://en.wikipedia.org/wiki/Binance_CFTC_Enforcement",
         "publisher": "Wikipedia",
         "year": 2023
       },
       {
         "label": "Wikipedia overview for Binance CFTC Enforcement (CeFi)",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Binance%20CFTC%20Enforcement%20CeFi",
+        "url": "https://en.wikipedia.org/wiki/Binance_CFTC_Enforcement_CeFi",
         "publisher": "Wikipedia",
         "year": 2023
       }
@@ -2665,13 +2664,13 @@ export const events: Event[] = [
     "sources": [
       {
         "label": "Wikipedia overview for Ethereum Mainnet Launch",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Ethereum%20Mainnet%20Launch",
+        "url": "https://en.wikipedia.org/wiki/Ethereum_Mainnet_Launch",
         "publisher": "Wikipedia",
         "year": 2015
       },
       {
         "label": "Wikipedia overview for Ethereum Mainnet Launch (Ethereum)",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Ethereum%20Mainnet%20Launch%20Ethereum",
+        "url": "https://en.wikipedia.org/wiki/Ethereum_Mainnet_Launch_Ethereum",
         "publisher": "Wikipedia",
         "year": 2015
       }
@@ -2697,7 +2696,7 @@ export const events: Event[] = [
     "sources": [
       {
         "label": "Wikipedia overview for Bitcoin Taproot Activation",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Bitcoin%20Taproot%20Activation",
+        "url": "https://en.wikipedia.org/wiki/Bitcoin_Taproot_Activation",
         "publisher": "Wikipedia",
         "year": 2021
       },
@@ -2718,7 +2717,7 @@ export const events: Event[] = [
     "date": "2020-12-01",
     "era": "DeFi Summer",
     "status": "consensus shift",
-    "summary": "Ethereum’s Beacon Chain launched, marking the start of the transition to Proof of Stake.",
+    "summary": "EthereumÃ”Ã‡Ã–s Beacon Chain launched, marking the start of the transition to Proof of Stake.",
     "peakMetric": "PoS chain live",
     "outcome": "Merge path established",
     "tags": [
@@ -2729,13 +2728,13 @@ export const events: Event[] = [
     "sources": [
       {
         "label": "Wikipedia overview for Ethereum Beacon Chain Genesis",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Ethereum%20Beacon%20Chain%20Genesis",
+        "url": "https://en.wikipedia.org/wiki/Ethereum_Beacon_Chain_Genesis",
         "publisher": "Wikipedia",
         "year": 2020
       },
       {
         "label": "Wikipedia overview for Ethereum Beacon Chain Genesis (Ethereum)",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Ethereum%20Beacon%20Chain%20Genesis%20Ethereum",
+        "url": "https://en.wikipedia.org/wiki/Ethereum_Beacon_Chain_Genesis_Ethereum",
         "publisher": "Wikipedia",
         "year": 2020
       }
@@ -2750,7 +2749,7 @@ export const events: Event[] = [
     "date": "2022-06-18",
     "era": "DeFi Summer",
     "status": "liquidity stress",
-    "summary": "Lido’s stETH traded below 1 ETH as liquidity dried up during contagion fears from 3AC exposure.",
+    "summary": "LidoÃ”Ã‡Ã–s stETH traded below 1 ETH as liquidity dried up during contagion fears from 3AC exposure.",
     "peakMetric": "stETH ~0.95 ETH",
     "outcome": "Market stabilized after liquidations",
     "tags": [
@@ -2762,7 +2761,7 @@ export const events: Event[] = [
     "sources": [
       {
         "label": "Wikipedia overview for stETH Depeg During 3AC Contagion",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=stETH%20Depeg%20During%203AC%20Contagion",
+        "url": "https://en.wikipedia.org/wiki/stETH_Depeg_During_3AC_Contagion",
         "publisher": "Wikipedia",
         "year": 2022
       },
@@ -2794,13 +2793,13 @@ export const events: Event[] = [
     "sources": [
       {
         "label": "Wikipedia overview for Grayscale Wins Bitcoin ETF Court Case",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Grayscale%20Wins%20Bitcoin%20ETF%20Court%20Case",
+        "url": "https://en.wikipedia.org/wiki/Grayscale_Wins_Bitcoin_ETF_Court_Case",
         "publisher": "Wikipedia",
         "year": 2023
       },
       {
         "label": "Wikipedia overview for Grayscale Wins Bitcoin ETF Court Case (Bitcoin)",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Grayscale%20Wins%20Bitcoin%20ETF%20Court%20Case%20Bitcoin",
+        "url": "https://en.wikipedia.org/wiki/Grayscale_Wins_Bitcoin_ETF_Court_Case_Bitcoin",
         "publisher": "Wikipedia",
         "year": 2023
       }
@@ -2832,7 +2831,7 @@ export const events: Event[] = [
       },
       {
         "label": "Wikipedia overview for Ethereum Shapella Upgrade",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Ethereum%20Shapella%20Upgrade",
+        "url": "https://en.wikipedia.org/wiki/Ethereum_Shapella_Upgrade",
         "publisher": "Wikipedia",
         "year": 2023
       }
@@ -2858,13 +2857,13 @@ export const events: Event[] = [
     "sources": [
       {
         "label": "Wikipedia overview for CME Bitcoin Futures Launch",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=CME%20Bitcoin%20Futures%20Launch",
+        "url": "https://en.wikipedia.org/wiki/CME_Bitcoin_Futures_Launch",
         "publisher": "Wikipedia",
         "year": 2017
       },
       {
         "label": "Wikipedia overview for CME Bitcoin Futures Launch (Bitcoin)",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=CME%20Bitcoin%20Futures%20Launch%20Bitcoin",
+        "url": "https://en.wikipedia.org/wiki/CME_Bitcoin_Futures_Launch_Bitcoin",
         "publisher": "Wikipedia",
         "year": 2017
       }
@@ -2897,13 +2896,13 @@ export const events: Event[] = [
       },
       {
         "label": "Wikipedia overview for Binance Hack (7,000 BTC)",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Binance%20Hack%20(7%2C000%20BTC)",
+        "url": "https://en.wikipedia.org/wiki/Binance_Hack_(7,000_BTC)",
         "publisher": "Wikipedia",
         "year": 2019
       },
       {
         "label": "Wikipedia overview for Binance Hack (7,000 BTC) (CeFi)",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Binance%20Hack%20(7%2C000%20BTC)%20CeFi",
+        "url": "https://en.wikipedia.org/wiki/Binance_Hack_(7,000_BTC)_CeFi",
         "publisher": "Wikipedia",
         "year": 2019
       }
@@ -2929,13 +2928,13 @@ export const events: Event[] = [
     "sources": [
       {
         "label": "Wikipedia overview for SEC Sues Ripple Labs",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=SEC%20Sues%20Ripple%20Labs",
+        "url": "https://en.wikipedia.org/wiki/SEC_Sues_Ripple_Labs",
         "publisher": "Wikipedia",
         "year": 2020
       },
       {
         "label": "Wikipedia overview for SEC Sues Ripple Labs (Multi-chain)",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=SEC%20Sues%20Ripple%20Labs%20Multi-chain",
+        "url": "https://en.wikipedia.org/wiki/SEC_Sues_Ripple_Labs_Multi-chain",
         "publisher": "Wikipedia",
         "year": 2020
       }
@@ -2961,13 +2960,13 @@ export const events: Event[] = [
     "sources": [
       {
         "label": "Wikipedia overview for First U.S. Bitcoin Futures ETF Launch",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=First%20U.S.%20Bitcoin%20Futures%20ETF%20Launch",
+        "url": "https://en.wikipedia.org/wiki/First_U.S._Bitcoin_Futures_ETF_Launch",
         "publisher": "Wikipedia",
         "year": 2021
       },
       {
         "label": "Wikipedia overview for First U.S. Bitcoin Futures ETF Launch (Bitcoin)",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=First%20U.S.%20Bitcoin%20Futures%20ETF%20Launch%20Bitcoin",
+        "url": "https://en.wikipedia.org/wiki/First_U.S._Bitcoin_Futures_ETF_Launch_Bitcoin",
         "publisher": "Wikipedia",
         "year": 2021
       }
@@ -2982,7 +2981,7 @@ export const events: Event[] = [
     "date": "2021-02-23",
     "era": "NFT Summer",
     "status": "regulatory settlement",
-    "summary": "New York’s Attorney General reached a settlement with Tether and Bitfinex over reserve disclosures.",
+    "summary": "New YorkÃ”Ã‡Ã–s Attorney General reached a settlement with Tether and Bitfinex over reserve disclosures.",
     "peakMetric": "$18.5M settlement",
     "outcome": "Disclosure requirements imposed",
     "tags": [
@@ -2994,13 +2993,13 @@ export const events: Event[] = [
     "sources": [
       {
         "label": "Wikipedia overview for NYAG Tether/Bitfinex Settlement",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=NYAG%20Tether%2FBitfinex%20Settlement",
+        "url": "https://en.wikipedia.org/wiki/NYAG_Tether/Bitfinex_Settlement",
         "publisher": "Wikipedia",
         "year": 2021
       },
       {
         "label": "Wikipedia overview for NYAG Tether/Bitfinex Settlement (CeFi)",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=NYAG%20Tether%2FBitfinex%20Settlement%20CeFi",
+        "url": "https://en.wikipedia.org/wiki/NYAG_Tether/Bitfinex_Settlement_CeFi",
         "publisher": "Wikipedia",
         "year": 2021
       }
@@ -3032,13 +3031,13 @@ export const events: Event[] = [
       },
       {
         "label": "Wikipedia overview for SegWit Activation",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=SegWit%20Activation",
+        "url": "https://en.wikipedia.org/wiki/SegWit_Activation",
         "publisher": "Wikipedia",
         "year": 2017
       },
       {
         "label": "Wikipedia overview for SegWit Activation (Bitcoin)",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=SegWit%20Activation%20Bitcoin",
+        "url": "https://en.wikipedia.org/wiki/SegWit_Activation_Bitcoin",
         "publisher": "Wikipedia",
         "year": 2017
       }
@@ -3064,13 +3063,13 @@ export const events: Event[] = [
     "sources": [
       {
         "label": "Wikipedia overview for Lightning Network Mainnet Launch",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Lightning%20Network%20Mainnet%20Launch",
+        "url": "https://en.wikipedia.org/wiki/Lightning_Network_Mainnet_Launch",
         "publisher": "Wikipedia",
         "year": 2018
       },
       {
         "label": "Wikipedia overview for Lightning Network Mainnet Launch (Bitcoin)",
-        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Lightning%20Network%20Mainnet%20Launch%20Bitcoin",
+        "url": "https://en.wikipedia.org/wiki/Lightning_Network_Mainnet_Launch_Bitcoin",
         "publisher": "Wikipedia",
         "year": 2018
       }

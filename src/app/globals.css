@@ -44,6 +44,12 @@ html {
   scroll-behavior: smooth;
 }
 
+@media (min-width: 768px) {
+  html {
+    font-size: 90%;
+  }
+}
+
 .dark .shadow-subtle {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
 }

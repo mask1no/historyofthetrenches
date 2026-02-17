@@ -361,48 +361,71 @@ export default function KitPage() {
                   </div>
                 </div>
               </div>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader>
-              <CardTitle>Mixers</CardTitle>
-              <p className="text-sm text-muted">
-                Advanced privacy tools. Use legal and ethical judgment in your jurisdiction.
-              </p>
-            </CardHeader>
-            <CardContent className="space-y-3 text-[13px] text-muted link-underline">
-              <div className="rounded-lg border border-border bg-bg/60 p-3 transition-colors hover:border-accentGold/40 dark:bg-white/[0.02]">
-                <div className="font-semibold text-fg">CoinJoin (BTC)</div>
-                <p className="text-xs">
-                  <a href="https://wasabiwallet.io" target="_blank" rel="noopener noreferrer">
-                    Wasabi Wallet
-                  </a>
-                  ,{" "}
-                  <a href="https://samouraiwallet.com" target="_blank" rel="noopener noreferrer">
-                    Whirlpool
-                  </a>
-                  ,{" "}
-                  <a
-                    href="https://github.com/JoinMarket-Org/joinmarket-clientserver"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    JoinMarket
-                  </a>
-                  ,{" "}
-                  <a href="https://whir.to" target="_blank" rel="noopener noreferrer">
-                    Whir
-                  </a>
-                </p>
-              </div>
-              <div className="rounded-lg border border-border bg-bg/60 p-3 transition-colors hover:border-accentGold/40 dark:bg-white/[0.02]">
-                <div className="font-semibold text-fg">Cross-Chain Privacy</div>
-                <p className="text-xs">
-                  <a href="https://houdiniswap.com" target="_blank" rel="noopener noreferrer">
-                    Houdini Swap
-                  </a>
-                </p>
+              <div className="grid gap-3 md:grid-cols-2">
+                <div className="rounded-lg border border-border bg-bg/60 p-3 transition-colors hover:border-accentGold/40 dark:bg-white/[0.02]">
+                  <div className="font-semibold text-fg">CoinJoin (BTC)</div>
+                  <p className="text-xs">
+                    <a href="https://wasabiwallet.io" target="_blank" rel="noopener noreferrer">
+                      Wasabi Wallet
+                    </a>
+                    ,{" "}
+                    <a href="https://samouraiwallet.com" target="_blank" rel="noopener noreferrer">
+                      Whirlpool
+                    </a>
+                    ,{" "}
+                    <a
+                      href="https://github.com/JoinMarket-Org/joinmarket-clientserver"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      JoinMarket
+                    </a>
+                    ,{" "}
+                    <a href="https://whir.to" target="_blank" rel="noopener noreferrer">
+                      Whir
+                    </a>
+                  </p>
+                </div>
+                <div className="rounded-lg border border-border bg-bg/60 p-3 transition-colors hover:border-accentGold/40 dark:bg-white/[0.02]">
+                  <div className="font-semibold text-fg">Cross-Chain Privacy</div>
+                  <p className="text-xs">
+                    <a href="https://houdiniswap.com" target="_blank" rel="noopener noreferrer">
+                      Houdini Swap
+                    </a>
+                  </p>
+                </div>
+                <div className="rounded-lg border border-border bg-bg/60 p-3 transition-colors hover:border-accentGold/40 dark:bg-white/[0.02]">
+                  <div className="font-semibold text-fg">Research & Intel</div>
+                  <p className="text-xs">
+                    <a href="https://www.nansen.ai" target="_blank" rel="noopener noreferrer">
+                      Nansen
+                    </a>
+                    ,{" "}
+                    <a href="https://arkham.com" target="_blank" rel="noopener noreferrer">
+                      Arkham
+                    </a>
+                    ,{" "}
+                    <a href="https://bubblemaps.io" target="_blank" rel="noopener noreferrer">
+                      Bubblemaps
+                    </a>
+                  </p>
+                </div>
+                <div className="rounded-lg border border-border bg-bg/60 p-3 transition-colors hover:border-accentGold/40 dark:bg-white/[0.02]">
+                  <div className="font-semibold text-fg">Security & Audit</div>
+                  <p className="text-xs">
+                    <a href="https://revoke.cash" target="_blank" rel="noopener noreferrer">
+                      Revoke.cash
+                    </a>
+                    ,{" "}
+                    <a href="https://de.fi" target="_blank" rel="noopener noreferrer">
+                      De.Fi Shield
+                    </a>
+                    ,{" "}
+                    <a href="https://gopluslabs.io" target="_blank" rel="noopener noreferrer">
+                      GoPlus
+                    </a>
+                  </p>
+                </div>
               </div>
               <p className="text-xs text-muted">
                 Study threat models before touching any mixer or CoinJoin flow. Non-custodial tools

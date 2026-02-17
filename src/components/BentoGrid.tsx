@@ -12,7 +12,8 @@ const rugOrder = [
   "terra-luna-collapse",
   "anubisdao-rugpull",
   "thodex-exit-scam",
-  "squid-game-token"
+  "squid-game-token",
+  "safemoon-drain"
 ];
 const runnerOrder = [
   "bitcoin-run-2017",
@@ -133,7 +134,7 @@ export function BentoGrid() {
         </CardContent>
       </Card>
 
-      <Card className="md:col-span-12 relative overflow-hidden border border-border/80 bg-card/95 dark:shadow-[0_10px_28px_rgba(0,0,0,0.42)]">
+      <Card className="md:col-span-12 relative overflow-hidden border border-border/80 bg-card/95 dark:border-white/[0.04] dark:shadow-[0_10px_28px_rgba(0,0,0,0.42)]">
         <CardHeader className="flex flex-col items-start gap-2">
           <CardTitle className="text-xl">Crypto Onboarding Eras</CardTitle>
           <p className="text-sm text-muted">
@@ -150,7 +151,7 @@ export function BentoGrid() {
                     href={`/timeline#era-${era.id}`}
                     className="flex-none basis-[75%] sm:basis-[48%] md:basis-[34%] lg:basis-[28%] xl:basis-[22%] max-w-[300px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-accentGold focus-visible:outline-offset-2 rounded-2xl"
                   >
-                    <div className="flex h-full min-h-[130px] md:min-h-[140px] flex-col rounded-2xl border border-border/80 bg-card px-4 py-3 shadow-subtle transition duration-500 ease-out hover:shadow-[0_0_14px_0px_rgba(214,177,94,0.25),0_14px_28px_rgba(0,0,0,0.08)] dark:shadow-[0_10px_24px_rgba(0,0,0,0.42)] dark:hover:shadow-[0_0_16px_0px_rgba(214,177,94,0.3),0_14px_28px_rgba(0,0,0,0.45)]">
+                    <div className="flex h-full min-h-[130px] md:min-h-[140px] flex-col rounded-2xl border border-border/80 dark:border-white/[0.04] bg-card px-4 py-3 shadow-subtle transition duration-500 ease-out hover:shadow-[0_0_14px_0px_rgba(214,177,94,0.25),0_14px_28px_rgba(0,0,0,0.08)] dark:shadow-[0_10px_24px_rgba(0,0,0,0.42)] dark:hover:shadow-[0_0_16px_0px_rgba(214,177,94,0.3),0_14px_28px_rgba(0,0,0,0.45)]">
                       <div className="text-xs font-semibold uppercase text-muted">{era.range}</div>
                       <div className="text-base font-semibold line-clamp-2">{era.title}</div>
                       <p className="mt-2 text-sm text-muted line-clamp-3">{era.description}</p>
@@ -165,7 +166,7 @@ export function BentoGrid() {
                     href={`/timeline#era-${era.id}`}
                     className="flex-none basis-[75%] sm:basis-[48%] md:basis-[34%] lg:basis-[28%] xl:basis-[22%] max-w-[300px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-accentGold focus-visible:outline-offset-2 rounded-2xl"
                   >
-                    <div className="flex h-full min-h-[130px] md:min-h-[140px] flex-col rounded-2xl border border-border/80 bg-card px-4 py-3 shadow-subtle transition duration-500 ease-out hover:shadow-[0_0_14px_0px_rgba(214,177,94,0.25),0_14px_28px_rgba(0,0,0,0.08)] dark:shadow-[0_10px_24px_rgba(0,0,0,0.42)] dark:hover:shadow-[0_0_16px_0px_rgba(214,177,94,0.3),0_14px_28px_rgba(0,0,0,0.45)]">
+                    <div className="flex h-full min-h-[130px] md:min-h-[140px] flex-col rounded-2xl border border-border/80 dark:border-white/[0.04] bg-card px-4 py-3 shadow-subtle transition duration-500 ease-out hover:shadow-[0_0_14px_0px_rgba(214,177,94,0.25),0_14px_28px_rgba(0,0,0,0.08)] dark:shadow-[0_10px_24px_rgba(0,0,0,0.42)] dark:hover:shadow-[0_0_16px_0px_rgba(214,177,94,0.3),0_14px_28px_rgba(0,0,0,0.45)]">
                       <div className="text-xs font-semibold uppercase text-muted">{era.range}</div>
                       <div className="text-base font-semibold line-clamp-2">{era.title}</div>
                       <p className="mt-2 text-sm text-muted line-clamp-3">{era.description}</p>
