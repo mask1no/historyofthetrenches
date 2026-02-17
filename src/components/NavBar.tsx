@@ -125,7 +125,7 @@ export function NavBar() {
   const closeMobileMenu = () => setShowMobileNav(false);
 
   return (
-    <header className="sticky top-0 z-20 border-b border-border/60 bg-bg/85 backdrop-blur dark:border-white/5">
+    <header className="sticky top-0 z-20 border-b border-border/60 bg-bg/85 backdrop-blur dark:border-border">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6 sm:py-4">
         <div className="flex items-center gap-8">
           <Link
@@ -158,7 +158,7 @@ export function NavBar() {
           <Button
             variant="ghost"
             size="icon"
-            className="hidden border border-border bg-card/80 text-muted-foreground transition hover:bg-card hover:text-foreground hover:shadow-subtle md:inline-flex"
+            className="hidden border border-border bg-card/80 text-muted-foreground transition-all duration-300 hover:border-accentGold/60 hover:bg-card hover:text-foreground hover:ring-1 hover:ring-accentGold/20 hover:shadow-subtle md:inline-flex"
             aria-label="Toggle theme"
             onClick={toggleTheme}
           >

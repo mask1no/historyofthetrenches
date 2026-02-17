@@ -9,7 +9,7 @@ export function Hero() {
   const years = events.map((event) => event.year);
   const earliestYear = years.length ? Math.min(...years) : undefined;
   const latestYear = years.length ? Math.max(...years) : undefined;
-  const latestEventDate = [...events].sort(compareEventDatesDesc)[0]?.date ?? "—";
+  const latestEventDate = [...events].sort(compareEventDatesDesc)[0]?.date ?? "Unknown";
 
   return (
     <section className="mx-auto flex max-w-6xl flex-col gap-6 px-6 pb-10 pt-8 md:flex-row md:items-start md:gap-10">
@@ -25,7 +25,7 @@ export function Hero() {
             History of the Trenches
           </h1>
           <p className="text-lg text-muted">
-            A living record of crypto&apos;s defining moments—kept by the community.
+            Every wave that brought people into crypto, sourced and preserved by the community.
           </p>
           <p className="text-sm font-medium text-fg">
             {events.length > 0
@@ -60,7 +60,7 @@ export function Hero() {
                 <div className="text-xs text-muted">From genesis to today.</div>
               </div>
               <span className="text-sm font-semibold text-fg tabular-nums">
-                {earliestYear && latestYear ? `${earliestYear}–${latestYear}` : "—"}
+                {earliestYear && latestYear ? `${earliestYear} to ${latestYear}` : "Unknown"}
               </span>
             </div>
             <div className="flex items-center justify-between px-4 py-2.5">

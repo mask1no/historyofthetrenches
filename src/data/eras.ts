@@ -54,6 +54,7 @@ export const eras: Era[] = [
         "maker-black-thursday",
         "uniswap-v2-launch",
         "yfi-fair-launch",
+        "pancakeswap-launch",
         "microstrategy-bitcoin-treasury",
         "ethereum-merge"
       ].includes(e.slug)

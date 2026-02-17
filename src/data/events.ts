@@ -370,6 +370,49 @@ export const events: Event[] = [
     ]
   },
   {
+    "slug": "pancakeswap-launch",
+    "title": "PancakeSwap Launch",
+    "type": "milestone",
+    "chain": "BNB Chain (BSC)",
+    "year": 2020,
+    "date": "2020-09-20",
+    "era": "DeFi Summer",
+    "status": "dex launch",
+    "summary": "PancakeSwap launched on BSC as a low-fee Uniswap alternative, onboarding users priced out by Ethereum gas costs and later overtaking Uniswap in TVL during 2021.",
+    "peakMetric": "$7.87B TVL peak",
+    "outcome": "BSC's dominant DEX and a major retail onboarding gateway",
+    "tags": [
+      "defi",
+      "dex",
+      "amm",
+      "bsc"
+    ],
+    "chartUrl": "https://www.tradingview.com/symbols/CAKEUSD/",
+    "sources": [
+      {
+        "label": "PancakeSwap widens BSC lead over Ethereum transactions",
+        "url": "https://www.coindesk.com/markets/2021/04/22/pancakeswap-widens-binance-smart-chains-lead-over-ethereum-on-transactions/",
+        "publisher": "CoinDesk",
+        "year": 2021,
+        "kind": "secondary"
+      },
+      {
+        "label": "PancakeSwap overtakes Uniswap in TVL",
+        "url": "https://thedefiant.io/news/defi/pancakeswaps-total-value-locked-overtakes-uniswaps",
+        "publisher": "The Defiant",
+        "year": 2021,
+        "kind": "secondary"
+      },
+      {
+        "label": "PancakeSwap 5-year retrospective",
+        "url": "https://blog.pancakeswap.finance/articles/pancake-swap-5-year-anniversary",
+        "publisher": "PancakeSwap",
+        "year": 2025,
+        "kind": "primary"
+      }
+    ]
+  },
+  {
     "slug": "terra-luna-collapse",
     "title": "Terra/Luna Rugpull",
     "type": "rugpull",

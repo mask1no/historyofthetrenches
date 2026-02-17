@@ -17,9 +17,9 @@ const links = {
 
 export function Footer() {
   return (
-    <footer className="border-t border-border/80 bg-card/95 dark:border-transparent">
+    <footer className="border-t border-border/80 bg-card/95">
       <div className="mx-auto flex max-w-6xl flex-col gap-8 px-6 py-10">
-        <div className="relative overflow-hidden rounded-2xl border border-border bg-bg/85 p-6 shadow-subtle dark:border-transparent">
+        <div className="relative overflow-hidden rounded-2xl border border-border bg-bg/85 p-6 shadow-subtle">
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(90%_90%_at_12%_12%,var(--footerGlow),transparent_65%)]" />
           <div className="relative flex flex-col gap-3">
             <div className="text-lg font-semibold text-fg">History of the Trenches</div>
@@ -80,7 +80,7 @@ export function Footer() {
           </div>
         </div>
         <div className="hidden gap-4 md:grid md:grid-cols-3">
-          <div className="rounded-xl border border-border bg-bg/60 p-4 shadow-subtle dark:border-transparent">
+          <div className="rounded-xl border border-border bg-bg/60 p-4 shadow-subtle">
             <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted">
               Field Notes
             </div>
@@ -88,7 +88,7 @@ export function Footer() {
               Every entry is anchored to sources so the next cycle remembers the last.
             </p>
           </div>
-          <div className="rounded-xl border border-border bg-bg/60 p-4 shadow-subtle dark:border-transparent">
+          <div className="rounded-xl border border-border bg-bg/60 p-4 shadow-subtle">
             <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted">
               Community Ritual
             </div>
@@ -96,7 +96,7 @@ export function Footer() {
               Monthly $HOT buys are logged for transparency, not promises. This is a living web3 diary.
             </p>
           </div>
-          <div className="rounded-xl border border-border bg-bg/60 p-4 shadow-subtle dark:border-transparent">
+          <div className="rounded-xl border border-border bg-bg/60 p-4 shadow-subtle">
             <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted">
               Explore
             </div>
@@ -105,7 +105,7 @@ export function Footer() {
             </p>
           </div>
         </div>
-        <div className="flex flex-col gap-2 border-t border-border/70 pt-4 text-xs text-muted sm:flex-row sm:items-center sm:justify-between dark:border-transparent">
+        <div className="flex flex-col gap-2 border-t border-border/70 pt-4 text-xs text-muted sm:flex-row sm:items-center sm:justify-between">
           <span>© {new Date().getFullYear()} History of the Trenches</span>
           <span>All events include sources for verification.</span>
         </div>

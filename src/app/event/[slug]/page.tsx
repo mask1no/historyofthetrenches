@@ -204,11 +204,15 @@ export default function EventPage({ params }: EventPageProps) {
             <CardContent className="space-y-3 text-sm">
               <div className="grid gap-2 sm:grid-cols-[160px_minmax(0,1fr)]">
                 <span className="text-muted">Peak metric</span>
-                <span className="min-w-0 font-semibold break-words">{event!.peakMetric ?? "—"}</span>
+                <span className="min-w-0 font-semibold break-words">
+                  {event!.peakMetric ?? "N/A"}
+                </span>
               </div>
               <div className="grid gap-2 sm:grid-cols-[160px_minmax(0,1fr)]">
                 <span className="text-muted">Outcome</span>
-                <span className="min-w-0 font-semibold break-words">{event!.outcome ?? "—"}</span>
+                <span className="min-w-0 font-semibold break-words">
+                  {event!.outcome ?? "N/A"}
+                </span>
               </div>
               <div className="grid gap-2 sm:grid-cols-[160px_minmax(0,1fr)]">
                 <span className="text-muted">Chain</span>

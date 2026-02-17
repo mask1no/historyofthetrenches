@@ -74,7 +74,7 @@ export default function KitPage() {
               <CardTitle>Wallets</CardTitle>
               <p className="text-sm text-muted">Hot and cold setups for custody control.</p>
             </CardHeader>
-            <CardContent className="grid gap-3 text-[13px] text-muted md:grid-cols-2 link-underline [&>div]:dark:bg-white/[0.02]">
+            <CardContent className="grid gap-3 text-[13px] text-muted md:grid-cols-2 link-underline [&>div]:transition-colors [&>div:hover]:border-accentGold/40 [&>div]:dark:bg-white/[0.02]">
               <div className="rounded-lg border border-border bg-bg/60 p-3">
                 <div className="font-semibold text-fg">
                   <a href="https://sparrowwallet.com" target="_blank" rel="noopener noreferrer">
@@ -131,7 +131,7 @@ export default function KitPage() {
               <CardTitle>On-Ramps</CardTitle>
               <p className="text-sm text-muted">KYC and non-KYC routes to get started safely.</p>
             </CardHeader>
-            <CardContent className="grid gap-3 text-[13px] text-muted md:grid-cols-2 link-underline [&>div]:dark:bg-white/[0.02]">
+            <CardContent className="grid gap-3 text-[13px] text-muted md:grid-cols-2 link-underline [&>div]:transition-colors [&>div:hover]:border-accentGold/40 [&>div]:dark:bg-white/[0.02]">
               <div className="rounded-lg border border-border bg-bg/60 p-3">
                 <div className="font-semibold text-fg">
                   <a href="https://www.kraken.com" target="_blank" rel="noopener noreferrer">
@@ -199,7 +199,7 @@ export default function KitPage() {
             <CardHeader>
               <CardTitle>Contribute to the Network</CardTitle>
             </CardHeader>
-            <CardContent className="grid gap-3 text-[13px] text-muted md:grid-cols-2 link-underline [&>div]:dark:bg-white/[0.02]">
+            <CardContent className="grid gap-3 text-[13px] text-muted md:grid-cols-2 link-underline [&>div]:transition-colors [&>div:hover]:border-accentGold/40 [&>div]:dark:bg-white/[0.02]">
               <div className="rounded-lg border border-border bg-bg/60 p-3">
                 <div className="font-semibold text-fg">Run your own node</div>
                 <p className="text-xs">
@@ -258,7 +258,7 @@ export default function KitPage() {
               <CardTitle>Infrastructure Kit</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4 text-[13px] text-muted link-underline">
-              <div className="grid gap-3 md:grid-cols-2 [&>div]:dark:bg-white/[0.02]">
+              <div className="grid gap-3 md:grid-cols-2 [&>div]:transition-colors [&>div:hover]:border-accentGold/40 [&>div]:dark:bg-white/[0.02]">
                 <div className="rounded-lg border border-border bg-bg/60 p-3">
                   <div className="font-semibold text-fg">Explorers</div>
                   <p className="text-xs">
@@ -332,7 +332,7 @@ export default function KitPage() {
                 </div>
               </div>
 
-              <div className="grid gap-3 md:grid-cols-3 [&>div]:dark:bg-white/[0.02]">
+              <div className="grid gap-3 md:grid-cols-3 [&>div]:transition-colors [&>div:hover]:border-accentGold/40 [&>div]:dark:bg-white/[0.02]">
                 <div className="rounded-lg border border-border bg-bg/60 p-3">
                   <div className="mb-2 flex items-center gap-2 font-semibold text-fg">
                     <Shield className="h-4 w-4 text-accentGold" />
@@ -362,12 +362,60 @@ export default function KitPage() {
                 </div>
               </div>
 
-              <div className="rounded-xl border border-border bg-bg/70 p-4">
-                <div className="mb-2 text-xs uppercase tracking-[0.2em] text-muted">Mixers</div>
-                <p className="text-xs">
-                  <strong className="text-fg">Advanced privacy only:</strong> use legal and ethical
-                  judgment in your jurisdiction. Study threat models before touching any mixer or
-                  coinjoin flow.
+              <div className="space-y-3 rounded-xl border border-border bg-bg/70 p-4">
+                <div>
+                  <div className="text-xs uppercase tracking-[0.2em] text-muted">Mixers</div>
+                  <p className="mt-2 text-xs">
+                    Advanced privacy only. Use legal and ethical judgment in your jurisdiction.
+                  </p>
+                </div>
+                <div className="grid gap-3 text-[13px] md:grid-cols-2 [&>div]:transition-colors [&>div:hover]:border-accentGold/40">
+                  <div className="rounded-lg border border-border bg-bg/60 p-3">
+                    <div className="font-semibold text-fg">
+                      <a href="https://wasabiwallet.io" target="_blank" rel="noopener noreferrer">
+                        Wasabi Wallet
+                      </a>
+                    </div>
+                    <p className="text-xs text-muted">WabiSabi CoinJoin with built-in Tor support.</p>
+                  </div>
+                  <div className="rounded-lg border border-border bg-bg/60 p-3">
+                    <div className="font-semibold text-fg">
+                      <a href="https://samouraiwallet.com/whirlpool" target="_blank" rel="noopener noreferrer">
+                        Whirlpool
+                      </a>
+                    </div>
+                    <p className="text-xs text-muted">
+                      Fixed-size CoinJoin pools with remix-friendly design.
+                    </p>
+                  </div>
+                  <div className="rounded-lg border border-border bg-bg/60 p-3">
+                    <div className="font-semibold text-fg">
+                      <a
+                        href="https://github.com/JoinMarket-Org/joinmarket-clientserver"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        JoinMarket
+                      </a>
+                    </div>
+                    <p className="text-xs text-muted">
+                      Decentralized CoinJoin marketplace without a central coordinator.
+                    </p>
+                  </div>
+                  <div className="rounded-lg border border-border bg-bg/60 p-3">
+                    <div className="font-semibold text-fg">
+                      <a href="https://whir.to" target="_blank" rel="noopener noreferrer">
+                        Whir
+                      </a>
+                    </div>
+                    <p className="text-xs text-muted">
+                      A newer CoinJoin option with flexible timing controls.
+                    </p>
+                  </div>
+                </div>
+                <p className="text-xs text-muted">
+                  Understand your threat model before using any mixer or CoinJoin protocol.
+                  Non-custodial tools are preferred.
                 </p>
               </div>
             </CardContent>

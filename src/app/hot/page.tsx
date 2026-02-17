@@ -9,13 +9,13 @@ import { Coins, Wallet } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "$HOT | History of the Trenches",
-  description: "A playful Web3 diary around the $HOT memecoin, with clear receipts and wallets.",
+  description: "A playful web3 diary for the $HOT token, with public wallets and monthly receipts.",
   alternates: {
     canonical: "https://www.historyofthetrenches.xyz/hot"
   },
   openGraph: {
     title: "$HOT | History of the Trenches",
-    description: "A playful Web3 diary around the $HOT memecoin, with clear receipts and wallets.",
+    description: "A playful web3 diary for the $HOT token, with public wallets and monthly receipts.",
     url: "https://www.historyofthetrenches.xyz/hot",
     siteName: "History of the Trenches",
     type: "website",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "$HOT | History of the Trenches",
-    description: "A playful Web3 diary around the $HOT memecoin, with clear receipts and wallets.",
+    description: "A playful web3 diary for the $HOT token, with public wallets and monthly receipts.",
     images: ["/og.png"]
   }
 };
@@ -46,7 +46,8 @@ export default function HotPage() {
             The $HOT Experiment
           </h1>
           <p className="max-w-3xl text-base text-muted">
-            A playful memecoin diary. Not financial advice—just a public record to keep the story honest.
+            A playful memecoin diary. Not financial advice, just a public record to keep the story
+            honest.
           </p>
         </div>
 
@@ -55,18 +56,21 @@ export default function HotPage() {
             <CardHeader>
               <CardTitle>What $HOT is</CardTitle>
               <p className="text-sm text-muted">
-                A playful Web3 diary entry. It keeps the archive honest without promises, hype, or
-                financial advice.
+                A playful web3 diary. I am a solo dev building sites for BTC, ETH, and SOL
+                communities. If you find me on X, feel free to DM. This is a tokenization project I
+                thought up, built, and plan to run as best I can. Cheers.
               </p>
             </CardHeader>
             <CardContent className="space-y-3 text-sm text-muted">
               <div className="rounded-xl border border-border bg-bg/70 p-4">
-                $HOT is a public record: a small, repeatable action that keeps the narrative
-                accountable. The value here is memory, not yield.
+                A portion of my savings each month goes toward buying the token. Every buy is logged
+                publicly.
               </div>
               <div className="rounded-xl border border-border bg-bg/70 p-4">
-                Receipts are logged openly, and wallets are linked. The record stays visible, even
-                when sentiment shifts.
+                All wallets are doxxed and directly linked.{" "}
+                <a href="#wallets" className="link-accent font-medium">
+                  xyz
+                </a>
               </div>
             </CardContent>
           </Card>
@@ -177,7 +181,7 @@ export default function HotPage() {
             </CardContent>
           </Card>
 
-          <Card className="md:col-span-3" id="wallets">
+          <Card className="scroll-mt-24 md:col-span-3" id="wallets">
             <CardHeader>
               <CardTitle>Wallets</CardTitle>
               <p className="text-sm text-muted">
@@ -222,7 +226,8 @@ export default function HotPage() {
             </CardHeader>
             <CardContent className="space-y-3 text-sm text-muted">
               <div className="rounded-xl border border-border bg-bg/70 p-4">
-                Not financial advice. Not a promise. Not a yield product.
+                Not financial advice. Not a promise. Not a yield product, and not something for
+                jeets.
               </div>
               <div className="rounded-xl border border-border bg-bg/70 p-4">
                 Participation is optional and should be thoughtful, not impulsive.

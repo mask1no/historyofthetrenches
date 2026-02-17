@@ -41,6 +41,13 @@ body {
 html {
   font-size: 100%;
   overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 90%;
+  }
 }
 
 .dark .shadow-subtle {
@@ -61,7 +68,6 @@ a {
 }
 
 .link-accent:hover {
-  color: var(--fg);
   text-decoration: underline;
   text-decoration-color: var(--accentGold);
   text-underline-offset: 3px;
@@ -75,11 +81,15 @@ a {
 }
 
 .link-underline a:hover {
-  color: var(--fg);
   text-decoration: underline;
   text-decoration-color: var(--accentGold);
   text-underline-offset: 3px;
   text-decoration-thickness: 2px;
+}
+
+.dark .link-accent,
+.dark .link-underline a {
+  color: #b5b0a6;
 }
 
 .link-icon {
@@ -113,7 +123,7 @@ a {
 }
 
 .card-lift {
-  transition: border-color 220ms ease, box-shadow 220ms ease, transform 220ms ease;
+  transition: border-color 400ms ease-out, box-shadow 400ms ease-out, transform 400ms ease-out;
 }
 
 .card-lift:hover,
@@ -122,7 +132,7 @@ a {
   box-shadow:
     0 0 0 1px rgba(214, 177, 94, 0.22),
     0 12px 26px rgba(0, 0, 0, 0.18);
-  transform: translateY(-2px);
+  transform: translateY(-1px);
 }
 
 .dark .card-lift:hover,
