@@ -36,7 +36,7 @@ export function BentoGrid() {
       className="mx-auto grid max-w-6xl grid-cols-1 gap-6 rounded-3xl border border-border/60 bg-card/90 px-6 pb-12 pt-6 shadow-subtle dark:border-transparent md:grid-cols-12"
       suppressHydrationWarning
     >
-      <Card className="card-lift md:col-span-6 flex h-full flex-col border-l-4 border-l-accentRed bg-card/90 transition duration-700 ease-out hover:shadow-[0_10px_24px_rgba(196,77,77,0.07)] dark:border-transparent dark:border-l-accentRed dark:hover:shadow-[0_10px_24px_rgba(0,0,0,0.45)]">
+      <Card className="card-lift md:col-span-6 flex h-full flex-col border-l-4 border-l-accentRed bg-card/90 transition duration-700 ease-out hover:shadow-[0_10px_24px_rgba(196,77,77,0.07)] dark:hover:shadow-[0_10px_24px_rgba(0,0,0,0.45)]">
         <CardHeader className="flex flex-row items-center justify-between">
           <div className="space-y-1">
             <CardTitle className="flex items-center gap-2 text-xl">
@@ -51,7 +51,7 @@ export function BentoGrid() {
             <Link
               key={event.slug}
               href={`/event/${event.slug}`}
-              className={`${index > 2 ? "hidden md:flex" : "flex"} h-full items-center justify-between gap-3 rounded-lg border border-accentRed/30 bg-accentRed/5 px-4 py-3 transition duration-500 ease-out hover:border-accentRed/60 hover:bg-accentRed/10 dark:border-accentRed/15`}
+              className={`${index > 2 ? "hidden md:flex" : "flex"} h-full items-center justify-between gap-3 rounded-lg border border-accentRed/30 bg-accentRed/5 px-4 py-3 transition duration-500 ease-out hover:border-accentRed/60 hover:bg-accentRed/10 dark:border-accentRed/[0.08]`}
             >
               <div className="min-w-0">
                 <div className="text-sm font-semibold line-clamp-2">{event.title}</div>
@@ -80,7 +80,7 @@ export function BentoGrid() {
         </CardContent>
       </Card>
 
-      <Card className="card-lift md:col-span-6 flex h-full flex-col border-l-4 border-l-accentGreen bg-card/90 transition duration-700 ease-out hover:shadow-[0_10px_24px_rgba(47,158,111,0.07)] dark:border-transparent dark:border-l-accentGreen dark:hover:shadow-[0_10px_24px_rgba(0,0,0,0.45)]">
+      <Card className="card-lift md:col-span-6 flex h-full flex-col border-l-4 border-l-accentGreen bg-card/90 transition duration-700 ease-out hover:shadow-[0_10px_24px_rgba(47,158,111,0.07)] dark:hover:shadow-[0_10px_24px_rgba(0,0,0,0.45)]">
         <CardHeader className="flex flex-row items-center justify-between">
           <div className="space-y-1">
             <CardTitle className="flex items-center gap-2 text-xl">
@@ -95,7 +95,7 @@ export function BentoGrid() {
             <Link
               key={event.slug}
               href={`/event/${event.slug}`}
-              className={`${index > 2 ? "hidden md:flex" : "flex"} h-full items-center justify-between gap-3 rounded-lg border border-accentGreen/30 bg-accentGreen/5 px-4 py-3 transition duration-500 ease-out hover:border-accentGreen/60 hover:bg-accentGreen/10 dark:border-accentGreen/15`}
+              className={`${index > 2 ? "hidden md:flex" : "flex"} h-full items-center justify-between gap-3 rounded-lg border border-accentGreen/30 bg-accentGreen/5 px-4 py-3 transition duration-500 ease-out hover:border-accentGreen/60 hover:bg-accentGreen/10 dark:border-accentGreen/[0.08]`}
             >
               <div className="min-w-0">
                 <div className="text-sm font-semibold line-clamp-2">{event.title}</div>
