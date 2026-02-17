@@ -34,13 +34,13 @@ export function Hero() {
           </p>
         </div>
         <div className="grid grid-cols-1 gap-2 pt-1 sm:grid-cols-2 sm:flex sm:flex-wrap sm:gap-3">
-          <Link href="/archive" className="w-full">
+          <Link href="/archive" className="w-full sm:w-auto">
             <Button size="sm" className="w-full shadow-subtle sm:w-auto sm:py-2.5">
               Enter the Archive
               <ArrowRight className="h-4 w-4" />
             </Button>
           </Link>
-          <Link href="/timeline" className="w-full">
+          <Link href="/timeline" className="w-full sm:w-auto">
             <Button size="sm" variant="subtle" className="w-full sm:w-auto sm:py-2.5">
               Explore the Timeline
               <Play className="h-4 w-4" />

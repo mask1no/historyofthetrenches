@@ -362,62 +362,64 @@ export default function KitPage() {
                 </div>
               </div>
 
-              <div className="space-y-3 rounded-xl border border-border bg-bg/70 p-4">
-                <div>
-                  <div className="text-xs uppercase tracking-[0.2em] text-muted">Mixers</div>
-                  <p className="mt-2 text-xs">
-                    Advanced privacy only. Use legal and ethical judgment in your jurisdiction.
+              <Card className="border border-border bg-bg/70 shadow-none">
+                <CardHeader className="p-4 pb-3">
+                  <CardTitle className="text-base">Mixers</CardTitle>
+                  <p className="text-sm text-muted">
+                    Advanced privacy tools. Use legal and ethical judgment in your jurisdiction.
                   </p>
-                </div>
-                <div className="grid gap-3 text-[13px] md:grid-cols-2 [&>div]:transition-colors [&>div:hover]:border-accentGold/40">
-                  <div className="rounded-lg border border-border bg-bg/60 p-3">
-                    <div className="font-semibold text-fg">
-                      <a href="https://wasabiwallet.io" target="_blank" rel="noopener noreferrer">
-                        Wasabi Wallet
-                      </a>
+                </CardHeader>
+                <CardContent className="space-y-3 p-4 pt-0 text-[13px] text-muted link-underline">
+                  <div className="grid gap-3 md:grid-cols-2">
+                    <div className="rounded-lg border border-border bg-bg/60 p-3 transition hover:border-accentGold/40">
+                      <div className="font-semibold text-fg">
+                        <a href="https://wasabiwallet.io" target="_blank" rel="noopener noreferrer">
+                          Wasabi Wallet (BTC)
+                        </a>
+                      </div>
+                      <p className="text-xs text-muted">WabiSabi CoinJoin with built-in Tor support.</p>
                     </div>
-                    <p className="text-xs text-muted">WabiSabi CoinJoin with built-in Tor support.</p>
-                  </div>
-                  <div className="rounded-lg border border-border bg-bg/60 p-3">
-                    <div className="font-semibold text-fg">
-                      <a href="https://samouraiwallet.com/whirlpool" target="_blank" rel="noopener noreferrer">
-                        Whirlpool
-                      </a>
+                    <div className="rounded-lg border border-border bg-bg/60 p-3 transition hover:border-accentGold/40">
+                      <div className="font-semibold text-fg">
+                        <a href="https://samouraiwallet.com" target="_blank" rel="noopener noreferrer">
+                          Whirlpool (BTC)
+                        </a>
+                      </div>
+                      <p className="text-xs text-muted">
+                        ZeroLink CoinJoin with fixed-amount pools and free remixes.
+                      </p>
                     </div>
-                    <p className="text-xs text-muted">
-                      Fixed-size CoinJoin pools with remix-friendly design.
-                    </p>
-                  </div>
-                  <div className="rounded-lg border border-border bg-bg/60 p-3">
-                    <div className="font-semibold text-fg">
-                      <a
-                        href="https://github.com/JoinMarket-Org/joinmarket-clientserver"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        JoinMarket
-                      </a>
+                    <div className="rounded-lg border border-border bg-bg/60 p-3 transition hover:border-accentGold/40">
+                      <div className="font-semibold text-fg">
+                        <a
+                          href="https://github.com/JoinMarket-Org/joinmarket-clientserver"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          JoinMarket (BTC)
+                        </a>
+                      </div>
+                      <p className="text-xs text-muted">
+                        Decentralised CoinJoin marketplace, no central coordinator.
+                      </p>
                     </div>
-                    <p className="text-xs text-muted">
-                      Decentralized CoinJoin marketplace without a central coordinator.
-                    </p>
-                  </div>
-                  <div className="rounded-lg border border-border bg-bg/60 p-3">
-                    <div className="font-semibold text-fg">
-                      <a href="https://whir.to" target="_blank" rel="noopener noreferrer">
-                        Whir
-                      </a>
+                    <div className="rounded-lg border border-border bg-bg/60 p-3 transition hover:border-accentGold/40">
+                      <div className="font-semibold text-fg">
+                        <a href="https://whir.to" target="_blank" rel="noopener noreferrer">
+                          Whir (BTC)
+                        </a>
+                      </div>
+                      <p className="text-xs text-muted">
+                        Flexible CoinJoin with customisable delays.
+                      </p>
                     </div>
-                    <p className="text-xs text-muted">
-                      A newer CoinJoin option with flexible timing controls.
-                    </p>
                   </div>
-                </div>
-                <p className="text-xs text-muted">
-                  Understand your threat model before using any mixer or CoinJoin protocol.
-                  Non-custodial tools are preferred.
-                </p>
-              </div>
+                  <p className="text-xs text-muted">
+                    Understand your threat model before using any mixer or CoinJoin protocol.
+                    Non-custodial tools are preferred.
+                  </p>
+                </CardContent>
+              </Card>
             </CardContent>
           </Card>
         </div>

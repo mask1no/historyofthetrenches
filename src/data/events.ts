@@ -378,16 +378,16 @@ export const events: Event[] = [
     "date": "2020-09-20",
     "era": "DeFi Summer",
     "status": "dex launch",
-    "summary": "PancakeSwap launched on BSC as a low-fee Uniswap alternative, onboarding users priced out by Ethereum gas costs and later overtaking Uniswap in TVL during 2021.",
+    "summary": "PancakeSwap launched on Binance Smart Chain as a low-fee Uniswap alternative, onboarding millions of retail users priced out of Ethereum gas fees and briefly surpassing Uniswap in TVL.",
     "peakMetric": "$7.87B TVL peak",
-    "outcome": "BSC's dominant DEX and a major retail onboarding gateway",
+    "outcome": "BSC's dominant DEX; emerging-market DeFi gateway",
     "tags": [
       "defi",
       "dex",
       "amm",
       "bsc"
     ],
-    "chartUrl": "https://www.tradingview.com/symbols/CAKEUSD/",
+    "chartUrl": "https://tradingview.com/symbols/CAKEUSD/",
     "sources": [
       {
         "label": "PancakeSwap widens BSC lead over Ethereum transactions",
@@ -402,13 +402,6 @@ export const events: Event[] = [
         "publisher": "The Defiant",
         "year": 2021,
         "kind": "secondary"
-      },
-      {
-        "label": "PancakeSwap 5-year retrospective",
-        "url": "https://blog.pancakeswap.finance/articles/pancake-swap-5-year-anniversary",
-        "publisher": "PancakeSwap",
-        "year": 2025,
-        "kind": "primary"
       }
     ]
   },

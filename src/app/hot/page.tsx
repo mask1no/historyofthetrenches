@@ -69,7 +69,7 @@ export default function HotPage() {
               <div className="rounded-xl border border-border bg-bg/70 p-4">
                 All wallets are doxxed and directly linked.{" "}
                 <a href="#wallets" className="link-accent font-medium">
-                  xyz
+                  View wallets
                 </a>
               </div>
             </CardContent>
