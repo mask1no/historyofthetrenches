@@ -51,7 +51,7 @@ export function BentoGrid() {
             <Link
               key={event.slug}
               href={`/event/${event.slug}`}
-              className={`${index > 2 ? "hidden md:flex" : "flex"} h-full items-center justify-between gap-3 rounded-lg border border-accentRed/30 bg-accentRed/5 px-4 py-3 transition duration-500 ease-out hover:border-accentRed/60 hover:bg-accentRed/10 dark:border-accentRed/10`}
+              className={`${index > 2 ? "hidden md:flex" : "flex"} h-full items-center justify-between gap-3 rounded-lg border border-accentRed/30 bg-accentRed/5 px-4 py-3 transition duration-500 ease-out hover:border-accentRed/60 hover:bg-accentRed/10 dark:border-[rgba(209,106,106,0.20)]`}
             >
               <div className="min-w-0">
                 <div className="text-sm font-semibold line-clamp-2">{event.title}</div>
@@ -95,7 +95,7 @@ export function BentoGrid() {
             <Link
               key={event.slug}
               href={`/event/${event.slug}`}
-              className={`${index > 2 ? "hidden md:flex" : "flex"} h-full items-center justify-between gap-3 rounded-lg border border-accentGreen/30 bg-accentGreen/5 px-4 py-3 transition duration-500 ease-out hover:border-accentGreen/60 hover:bg-accentGreen/10 dark:border-accentGreen/10`}
+              className={`${index > 2 ? "hidden md:flex" : "flex"} h-full items-center justify-between gap-3 rounded-lg border border-accentGreen/30 bg-accentGreen/5 px-4 py-3 transition duration-500 ease-out hover:border-accentGreen/60 hover:bg-accentGreen/10 dark:border-[rgba(69,184,135,0.20)]`}
             >
               <div className="min-w-0">
                 <div className="text-sm font-semibold line-clamp-2">{event.title}</div>
