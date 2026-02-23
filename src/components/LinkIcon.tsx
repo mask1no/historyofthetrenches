@@ -12,8 +12,10 @@ const iconMap: Record<LinkIconName, ({ className }: SvgIconProps) => JSX.Element
   ),
   pumpfun: ({ className }) => (
     <svg className={className} viewBox="0 0 24 32" fill="currentColor" aria-hidden="true">
-      <path d="M7 6a5 5 0 0 1 10 0v8H7V6z" />
-      <path d="M7 18h10v8a5 5 0 0 1-10 0v-8z" />
+      <g transform="rotate(30 12 14)">
+        <path d="M7 6a5 5 0 0 1 10 0v8H7V6z" />
+        <path d="M7 18h10v8a5 5 0 0 1-10 0v-8z" />
+      </g>
     </svg>
   ),
   dexscreener: ({ className }) => (
