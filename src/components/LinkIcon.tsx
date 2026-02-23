@@ -12,12 +12,13 @@ const iconMap: Record<LinkIconName, ({ className }: SvgIconProps) => JSX.Element
   ),
   pumpfun: ({ className }) => (
     <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M6.5 20c2.1-2.1 3.4-4.1 4-6.2A4.5 4.5 0 0 1 8 9.7c0-2.7 2.1-4.7 4.9-4.7 1.4 0 2.6.5 3.5 1.4 2.4 2.4 2.1 6.2-.7 9-2.1 2.1-4.6 3.7-9.2 4.6Zm6.4-12.2a1.9 1.9 0 1 0 0 3.8 1.9 1.9 0 0 0 0-3.8Z" />
+      <rect x="7" y="2" width="10" height="20" rx="5" />
     </svg>
   ),
   dexscreener: ({ className }) => (
     <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M3 3h18v2H3V3Zm2 16h14v2H5v-2Zm1.2-2.2 3.5-3.7 2.6 2.5 5.1-6.1 1.6 1.3-6.2 7.4-2.6-2.5-2.4 2.6-1.6-1.5Z" />
+      <path d="M3 4a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4Zm3 10.5a.75.75 0 0 0 0 1.5h1.5a.75.75 0 0 0 0-1.5H6Zm4-3a.75.75 0 0 0 0 1.5h1.5a.75.75 0 0 0 0-1.5H10Zm4 1a.75.75 0 0 0 0 1.5h1.5a.75.75 0 0 0 0-1.5H14Zm-8-4a.75.75 0 0 0 0 1.5h1.5a.75.75 0 0 0 0-1.5H6Z" fillRule="evenodd" />
+      <path d="M4 21h16v2H4v-2Z" />
     </svg>
   ),
   solana: ({ className }) => (

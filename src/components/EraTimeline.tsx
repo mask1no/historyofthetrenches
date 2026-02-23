@@ -38,10 +38,7 @@ export function EraTimeline() {
                   <div className="relative mt-1 h-4 w-4 rounded-full bg-accentGold shadow-subtle" />
                   <div>
                     <div className="text-xs font-semibold uppercase text-muted">{era.range}</div>
-                    <div className="mt-1 flex items-center gap-2">
-                      <span className="text-xs font-semibold text-muted">#{idx + 1}</span>
-                      <div className="text-lg font-semibold">{era.title}</div>
-                    </div>
+                    <div className="mt-1 text-lg font-semibold">{era.title}</div>
                     <p className="mt-2 text-sm text-muted line-clamp-3 md:line-clamp-none">
                       {era.description}
                     </p>

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Footer } from "@/components/Footer";
-import { LinkIcon } from "@/components/LinkIcon";
 import { NavBar } from "@/components/NavBar";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Server, Shield } from "lucide-react";
@@ -278,9 +277,6 @@ export default function KitPage() {
                 <div className="rounded-lg border border-border bg-bg/60 p-3 transition-colors hover:border-accentGold/40 dark:bg-white/[0.02]">
                   <div className="font-semibold text-fg">Charts</div>
                   <p className="text-xs">
-                    <span className="mr-1 inline-flex align-middle">
-                      <LinkIcon name="dexscreener" />
-                    </span>
                     <a href="https://dexscreener.com" target="_blank" rel="noopener noreferrer">
                       DexScreener
                     </a>
@@ -392,6 +388,18 @@ export default function KitPage() {
                     <a href="https://houdiniswap.com" target="_blank" rel="noopener noreferrer">
                       Houdini Swap
                     </a>
+                    ,{" "}
+                    <a href="https://ghostswap.io" target="_blank" rel="noopener noreferrer">
+                      GhostSwap
+                    </a>
+                    ,{" "}
+                    <a href="https://www.xblock.tech" target="_blank" rel="noopener noreferrer">
+                      xBlock
+                    </a>
+                    ,{" "}
+                    <a href="https://swaprocket.io" target="_blank" rel="noopener noreferrer">
+                      SwapRocket
+                    </a>
                   </p>
                 </div>
                 <div className="rounded-lg border border-border bg-bg/60 p-3 transition-colors hover:border-accentGold/40 dark:bg-white/[0.02]">
@@ -427,10 +435,6 @@ export default function KitPage() {
                   </p>
                 </div>
               </div>
-              <p className="text-xs text-muted">
-                Study threat models before touching any mixer or CoinJoin flow. Non-custodial tools
-                are preferred.
-              </p>
             </CardContent>
           </Card>
         </div>
