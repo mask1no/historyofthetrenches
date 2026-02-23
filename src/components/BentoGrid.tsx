@@ -142,7 +142,7 @@ export function BentoGrid() {
           </p>
         </CardHeader>
         <CardContent className="relative overflow-hidden px-0">
-          <div className="marquee" aria-label="Crypto onboarding eras carousel">
+          <div className="marquee" role="region" aria-roledescription="carousel" aria-label="Crypto onboarding eras carousel">
             <div className="marquee-track">
               <div className="marquee-group">
                 {eras.map((era) => (

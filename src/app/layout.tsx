@@ -105,7 +105,6 @@ export default function RootLayout({
       </head>
       <body
         className={`${inter.variable} ${playfair.variable} bg-bg text-fg antialiased`}
-        style={{ fontFamily: "var(--font-inter), system-ui, sans-serif" }}
       >
         <Script
           id="org-jsonld"

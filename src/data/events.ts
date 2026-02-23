@@ -993,7 +993,7 @@ export const events: Event[] = [
     "hallOfFame": true,
     "status": "ecosystem rebound",
     "summary": "SOL rebounded from post-FTX lows as developer activity, DeFi liquidity, and memecoin momentum reignited Solana demand.",
-    "peakMetric": "$8 Ã”Ã¥Ã† $300",
+    "peakMetric": "$8 to $300",
     "outcome": "Network sentiment reversal",
     "tags": [
       "runner",
@@ -1057,7 +1057,7 @@ export const events: Event[] = [
     "date": "2026-01-31",
     "era": "Pump.fun Era",
     "status": "security breach",
-    "summary": "A critical Supabase misconfiguration left Moltbook's production database fully exposed Ã”Ã‡Ã¶ no Row-Level Security, no access controls. Security researchers found 1.5 million API tokens, 35,000 emails, and thousands of private agent messages accessible via basic curl commands. The platform, built using AI-generated code, failed to implement fundamental security policies.",
+    "summary": "A critical Supabase misconfiguration left Moltbook's production database fully exposed, with no Row-Level Security, no access controls. Security researchers found 1.5 million API tokens, 35,000 emails, and thousands of private agent messages accessible via basic curl commands. The platform, built using AI-generated code, failed to implement fundamental security policies.",
     "peakMetric": "1.5M API tokens exposed",
     "outcome": "Patched within 48 hours of Wiz disclosure",
     "tags": [
@@ -1200,7 +1200,7 @@ export const events: Event[] = [
     "era": "DeFi Summer",
     "hallOfFame": true,
     "status": "vault drained",
-    "summary": "Meerkat FinanceÃ”Ã‡Ã–s vault funds vanished shortly after launch, sparking a scramble across BSC as liquidity providers realized the contracts had been emptied.",
+    "summary": "Meerkat Finance's vault funds vanished shortly after launch, sparking a scramble across BSC as liquidity providers realized the contracts had been emptied.",
     "peakMetric": "$31M TVL drained",
     "outcome": "Project claimed exploit; users left with losses",
     "tags": [
@@ -2354,7 +2354,7 @@ export const events: Event[] = [
     "date": "2022-08-01",
     "era": "DeFi Summer",
     "status": "bridge exploit",
-    "summary": "Nomad bridge vulnerability let users copy the attackerÃ”Ã‡Ã–s transaction, draining ~$190M in a free-for-all.",
+    "summary": "Nomad bridge vulnerability let users copy the attacker's transaction, draining ~$190M in a free-for-all.",
     "peakMetric": "$190M drained",
     "outcome": "Partial funds returned",
     "tags": [
@@ -2717,7 +2717,7 @@ export const events: Event[] = [
     "date": "2020-12-01",
     "era": "DeFi Summer",
     "status": "consensus shift",
-    "summary": "EthereumÃ”Ã‡Ã–s Beacon Chain launched, marking the start of the transition to Proof of Stake.",
+    "summary": "Ethereum's Beacon Chain launched, marking the start of the transition to Proof of Stake.",
     "peakMetric": "PoS chain live",
     "outcome": "Merge path established",
     "tags": [
@@ -2749,7 +2749,7 @@ export const events: Event[] = [
     "date": "2022-06-18",
     "era": "DeFi Summer",
     "status": "liquidity stress",
-    "summary": "LidoÃ”Ã‡Ã–s stETH traded below 1 ETH as liquidity dried up during contagion fears from 3AC exposure.",
+    "summary": "Lido's stETH traded below 1 ETH as liquidity dried up during contagion fears from 3AC exposure.",
     "peakMetric": "stETH ~0.95 ETH",
     "outcome": "Market stabilized after liquidations",
     "tags": [
@@ -2981,7 +2981,7 @@ export const events: Event[] = [
     "date": "2021-02-23",
     "era": "NFT Summer",
     "status": "regulatory settlement",
-    "summary": "New YorkÃ”Ã‡Ã–s Attorney General reached a settlement with Tether and Bitfinex over reserve disclosures.",
+    "summary": "New York's Attorney General reached a settlement with Tether and Bitfinex over reserve disclosures.",
     "peakMetric": "$18.5M settlement",
     "outcome": "Disclosure requirements imposed",
     "tags": [

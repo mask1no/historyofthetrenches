@@ -94,9 +94,6 @@ export function EraTimeline() {
                     </button>
                   </div>
                 )}
-                {idx !== eras.length - 1 && (
-                  <div className="absolute -bottom-4 left-8 h-4 w-px bg-transparent md:hidden" />
-                )}
               </div>
             );
           })}

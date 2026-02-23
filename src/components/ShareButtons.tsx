@@ -49,8 +49,3 @@ export function ShareButtons({ title, url, className }: Props) {
     </div>
   );
 }
-
-
-
-
-

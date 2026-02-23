@@ -24,7 +24,7 @@ export function Footer() {
           <div className="relative flex flex-col gap-3">
             <div className="text-lg font-semibold text-fg">History of the Trenches</div>
             <p className="max-w-2xl text-sm text-muted">
-              Built by the trenches. For memory, not hype. A living record of crypto’s defining moments.
+              Built for the trenchers. For memory, not hype. A living record of crypto’s defining moments.
             </p>
             <div className="flex flex-wrap items-center gap-3 text-xs uppercase tracking-[0.2em] text-muted">
               <span>historyofthetrenches.xyz</span>

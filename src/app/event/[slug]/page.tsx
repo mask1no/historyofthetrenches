@@ -33,7 +33,7 @@ export function generateMetadata({ params }: EventPageProps): Metadata {
     return trimmed;
   };
   const description = event
-    ? clampDescription(`${event.title} — ${event.summary} (${event.chain}, ${event.date}).`)
+    ? clampDescription(`${event.title}: ${event.summary} (${event.chain}, ${event.date}).`)
     : "Event details from the History of the Trenches archive.";
   const publishedTime = event ? new Date(event.date).toISOString() : undefined;
   return {
@@ -79,11 +79,13 @@ export async function generateStaticParams() {
 }
 
 export default function EventPage({ params }: EventPageProps) {
-  const event = getEventBySlug(params.slug);
+  const maybeEvent = getEventBySlug(params.slug);
 
-  if (!event) {
+  if (!maybeEvent) {
     notFound();
   }
+
+  const event = maybeEvent;
 
   const eventJsonLd = {
     "@context": "https://schema.org",
@@ -128,14 +130,14 @@ export default function EventPage({ params }: EventPageProps) {
   };
 
   const related = events
-    .filter((e) => e.slug !== event!.slug)
+    .filter((e) => e.slug !== event.slug)
     .map((e) => ({
       event: e,
       score:
-        (e.type === event!.type && e.era === event!.era ? 3 : 0) +
-        (e.era === event!.era ? 2 : 0) +
-        (e.type === event!.type ? 1 : 0) +
-        (e.chain === event!.chain ? 1 : 0)
+        (e.type === event.type && e.era === event.era ? 3 : 0) +
+        (e.era === event.era ? 2 : 0) +
+        (e.type === event.type ? 1 : 0) +
+        (e.chain === event.chain ? 1 : 0)
     }))
     .filter((e) => e.score > 0)
     .sort((a, b) => b.score - a.score)
@@ -143,7 +145,7 @@ export default function EventPage({ params }: EventPageProps) {
     .map((e) => e.event);
 
   const sortedByDate = [...events].sort(compareEventDatesAsc);
-  const currentIndex = sortedByDate.findIndex((e) => e.slug === event!.slug);
+  const currentIndex = sortedByDate.findIndex((e) => e.slug === event.slug);
   const previousEvent = currentIndex > 0 ? sortedByDate[currentIndex - 1] : undefined;
   const nextEvent =
     currentIndex >= 0 && currentIndex < sortedByDate.length - 1
@@ -166,21 +168,21 @@ export default function EventPage({ params }: EventPageProps) {
       <section className="mx-auto max-w-6xl px-6 pb-10 pt-8">
         <div className="mb-6 space-y-4">
           <div className="flex flex-wrap items-center gap-3">
-            <Badge variant={typeVariant[event!.type]}>{typeLabel[event!.type]}</Badge>
-            <Badge variant="muted">{event!.chain}</Badge>
-            <Badge variant="muted">{event!.year}</Badge>
-            {event!.hallOfFame && <Badge variant="gold">Hall of Fame</Badge>}
+            <Badge variant={typeVariant[event.type]}>{typeLabel[event.type]}</Badge>
+            <Badge variant="muted">{event.chain}</Badge>
+            <Badge variant="muted">{event.year}</Badge>
+            {event.hallOfFame && <Badge variant="gold">Hall of Fame</Badge>}
           </div>
           <h1 className="font-display text-4xl font-semibold">
-            {event!.title}
+            {event.title}
           </h1>
-          <p className="max-w-3xl text-lg text-muted">{event!.summary}</p>
+          <p className="max-w-3xl text-lg text-muted">{event.summary}</p>
           <div className="flex flex-wrap items-center gap-3 text-sm text-muted">
-            <span>Event date: {event!.date}</span>
+            <span>Event date: {event.date}</span>
           </div>
           <ShareButtons
-            title={event!.title}
-            url={`https://www.historyofthetrenches.xyz/event/${event!.slug}`}
+            title={event.title}
+            url={`https://www.historyofthetrenches.xyz/event/${event.slug}`}
             className="flex"
           />
         </div>
@@ -197,7 +199,7 @@ export default function EventPage({ params }: EventPageProps) {
               </p>
             </CardHeader>
             <CardContent>
-              <SourceList sources={event!.sources} />
+              <SourceList sources={event.sources} />
             </CardContent>
           </Card>
 
@@ -209,31 +211,31 @@ export default function EventPage({ params }: EventPageProps) {
               <div className="grid gap-2 sm:grid-cols-[160px_minmax(0,1fr)]">
                 <span className="text-muted">Peak metric</span>
                 <span className="min-w-0 font-semibold break-words">
-                  {event!.peakMetric ?? "N/A"}
+                  {event.peakMetric ?? "N/A"}
                 </span>
               </div>
               <div className="grid gap-2 sm:grid-cols-[160px_minmax(0,1fr)]">
                 <span className="text-muted">Outcome</span>
                 <span className="min-w-0 font-semibold break-words">
-                  {event!.outcome ?? "N/A"}
+                  {event.outcome ?? "N/A"}
                 </span>
               </div>
               <div className="grid gap-2 sm:grid-cols-[160px_minmax(0,1fr)]">
                 <span className="text-muted">Chain</span>
-                <span className="min-w-0 font-semibold break-words">{event!.chain}</span>
+                <span className="min-w-0 font-semibold break-words">{event.chain}</span>
               </div>
               <div className="grid gap-2 sm:grid-cols-[160px_minmax(0,1fr)]">
                 <span className="text-muted">Year</span>
-                <span className="font-semibold break-words">{event!.year}</span>
+                <span className="font-semibold break-words">{event.year}</span>
               </div>
               <div className="grid gap-2 sm:grid-cols-[160px_minmax(0,1fr)]">
                 <span className="text-muted">Type</span>
-                <span className="font-semibold capitalize break-words">{event!.type}</span>
+                <span className="font-semibold capitalize break-words">{event.type}</span>
               </div>
               <div className="grid gap-2 sm:grid-cols-[160px_minmax(0,1fr)]">
                 <span className="text-muted">Tags</span>
                 <div className="flex flex-wrap gap-2.5">
-                  {event!.tags.map((tag) => (
+                  {event.tags.map((tag) => (
                     <Badge key={tag} variant="muted" className="px-2 py-0.5 text-[10px]">
                       {tag}
                     </Badge>
@@ -244,7 +246,7 @@ export default function EventPage({ params }: EventPageProps) {
           </Card>
         </div>
 
-        {event!.slug === "bitcoin-genesis-block" && (
+        {event.slug === "bitcoin-genesis-block" && (
           <div className="mt-8">
             <Card className="border border-border/80 bg-card/95">
               <CardHeader>
@@ -267,7 +269,7 @@ export default function EventPage({ params }: EventPageProps) {
           </div>
         )}
 
-        {event!.chartUrl && (
+        {event.chartUrl && (
           <div className="mt-8">
             <Card>
               <CardHeader>
@@ -278,7 +280,7 @@ export default function EventPage({ params }: EventPageProps) {
               </CardHeader>
               <CardContent>
                 <Link
-                  href={event!.chartUrl}
+                  href={event.chartUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-sm text-accentGold underline"

@@ -219,7 +219,7 @@ export function NavBar() {
                 href={item.href}
                 target={item.href.startsWith("http") ? "_blank" : undefined}
                 rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                className={`rounded-2xl border border-border px-4 py-4 text-base text-fg transition hover:border-accentGold hover:bg-bg dark:border-white/8 dark:hover:bg-white/[0.04] ${
+                className={`rounded-2xl border border-border px-4 py-4 text-base text-fg transition hover:border-accentGold hover:bg-bg dark:border-white/[0.08] dark:hover:bg-white/[0.04] ${
                   pathname === item.href ? "border-accentGold bg-bg dark:border-accentGold dark:bg-white/[0.04]" : ""
                 }`}
                 onClick={closeMobileMenu}
@@ -237,7 +237,7 @@ export function NavBar() {
             </a>
             <Button
               variant="ghost"
-              className="w-full justify-center gap-2 border border-border text-fg hover:text-foreground dark:border-white/10"
+              className="w-full justify-center gap-2 border border-border text-fg transition-colors duration-200 hover:border-accentGold/50 hover:text-foreground dark:border-white/[0.10]"
               aria-label="Toggle theme"
               onClick={toggleTheme}
             >
