@@ -155,9 +155,7 @@ export function NavBar() {
           </nav>
         </div>
         <div className="flex items-center gap-2">
-          <div className="hidden md:block">
-            <AccentPicker />
-          </div>
+          <AccentPicker />
           <Button
             variant="ghost"
             size="icon"
@@ -236,18 +234,15 @@ export function NavBar() {
                 Trench Manual
               </a>
             </Button>
-            <div className="flex gap-2">
-              <Button
-                variant="ghost"
-                className="flex-1 justify-center gap-2 border border-border text-fg transition-colors duration-200 hover:border-accentGold/50 hover:text-foreground dark:border-border-subtle"
-                aria-label="Toggle theme"
-                onClick={toggleTheme}
-              >
-                {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-                {theme === "dark" ? "Light" : "Dark"}
-              </Button>
-              <AccentPicker />
-            </div>
+            <Button
+              variant="ghost"
+              className="w-full justify-center gap-2 border border-border text-fg transition-colors duration-200 hover:border-accentGold/50 hover:text-foreground dark:border-border-subtle"
+              aria-label="Toggle theme"
+              onClick={toggleTheme}
+            >
+              {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+              {theme === "dark" ? "Light mode" : "Dark mode"}
+            </Button>
           </div>
         </div>
       </div>

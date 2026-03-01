@@ -52,7 +52,7 @@ export function AccentPicker() {
   const [activeId, setActiveId] = useState("gold");
   const [customColor, setCustomColor] = useState("#6366f1");
   const panelRef = useRef<HTMLDivElement>(null);
-  const buttonRef = useRef<HTMLButtonElement>(null);
+  const triggerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     try {
@@ -70,7 +70,7 @@ export function AccentPicker() {
     const handleClick = (e: MouseEvent) => {
       if (
         !panelRef.current?.contains(e.target as Node) &&
-        !buttonRef.current?.contains(e.target as Node)
+        !triggerRef.current?.contains(e.target as Node)
       ) {
         setOpen(false);
       }
@@ -106,29 +106,46 @@ export function AccentPicker() {
   };
 
   const currentPreset = presets.find((p) => p.id === activeId);
-  const buttonBg = activeId === "custom" ? customColor : (currentPreset?.color ?? "#d6b15e");
+  const activeBg = activeId === "custom"
+    ? customColor
+    : (currentPreset?.gradient ?? currentPreset?.color ?? "#d6b15e");
 
   return (
-    <div className="relative">
+    <div className="relative" ref={triggerRef}>
+      {/* Desktop: icon button */}
       <Button
-        ref={buttonRef}
         variant="ghost"
         size="icon"
-        className="border border-border bg-card/80 text-muted-foreground transition-colors duration-200 hover:border-accentGold/50 hover:text-fg"
+        className="hidden border border-border bg-card/80 text-muted-foreground transition-colors duration-200 hover:border-accentGold/50 hover:text-fg md:inline-flex"
         aria-label="Change data accent color"
         aria-expanded={open}
         onClick={() => setOpen((prev) => !prev)}
       >
-        <Palette className="h-4 w-4" style={{ color: buttonBg }} />
+        <Palette className="h-4 w-4" style={{ color: currentPreset?.color ?? customColor }} />
       </Button>
 
+      {/* Mobile: subtle colored dot */}
+      <button
+        type="button"
+        className="flex h-8 w-8 items-center justify-center rounded-full transition-transform duration-150 active:scale-90 md:hidden"
+        aria-label="Change data accent color"
+        aria-expanded={open}
+        onClick={() => setOpen((prev) => !prev)}
+      >
+        <span
+          className="block h-3 w-3 rounded-full shadow-sm ring-2 ring-border/50 transition-all duration-200 dark:ring-border-subtle"
+          style={{ background: activeBg }}
+        />
+      </button>
+
+      {/* Panel */}
       <div
         ref={panelRef}
-        className={`absolute right-0 top-full z-30 mt-2 w-[220px] rounded-xl border border-border bg-card p-3 shadow-subtle transition-all duration-200 origin-top-right ${
+        className={`absolute right-0 top-full z-30 mt-2 w-[220px] rounded-xl border border-border bg-card p-3 shadow-subtle transition-all duration-200 origin-top-right dark:border-border-subtle dark:shadow-[0_12px_32px_rgba(0,0,0,0.5)] ${
           open ? "scale-100 opacity-100" : "pointer-events-none scale-95 opacity-0"
         }`}
       >
-        <div className="mb-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-muted">
+        <div className="mb-2.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-muted">
           Data Accent
         </div>
 
@@ -142,21 +159,19 @@ export function AccentPicker() {
               className={`group relative flex h-9 w-full items-center justify-center rounded-lg border transition-all duration-150 ${
                 activeId === preset.id
                   ? "border-fg/30 ring-2 ring-fg/10 scale-105"
-                  : "border-border hover:border-fg/20 hover:scale-105"
+                  : "border-border hover:border-fg/20 hover:scale-105 dark:border-border-subtle"
               }`}
               onClick={() => selectPreset(preset)}
             >
               <span
                 className="h-5 w-5 rounded-full shadow-sm"
-                style={{
-                  background: preset.gradient ?? preset.color
-                }}
+                style={{ background: preset.gradient ?? preset.color }}
               />
             </button>
           ))}
         </div>
 
-        <div className="mt-3 border-t border-border/60 pt-3">
+        <div className="mt-3 border-t border-border/60 pt-3 dark:border-border-subtle">
           <div className="flex items-center gap-2">
             <label
               htmlFor="custom-accent-input"
@@ -170,7 +185,7 @@ export function AccentPicker() {
                 type="color"
                 value={customColor}
                 onChange={(e) => selectCustom(e.target.value)}
-                className="h-7 w-7 cursor-pointer appearance-none rounded-md border border-border bg-transparent p-0.5 [&::-webkit-color-swatch-wrapper]:p-0 [&::-webkit-color-swatch]:rounded-sm [&::-webkit-color-swatch]:border-none"
+                className="h-7 w-7 cursor-pointer appearance-none rounded-md border border-border bg-transparent p-0.5 dark:border-border-subtle [&::-webkit-color-swatch-wrapper]:p-0 [&::-webkit-color-swatch]:rounded-sm [&::-webkit-color-swatch]:border-none"
               />
               <span className="text-xs font-mono text-muted tabular-nums">
                 {customColor}
