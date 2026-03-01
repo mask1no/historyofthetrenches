@@ -1,6 +1,7 @@
 import { ArrowRight, Play, BookOpen, Shield, TrendingUp } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { AccentText } from "@/components/AccentText";
 import { events } from "@/data/events";
 import { compareEventDatesDesc } from "@/lib/utils";
 
@@ -34,15 +35,15 @@ export function Hero() {
           <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-muted">
             <span className="flex items-center gap-1.5">
               <BookOpen className="h-3.5 w-3.5 text-accentGold" aria-hidden="true" />
-              <strong className="font-semibold text-fg">{totalEvents}</strong> events
+              <AccentText>{totalEvents}</AccentText> events
             </span>
             <span className="flex items-center gap-1.5">
               <Shield className="h-3.5 w-3.5 text-accentGold" aria-hidden="true" />
-              <strong className="font-semibold text-fg">{sourcesCount}</strong> sources
+              <AccentText>{sourcesCount}</AccentText> sources
             </span>
             <span className="flex items-center gap-1.5">
               <TrendingUp className="h-3.5 w-3.5 text-accentGold" aria-hidden="true" />
-              <strong className="font-semibold text-fg">{uniqueChains}</strong> chains
+              <AccentText>{uniqueChains}</AccentText> chains
             </span>
           </div>
 
@@ -72,9 +73,9 @@ export function Hero() {
                 <div className="text-sm font-semibold">Years covered</div>
                 <div className="text-xs text-muted">From genesis to today.</div>
               </div>
-              <span className="text-sm font-semibold text-fg tabular-nums">
+              <AccentText className="text-sm">
                 {earliestYear && latestYear ? `${earliestYear}\u2009\u2013\u2009${latestYear}` : "Unknown"}
-              </span>
+              </AccentText>
             </div>
             <div className="h-px bg-border/40 dark:bg-border-subtle" />
             <div className="flex items-center justify-between">
@@ -82,9 +83,9 @@ export function Hero() {
                 <div className="text-sm font-semibold">Total events</div>
                 <div className="text-xs text-muted">Complete archive count.</div>
               </div>
-              <span className="text-lg font-semibold text-accentGold tabular-nums">
+              <AccentText className="text-lg">
                 {totalEvents}
-              </span>
+              </AccentText>
             </div>
             <div className="h-px bg-border/40 dark:bg-border-subtle" />
             <div className="flex items-center justify-between">
@@ -92,9 +93,9 @@ export function Hero() {
                 <div className="text-sm font-semibold">Latest entry</div>
                 <div className="text-xs text-muted">Most recent archive date.</div>
               </div>
-              <time className="text-sm font-semibold text-fg tabular-nums" dateTime={latestEventDate}>
+              <AccentText as="time" className="text-sm">
                 {latestEventDate}
-              </time>
+              </AccentText>
             </div>
           </div>
         </div>

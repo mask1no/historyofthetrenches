@@ -82,7 +82,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const themeInitScript = `(function(){try{var stored=localStorage.getItem("hot-theme");var systemDark=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;var useDark=stored==="dark"||((stored!=="light"&&stored!=="dark")&&systemDark);document.documentElement.classList.toggle("dark",useDark);}catch(e){}})();`;
+  const themeInitScript = `(function(){try{var stored=localStorage.getItem("hot-theme");var systemDark=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;var useDark=stored==="dark"||((stored!=="light"&&stored!=="dark")&&systemDark);document.documentElement.classList.toggle("dark",useDark);var accent=localStorage.getItem("hot-data-accent");if(accent){var a=JSON.parse(accent);document.documentElement.style.setProperty("--data-accent",a.color);if(a.gradient){document.documentElement.style.setProperty("--data-accent-gradient",a.gradient);document.documentElement.setAttribute("data-accent-mode","gradient")}}}catch(e){}})();`;
   const organizationJsonLd = {
     "@context": "https://schema.org",
     "@type": "Organization",

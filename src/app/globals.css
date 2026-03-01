@@ -14,6 +14,8 @@
   --accentRed: #c44d4d;
   --accentGreen: #2f9e6f;
   --footerGlow: rgba(214, 177, 94, 0.18);
+  --data-accent: #d6b15e;
+  --data-accent-gradient: none;
 }
 
 .dark {
@@ -28,6 +30,8 @@
   --accentRed: #d16a6a;
   --accentGreen: #45b887;
   --footerGlow: rgba(214, 177, 94, 0.12);
+  --data-accent: #d6b15e;
+  --data-accent-gradient: none;
 }
 
 * {
@@ -195,6 +199,19 @@ a {
   to {
     transform: translateX(-50%);
   }
+}
+
+.data-accent {
+  color: var(--data-accent);
+  font-variant-numeric: tabular-nums;
+}
+
+html[data-accent-mode="gradient"] .data-accent {
+  background-image: var(--data-accent-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
 }
 
 @media (prefers-reduced-motion: reduce) {

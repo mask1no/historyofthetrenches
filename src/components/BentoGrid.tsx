@@ -7,6 +7,7 @@ import { eras } from "@/data/eras";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { AccentText } from "@/components/AccentText";
 
 const rugOrder = [
   "terra-luna-collapse",
@@ -67,9 +68,9 @@ export function BentoGrid() {
                   </span>
                 </div>
               </div>
-              <div className="text-right text-xs font-semibold text-accentRed">
+              <AccentText className="text-right text-xs">
                 {event.peakMetric ?? "N/A"}
-              </div>
+              </AccentText>
             </Link>
           ))}
         </CardContent>
@@ -103,9 +104,9 @@ export function BentoGrid() {
                   </span>
                 </div>
               </div>
-              <div className="text-right text-xs font-semibold text-accentGreen">
+              <AccentText className="text-right text-xs">
                 {event.peakMetric ?? "N/A"}
-              </div>
+              </AccentText>
             </Link>
           ))}
         </CardContent>

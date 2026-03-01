@@ -8,6 +8,7 @@ import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Select } from "@/components/ui/select";
 import { X } from "lucide-react";
+import { AccentText } from "@/components/AccentText";
 import { typeLabel, typeVariant } from "@/lib/eventType";
 import { compareEventDatesAsc, compareEventDatesDesc } from "@/lib/utils";
 
@@ -470,7 +471,7 @@ export function EventTable() {
 
       <div className="overflow-hidden rounded-xl border border-border bg-card shadow-subtle">
         <div className="border-b border-border px-4 py-3 text-xs uppercase tracking-[0.18em] text-muted">
-          <span aria-live="polite">{sorted.length} events</span>
+          <span aria-live="polite"><AccentText>{sorted.length}</AccentText> events</span>
         </div>
         <div className="divide-y divide-border">
           {visible.map((event) => (

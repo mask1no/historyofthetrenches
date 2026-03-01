@@ -9,6 +9,7 @@ import { SourceList } from "@/components/SourceList";
 import { events, getEventBySlug } from "@/data/events";
 import { ShareButtons } from "@/components/ShareButtons";
 import Link from "next/link";
+import { AccentText } from "@/components/AccentText";
 import { typeLabel, typeVariant } from "@/lib/eventType";
 import { compareEventDatesAsc } from "@/lib/utils";
 import { Footer } from "@/components/Footer";
@@ -184,9 +185,9 @@ export default function EventPage({ params }: EventPageProps) {
             <CardContent className="space-y-3 text-sm">
               <div className="grid gap-2 sm:grid-cols-[160px_minmax(0,1fr)]">
                 <span className="text-muted">Peak metric</span>
-                <span className="min-w-0 font-semibold break-words">
+                <AccentText className="min-w-0 break-words">
                   {event.peakMetric ?? "N/A"}
-                </span>
+                </AccentText>
               </div>
               <div className="grid gap-2 sm:grid-cols-[160px_minmax(0,1fr)]">
                 <span className="text-muted">Outcome</span>
@@ -196,11 +197,11 @@ export default function EventPage({ params }: EventPageProps) {
               </div>
               <div className="grid gap-2 sm:grid-cols-[160px_minmax(0,1fr)]">
                 <span className="text-muted">Chain</span>
-                <span className="min-w-0 font-semibold break-words">{event.chain}</span>
+                <AccentText className="min-w-0 break-words">{event.chain}</AccentText>
               </div>
               <div className="grid gap-2 sm:grid-cols-[160px_minmax(0,1fr)]">
                 <span className="text-muted">Year</span>
-                <span className="font-semibold break-words">{event.year}</span>
+                <AccentText className="break-words">{event.year}</AccentText>
               </div>
               <div className="grid gap-2 sm:grid-cols-[160px_minmax(0,1fr)]">
                 <span className="text-muted">Type</span>
