@@ -1,11 +1,13 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
+import { useRouter, useSearchParams } from "next/navigation";
 import { events, type Event, type EventType } from "@/data/events";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Select } from "@/components/ui/select";
+import { X } from "lucide-react";
 import { typeLabel, typeVariant } from "@/lib/eventType";
 import { compareEventDatesAsc, compareEventDatesDesc } from "@/lib/utils";
 
@@ -114,6 +116,36 @@ const getTagChipClass = (active: boolean) =>
       : "border-border text-muted hover:border-accentGold"
   }`;
 
+function parseFiltersFromSearchParams(
+  searchParams: ReturnType<typeof useSearchParams>,
+  chains: string[],
+  years: number[]
+): FilterState {
+  const typeParam = searchParams.get("type") ?? "all";
+  const validTypes: (EventType | "all")[] = ["all", "rugpull", "collapse", "runner", "milestone", "hack", "seizure"];
+  const type = validTypes.includes(typeParam as EventType | "all") ? (typeParam as EventType | "all") : "all";
+
+  const chainParam = searchParams.get("chain") ?? "all";
+  const chain = chainParam === "all" || chains.includes(chainParam) ? chainParam : "all";
+
+  const yearParam = searchParams.get("year");
+  let year: number | "all" = "all";
+  if (yearParam && yearParam !== "all") {
+    const y = Number(yearParam);
+    year = Number.isFinite(y) && years.includes(y) ? y : "all";
+  }
+
+  const tagsParam = searchParams.get("tags");
+  const tags = tagsParam ? tagsParam.split(",").map((t) => t.trim()).filter(Boolean) : [];
+
+  const search = searchParams.get("search") ?? "";
+
+  const sortParam = searchParams.get("sort") ?? "newest";
+  const sort = sortParam === "oldest" ? "oldest" : "newest";
+
+  return { type, chain, year, tags, search, sort };
+}
+
 function matchesFilters(event: Event, filters: FilterState) {
   const search = filters.search.toLowerCase();
   const haystack = [
@@ -137,6 +169,10 @@ function matchesFilters(event: Event, filters: FilterState) {
 }
 
 export function EventTable() {
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const searchInputRef = useRef<HTMLInputElement>(null);
+
   const defaultFilters: FilterState = {
     type: "all",
     chain: "all",
@@ -145,15 +181,44 @@ export function EventTable() {
     search: "",
     sort: "newest"
   };
-  const [filters, setFilters] = useState<FilterState>({
-    type: "all",
-    chain: "all",
-    year: "all",
-    tags: [],
-    search: "",
-    sort: "newest"
-  });
+  const [filters, setFilters] = useState<FilterState>(() =>
+    parseFiltersFromSearchParams(searchParams, chains, years)
+  );
   const [filtersOpen, setFiltersOpen] = useState(false);
+
+  // Read URL params on mount (handles hydration / client nav)
+  useEffect(() => {
+    setFilters(parseFiltersFromSearchParams(searchParams, chains, years));
+  }, [searchParams]);
+
+  // Update URL when filters change
+  useEffect(() => {
+    const params = new URLSearchParams();
+    if (filters.type !== "all") params.set("type", filters.type);
+    if (filters.chain !== "all") params.set("chain", filters.chain);
+    if (filters.year !== "all") params.set("year", String(filters.year));
+    if (filters.tags.length > 0) params.set("tags", filters.tags.join(","));
+    if (filters.search.trim()) params.set("search", filters.search.trim());
+    if (filters.sort !== "newest") params.set("sort", filters.sort);
+    const qs = params.toString();
+    const pathname = window.location.pathname;
+    const newUrl = qs ? `${pathname}?${qs}` : pathname;
+    router.replace(newUrl, { scroll: false });
+  }, [filters, router]);
+
+  // Keyboard shortcut: "/" to focus search (when not in input/textarea/select)
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key !== "/") return;
+      const active = document.activeElement as HTMLElement | null;
+      const tag = active?.tagName?.toLowerCase();
+      if (tag === "input" || tag === "textarea" || tag === "select") return;
+      e.preventDefault();
+      searchInputRef.current?.focus();
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
   const [showAllTags, setShowAllTags] = useState(false);
   const curatedTags = ["defi", "meme", "cefi", "regulation", "hack", "nft", "exchange"];
   const topTags = curatedTags.filter((tag) => tags.includes(tag));
@@ -183,15 +248,27 @@ export function EventTable() {
     return list.sort(compareEventDatesDesc);
   }, [filtered, filters.sort]);
 
+  const PAGE_SIZE = 25;
+  const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
+
+  useEffect(() => {
+    setVisibleCount(PAGE_SIZE);
+  }, [filters]);
+
+  const visible = sorted.slice(0, visibleCount);
+  const hasMore = visibleCount < sorted.length;
+
   return (
     <section className="space-y-4">
-      <div className="rounded-2xl border border-border bg-bg p-4 shadow-subtle card-lift">
+      <div className="rounded-xl border border-border bg-bg p-4 shadow-subtle card-lift">
         <div>
           <label className="mb-1 block text-xs font-semibold uppercase tracking-[0.18em] text-muted">
             Search
+            <kbd className="ml-1 rounded border border-border px-1.5 py-0.5 text-[10px] font-mono text-muted">/</kbd>
           </label>
           <Input
-            className="h-11 rounded-2xl"
+            ref={searchInputRef}
+            className="h-11 rounded-xl"
             placeholder="Search title, tags, chain, or type"
             value={filters.search}
             onChange={(e) => setFilters((prev) => ({ ...prev, search: e.target.value }))}
@@ -272,7 +349,7 @@ export function EventTable() {
                   <span className="flex items-center gap-1">
                     {tag}
                     {filters.tags.includes(tag) && (
-                      <span className="text-[10px] font-semibold">x</span>
+                      <X className="h-3 w-3" />
                     )}
                   </span>
                 </button>
@@ -306,7 +383,7 @@ export function EventTable() {
                       <span className="flex items-center gap-1">
                         {tag}
                         {filters.tags.includes(tag) && (
-                          <span className="text-[10px] font-semibold">x</span>
+                          <X className="h-3 w-3" />
                         )}
                       </span>
                     </button>
@@ -327,7 +404,7 @@ export function EventTable() {
               aria-label={`Clear type filter ${filters.type}`}
             >
               {typeLabel[filters.type]}
-              <span className="text-[10px] font-semibold">x</span>
+              <X className="h-3 w-3" />
             </button>
           )}
           {filters.chain !== "all" && (
@@ -338,7 +415,7 @@ export function EventTable() {
               aria-label={`Clear chain filter ${filters.chain}`}
             >
               {filters.chain}
-              <span className="text-[10px] font-semibold">x</span>
+              <X className="h-3 w-3" />
             </button>
           )}
           {filters.year !== "all" && (
@@ -349,7 +426,7 @@ export function EventTable() {
               aria-label={`Clear year filter ${filters.year}`}
             >
               {filters.year}
-              <span className="text-[10px] font-semibold">x</span>
+              <X className="h-3 w-3" />
             </button>
           )}
           {filters.tags.map((tag) => (
@@ -366,7 +443,7 @@ export function EventTable() {
               aria-label={`Clear tag filter ${tag}`}
             >
               {tag}
-              <span className="text-[10px] font-semibold">x</span>
+              <X className="h-3 w-3" />
             </button>
           ))}
           {trimmedSearch.length > 0 && (
@@ -377,7 +454,7 @@ export function EventTable() {
               aria-label="Clear search filter"
             >
               search
-              <span className="text-[10px] font-semibold">x</span>
+              <X className="h-3 w-3" />
             </button>
           )}
           <button
@@ -391,12 +468,12 @@ export function EventTable() {
         </div>
       )}
 
-      <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-subtle">
+      <div className="overflow-hidden rounded-xl border border-border bg-card shadow-subtle">
         <div className="border-b border-border px-4 py-3 text-xs uppercase tracking-[0.18em] text-muted">
           <span aria-live="polite">{sorted.length} events</span>
         </div>
         <div className="divide-y divide-border">
-          {sorted.map((event) => (
+          {visible.map((event) => (
             <Link
               key={event.slug}
               href={`/event/${event.slug}`}
@@ -416,7 +493,7 @@ export function EventTable() {
                     <Badge variant="muted" className="text-[11px]">
                       {event.chain}
                     </Badge>
-                    <span className="text-xs text-muted">{event.date}</span>
+                    <time className="text-xs text-muted" dateTime={event.date}>{event.date}</time>
                   </div>
                 </div>
               </div>
@@ -438,12 +515,38 @@ export function EventTable() {
               </div>
             </Link>
           ))}
-          {sorted.length === 0 && (
-            <div className="px-4 py-6 text-center text-sm text-muted">
-              No events match the current filters.
+          {visible.length === 0 && (
+            <div className="flex flex-col items-center gap-3 px-4 py-12 text-center">
+              <div className="flex items-center gap-1.5">
+                <span className="h-2 w-2 rounded-full bg-border" />
+                <span className="h-2 w-2 rounded-full bg-border" />
+                <span className="h-2 w-2 rounded-full bg-border" />
+              </div>
+              <div className="text-sm font-medium text-fg">No events found</div>
+              <p className="max-w-xs text-xs text-muted">
+                Try adjusting your filters or search to discover more events in the archive.
+              </p>
+              <button
+                type="button"
+                className="mt-1 rounded-full border border-border px-4 py-1.5 text-xs font-semibold text-muted transition hover:border-accentGold hover:text-fg"
+                onClick={() => setFilters(defaultFilters)}
+              >
+                Clear all filters
+              </button>
             </div>
           )}
         </div>
+        {hasMore && (
+          <div className="border-t border-border px-4 py-3 text-center">
+            <button
+              type="button"
+              className="rounded-full border border-border px-6 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-muted transition hover:border-accentGold hover:text-fg"
+              onClick={() => setVisibleCount((prev) => prev + PAGE_SIZE)}
+            >
+              Show more ({sorted.length - visibleCount} remaining)
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );

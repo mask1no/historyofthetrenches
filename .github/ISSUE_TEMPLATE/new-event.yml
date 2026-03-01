@@ -1,0 +1,73 @@
+name: Submit New Event
+description: Suggest a new crypto event for the archive
+title: "[Event] "
+labels: ["event-submission"]
+body:
+  - type: input
+    id: title
+    attributes:
+      label: Event Title
+      placeholder: "e.g. Mt. Gox Collapse"
+    validations:
+      required: true
+  - type: input
+    id: date
+    attributes:
+      label: Event Date
+      description: "YYYY-MM-DD format"
+      placeholder: "2024-01-10"
+    validations:
+      required: true
+  - type: dropdown
+    id: type
+    attributes:
+      label: Event Type
+      options:
+        - milestone
+        - hack
+        - rugpull
+        - collapse
+        - runner
+        - seizure
+    validations:
+      required: true
+  - type: input
+    id: chain
+    attributes:
+      label: Chain
+      placeholder: "e.g. Bitcoin, Ethereum, Solana, Multi-chain"
+    validations:
+      required: true
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: "2-4 sentence summary of the event"
+    validations:
+      required: true
+  - type: textarea
+    id: sources
+    attributes:
+      label: Sources
+      description: "At least 2 URLs to verifiable sources (news articles, official announcements, etc.)"
+      placeholder: |
+        1. https://example.com/article
+        2. https://example.com/article2
+    validations:
+      required: true
+  - type: input
+    id: peak_metric
+    attributes:
+      label: Peak Metric
+      placeholder: "e.g. $150M ETH at risk"
+  - type: input
+    id: outcome
+    attributes:
+      label: Outcome
+      placeholder: "e.g. Operator arrested; BTC auctioned"
+  - type: input
+    id: tags
+    attributes:
+      label: Tags
+      description: "Comma-separated lowercase tags"
+      placeholder: "defi, hack, security"

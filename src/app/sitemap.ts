@@ -9,18 +9,32 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ? Math.max(...events.map((event) => parseEventDate(event.date)))
     : Date.now();
   const staticLastModified = new Date(latestEventDate);
-  const staticRoutes = ["", "/archive", "/timeline", "/kit", "/hot"].map((path) => ({
+  const pagePriority: Record<string, number> = {
+    "": 1.0,
+    "/archive": 0.9,
+    "/timeline": 0.9,
+    "/kit": 0.7,
+    "/hot": 0.7
+  };
+  const pageFrequency: Record<string, "weekly" | "monthly"> = {
+    "": "weekly",
+    "/archive": "weekly",
+    "/timeline": "monthly",
+    "/kit": "monthly",
+    "/hot": "monthly"
+  };
+  const staticRoutes = Object.keys(pagePriority).map((path) => ({
     url: `${baseUrl}${path}`,
     lastModified: staticLastModified,
-    changeFrequency: (path === "" ? "weekly" : "monthly") as "weekly" | "monthly",
-    priority: path === "" ? 1 : 0.8
+    changeFrequency: pageFrequency[path] ?? ("monthly" as const),
+    priority: pagePriority[path] ?? 0.7
   }));
 
   const eventRoutes = events.map((event) => ({
     url: `${baseUrl}/event/${event.slug}`,
     lastModified: new Date(parseEventDate(event.date)),
     changeFrequency: "yearly" as "yearly",
-    priority: 0.6
+    priority: event.hallOfFame ? 0.8 : 0.6
   }));
 
   return [...staticRoutes, ...eventRoutes];

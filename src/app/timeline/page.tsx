@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { NavBar } from "@/components/NavBar";
 import { EraTimeline } from "@/components/EraTimeline";
 import { Footer } from "@/components/Footer";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { TimelineScrollToHash } from "@/components/TimelineScrollToHash";
 import { ScrollToTopButton } from "@/components/ScrollToTopButton";
 
@@ -40,6 +42,7 @@ export default function TimelinePage() {
       <TimelineScrollToHash />
       <NavBar />
       <section className="mx-auto max-w-6xl px-6 pb-12 pt-8">
+        <Breadcrumbs items={[{ label: "Timeline", href: "/timeline" }]} />
         <div className="mb-6 space-y-3">
           <h1 className="font-display text-4xl font-semibold">
             Crypto Timeline
@@ -49,6 +52,21 @@ export default function TimelinePage() {
           </p>
         </div>
         <EraTimeline />
+
+        <div className="mt-8 flex flex-wrap items-center gap-4 text-sm">
+          <Link
+            href="/archive"
+            className="font-medium text-muted transition hover:text-fg hover:underline hover:decoration-accentGold hover:underline-offset-2"
+          >
+            Browse full Archive
+          </Link>
+          <Link
+            href="/kit"
+            className="font-medium text-muted transition hover:text-fg hover:underline hover:decoration-accentGold hover:underline-offset-2"
+          >
+            Explore the Kit
+          </Link>
+        </div>
       </section>
       <ScrollToTopButton />
       <Footer />

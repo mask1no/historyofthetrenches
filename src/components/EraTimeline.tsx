@@ -18,8 +18,9 @@ export function EraTimeline() {
   return (
     <section className="space-y-6">
       <p className="text-sm text-muted">Collapse eras to focus, or expand to view all highlights.</p>
-      <div className="relative overflow-hidden rounded-2xl border border-border bg-card p-6 shadow-subtle">
-        <div className="flex flex-col gap-6">
+      <div className="relative overflow-hidden rounded-xl border border-border bg-card p-6 shadow-subtle">
+        <div className="relative flex flex-col gap-6">
+          <div className="absolute left-[16px] top-0 bottom-0 w-px bg-border/60" aria-hidden="true" />
           {eras.map((era, idx) => {
             const orderedEvents = [...era.featured].sort((a, b) =>
               a.date.localeCompare(b.date)
@@ -31,18 +32,15 @@ export function EraTimeline() {
               <div
                 key={era.id}
                 id={`era-${era.id}`}
-                className="card-lift relative grid gap-3 overflow-hidden rounded-xl border border-border bg-card/70 p-5 shadow-sm transition duration-700 ease-in-out hover:-translate-y-0.5 hover:shadow-subtle md:grid-cols-[200px_1fr] scroll-mt-24"
+                className="card-lift relative grid gap-3 overflow-hidden rounded-xl border border-border bg-card/70 p-5 pl-10 shadow-sm transition duration-700 ease-in-out hover:-translate-y-0.5 hover:shadow-subtle md:grid-cols-[200px_1fr] scroll-mt-24"
               >
-                <div className="absolute inset-y-0 left-0 w-1 bg-border/40" aria-hidden="true" />
-                <div className="flex items-start gap-3">
-                  <div className="relative mt-1 h-4 w-4 rounded-full bg-accentGold shadow-subtle" />
-                  <div>
-                    <div className="text-xs font-semibold uppercase text-muted">{era.range}</div>
-                    <div className="mt-1 text-lg font-semibold">{era.title}</div>
-                    <p className="mt-2 text-sm text-muted line-clamp-3 md:line-clamp-none">
-                      {era.description}
-                    </p>
-                  </div>
+                <div className="absolute left-[11px] top-6 h-3 w-3 rounded-full border-2 border-accentGold bg-card shadow-subtle" aria-hidden="true" />
+                <div>
+                  <div className="text-xs font-semibold uppercase text-muted">{era.range}</div>
+                  <div className="mt-1 text-lg font-semibold">{era.title}</div>
+                  <p className="mt-2 text-sm text-muted line-clamp-3 md:line-clamp-none">
+                    {era.description}
+                  </p>
                 </div>
                 <div className="space-y-2">
                   {visibleEvents.map((event) => (

@@ -7,7 +7,9 @@
   --fg: #161616;
   --muted: #4b4b4b;
   --card: #ffffff;
+  --card-alt: #f0eeea;
   --border: #d8d2c7;
+  --border-subtle: rgba(0, 0, 0, 0.06);
   --accentGold: #d6b15e;
   --accentRed: #c44d4d;
   --accentGreen: #2f9e6f;
@@ -19,7 +21,9 @@
   --fg: #e9e6df;
   --muted: #9a948b;
   --card: #121212;
+  --card-alt: #1a1a1a;
   --border: #1a1a1a;
+  --border-subtle: rgba(255, 255, 255, 0.06);
   --accentGold: #d6b15e;
   --accentRed: #d16a6a;
   --accentGreen: #45b887;
@@ -43,12 +47,6 @@ html {
   font-size: 100%;
   overflow-x: hidden;
   scroll-behavior: smooth;
-}
-
-@media (min-width: 768px) {
-  html {
-    font-size: 90%;
-  }
 }
 
 .dark .shadow-subtle {
@@ -199,3 +197,8 @@ a {
   }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation-play-state: paused;
+  }
+}

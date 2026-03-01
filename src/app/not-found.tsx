@@ -2,6 +2,15 @@ import Link from "next/link";
 import { NavBar } from "@/components/NavBar";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { events } from "@/data/events";
+import { typeLabel, typeVariant } from "@/lib/eventType";
+import { compareEventDatesDesc } from "@/lib/utils";
+
+const featuredEvents = [...events]
+  .filter((e) => e.hallOfFame === true)
+  .sort(compareEventDatesDesc)
+  .slice(0, 5);
 
 export default function NotFound() {
   return (
@@ -17,13 +26,40 @@ export default function NotFound() {
           track.
         </p>
         <div className="flex flex-wrap gap-3">
-          <Link href="/">
-            <Button className="shadow-subtle">Go to Homepage</Button>
-          </Link>
-          <Link href="/archive">
-            <Button variant="subtle">Go to Archive</Button>
-          </Link>
+          <Button asChild className="shadow-subtle">
+            <Link href="/">Go to Homepage</Link>
+          </Button>
+          <Button asChild variant="subtle">
+            <Link href="/archive">Go to Archive</Link>
+          </Button>
         </div>
+
+        {featuredEvents.length > 0 && (
+          <div className="mt-8 w-full">
+            <h2 className="font-display text-xl font-semibold">
+              Explore featured events
+            </h2>
+            <div className="mt-4 grid grid-cols-1 gap-3 md:grid-cols-2">
+              {featuredEvents.map((item) => (
+                <Link
+                  key={item.slug}
+                  href={`/event/${item.slug}`}
+                  className="flex items-center justify-between rounded-xl border border-border bg-card px-4 py-3 shadow-sm transition hover:border-accentGold"
+                >
+                  <div>
+                    <div className="text-sm font-semibold">{item.title}</div>
+                    <div className="text-xs text-muted">
+                      {item.chain} • {item.date}
+                    </div>
+                  </div>
+                  <Badge variant={typeVariant[item.type]}>
+                    {typeLabel[item.type]}
+                  </Badge>
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
       </section>
       <Footer />
     </main>

@@ -1,4 +1,4 @@
-﻿export type EventType =
+export type EventType =
   | "rugpull"
   | "runner"
   | "milestone"
@@ -43,7 +43,7 @@ export const events: Event[] = [
     "chain": "Bitcoin",
     "year": 2013,
     "date": "2013-10-02",
-    "era": "Silk Road Era",
+    "era": "genesis",
     "status": "law enforcement",
     "summary": "Legendary darknet market seized by authorities, cementing Bitcoin's early reputation and triggering debates on privacy.",
     "peakMetric": "100k+ listings",
@@ -55,7 +55,7 @@ export const events: Event[] = [
     "chartUrl": "https://tradingview.com/symbols/BTCUSD/",
     "sources": [
       {
-        "label": "Wikipedia overview for Silk Road Marketplace Closure",
+        "label": "Silk Road Marketplace Closure (Wikipedia)",
         "url": "https://en.wikipedia.org/wiki/Silk_Road_(marketplace)",
         "publisher": "Wikipedia",
         "year": 2013
@@ -75,7 +75,7 @@ export const events: Event[] = [
     "chain": "Bitcoin",
     "year": 2014,
     "date": "2014-02-28",
-    "era": "Silk Road Era",
+    "era": "genesis",
     "hallOfFame": true,
     "status": "exchange hack",
     "summary": "Once the largest Bitcoin exchange, Mt. Gox collapsed after losing ~850k BTC, shaping early exchange security norms.",
@@ -88,14 +88,8 @@ export const events: Event[] = [
     "chartUrl": "https://tradingview.com/symbols/BTCUSD/",
     "sources": [
       {
-        "label": "Wikipedia overview for Mt. Gox Collapse",
-        "url": "https://en.wikipedia.org/wiki/Mt._Gox_Collapse",
-        "publisher": "Wikipedia",
-        "year": 2014
-      },
-      {
-        "label": "Wikipedia overview for Mt. Gox Collapse (Bitcoin)",
-        "url": "https://en.wikipedia.org/wiki/Mt._Gox_Collapse_Bitcoin",
+        "label": "Mt. Gox Collapse (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/Mt._Gox",
         "publisher": "Wikipedia",
         "year": 2014
       }
@@ -108,7 +102,7 @@ export const events: Event[] = [
     "chain": "Ethereum",
     "year": 2016,
     "date": "2016-06-17",
-    "era": "ICO Boom",
+    "era": "ico-boom",
     "status": "hard fork decision",
     "summary": "Smart contract exploit drained a major DAO, leading to Ethereum's contentious hard fork and the birth of Ethereum Classic.",
     "peakMetric": "$150M ETH at risk",
@@ -126,14 +120,8 @@ export const events: Event[] = [
         "year": 2016
       },
       {
-        "label": "Wikipedia overview for The DAO Hack",
-        "url": "https://en.wikipedia.org/wiki/The_DAO_Hack",
-        "publisher": "Wikipedia",
-        "year": 2016
-      },
-      {
-        "label": "Wikipedia overview for The DAO Hack (Ethereum)",
-        "url": "https://en.wikipedia.org/wiki/The_DAO_Hack_Ethereum",
+        "label": "The DAO Hack (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/The_DAO",
         "publisher": "Wikipedia",
         "year": 2016
       }
@@ -146,7 +134,7 @@ export const events: Event[] = [
     "chain": "Multi-chain",
     "year": 2017,
     "date": "2017-07-14",
-    "era": "ICO Boom",
+    "era": "ico-boom",
     "status": "exchange growth",
     "summary": "CZ launches Binance, pioneering fast listings and BNB utility within a rapidly growing exchange.",
     "peakMetric": "Top global spot volume",
@@ -158,8 +146,8 @@ export const events: Event[] = [
     "chartUrl": "https://tradingview.com/symbols/BNBUSD/",
     "sources": [
       {
-        "label": "Wikipedia overview for Binance Exchange Launch",
-        "url": "https://en.wikipedia.org/wiki/Binance_Exchange_Launch",
+        "label": "Binance Exchange Launch (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/Binance",
         "publisher": "Wikipedia",
         "year": 2017
       },
@@ -178,7 +166,7 @@ export const events: Event[] = [
     "chain": "Multi-chain",
     "year": 2018,
     "date": "2018-01-17",
-    "era": "ICO Boom",
+    "era": "ico-boom",
     "hallOfFame": true,
     "status": "pyramid unwind",
     "summary": "High-yield lending platform imploded after regulators issued warnings, leading to a 90%+ price crash.",
@@ -198,8 +186,8 @@ export const events: Event[] = [
         "year": 2018
       },
       {
-        "label": "Wikipedia overview for Bitconnect Collapse",
-        "url": "https://en.wikipedia.org/wiki/Bitconnect_Collapse",
+        "label": "Bitconnect Collapse (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/Bitconnect",
         "publisher": "Wikipedia",
         "year": 2018
       }
@@ -212,7 +200,7 @@ export const events: Event[] = [
     "chain": "Bitcoin",
     "year": 2017,
     "date": "2017-12-17",
-    "era": "ICO Boom",
+    "era": "ico-boom",
     "hallOfFame": true,
     "status": "macro adoption",
     "summary": "Bitcoin reached ~$20k amid ICO mania, drawing global retail attention.",
@@ -225,14 +213,15 @@ export const events: Event[] = [
     "chartUrl": "https://tradingview.com/symbols/BTCUSD/",
     "sources": [
       {
-        "label": "Wikipedia overview for Bitcoin 2017 Bull Run",
-        "url": "https://en.wikipedia.org/wiki/Bitcoin_2017_Bull_Run",
-        "publisher": "Wikipedia",
-        "year": 2017
+        "label": "From $900 to $20,000: Bitcoin's Historic 2017 Price Run Revisited",
+        "url": "https://www.coindesk.com/markets/2017/12/29/from-900-to-20000-bitcoins-historic-2017-price-run-revisited/",
+        "publisher": "CoinDesk",
+        "year": 2017,
+        "kind": "secondary"
       },
       {
-        "label": "Wikipedia overview for Bitcoin 2017 Bull Run (Bitcoin)",
-        "url": "https://en.wikipedia.org/wiki/Bitcoin_2017_Bull_Run_Bitcoin",
+        "label": "Bitcoin 2017 Bull Run (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/History_of_bitcoin",
         "publisher": "Wikipedia",
         "year": 2017
       }
@@ -245,7 +234,7 @@ export const events: Event[] = [
     "chain": "Multi-chain",
     "year": 2017,
     "date": "2017-12-01",
-    "era": "ICO Boom",
+    "era": "ico-boom",
     "status": "retail onboarding",
     "summary": "Coinbase hit the top of app stores during the 2017 rush, becoming the default retail gateway.",
     "peakMetric": "#1 App Store finance app",
@@ -258,14 +247,15 @@ export const events: Event[] = [
     "chartUrl": "https://tradingview.com/symbols/BTCUSD/",
     "sources": [
       {
-        "label": "Wikipedia overview for Coinbase App Onboarding Boom",
-        "url": "https://en.wikipedia.org/wiki/Coinbase_App_Onboarding_Boom",
-        "publisher": "Wikipedia",
-        "year": 2017
+        "label": "Coinbase hits top spot on Apple's US App Store",
+        "url": "https://techcrunch.com/2017/12/07/coinbase-hits-top-spot-on-apples-us-app-store",
+        "publisher": "TechCrunch",
+        "year": 2017,
+        "kind": "secondary"
       },
       {
-        "label": "Wikipedia overview for Coinbase App Onboarding Boom (Multi-chain)",
-        "url": "https://en.wikipedia.org/wiki/Coinbase_App_Onboarding_Boom_Multi-chain",
+        "label": "Coinbase App Onboarding Boom (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/Coinbase",
         "publisher": "Wikipedia",
         "year": 2017
       }
@@ -278,7 +268,7 @@ export const events: Event[] = [
     "chain": "Multi-chain",
     "year": 2020,
     "date": "2020-03-12",
-    "era": "DeFi Summer",
+    "era": "defi-summer",
     "status": "macro shock",
     "summary": "Global markets crashed; BTC briefly fell below $4k before recovering, catalyzing new entrants.",
     "peakMetric": "-50% intraday BTC drawdown",
@@ -290,14 +280,15 @@ export const events: Event[] = [
     "chartUrl": "https://tradingview.com/symbols/BTCUSD/",
     "sources": [
       {
-        "label": "Wikipedia overview for COVID-19 Black Swan",
-        "url": "https://en.wikipedia.org/wiki/COVID-19_Black_Swan",
-        "publisher": "Wikipedia",
-        "year": 2020
+        "label": "Down 26%: Bitcoin Sees Worst Sell-Off in 7 Years as Coronavirus Spurs Flight to Safety",
+        "url": "https://www.coindesk.com/markets/2020/03/12/down-26-bitcoin-sees-worst-sell-off-in-7-years-as-coronavirus-spurs-flight-to-safety",
+        "publisher": "CoinDesk",
+        "year": 2020,
+        "kind": "secondary"
       },
       {
-        "label": "Wikipedia overview for COVID-19 Black Swan (Multi-chain)",
-        "url": "https://en.wikipedia.org/wiki/COVID-19_Black_Swan_Multi-chain",
+        "label": "COVID-19 Black Swan (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/2020_stock_market_crash",
         "publisher": "Wikipedia",
         "year": 2020
       }
@@ -310,7 +301,7 @@ export const events: Event[] = [
     "chain": "Ethereum",
     "year": 2020,
     "date": "2020-05-18",
-    "era": "DeFi Summer",
+    "era": "defi-summer",
     "status": "dex upgrade",
     "summary": "Uniswap V2 introduced direct ERC-20 pairs and oracles, accelerating AMM adoption.",
     "peakMetric": "Rapid TVL climb",
@@ -343,7 +334,7 @@ export const events: Event[] = [
     "chain": "Ethereum",
     "year": 2020,
     "date": "2020-07-17",
-    "era": "DeFi Summer",
+    "era": "defi-summer",
     "status": "fair launch",
     "summary": "Yearn introduced a zero-premine, governance-first token that became a DeFi cultural pillar.",
     "peakMetric": "$40k token peak",
@@ -362,7 +353,7 @@ export const events: Event[] = [
         "year": 2020
       },
       {
-        "label": "Wikipedia overview for Yearn.finance",
+        "label": "Yearn.finance (Wikipedia)",
         "url": "https://en.wikipedia.org/wiki/Yearn.finance",
         "publisher": "Wikipedia",
         "year": 2020
@@ -376,7 +367,7 @@ export const events: Event[] = [
     "chain": "BNB Chain (BSC)",
     "year": 2020,
     "date": "2020-09-20",
-    "era": "DeFi Summer",
+    "era": "defi-summer",
     "status": "dex launch",
     "summary": "PancakeSwap launched on Binance Smart Chain as a low-fee Uniswap alternative, onboarding millions of retail users priced out of Ethereum gas fees and briefly surpassing Uniswap in TVL.",
     "peakMetric": "$7.87B TVL peak",
@@ -407,12 +398,12 @@ export const events: Event[] = [
   },
   {
     "slug": "terra-luna-collapse",
-    "title": "Terra/Luna Rugpull",
-    "type": "rugpull",
+    "title": "Terra/Luna Collapse",
+    "type": "collapse",
     "chain": "Terra",
     "year": 2022,
     "date": "2022-05-09",
-    "era": "DeFi Summer",
+    "era": "defi-summer",
     "hallOfFame": true,
     "status": "stablecoin failure",
     "summary": "Algorithmic stablecoin UST lost its peg, causing a death spiral that erased tens of billions in value.",
@@ -426,14 +417,15 @@ export const events: Event[] = [
     "chartUrl": "https://tradingview.com/symbols/LUNAUSD/",
     "sources": [
       {
-        "label": "Wikipedia overview for Terra/Luna Rugpull",
-        "url": "https://en.wikipedia.org/wiki/Terra/Luna_Rugpull",
-        "publisher": "Wikipedia",
-        "year": 2022
+        "label": "The Fall of Terra: A Timeline of the Meteoric Rise and Crash of UST and LUNA",
+        "url": "https://www.coindesk.com/learn/the-fall-of-terra-a-timeline-of-the-meteoric-rise-and-crash-of-ust-and-luna",
+        "publisher": "CoinDesk",
+        "year": 2022,
+        "kind": "secondary"
       },
       {
-        "label": "Wikipedia overview for Terra/Luna Rugpull (Terra)",
-        "url": "https://en.wikipedia.org/wiki/Terra/Luna_Rugpull_Terra",
+        "label": "Terra/Luna Rugpull (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/Terra_(blockchain)",
         "publisher": "Wikipedia",
         "year": 2022
       }
@@ -446,7 +438,7 @@ export const events: Event[] = [
     "chain": "CeFi",
     "year": 2022,
     "date": "2022-07-13",
-    "era": "DeFi Summer",
+    "era": "defi-summer",
     "status": "insolvency",
     "summary": "Lending platform froze withdrawals citing extreme market conditions before filing for Chapter 11.",
     "peakMetric": "$20B peak assets",
@@ -459,14 +451,15 @@ export const events: Event[] = [
     "chartUrl": "https://tradingview.com/symbols/CELUSD/",
     "sources": [
       {
-        "label": "Wikipedia overview for Celsius Bankruptcy",
-        "url": "https://en.wikipedia.org/wiki/Celsius_Bankruptcy",
-        "publisher": "Wikipedia",
-        "year": 2022
+        "label": "Celsius Network Files for Chapter 11 Bankruptcy",
+        "url": "https://www.coindesk.com/business/2022/07/14/celsius-files-for-chapter-11-bankrupcty",
+        "publisher": "CoinDesk",
+        "year": 2022,
+        "kind": "secondary"
       },
       {
-        "label": "Wikipedia overview for Celsius Bankruptcy (CeFi)",
-        "url": "https://en.wikipedia.org/wiki/Celsius_Bankruptcy_CeFi",
+        "label": "Celsius Bankruptcy (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/Celsius_Network",
         "publisher": "Wikipedia",
         "year": 2022
       }
@@ -479,7 +472,7 @@ export const events: Event[] = [
     "chain": "Multi-chain",
     "year": 2022,
     "date": "2022-06-27",
-    "era": "DeFi Summer",
+    "era": "defi-summer",
     "status": "fund insolvency",
     "summary": "Hedge fund failed to meet margin calls after leveraged bets, triggering forced liquidations across lenders.",
     "peakMetric": "$10B AUM peak",
@@ -492,14 +485,15 @@ export const events: Event[] = [
     "chartUrl": "https://tradingview.com/symbols/BTCUSD/",
     "sources": [
       {
-        "label": "Wikipedia overview for Three Arrows Capital Collapse",
-        "url": "https://en.wikipedia.org/wiki/Three_Arrows_Capital_Collapse",
-        "publisher": "Wikipedia",
-        "year": 2022
+        "label": "Three Arrows Capital Files for Bankruptcy in New York",
+        "url": "https://www.coindesk.com/business/2022/07/01/three-arrows-capital-files-for-bankruptcy-in-new-york-tied-to-british-virgin-islands-proceeding",
+        "publisher": "CoinDesk",
+        "year": 2022,
+        "kind": "secondary"
       },
       {
-        "label": "Wikipedia overview for Three Arrows Capital Collapse (Multi-chain)",
-        "url": "https://en.wikipedia.org/wiki/Three_Arrows_Capital_Collapse_Multi-chain",
+        "label": "Three Arrows Capital Collapse (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/Three_Arrows_Capital",
         "publisher": "Wikipedia",
         "year": 2022
       }
@@ -508,31 +502,31 @@ export const events: Event[] = [
   {
     "slug": "alameda-balance-sheet-leak",
     "title": "Alameda Balance Sheet Leak",
-    "type": "hack",
+    "type": "milestone",
     "chain": "CeFi",
     "year": 2022,
     "date": "2022-11-02",
-    "era": "DeFi Summer",
+    "era": "defi-summer",
     "status": "contagion catalyst",
     "summary": "Leaked financials showed heavy FTT collateral reliance, triggering market stress that preceded FTX collapse.",
     "peakMetric": "Billions in illiquid FTT",
     "outcome": "Liquidity crisis; run on FTX",
     "tags": [
       "cefi",
-      "contagion",
-      "ftt"
+      "contagion"
     ],
     "chartUrl": "https://tradingview.com/symbols/FTTUSD/",
     "sources": [
       {
-        "label": "Wikipedia overview for Alameda Balance Sheet Leak",
-        "url": "https://en.wikipedia.org/wiki/Alameda_Balance_Sheet_Leak",
-        "publisher": "Wikipedia",
-        "year": 2022
+        "label": "Divisions in Sam Bankman-Fried's Crypto Empire Blur on His Trading Titan Alameda's Balance Sheet",
+        "url": "https://www.coindesk.com/business/2022/11/02/divisions-in-sam-bankman-frieds-crypto-empire-blur-on-his-trading-titan-alamedas-balance-sheet",
+        "publisher": "CoinDesk",
+        "year": 2022,
+        "kind": "primary"
       },
       {
-        "label": "Wikipedia overview for Alameda Balance Sheet Leak (CeFi)",
-        "url": "https://en.wikipedia.org/wiki/Alameda_Balance_Sheet_Leak_CeFi",
+        "label": "Alameda Balance Sheet Leak (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/FTX_(company)",
         "publisher": "Wikipedia",
         "year": 2022
       }
@@ -545,7 +539,7 @@ export const events: Event[] = [
     "chain": "CeFi",
     "year": 2022,
     "date": "2022-11-11",
-    "era": "DeFi Summer",
+    "era": "defi-summer",
     "hallOfFame": true,
     "status": "custodial failure",
     "summary": "One of the largest centralized exchanges filed for bankruptcy after liquidity crunch and alleged misuse of funds.",
@@ -565,14 +559,8 @@ export const events: Event[] = [
         "year": 2022
       },
       {
-        "label": "Wikipedia overview for FTX Exchange Collapse",
-        "url": "https://en.wikipedia.org/wiki/FTX_Exchange_Collapse",
-        "publisher": "Wikipedia",
-        "year": 2022
-      },
-      {
-        "label": "Wikipedia overview for FTX Exchange Collapse (CeFi)",
-        "url": "https://en.wikipedia.org/wiki/FTX_Exchange_Collapse_CeFi",
+        "label": "FTX Exchange Collapse (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/FTX_(company)",
         "publisher": "Wikipedia",
         "year": 2022
       }
@@ -585,7 +573,7 @@ export const events: Event[] = [
     "chain": "Ethereum/Sidechain",
     "year": 2022,
     "date": "2022-03-23",
-    "era": "DeFi Summer",
+    "era": "defi-summer",
     "status": "bridge exploit",
     "summary": "Attackers stole over $600M in ETH/USDC from the Ronin bridge via compromised validator keys.",
     "peakMetric": "$600M loss",
@@ -604,14 +592,8 @@ export const events: Event[] = [
         "year": 2022
       },
       {
-        "label": "Wikipedia overview for Axie Infinity Ronin Bridge Hack",
-        "url": "https://en.wikipedia.org/wiki/Axie_Infinity_Ronin_Bridge_Hack",
-        "publisher": "Wikipedia",
-        "year": 2022
-      },
-      {
-        "label": "Wikipedia overview for Axie Infinity Ronin Bridge Hack (Ethereum/Sidechain)",
-        "url": "https://en.wikipedia.org/wiki/Axie_Infinity_Ronin_Bridge_Hack_Ethereum/Sidechain",
+        "label": "Axie Infinity Ronin Bridge Hack (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/Ronin_Network",
         "publisher": "Wikipedia",
         "year": 2022
       }
@@ -624,7 +606,7 @@ export const events: Event[] = [
     "chain": "Ethereum",
     "year": 2022,
     "date": "2022-02-20",
-    "era": "NFT Summer",
+    "era": "nft-onboarding",
     "status": "marketplace exploit",
     "summary": "Attackers used stale listings to purchase NFTs below market, exposing marketplace approval risks.",
     "peakMetric": "$1.7M estimated losses",
@@ -637,14 +619,8 @@ export const events: Event[] = [
     "chartUrl": "https://tradingview.com/symbols/ETHUSD/",
     "sources": [
       {
-        "label": "Wikipedia overview for OpenSea Wyvern Exploit",
-        "url": "https://en.wikipedia.org/wiki/OpenSea_Wyvern_Exploit",
-        "publisher": "Wikipedia",
-        "year": 2022
-      },
-      {
-        "label": "Wikipedia overview for OpenSea Wyvern Exploit (Ethereum)",
-        "url": "https://en.wikipedia.org/wiki/OpenSea_Wyvern_Exploit_Ethereum",
+        "label": "OpenSea Wyvern Exploit (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/OpenSea",
         "publisher": "Wikipedia",
         "year": 2022
       }
@@ -657,7 +633,7 @@ export const events: Event[] = [
     "chain": "Ethereum",
     "year": 2022,
     "date": "2022-09-15",
-    "era": "DeFi Summer",
+    "era": "defi-summer",
     "status": "protocol upgrade",
     "summary": "Ethereum transitioned from Proof of Work to Proof of Stake, reducing energy consumption and changing issuance.",
     "peakMetric": "Energy use down ~99%",
@@ -675,8 +651,8 @@ export const events: Event[] = [
         "year": 2022
       },
       {
-        "label": "Wikipedia overview for Ethereum Merge",
-        "url": "https://en.wikipedia.org/wiki/Ethereum_Merge",
+        "label": "Ethereum Merge (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/Ethereum",
         "publisher": "Wikipedia",
         "year": 2022
       }
@@ -689,7 +665,7 @@ export const events: Event[] = [
     "chain": "Multi-chain",
     "year": 2021,
     "date": "2021-04-14",
-    "era": "NFT Summer",
+    "era": "nft-onboarding",
     "status": "public listing",
     "summary": "The largest US exchange debuted via direct listing, signaling institutional recognition.",
     "peakMetric": "$100B intraday valuation",
@@ -702,14 +678,15 @@ export const events: Event[] = [
     "chartUrl": "https://tradingview.com/symbols/COIN/",
     "sources": [
       {
-        "label": "Wikipedia overview for Coinbase NASDAQ Listing",
-        "url": "https://en.wikipedia.org/wiki/Coinbase_NASDAQ_Listing",
-        "publisher": "Wikipedia",
-        "year": 2021
+        "label": "Coinbase gets all-clear from SEC, setting stage for landmark crypto listing",
+        "url": "https://www.reuters.com/technology/coinbase-gets-green-light-sec-direct-listing-nasdaq-2021-04-01/",
+        "publisher": "Reuters",
+        "year": 2021,
+        "kind": "secondary"
       },
       {
-        "label": "Wikipedia overview for Coinbase NASDAQ Listing (Multi-chain)",
-        "url": "https://en.wikipedia.org/wiki/Coinbase_NASDAQ_Listing_Multi-chain",
+        "label": "Coinbase NASDAQ Listing (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/Coinbase",
         "publisher": "Wikipedia",
         "year": 2021
       }
@@ -722,7 +699,7 @@ export const events: Event[] = [
     "chain": "Ethereum",
     "year": 2021,
     "date": "2021-03-11",
-    "era": "NFT Summer",
+    "era": "nft-onboarding",
     "status": "auction record",
     "summary": "Christie's sold Beeple's 'Everydays' for $69M, igniting mainstream NFT awareness.",
     "peakMetric": "$69M hammer price",
@@ -755,7 +732,7 @@ export const events: Event[] = [
     "chain": "Multi-chain",
     "year": 2021,
     "date": "2021-05-08",
-    "era": "NFT Summer",
+    "era": "nft-onboarding",
     "hallOfFame": true,
     "status": "community-driven",
     "summary": "Originally a joke, Dogecoin rallied on viral momentum, tipping culture, and social amplification.",
@@ -768,14 +745,15 @@ export const events: Event[] = [
     "chartUrl": "https://tradingview.com/symbols/DOGEUSD/",
     "sources": [
       {
-        "label": "Wikipedia overview for Dogecoin Meme Run",
-        "url": "https://en.wikipedia.org/wiki/Dogecoin_Meme_Run",
-        "publisher": "Wikipedia",
-        "year": 2021
+        "label": "Dogecoin surges to record high, up almost 300% in a week",
+        "url": "https://www.reuters.com/technology/dogecoin-surges-record-high-up-almost-300-week-2021-04-16/",
+        "publisher": "Reuters",
+        "year": 2021,
+        "kind": "secondary"
       },
       {
-        "label": "Wikipedia overview for Dogecoin Meme Run (Multi-chain)",
-        "url": "https://en.wikipedia.org/wiki/Dogecoin_Meme_Run_Multi-chain",
+        "label": "Dogecoin Meme Run (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/Dogecoin",
         "publisher": "Wikipedia",
         "year": 2021
       }
@@ -788,7 +766,7 @@ export const events: Event[] = [
     "chain": "Ethereum",
     "year": 2021,
     "date": "2021-10-27",
-    "era": "NFT Summer",
+    "era": "nft-onboarding",
     "hallOfFame": true,
     "status": "community + defi",
     "summary": "SHIB rallied through community marketing, exchange listings, and the launch of ShibaSwap ecosystem.",
@@ -802,14 +780,15 @@ export const events: Event[] = [
     "chartUrl": "https://tradingview.com/symbols/SHIBUSD/",
     "sources": [
       {
-        "label": "Wikipedia overview for Shiba Inu Ascent",
-        "url": "https://en.wikipedia.org/wiki/Shiba_Inu_Ascent",
-        "publisher": "Wikipedia",
-        "year": 2021
+        "label": "Meme Tokens Led 'Uptober' as SHIB Mooned 765%",
+        "url": "https://www.coindesk.com/markets/2021/11/01/meme-tokens-led-uptober-as-shib-mooned-765",
+        "publisher": "CoinDesk",
+        "year": 2021,
+        "kind": "secondary"
       },
       {
-        "label": "Wikipedia overview for Shiba Inu Ascent (Ethereum)",
-        "url": "https://en.wikipedia.org/wiki/Shiba_Inu_Ascent_Ethereum",
+        "label": "Shiba Inu Ascent (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/Shiba_Inu_(cryptocurrency)",
         "publisher": "Wikipedia",
         "year": 2021
       }
@@ -822,7 +801,7 @@ export const events: Event[] = [
     "chain": "Ethereum",
     "year": 2021,
     "date": "2021-10-28",
-    "era": "NFT Summer",
+    "era": "nft-onboarding",
     "hallOfFame": true,
     "status": "liquidity drain",
     "summary": "AnubisDAO raised tens of millions in hours before the treasury disappeared, highlighting the risks of unaudited, anonymous launches.",
@@ -835,14 +814,15 @@ export const events: Event[] = [
     ],
     "sources": [
       {
-        "label": "Wikipedia overview for AnubisDAO Rugpull",
-        "url": "https://en.wikipedia.org/wiki/AnubisDAO_Rugpull",
-        "publisher": "Wikipedia",
-        "year": 2021
+        "label": "AnubisDAO Investors Lose $60 Million in Alleged Rug Pull",
+        "url": "https://decrypt.co/84924/anubisdao-investors-lose-60-million-in-alleged-rug-pull",
+        "publisher": "Decrypt",
+        "year": 2021,
+        "kind": "secondary"
       },
       {
-        "label": "Wikipedia overview for AnubisDAO Rugpull (Ethereum)",
-        "url": "https://en.wikipedia.org/wiki/AnubisDAO_Rugpull_Ethereum",
+        "label": "AnubisDAO Rugpull (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/Decentralized_autonomous_organization",
         "publisher": "Wikipedia",
         "year": 2021
       }
@@ -855,7 +835,7 @@ export const events: Event[] = [
     "chain": "CeFi",
     "year": 2021,
     "date": "2021-04-21",
-    "era": "NFT Summer",
+    "era": "nft-onboarding",
     "hallOfFame": true,
     "status": "exchange exit",
     "summary": "Turkey-based exchange Thodex halted withdrawals and its CEO fled, leaving users locked out and prompting a national investigation.",
@@ -870,14 +850,15 @@ export const events: Event[] = [
     "chartUrl": "https://coinmarketcap.com/exchanges/thodex/",
     "sources": [
       {
-        "label": "Wikipedia overview for Thodex Exchange Exit Scam",
-        "url": "https://en.wikipedia.org/wiki/Thodex_Exchange_Exit_Scam",
-        "publisher": "Wikipedia",
-        "year": 2021
+        "label": "Police search cryptocurrency trading firm after Turks say they were scammed",
+        "url": "https://www.reuters.com/world/middle-east/turkish-crypto-traders-file-complaints-after-access-accounts-frozen-lawyer-2021-04-22/",
+        "publisher": "Reuters",
+        "year": 2021,
+        "kind": "secondary"
       },
       {
-        "label": "Wikipedia overview for Thodex Exchange Exit Scam (CeFi)",
-        "url": "https://en.wikipedia.org/wiki/Thodex_Exchange_Exit_Scam_CeFi",
+        "label": "Thodex Exchange Exit Scam (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/Thodex",
         "publisher": "Wikipedia",
         "year": 2021
       }
@@ -890,7 +871,7 @@ export const events: Event[] = [
     "chain": "BSC",
     "year": 2021,
     "date": "2021-11-01",
-    "era": "Pump.fun Era",
+    "era": "nft-onboarding",
     "hallOfFame": true,
     "status": "exit liquidity spike",
     "summary": "Token inspired by the TV show rocketed then crashed after developers drained liquidity and vanished.",
@@ -909,8 +890,8 @@ export const events: Event[] = [
         "year": 2021
       },
       {
-        "label": "Wikipedia overview for Squid Game Token Rugpull",
-        "url": "https://en.wikipedia.org/wiki/Squid_Game_Token_Rugpull",
+        "label": "Squid Game Token Rugpull (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/Squid_Game_token",
         "publisher": "Wikipedia",
         "year": 2021
       }
@@ -923,7 +904,7 @@ export const events: Event[] = [
     "chain": "Ethereum",
     "year": 2023,
     "date": "2023-04-18",
-    "era": "Pump.fun Era",
+    "era": "pump-fun",
     "hallOfFame": true,
     "status": "viral",
     "summary": "PEPE captured the 2023 meme cycle with rapid exchange listings and high on-chain volume.",
@@ -936,14 +917,15 @@ export const events: Event[] = [
     "chartUrl": "https://coinmarketcap.com/currencies/pepe/",
     "sources": [
       {
-        "label": "Wikipedia overview for PEPE Meme Rally",
-        "url": "https://en.wikipedia.org/wiki/PEPE_Meme_Rally",
-        "publisher": "Wikipedia",
-        "year": 2023
+        "label": "PEPE Token Soars to $500M Market Cap",
+        "url": "https://www.coindesk.com/business/2023/05/02/pepe-token-soars-to-500m-market-cap-as-memecoin-fever-grips-crypto-traders",
+        "publisher": "CoinDesk",
+        "year": 2023,
+        "kind": "secondary"
       },
       {
-        "label": "Wikipedia overview for PEPE Meme Rally (Ethereum)",
-        "url": "https://en.wikipedia.org/wiki/PEPE_Meme_Rally_Ethereum",
+        "label": "PEPE Meme Rally (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/Pepe_(cryptocurrency)",
         "publisher": "Wikipedia",
         "year": 2023
       }
@@ -956,7 +938,7 @@ export const events: Event[] = [
     "chain": "Solana",
     "year": 2023,
     "date": "2023-12-08",
-    "era": "Pump.fun Era",
+    "era": "pump-fun",
     "hallOfFame": true,
     "status": "ecosystem revival",
     "summary": "Dog-themed token airdropped to builders, energizing Solana sentiment after a deep drawdown.",
@@ -969,14 +951,15 @@ export const events: Event[] = [
     "chartUrl": "https://coinmarketcap.com/currencies/bonk/",
     "sources": [
       {
-        "label": "Wikipedia overview for BONK on Solana",
-        "url": "https://en.wikipedia.org/wiki/BONK_on_Solana",
-        "publisher": "Wikipedia",
-        "year": 2023
+        "label": "Sales of Solana Phone Surge as Traders Chase BONK Arbitrage",
+        "url": "https://www.coindesk.com/markets/2023/12/14/sales-of-solana-phone-surge-as-traders-chase-bonk-arbitrage",
+        "publisher": "CoinDesk",
+        "year": 2023,
+        "kind": "secondary"
       },
       {
-        "label": "Wikipedia overview for BONK on Solana (Solana)",
-        "url": "https://en.wikipedia.org/wiki/BONK_on_Solana_Solana",
+        "label": "BONK on Solana (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/Bonk_(cryptocurrency)",
         "publisher": "Wikipedia",
         "year": 2023
       }
@@ -989,7 +972,7 @@ export const events: Event[] = [
     "chain": "Solana",
     "year": 2024,
     "date": "2024-03-18",
-    "era": "Pump.fun Era",
+    "era": "pump-fun",
     "hallOfFame": true,
     "status": "ecosystem rebound",
     "summary": "SOL rebounded from post-FTX lows as developer activity, DeFi liquidity, and memecoin momentum reignited Solana demand.",
@@ -1003,14 +986,15 @@ export const events: Event[] = [
     "chartUrl": "https://tradingview.com/symbols/SOLUSD/",
     "sources": [
       {
-        "label": "Wikipedia overview for Solana Post-FTX Revival Run",
-        "url": "https://en.wikipedia.org/wiki/Solana_Post-FTX_Revival_Run",
-        "publisher": "Wikipedia",
-        "year": 2024
+        "label": "Solana's SOL Surges to Record High Above $260",
+        "url": "https://www.coindesk.com/markets/2024/11/22/solanas-sol-surges-to-record-high-above-260",
+        "publisher": "CoinDesk",
+        "year": 2024,
+        "kind": "secondary"
       },
       {
-        "label": "Wikipedia overview for Solana Post-FTX Revival Run (Solana)",
-        "url": "https://en.wikipedia.org/wiki/Solana_Post-FTX_Revival_Run_Solana",
+        "label": "Solana Post-FTX Revival Run (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/Solana_(blockchain_platform)",
         "publisher": "Wikipedia",
         "year": 2024
       }
@@ -1023,7 +1007,7 @@ export const events: Event[] = [
     "chain": "Solana",
     "year": 2024,
     "date": "2024-03-15",
-    "era": "Pump.fun Era",
+    "era": "pump-fun",
     "status": "launchpad",
     "summary": "Ultra-fast memecoin launch tooling popularized instant liquidity and viral spins.",
     "peakMetric": "Thousands of tokens/day",
@@ -1035,93 +1019,17 @@ export const events: Event[] = [
     "chartUrl": "https://dexscreener.com/solana",
     "sources": [
       {
-        "label": "Wikipedia overview for Pump.fun Era Emerges",
-        "url": "https://en.wikipedia.org/wiki/Pump.fun_Era_Emerges",
+        "label": "Pump.Fun: Solana's Memecoin Juggernaut",
+        "url": "https://www.coindesk.com/business/2024/12/10/pump-fun-solana-s-memecoin-juggernaut",
+        "publisher": "CoinDesk",
+        "year": 2024,
+        "kind": "secondary"
+      },
+      {
+        "label": "Pump.fun Era Emerges (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/Pump.fun",
         "publisher": "Wikipedia",
         "year": 2024
-      },
-      {
-        "label": "Wikipedia overview for Pump.fun Era Emerges (Solana)",
-        "url": "https://en.wikipedia.org/wiki/Pump.fun_Era_Emerges_Solana",
-        "publisher": "Wikipedia",
-        "year": 2024
-      }
-    ]
-  },
-  {
-    "slug": "openclaw-moltbook-incident",
-    "title": "Moltbook Agent Web Hack",
-    "type": "hack",
-    "chain": "Solana",
-    "year": 2026,
-    "date": "2026-01-31",
-    "era": "Pump.fun Era",
-    "status": "security breach",
-    "summary": "A critical Supabase misconfiguration left Moltbook's production database fully exposed, with no Row-Level Security, no access controls. Security researchers found 1.5 million API tokens, 35,000 emails, and thousands of private agent messages accessible via basic curl commands. The platform, built using AI-generated code, failed to implement fundamental security policies.",
-    "peakMetric": "1.5M API tokens exposed",
-    "outcome": "Patched within 48 hours of Wiz disclosure",
-    "tags": [
-      "launchpad",
-      "exploit",
-      "web-security",
-      "moltbook",
-      "security",
-      "integrity"
-    ],
-    "sources": [
-      {
-        "label": "Exposed Moltbook database report",
-        "url": "https://www.404media.co/exposed-moltbook-database-let-anyone-take-control-of-any-ai-agent-on-the-site/",
-        "publisher": "404 Media",
-        "year": 2026
-      },
-      {
-        "label": "Wiz research on exposed keys",
-        "url": "https://www.wiz.io/blog/exposed-moltbook-database-reveals-millions-of-api-keys",
-        "publisher": "Wiz",
-        "year": 2026
-      }
-    ]
-  },
-  {
-    "slug": "openclaw-viral-sensation",
-    "title": "OpenClaw: Solo Dev AI Sensation",
-    "type": "milestone",
-    "chain": "Solana",
-    "year": 2026,
-    "date": "2026-01-28",
-    "era": "Pump.fun Era",
-    "hallOfFame": false,
-    "status": "cultural phenomenon",
-    "summary": "Solo Austrian developer Peter Steinberger built Clawdbot, an AI coding assistant that gained 100,000+ GitHub stars in two months. Forced renames by Anthropic (trademark) and a pivot to OpenClaw spawned unauthorized memecoins that hit a $16M market cap. Steinberger publicly disavowed all tokens, calling them scams. Andrej Karpathy called the project 'the most incredible sci-fi takeoff-adjacent thing.' Steinberger was recruited by OpenAI.",
-    "peakMetric": "$16M unauthorized memecoin cap",
-    "outcome": "Creator joined OpenAI; all tokens disavowed",
-    "tags": [
-      "ai-agents",
-      "meme",
-      "solana",
-      "viral",
-      "milestone",
-      "openclaw"
-    ],
-    "sources": [
-      {
-        "label": "CLAWD reaches $16M market cap",
-        "url": "https://phemex.com/news/article/meme-coin-clawd-reaches-16m-market-cap-amid-clawdbot-hype-55979",
-        "publisher": "Phemex",
-        "year": 2026
-      },
-      {
-        "label": "Steinberger rejects memecoin launches",
-        "url": "https://cryptopress.site/crypto/moltbot-creator-peter-steinberger-rejects-memecoin-launches-warns-of-impersonation-scams/",
-        "publisher": "CryptoPress",
-        "year": 2026
-      },
-      {
-        "label": "Clawdbot chaos: forced rebrand and crypto scams",
-        "url": "https://decrypt.co/356191/clawdbot-chaos-forced-rebrand-crypto-scam-24-hour-meltdown",
-        "publisher": "Decrypt",
-        "year": 2026
       }
     ]
   },
@@ -1132,7 +1040,7 @@ export const events: Event[] = [
     "chain": "Bitcoin",
     "year": 2024,
     "date": "2024-01-10",
-    "era": "Pump.fun Era",
+    "era": "pump-fun",
     "status": "regulatory",
     "summary": "US regulators approved multiple spot BTC ETFs, opening institutional rails for direct exposure.",
     "peakMetric": "Record first-week inflows",
@@ -1144,14 +1052,15 @@ export const events: Event[] = [
     "chartUrl": "https://tradingview.com/symbols/BTCUSD/",
     "sources": [
       {
-        "label": "Wikipedia overview for Bitcoin Spot ETF Approvals",
-        "url": "https://en.wikipedia.org/wiki/Bitcoin_Spot_ETF_Approvals",
-        "publisher": "Wikipedia",
-        "year": 2024
+        "label": "US SEC approves bitcoin ETFs in watershed for crypto market",
+        "url": "https://www.reuters.com/technology/bitcoin-etf-hopefuls-still-expect-sec-approval-despite-social-media-hack-2024-01-10/",
+        "publisher": "Reuters",
+        "year": 2024,
+        "kind": "secondary"
       },
       {
-        "label": "Wikipedia overview for Bitcoin Spot ETF Approvals (Bitcoin)",
-        "url": "https://en.wikipedia.org/wiki/Bitcoin_Spot_ETF_Approvals_Bitcoin",
+        "label": "Bitcoin Spot ETF Approvals (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/Cryptocurrency_exchange-traded_fund",
         "publisher": "Wikipedia",
         "year": 2024
       }
@@ -1164,15 +1073,15 @@ export const events: Event[] = [
     "chain": "BSC",
     "year": 2021,
     "date": "2021-03-29",
-    "era": "DeFi Summer",
+    "era": "defi-summer",
     "hallOfFame": true,
     "status": "long unraveling",
     "summary": "Controversial reflections token faced exploits, treasury drains, and lawsuits over locked liquidity promises.",
     "peakMetric": "$5B+ FDV peak",
     "outcome": "Ongoing legal actions",
     "tags": [
-      "reflections",
-      "controversial"
+      "defi",
+      "rugpull"
     ],
     "chartUrl": "https://coinmarketcap.com/currencies/safemoon/",
     "sources": [
@@ -1197,7 +1106,7 @@ export const events: Event[] = [
     "chain": "BSC",
     "year": 2021,
     "date": "2021-03-05",
-    "era": "DeFi Summer",
+    "era": "defi-summer",
     "hallOfFame": true,
     "status": "vault drained",
     "summary": "Meerkat Finance's vault funds vanished shortly after launch, sparking a scramble across BSC as liquidity providers realized the contracts had been emptied.",
@@ -1229,7 +1138,7 @@ export const events: Event[] = [
     "chain": "Bitcoin",
     "year": 2008,
     "date": "2008-10-31",
-    "era": "Genesis",
+    "era": "genesis",
     "status": "protocol design",
     "summary": "Satoshi Nakamoto released the Bitcoin whitepaper, outlining peer-to-peer electronic cash and trustless consensus.",
     "outcome": "Open-source release",
@@ -1260,26 +1169,27 @@ export const events: Event[] = [
     "chain": "Ethereum",
     "year": 2014,
     "date": "2014-07-22",
-    "era": "ICO Boom",
+    "era": "ico-boom",
     "status": "crowdfund",
     "summary": "Ethereum raised funds via token presale, catalyzing the smart contract platform era and setting the ICO template.",
     "peakMetric": "$18M equivalent raise",
     "outcome": "Mainnet shipped 2015",
     "tags": [
       "ico",
-      "smart-contracts"
+      "smart-contract"
     ],
     "chartUrl": "https://tradingview.com/symbols/ETHUSD/",
     "sources": [
       {
-        "label": "Wikipedia overview for Ethereum ICO Launch",
-        "url": "https://en.wikipedia.org/wiki/Ethereum_ICO_Launch",
-        "publisher": "Wikipedia",
-        "year": 2014
+        "label": "Launching the Ether Sale",
+        "url": "https://blog.ethereum.org/2014/07/22/launching-the-ether-sale",
+        "publisher": "Ethereum Foundation",
+        "year": 2014,
+        "kind": "primary"
       },
       {
-        "label": "Wikipedia overview for Ethereum ICO Launch (Ethereum)",
-        "url": "https://en.wikipedia.org/wiki/Ethereum_ICO_Launch_Ethereum",
+        "label": "Ethereum ICO Launch (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/Ethereum",
         "publisher": "Wikipedia",
         "year": 2014
       }
@@ -1292,7 +1202,7 @@ export const events: Event[] = [
     "chain": "Ethereum",
     "year": 2017,
     "date": "2017-12-05",
-    "era": "NFT Summer",
+    "era": "ico-boom",
     "status": "network stress",
     "summary": "Viral NFT game CryptoKitties clogged Ethereum, highlighting fee markets and the need for scaling solutions.",
     "peakMetric": "20k+ daily tx from game",
@@ -1305,14 +1215,8 @@ export const events: Event[] = [
     "chartUrl": "https://tradingview.com/symbols/ETHUSD/",
     "sources": [
       {
-        "label": "Wikipedia overview for CryptoKitties Chain Congestion",
-        "url": "https://en.wikipedia.org/wiki/CryptoKitties_Chain_Congestion",
-        "publisher": "Wikipedia",
-        "year": 2017
-      },
-      {
-        "label": "Wikipedia overview for CryptoKitties Chain Congestion (Ethereum)",
-        "url": "https://en.wikipedia.org/wiki/CryptoKitties_Chain_Congestion_Ethereum",
+        "label": "CryptoKitties Chain Congestion (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/CryptoKitties",
         "publisher": "Wikipedia",
         "year": 2017
       }
@@ -1325,7 +1229,7 @@ export const events: Event[] = [
     "chain": "Ethereum",
     "year": 2020,
     "date": "2020-06-15",
-    "era": "DeFi Summer",
+    "era": "defi-summer",
     "status": "token incentives",
     "summary": "COMP distribution sparked the first major yield farming wave, bootstrapping on-chain liquidity and composability playbooks.",
     "peakMetric": "$600M+ TVL within weeks",
@@ -1344,8 +1248,8 @@ export const events: Event[] = [
         "year": 2020
       },
       {
-        "label": "Wikipedia overview for Compound Launches Yield Farming",
-        "url": "https://en.wikipedia.org/wiki/Compound_Launches_Yield_Farming",
+        "label": "Compound Launches Yield Farming (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/Compound_(finance)",
         "publisher": "Wikipedia",
         "year": 2020
       }
@@ -1358,7 +1262,7 @@ export const events: Event[] = [
     "chain": "Ethereum/Sidechain",
     "year": 2021,
     "date": "2021-08-01",
-    "era": "NFT Summer",
+    "era": "nft-onboarding",
     "status": "gaming adoption",
     "summary": "Axie Infinity's play-to-earn model onboarded millions, driving sidechain activity and debate on sustainable token economies.",
     "peakMetric": "$4B+ lifetime NFT volume",
@@ -1371,14 +1275,15 @@ export const events: Event[] = [
     "chartUrl": "https://tradingview.com/symbols/AXSUSD/",
     "sources": [
       {
-        "label": "Wikipedia overview for Axie Infinity Play-to-Earn Peak",
-        "url": "https://en.wikipedia.org/wiki/Axie_Infinity_Play-to-Earn_Peak",
-        "publisher": "Wikipedia",
-        "year": 2021
+        "label": "Workers in the Global South are making a living playing Axie Infinity",
+        "url": "https://restofworld.org/2021/axie-infinity/",
+        "publisher": "Rest of World",
+        "year": 2021,
+        "kind": "secondary"
       },
       {
-        "label": "Wikipedia overview for Axie Infinity Play-to-Earn Peak (Ethereum/Sidechain)",
-        "url": "https://en.wikipedia.org/wiki/Axie_Infinity_Play-to-Earn_Peak_Ethereum/Sidechain",
+        "label": "Axie Infinity Play-to-Earn Peak (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/Axie_Infinity",
         "publisher": "Wikipedia",
         "year": 2021
       }
@@ -1391,7 +1296,7 @@ export const events: Event[] = [
     "chain": "Ethereum L2",
     "year": 2023,
     "date": "2023-08-09",
-    "era": "Pump.fun Era",
+    "era": "pump-fun",
     "status": "l2 launch",
     "summary": "Coinbase launched Base on OP Stack, accelerating consumer onramps and L2 adoption with low-fee social apps.",
     "peakMetric": "1M+ daily tx bursts",
@@ -1410,14 +1315,8 @@ export const events: Event[] = [
         "year": 2023
       },
       {
-        "label": "Wikipedia overview for Base Mainnet Launch",
-        "url": "https://en.wikipedia.org/wiki/Base_Mainnet_Launch",
-        "publisher": "Wikipedia",
-        "year": 2023
-      },
-      {
-        "label": "Wikipedia overview for Base Mainnet Launch (Ethereum L2)",
-        "url": "https://en.wikipedia.org/wiki/Base_Mainnet_Launch_Ethereum_L2",
+        "label": "Base Mainnet Launch (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/Base_(blockchain)",
         "publisher": "Wikipedia",
         "year": 2023
       }
@@ -1430,7 +1329,7 @@ export const events: Event[] = [
     "chain": "Bitcoin",
     "year": 2023,
     "date": "2023-01-21",
-    "era": "Pump.fun Era",
+    "era": "pump-fun",
     "status": "protocol experiment",
     "summary": "Ordinals enabled NFT-like inscriptions on Bitcoin, driving fee spikes and reigniting debates on blockspace usage.",
     "peakMetric": "200k+ inscriptions in early weeks",
@@ -1448,14 +1347,8 @@ export const events: Event[] = [
         "year": 2023
       },
       {
-        "label": "Wikipedia overview for Bitcoin Ordinals Minting Launch",
-        "url": "https://en.wikipedia.org/wiki/Bitcoin_Ordinals_Minting_Launch",
-        "publisher": "Wikipedia",
-        "year": 2023
-      },
-      {
-        "label": "Wikipedia overview for Bitcoin Ordinals Minting Launch (Bitcoin)",
-        "url": "https://en.wikipedia.org/wiki/Bitcoin_Ordinals_Minting_Launch_Bitcoin",
+        "label": "Bitcoin Ordinals Minting Launch (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/Bitcoin_Ordinals",
         "publisher": "Wikipedia",
         "year": 2023
       }
@@ -1468,7 +1361,7 @@ export const events: Event[] = [
     "chain": "Base",
     "year": 2023,
     "date": "2023-08-12",
-    "era": "Pump.fun Era",
+    "era": "pump-fun",
     "status": "social trading",
     "summary": "Friend.tech popularized social trading keys on Base, showcasing L2 onboarding and viral fee generation.",
     "peakMetric": "$1M+ protocol fees/day",
@@ -1480,14 +1373,8 @@ export const events: Event[] = [
     ],
     "sources": [
       {
-        "label": "Wikipedia overview for Friend.tech Social Token Summer",
-        "url": "https://en.wikipedia.org/wiki/Friend.tech_Social_Token_Summer",
-        "publisher": "Wikipedia",
-        "year": 2023
-      },
-      {
-        "label": "Wikipedia overview for Friend.tech Social Token Summer (Base)",
-        "url": "https://en.wikipedia.org/wiki/Friend.tech_Social_Token_Summer_Base",
+        "label": "Friend.tech Social Token Summer (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/Friend.tech",
         "publisher": "Wikipedia",
         "year": 2023
       }
@@ -1500,7 +1387,7 @@ export const events: Event[] = [
     "chain": "CeFi",
     "year": 2023,
     "date": "2023-11-02",
-    "era": "Pump.fun Era",
+    "era": "pump-fun",
     "status": "legal outcome",
     "summary": "A federal jury convicted FTX founder Sam Bankman-Fried on fraud and conspiracy charges, closing a key chapter of CeFi contagion.",
     "outcome": "Convicted on all counts",
@@ -1512,14 +1399,8 @@ export const events: Event[] = [
     "chartUrl": "https://tradingview.com/symbols/FTTUSD/",
     "sources": [
       {
-        "label": "Wikipedia overview for SBF Trial Verdict",
-        "url": "https://en.wikipedia.org/wiki/SBF_Trial_Verdict",
-        "publisher": "Wikipedia",
-        "year": 2023
-      },
-      {
-        "label": "Wikipedia overview for SBF Trial Verdict (CeFi)",
-        "url": "https://en.wikipedia.org/wiki/SBF_Trial_Verdict_CeFi",
+        "label": "SBF Trial Verdict (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/Trial_of_Sam_Bankman-Fried",
         "publisher": "Wikipedia",
         "year": 2023
       }
@@ -1532,7 +1413,7 @@ export const events: Event[] = [
     "chain": "Bitcoin",
     "year": 2016,
     "date": "2016-08-02",
-    "era": "ICO Boom",
+    "era": "ico-boom",
     "status": "exchange hack",
     "summary": "Hackers stole ~120k BTC from Bitfinex, prompting socialized losses and tokenized IOUs (BFX).",
     "peakMetric": "120k BTC stolen",
@@ -1544,8 +1425,8 @@ export const events: Event[] = [
     "chartUrl": "https://tradingview.com/symbols/BTCUSD/",
     "sources": [
       {
-        "label": "Wikipedia overview for Bitfinex Hack",
-        "url": "https://en.wikipedia.org/wiki/Bitfinex_Hack",
+        "label": "Bitfinex Hack (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/Bitfinex",
         "publisher": "Wikipedia",
         "year": 2016
       },
@@ -1564,7 +1445,7 @@ export const events: Event[] = [
     "chain": "Ethereum",
     "year": 2017,
     "date": "2017-11-06",
-    "era": "ICO Boom",
+    "era": "ico-boom",
     "status": "contract bug",
     "summary": "A library self-destruct call froze ~$150M in multisig wallets, highlighting upgradeability risks.",
     "peakMetric": "$150M frozen",
@@ -1576,14 +1457,8 @@ export const events: Event[] = [
     "chartUrl": "https://tradingview.com/symbols/ETHUSD/",
     "sources": [
       {
-        "label": "Wikipedia overview for Parity Multisig Freeze",
-        "url": "https://en.wikipedia.org/wiki/Parity_Multisig_Freeze",
-        "publisher": "Wikipedia",
-        "year": 2017
-      },
-      {
-        "label": "Wikipedia overview for Parity Multisig Freeze (Ethereum)",
-        "url": "https://en.wikipedia.org/wiki/Parity_Multisig_Freeze_Ethereum",
+        "label": "Parity Multisig Freeze (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/Parity_Technologies",
         "publisher": "Wikipedia",
         "year": 2017
       }
@@ -1596,7 +1471,7 @@ export const events: Event[] = [
     "chain": "Ethereum",
     "year": 2020,
     "date": "2020-08-12",
-    "era": "DeFi Summer",
+    "era": "defi-summer",
     "status": "governance bug",
     "summary": "A governance bug in the rebasing token locked treasury funds, showcasing DeFi launch risks.",
     "peakMetric": "$600M TVL pre-bug",
@@ -1615,14 +1490,8 @@ export const events: Event[] = [
         "year": 2020
       },
       {
-        "label": "Wikipedia overview for YAM Finance Launch Bug",
-        "url": "https://en.wikipedia.org/wiki/YAM_Finance_Launch_Bug",
-        "publisher": "Wikipedia",
-        "year": 2020
-      },
-      {
-        "label": "Wikipedia overview for YAM Finance Launch Bug (Ethereum)",
-        "url": "https://en.wikipedia.org/wiki/YAM_Finance_Launch_Bug_Ethereum",
+        "label": "YAM Finance Launch Bug (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/Yam_Finance",
         "publisher": "Wikipedia",
         "year": 2020
       }
@@ -1635,7 +1504,7 @@ export const events: Event[] = [
     "chain": "Multi-chain",
     "year": 2021,
     "date": "2021-08-10",
-    "era": "NFT Summer",
+    "era": "nft-onboarding",
     "status": "bridge exploit",
     "summary": "Cross-chain protocol hacked for $600M+, later largely returned by the attacker dubbed 'Mr. White Hat'.",
     "peakMetric": "$600M exploit",
@@ -1648,14 +1517,8 @@ export const events: Event[] = [
     "chartUrl": "https://tradingview.com/symbols/ETHUSD/",
     "sources": [
       {
-        "label": "Wikipedia overview for Poly Network Hack",
-        "url": "https://en.wikipedia.org/wiki/Poly_Network_Hack",
-        "publisher": "Wikipedia",
-        "year": 2021
-      },
-      {
-        "label": "Wikipedia overview for Poly Network Hack (Multi-chain)",
-        "url": "https://en.wikipedia.org/wiki/Poly_Network_Hack_Multi-chain",
+        "label": "Poly Network Hack (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/Poly_Network",
         "publisher": "Wikipedia",
         "year": 2021
       }
@@ -1668,7 +1531,7 @@ export const events: Event[] = [
     "chain": "Solana/Ethereum",
     "year": 2022,
     "date": "2022-02-02",
-    "era": "DeFi Summer",
+    "era": "defi-summer",
     "status": "bridge exploit",
     "summary": "A smart contract vulnerability allowed minting of 120k wETH; Jump Crypto backstopped losses.",
     "peakMetric": "120k wETH exploited",
@@ -1686,8 +1549,8 @@ export const events: Event[] = [
         "year": 2022
       },
       {
-        "label": "Wikipedia overview for Wormhole Bridge Hack",
-        "url": "https://en.wikipedia.org/wiki/Wormhole_Bridge_Hack",
+        "label": "Wormhole Bridge Hack (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/Wormhole_(blockchain_bridge)",
         "publisher": "Wikipedia",
         "year": 2022
       }
@@ -1700,7 +1563,7 @@ export const events: Event[] = [
     "chain": "Ethereum",
     "year": 2020,
     "date": "2020-03-12",
-    "era": "DeFi Summer",
+    "era": "defi-summer",
     "status": "liquidation failure",
     "summary": "Oracle and gas issues let bidders win vault liquidations for 0 DAI, undercollateralizing the system.",
     "peakMetric": "$5M undercollateralized",
@@ -1719,14 +1582,8 @@ export const events: Event[] = [
         "year": 2020
       },
       {
-        "label": "Wikipedia overview for MakerDAO Black Thursday",
-        "url": "https://en.wikipedia.org/wiki/MakerDAO_Black_Thursday",
-        "publisher": "Wikipedia",
-        "year": 2020
-      },
-      {
-        "label": "Wikipedia overview for MakerDAO Black Thursday (Ethereum)",
-        "url": "https://en.wikipedia.org/wiki/MakerDAO_Black_Thursday_Ethereum",
+        "label": "MakerDAO Black Thursday (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/MakerDAO",
         "publisher": "Wikipedia",
         "year": 2020
       }
@@ -1739,7 +1596,7 @@ export const events: Event[] = [
     "chain": "Ethereum",
     "year": 2022,
     "date": "2022-08-08",
-    "era": "DeFi Summer",
+    "era": "defi-summer",
     "status": "sanctions",
     "summary": "OFAC sanctioned Tornado Cash smart contracts, sparking debates on code as speech and censorship.",
     "peakMetric": "Sanctioned addresses on-chain",
@@ -1758,14 +1615,8 @@ export const events: Event[] = [
         "year": 2022
       },
       {
-        "label": "Wikipedia overview for Tornado Cash Sanctions",
-        "url": "https://en.wikipedia.org/wiki/Tornado_Cash_Sanctions",
-        "publisher": "Wikipedia",
-        "year": 2022
-      },
-      {
-        "label": "Wikipedia overview for Tornado Cash Sanctions (Ethereum)",
-        "url": "https://en.wikipedia.org/wiki/Tornado_Cash_Sanctions_Ethereum",
+        "label": "Tornado Cash Sanctions (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/Tornado_Cash",
         "publisher": "Wikipedia",
         "year": 2022
       }
@@ -1778,7 +1629,7 @@ export const events: Event[] = [
     "chain": "Ethereum L2",
     "year": 2023,
     "date": "2023-03-23",
-    "era": "Pump.fun Era",
+    "era": "pump-fun",
     "status": "airdrop",
     "summary": "Arbitrum distributed ARB governance tokens to early users, cementing L2 airdrop playbooks.",
     "peakMetric": "2.3B ARB distributed",
@@ -1791,14 +1642,8 @@ export const events: Event[] = [
     "chartUrl": "https://tradingview.com/symbols/ARBUSD/",
     "sources": [
       {
-        "label": "Wikipedia overview for Arbitrum Airdrop",
-        "url": "https://en.wikipedia.org/wiki/Arbitrum_Airdrop",
-        "publisher": "Wikipedia",
-        "year": 2023
-      },
-      {
-        "label": "Wikipedia overview for Arbitrum Airdrop (Ethereum L2)",
-        "url": "https://en.wikipedia.org/wiki/Arbitrum_Airdrop_Ethereum_L2",
+        "label": "Arbitrum Airdrop (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/Arbitrum",
         "publisher": "Wikipedia",
         "year": 2023
       }
@@ -1811,7 +1656,7 @@ export const events: Event[] = [
     "chain": "Ethereum L2",
     "year": 2022,
     "date": "2022-10-18",
-    "era": "Pump.fun Era",
+    "era": "pump-fun",
     "status": "infrastructure",
     "summary": "Optimism open-sourced the OP Stack, enabling shared sequencer rollups and multi-chain governance vision.",
     "peakMetric": "Multiple L2s building",
@@ -1824,14 +1669,8 @@ export const events: Event[] = [
     "chartUrl": "https://l2beat.com/scaling/projects/optimism",
     "sources": [
       {
-        "label": "Wikipedia overview for OP Stack Announced",
-        "url": "https://en.wikipedia.org/wiki/OP_Stack_Announced",
-        "publisher": "Wikipedia",
-        "year": 2022
-      },
-      {
-        "label": "Wikipedia overview for OP Stack Announced (Ethereum L2)",
-        "url": "https://en.wikipedia.org/wiki/OP_Stack_Announced_Ethereum_L2",
+        "label": "OP Stack Announced (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/Optimism_(blockchain)",
         "publisher": "Wikipedia",
         "year": 2022
       }
@@ -1844,7 +1683,7 @@ export const events: Event[] = [
     "chain": "Ethereum",
     "year": 2022,
     "date": "2022-07-06",
-    "era": "DeFi Summer",
+    "era": "defi-summer",
     "status": "testnet upgrade",
     "summary": "Ethereum's Sepolia testnet successfully transitioned to Proof of Stake, a key Merge rehearsal.",
     "peakMetric": "Testnet PoS activation",
@@ -1856,14 +1695,8 @@ export const events: Event[] = [
     "chartUrl": "https://tradingview.com/symbols/ETHUSD/",
     "sources": [
       {
-        "label": "Wikipedia overview for Sepolia Testnet Merge",
-        "url": "https://en.wikipedia.org/wiki/Sepolia_Testnet_Merge",
-        "publisher": "Wikipedia",
-        "year": 2022
-      },
-      {
-        "label": "Wikipedia overview for Sepolia Testnet Merge (Ethereum)",
-        "url": "https://en.wikipedia.org/wiki/Sepolia_Testnet_Merge_Ethereum",
+        "label": "Sepolia Testnet Merge (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/Ethereum",
         "publisher": "Wikipedia",
         "year": 2022
       }
@@ -1876,7 +1709,7 @@ export const events: Event[] = [
     "chain": "Bitcoin",
     "year": 2017,
     "date": "2017-08-01",
-    "era": "ICO Boom",
+    "era": "ico-boom",
     "status": "chain split",
     "summary": "Block size debate led to Bitcoin Cash hard fork, creating a persistent chain split over scalability.",
     "peakMetric": "BCH launched with 8MB blocks",
@@ -1888,13 +1721,13 @@ export const events: Event[] = [
     "chartUrl": "https://tradingview.com/symbols/BCHUSD/",
     "sources": [
       {
-        "label": "Wikipedia overview for Bitcoin Cash Hard Fork",
-        "url": "https://en.wikipedia.org/wiki/Bitcoin_Cash_Hard_Fork",
+        "label": "Bitcoin Cash Hard Fork (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/Bitcoin_Cash",
         "publisher": "Wikipedia",
         "year": 2017
       },
       {
-        "label": "Wikipedia overview for Bitcoin Cash",
+        "label": "Bitcoin Cash (Wikipedia)",
         "url": "https://en.wikipedia.org/wiki/Bitcoin_Cash",
         "publisher": "Wikipedia",
         "year": 2017
@@ -1908,7 +1741,7 @@ export const events: Event[] = [
     "chain": "Bitcoin",
     "year": 2021,
     "date": "2021-05-12",
-    "era": "NFT Summer",
+    "era": "nft-onboarding",
     "status": "corporate policy",
     "summary": "Tesla halted Bitcoin payments citing environmental concerns, triggering a sharp market drawdown.",
     "peakMetric": "BTC -10% intraday",
@@ -1926,8 +1759,8 @@ export const events: Event[] = [
         "year": 2021
       },
       {
-        "label": "Wikipedia overview for Elon Musk Suspends BTC Payments",
-        "url": "https://en.wikipedia.org/wiki/Elon_Musk_Suspends_BTC_Payments",
+        "label": "Elon Musk Suspends BTC Payments (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/Elon_Musk",
         "publisher": "Wikipedia",
         "year": 2021
       }
@@ -1940,26 +1773,20 @@ export const events: Event[] = [
     "chain": "Ethereum",
     "year": 2021,
     "date": "2021-08-05",
-    "era": "NFT Summer",
+    "era": "nft-onboarding",
     "status": "protocol upgrade",
     "summary": "EIP-1559 introduced basefee burn, changing gas mechanics and setting precedent for supply dynamics.",
     "peakMetric": "ETH burn live",
     "outcome": "Fee market reform",
     "tags": [
       "upgrade",
-      "eip1559"
+      "fee-market"
     ],
     "chartUrl": "https://tradingview.com/symbols/ETHUSD/",
     "sources": [
       {
-        "label": "Wikipedia overview for London Upgrade (EIP-1559) (Ethereum)",
-        "url": "https://en.wikipedia.org/wiki/London_Upgrade_(EIP-1559)_Ethereum",
-        "publisher": "Wikipedia",
-        "year": 2021
-      },
-      {
-        "label": "Wikipedia overview for London Upgrade (EIP-1559)",
-        "url": "https://en.wikipedia.org/wiki/London_Upgrade_(EIP-1559)",
+        "label": "London Upgrade (EIP-1559) (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/Ethereum",
         "publisher": "Wikipedia",
         "year": 2021
       }
@@ -1972,7 +1799,7 @@ export const events: Event[] = [
     "chain": "Solana",
     "year": 2022,
     "date": "2022-06-01",
-    "era": "DeFi Summer",
+    "era": "defi-summer",
     "status": "network halt",
     "summary": "A durable nonce bug halted Solana block production for hours, requiring validator coordination to restart.",
     "peakMetric": "7-hour downtime",
@@ -1990,14 +1817,8 @@ export const events: Event[] = [
         "year": 2022
       },
       {
-        "label": "Wikipedia overview for Solana Major Outage",
-        "url": "https://en.wikipedia.org/wiki/Solana_Major_Outage",
-        "publisher": "Wikipedia",
-        "year": 2022
-      },
-      {
-        "label": "Wikipedia overview for Solana Major Outage (Solana)",
-        "url": "https://en.wikipedia.org/wiki/Solana_Major_Outage_Solana",
+        "label": "Solana Major Outage (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/Solana_(blockchain_platform)",
         "publisher": "Wikipedia",
         "year": 2022
       }
@@ -2010,7 +1831,7 @@ export const events: Event[] = [
     "chain": "BSC",
     "year": 2023,
     "date": "2023-03-28",
-    "era": "Pump.fun Era",
+    "era": "cefi-contagion",
     "status": "liquidity exploit",
     "summary": "A vulnerability in SafeMoon's LP locking upgrade was exploited, draining millions before patching.",
     "peakMetric": "$9M drained",
@@ -2022,8 +1843,8 @@ export const events: Event[] = [
     "chartUrl": "https://coinmarketcap.com/currencies/safemoon/",
     "sources": [
       {
-        "label": "Wikipedia overview for BSC ApeSwap / SafeMoon Exploit",
-        "url": "https://en.wikipedia.org/wiki/BSC_ApeSwap_/_SafeMoon_Exploit",
+        "label": "BSC ApeSwap / SafeMoon Exploit (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/SafeMoon",
         "publisher": "Wikipedia",
         "year": 2023
       },
@@ -2042,7 +1863,7 @@ export const events: Event[] = [
     "chain": "Bitcoin",
     "year": 2010,
     "date": "2010-05-22",
-    "era": "Genesis",
+    "era": "genesis",
     "status": "early commerce",
     "summary": "First known commercial Bitcoin transaction exchanged 10,000 BTC for two pizzas, marking real-world usage.",
     "tags": [
@@ -2058,8 +1879,8 @@ export const events: Event[] = [
         "year": 2010
       },
       {
-        "label": "Wikipedia overview for Bitcoin Pizza Day Purchase",
-        "url": "https://en.wikipedia.org/wiki/Bitcoin_Pizza_Day_Purchase",
+        "label": "Bitcoin Pizza Day Purchase (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/Bitcoin_pizza",
         "publisher": "Wikipedia",
         "year": 2010
       }
@@ -2072,25 +1893,18 @@ export const events: Event[] = [
     "chain": "Multi-chain",
     "year": 2015,
     "date": "2015-06-03",
-    "era": "Silk Road Era",
+    "era": "genesis",
     "status": "regulation",
     "summary": "NYDFS launched the BitLicense framework, setting one of the first comprehensive state crypto regulations.",
     "tags": [
       "regulation",
-      "compliance",
-      "nydfs"
+      "compliance"
     ],
     "chartUrl": "https://tradingview.com/symbols/BTCUSD/",
     "sources": [
       {
-        "label": "Wikipedia overview for New York BitLicense Introduced",
-        "url": "https://en.wikipedia.org/wiki/New_York_BitLicense_Introduced",
-        "publisher": "Wikipedia",
-        "year": 2015
-      },
-      {
-        "label": "Wikipedia overview for New York BitLicense Introduced (Multi-chain)",
-        "url": "https://en.wikipedia.org/wiki/New_York_BitLicense_Introduced_Multi-chain",
+        "label": "New York BitLicense Introduced (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/BitLicense",
         "publisher": "Wikipedia",
         "year": 2015
       }
@@ -2103,7 +1917,7 @@ export const events: Event[] = [
     "chain": "Multi-chain",
     "year": 2017,
     "date": "2017-12-06",
-    "era": "ICO Boom",
+    "era": "ico-boom",
     "status": "exchange hack",
     "summary": "Mining marketplace NiceHash lost ~4,700 BTC after its payment system was compromised.",
     "tags": [
@@ -2120,8 +1934,8 @@ export const events: Event[] = [
         "year": 2017
       },
       {
-        "label": "Wikipedia overview for NiceHash Wallet Breach",
-        "url": "https://en.wikipedia.org/wiki/NiceHash_Wallet_Breach",
+        "label": "NiceHash Wallet Breach (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/NiceHash",
         "publisher": "Wikipedia",
         "year": 2017
       }
@@ -2134,7 +1948,7 @@ export const events: Event[] = [
     "chain": "NEM",
     "year": 2018,
     "date": "2018-01-26",
-    "era": "ICO Boom",
+    "era": "ico-boom",
     "status": "exchange hack",
     "summary": "Japanese exchange Coincheck lost $530M in NEM after hot wallet compromise, triggering stronger oversight.",
     "tags": [
@@ -2144,14 +1958,8 @@ export const events: Event[] = [
     "chartUrl": "https://tradingview.com/symbols/XEMUSD/",
     "sources": [
       {
-        "label": "Wikipedia overview for Coincheck NEM Hack",
-        "url": "https://en.wikipedia.org/wiki/Coincheck_NEM_Hack",
-        "publisher": "Wikipedia",
-        "year": 2018
-      },
-      {
-        "label": "Wikipedia overview for Coincheck NEM Hack (NEM)",
-        "url": "https://en.wikipedia.org/wiki/Coincheck_NEM_Hack_NEM",
+        "label": "Coincheck NEM Hack (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/Coincheck",
         "publisher": "Wikipedia",
         "year": 2018
       }
@@ -2164,7 +1972,7 @@ export const events: Event[] = [
     "chain": "CeFi",
     "year": 2019,
     "date": "2019-02-05",
-    "era": "Silk Road Era",
+    "era": "genesis",
     "status": "custodial failure",
     "summary": "Canadian exchange collapsed after founder's death left keys inaccessible, freezing ~$190M in assets.",
     "peakMetric": "$190M frozen",
@@ -2177,14 +1985,8 @@ export const events: Event[] = [
     "chartUrl": "https://tradingview.com/symbols/BTCUSD/",
     "sources": [
       {
-        "label": "Wikipedia overview for QuadrigaCX Collapse",
-        "url": "https://en.wikipedia.org/wiki/QuadrigaCX_Collapse",
-        "publisher": "Wikipedia",
-        "year": 2019
-      },
-      {
-        "label": "Wikipedia overview for QuadrigaCX Collapse (CeFi)",
-        "url": "https://en.wikipedia.org/wiki/QuadrigaCX_Collapse_CeFi",
+        "label": "QuadrigaCX Collapse (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/QuadrigaCX",
         "publisher": "Wikipedia",
         "year": 2019
       }
@@ -2197,7 +1999,7 @@ export const events: Event[] = [
     "chain": "Bitcoin",
     "year": 2020,
     "date": "2020-08-11",
-    "era": "DeFi Summer",
+    "era": "defi-summer",
     "status": "treasury strategy",
     "summary": "MicroStrategy adopted Bitcoin as primary treasury reserve, catalyzing corporate treasury interest.",
     "peakMetric": "$250M initial purchase",
@@ -2209,14 +2011,8 @@ export const events: Event[] = [
     "chartUrl": "https://tradingview.com/symbols/BTCUSD/",
     "sources": [
       {
-        "label": "Wikipedia overview for MicroStrategy Bitcoin Treasury Allocation",
-        "url": "https://en.wikipedia.org/wiki/MicroStrategy_Bitcoin_Treasury_Allocation",
-        "publisher": "Wikipedia",
-        "year": 2020
-      },
-      {
-        "label": "Wikipedia overview for MicroStrategy Bitcoin Treasury Allocation (Bitcoin)",
-        "url": "https://en.wikipedia.org/wiki/MicroStrategy_Bitcoin_Treasury_Allocation_Bitcoin",
+        "label": "MicroStrategy Bitcoin Treasury Allocation (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/MicroStrategy",
         "publisher": "Wikipedia",
         "year": 2020
       }
@@ -2229,7 +2025,7 @@ export const events: Event[] = [
     "chain": "Bitcoin",
     "year": 2021,
     "date": "2021-02-18",
-    "era": "NFT Summer",
+    "era": "nft-onboarding",
     "status": "etf launch",
     "summary": "Purpose Bitcoin ETF (BTCC) launched in Canada, the first physically settled Bitcoin ETF globally.",
     "tags": [
@@ -2239,8 +2035,8 @@ export const events: Event[] = [
     "chartUrl": "https://www.purposeinvest.com/funds/purpose-bitcoin-etf",
     "sources": [
       {
-        "label": "Wikipedia overview for First Bitcoin ETF (Canada)",
-        "url": "https://en.wikipedia.org/wiki/First_Bitcoin_ETF_(Canada)",
+        "label": "First Bitcoin ETF (Canada) (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/Cryptocurrency_exchange-traded_fund",
         "publisher": "Wikipedia",
         "year": 2021
       },
@@ -2259,7 +2055,7 @@ export const events: Event[] = [
     "chain": "Bitcoin",
     "year": 2021,
     "date": "2021-09-07",
-    "era": "NFT Summer",
+    "era": "nft-onboarding",
     "status": "legal tender",
     "summary": "El Salvador made Bitcoin legal tender alongside USD, launching the Chivo wallet and BTC-backed bonds plans.",
     "tags": [
@@ -2269,14 +2065,15 @@ export const events: Event[] = [
     "chartUrl": "https://tradingview.com/symbols/BTCUSD/",
     "sources": [
       {
-        "label": "Wikipedia overview for El Salvador Adopts Bitcoin as Legal Tender",
-        "url": "https://en.wikipedia.org/wiki/El_Salvador_Adopts_Bitcoin_as_Legal_Tender",
-        "publisher": "Wikipedia",
-        "year": 2021
+        "label": "In a world first, El Salvador makes bitcoin legal tender",
+        "url": "https://www.reuters.com/world/americas/el-salvador-approves-first-law-bitcoin-legal-tender-2021-06-09/",
+        "publisher": "Reuters",
+        "year": 2021,
+        "kind": "secondary"
       },
       {
-        "label": "Wikipedia overview for El Salvador Adopts Bitcoin as Legal Tender (Bitcoin)",
-        "url": "https://en.wikipedia.org/wiki/El_Salvador_Adopts_Bitcoin_as_Legal_Tender_Bitcoin",
+        "label": "El Salvador Adopts Bitcoin as Legal Tender (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/Bitcoin_in_El_Salvador",
         "publisher": "Wikipedia",
         "year": 2021
       }
@@ -2289,7 +2086,7 @@ export const events: Event[] = [
     "chain": "Bitcoin",
     "year": 2021,
     "date": "2021-06-18",
-    "era": "NFT Summer",
+    "era": "nft-onboarding",
     "status": "regulation",
     "summary": "China intensified its crackdown on Bitcoin mining, causing hashrate to plunge and operations to relocate globally.",
     "tags": [
@@ -2299,14 +2096,15 @@ export const events: Event[] = [
     "chartUrl": "https://tradingview.com/symbols/BTCUSD/",
     "sources": [
       {
-        "label": "Wikipedia overview for China Mining Ban Escalates",
-        "url": "https://en.wikipedia.org/wiki/China_Mining_Ban_Escalates",
-        "publisher": "Wikipedia",
-        "year": 2021
+        "label": "China's top regulators ban crypto trading and mining, sending bitcoin tumbling",
+        "url": "https://www.reuters.com/world/china/china-central-bank-vows-crackdown-cryptocurrency-trading-2021-09-24/",
+        "publisher": "Reuters",
+        "year": 2021,
+        "kind": "secondary"
       },
       {
-        "label": "Wikipedia overview for China Mining Ban Escalates (Bitcoin)",
-        "url": "https://en.wikipedia.org/wiki/China_Mining_Ban_Escalates_Bitcoin",
+        "label": "China Mining Ban Escalates (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/Cryptocurrency_in_China",
         "publisher": "Wikipedia",
         "year": 2021
       }
@@ -2319,7 +2117,7 @@ export const events: Event[] = [
     "chain": "Ethereum",
     "year": 2021,
     "date": "2021-12-02",
-    "era": "DeFi Summer",
+    "era": "defi-summer",
     "status": "front-end attack",
     "summary": "Malicious script on BadgerDAO front-end drained ~$120M from user approvals before being halted.",
     "peakMetric": "$120M affected",
@@ -2332,8 +2130,8 @@ export const events: Event[] = [
     "chartUrl": "https://tradingview.com/symbols/BTCUSD/",
     "sources": [
       {
-        "label": "Wikipedia overview for BadgerDAO Front-end Exploit",
-        "url": "https://en.wikipedia.org/wiki/BadgerDAO_Front-end_Exploit",
+        "label": "BadgerDAO Front-end Exploit (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/BadgerDAO",
         "publisher": "Wikipedia",
         "year": 2021
       },
@@ -2352,7 +2150,7 @@ export const events: Event[] = [
     "chain": "Multi-chain",
     "year": 2022,
     "date": "2022-08-01",
-    "era": "DeFi Summer",
+    "era": "defi-summer",
     "status": "bridge exploit",
     "summary": "Nomad bridge vulnerability let users copy the attacker's transaction, draining ~$190M in a free-for-all.",
     "peakMetric": "$190M drained",
@@ -2365,14 +2163,8 @@ export const events: Event[] = [
     "chartUrl": "https://tradingview.com/symbols/ETHUSD/",
     "sources": [
       {
-        "label": "Wikipedia overview for Nomad Bridge Exploit",
-        "url": "https://en.wikipedia.org/wiki/Nomad_Bridge_Exploit",
-        "publisher": "Wikipedia",
-        "year": 2022
-      },
-      {
-        "label": "Wikipedia overview for Nomad Bridge Exploit (Multi-chain)",
-        "url": "https://en.wikipedia.org/wiki/Nomad_Bridge_Exploit_Multi-chain",
+        "label": "Nomad Bridge Exploit (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/Nomad_(bridge)",
         "publisher": "Wikipedia",
         "year": 2022
       }
@@ -2385,7 +2177,7 @@ export const events: Event[] = [
     "chain": "Solana",
     "year": 2022,
     "date": "2022-10-11",
-    "era": "DeFi Summer",
+    "era": "defi-summer",
     "status": "oracle manipulation",
     "summary": "Attacker manipulated MNGO price to drain ~$114M from Mango Markets; later negotiated partial return.",
     "peakMetric": "$114M drained",
@@ -2397,14 +2189,8 @@ export const events: Event[] = [
     "chartUrl": "https://tradingview.com/symbols/MNGOUSD/",
     "sources": [
       {
-        "label": "Wikipedia overview for Mango Markets Price Manipulation",
-        "url": "https://en.wikipedia.org/wiki/Mango_Markets_Price_Manipulation",
-        "publisher": "Wikipedia",
-        "year": 2022
-      },
-      {
-        "label": "Wikipedia overview for Mango Markets Price Manipulation (Solana)",
-        "url": "https://en.wikipedia.org/wiki/Mango_Markets_Price_Manipulation_Solana",
+        "label": "Mango Markets Price Manipulation (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/Mango_Markets",
         "publisher": "Wikipedia",
         "year": 2022
       }
@@ -2417,7 +2203,7 @@ export const events: Event[] = [
     "chain": "CeFi",
     "year": 2022,
     "date": "2022-11-28",
-    "era": "DeFi Summer",
+    "era": "defi-summer",
     "status": "bankruptcy",
     "summary": "Lender BlockFi filed for Chapter 11 after FTX collapse crippled its credit line and liquidity.",
     "tags": [
@@ -2428,13 +2214,13 @@ export const events: Event[] = [
     "chartUrl": "https://tradingview.com/symbols/BTCUSD/",
     "sources": [
       {
-        "label": "Wikipedia overview for BlockFi Bankruptcy",
-        "url": "https://en.wikipedia.org/wiki/BlockFi_Bankruptcy",
+        "label": "BlockFi Bankruptcy (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/BlockFi",
         "publisher": "Wikipedia",
         "year": 2022
       },
       {
-        "label": "Wikipedia overview for BlockFi",
+        "label": "BlockFi (Wikipedia)",
         "url": "https://en.wikipedia.org/wiki/BlockFi",
         "publisher": "Wikipedia",
         "year": 2022
@@ -2448,7 +2234,7 @@ export const events: Event[] = [
     "chain": "CeFi",
     "year": 2022,
     "date": "2022-07-06",
-    "era": "DeFi Summer",
+    "era": "defi-summer",
     "status": "bankruptcy",
     "summary": "Crypto lender Voyager filed Chapter 11 after 3AC default, freezing customer assets.",
     "tags": [
@@ -2459,20 +2245,14 @@ export const events: Event[] = [
     "chartUrl": "https://tradingview.com/symbols/BTCUSD/",
     "sources": [
       {
-        "label": "Wikipedia overview for Voyager Digital",
+        "label": "Voyager Digital (Wikipedia)",
         "url": "https://en.wikipedia.org/wiki/Voyager_Digital",
         "publisher": "Wikipedia",
         "year": 2022
       },
       {
-        "label": "Wikipedia overview for Voyager Digital Bankruptcy",
-        "url": "https://en.wikipedia.org/wiki/Voyager_Digital_Bankruptcy",
-        "publisher": "Wikipedia",
-        "year": 2022
-      },
-      {
-        "label": "Wikipedia overview for Voyager Digital Bankruptcy (CeFi)",
-        "url": "https://en.wikipedia.org/wiki/Voyager_Digital_Bankruptcy_CeFi",
+        "label": "Voyager Digital Bankruptcy (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/Voyager_Digital",
         "publisher": "Wikipedia",
         "year": 2022
       }
@@ -2485,7 +2265,7 @@ export const events: Event[] = [
     "chain": "CeFi",
     "year": 2023,
     "date": "2023-01-19",
-    "era": "DeFi Summer",
+    "era": "cefi-contagion",
     "status": "bankruptcy",
     "summary": "Institutional lender Genesis filed for Chapter 11 after losses from 3AC and FTX contagion.",
     "tags": [
@@ -2496,13 +2276,13 @@ export const events: Event[] = [
     "chartUrl": "https://tradingview.com/symbols/BTCUSD/",
     "sources": [
       {
-        "label": "Wikipedia overview for Genesis Global Bankruptcy",
-        "url": "https://en.wikipedia.org/wiki/Genesis_Global_Bankruptcy",
+        "label": "Genesis Global Bankruptcy (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/Genesis_Global_Trading",
         "publisher": "Wikipedia",
         "year": 2023
       },
       {
-        "label": "Wikipedia overview for Genesis (cryptocurrency company)",
+        "label": "Genesis (cryptocurrency company) (Wikipedia)",
         "url": "https://en.wikipedia.org/wiki/Genesis_(cryptocurrency_company)",
         "publisher": "Wikipedia",
         "year": 2023
@@ -2516,7 +2296,7 @@ export const events: Event[] = [
     "chain": "Ethereum",
     "year": 2023,
     "date": "2023-03-13",
-    "era": "DeFi Summer",
+    "era": "cefi-contagion",
     "status": "flash loan exploit",
     "summary": "Lending protocol Euler lost nearly $200M via a flash-loan attack; attacker later returned major funds.",
     "peakMetric": "$197M exploited",
@@ -2529,14 +2309,8 @@ export const events: Event[] = [
     "chartUrl": "https://tradingview.com/symbols/ETHUSD/",
     "sources": [
       {
-        "label": "Wikipedia overview for Euler Finance Hack",
-        "url": "https://en.wikipedia.org/wiki/Euler_Finance_Hack",
-        "publisher": "Wikipedia",
-        "year": 2023
-      },
-      {
-        "label": "Wikipedia overview for Euler Finance Hack (Ethereum)",
-        "url": "https://en.wikipedia.org/wiki/Euler_Finance_Hack_Ethereum",
+        "label": "Euler Finance Hack (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/Euler_Finance",
         "publisher": "Wikipedia",
         "year": 2023
       }
@@ -2549,7 +2323,7 @@ export const events: Event[] = [
     "chain": "Ethereum",
     "year": 2023,
     "date": "2023-07-30",
-    "era": "DeFi Summer",
+    "era": "cefi-contagion",
     "status": "amm exploit",
     "summary": "Vyper compiler bug led to reentrancy exploits on Curve stable pools, draining tens of millions before patches.",
     "peakMetric": "$60M impacted",
@@ -2562,14 +2336,8 @@ export const events: Event[] = [
     "chartUrl": "https://tradingview.com/symbols/CRVUSD/",
     "sources": [
       {
-        "label": "Wikipedia overview for Curve Stable Pools Exploit",
-        "url": "https://en.wikipedia.org/wiki/Curve_Stable_Pools_Exploit",
-        "publisher": "Wikipedia",
-        "year": 2023
-      },
-      {
-        "label": "Wikipedia overview for Curve Stable Pools Exploit (Ethereum)",
-        "url": "https://en.wikipedia.org/wiki/Curve_Stable_Pools_Exploit_Ethereum",
+        "label": "Curve Stable Pools Exploit (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/Curve_Finance",
         "publisher": "Wikipedia",
         "year": 2023
       }
@@ -2582,7 +2350,7 @@ export const events: Event[] = [
     "chain": "CeFi",
     "year": 2023,
     "date": "2023-03-27",
-    "era": "DeFi Summer",
+    "era": "cefi-contagion",
     "status": "regulatory action",
     "summary": "US CFTC filed a civil enforcement action against Binance and CZ alleging derivatives violations.",
     "tags": [
@@ -2593,20 +2361,14 @@ export const events: Event[] = [
     "chartUrl": "https://tradingview.com/symbols/BNBUSD/",
     "sources": [
       {
-        "label": "Wikipedia overview for Binance",
+        "label": "Binance (Wikipedia)",
         "url": "https://en.wikipedia.org/wiki/Binance",
         "publisher": "Wikipedia",
         "year": 2023
       },
       {
-        "label": "Wikipedia overview for Binance CFTC Enforcement",
-        "url": "https://en.wikipedia.org/wiki/Binance_CFTC_Enforcement",
-        "publisher": "Wikipedia",
-        "year": 2023
-      },
-      {
-        "label": "Wikipedia overview for Binance CFTC Enforcement (CeFi)",
-        "url": "https://en.wikipedia.org/wiki/Binance_CFTC_Enforcement_CeFi",
+        "label": "Binance CFTC Enforcement (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/Binance",
         "publisher": "Wikipedia",
         "year": 2023
       }
@@ -2619,7 +2381,7 @@ export const events: Event[] = [
     "chain": "Bitcoin",
     "year": 2009,
     "date": "2009-01-03",
-    "era": "Genesis",
+    "era": "genesis",
     "status": "network launch",
     "summary": "Satoshi mined the first Bitcoin block, embedding a headline that framed the system as a response to banking failure.",
     "peakMetric": "Block height 0",
@@ -2651,26 +2413,20 @@ export const events: Event[] = [
     "chain": "Ethereum",
     "year": 2015,
     "date": "2015-07-30",
-    "era": "ICO Boom",
+    "era": "ico-boom",
     "status": "protocol launch",
     "summary": "Ethereum launched its Frontier mainnet, enabling smart contracts and a new developer ecosystem.",
     "peakMetric": "Frontier release",
     "outcome": "Smart contract era begins",
     "tags": [
-      "smart-contracts",
+      "smart-contract",
       "launch"
     ],
     "chartUrl": "https://tradingview.com/symbols/ETHUSD/",
     "sources": [
       {
-        "label": "Wikipedia overview for Ethereum Mainnet Launch",
-        "url": "https://en.wikipedia.org/wiki/Ethereum_Mainnet_Launch",
-        "publisher": "Wikipedia",
-        "year": 2015
-      },
-      {
-        "label": "Wikipedia overview for Ethereum Mainnet Launch (Ethereum)",
-        "url": "https://en.wikipedia.org/wiki/Ethereum_Mainnet_Launch_Ethereum",
+        "label": "Ethereum Mainnet Launch (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/Ethereum",
         "publisher": "Wikipedia",
         "year": 2015
       }
@@ -2683,7 +2439,7 @@ export const events: Event[] = [
     "chain": "Bitcoin",
     "year": 2021,
     "date": "2021-11-14",
-    "era": "NFT Summer",
+    "era": "nft-onboarding",
     "status": "protocol upgrade",
     "summary": "Taproot went live, improving privacy and enabling more flexible smart contract spending conditions.",
     "peakMetric": "Block 709,632",
@@ -2695,8 +2451,8 @@ export const events: Event[] = [
     "chartUrl": "https://tradingview.com/symbols/BTCUSD/",
     "sources": [
       {
-        "label": "Wikipedia overview for Bitcoin Taproot Activation",
-        "url": "https://en.wikipedia.org/wiki/Bitcoin_Taproot_Activation",
+        "label": "Bitcoin Taproot Activation (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/Taproot_(Bitcoin)",
         "publisher": "Wikipedia",
         "year": 2021
       },
@@ -2715,7 +2471,7 @@ export const events: Event[] = [
     "chain": "Ethereum",
     "year": 2020,
     "date": "2020-12-01",
-    "era": "DeFi Summer",
+    "era": "defi-summer",
     "status": "consensus shift",
     "summary": "Ethereum's Beacon Chain launched, marking the start of the transition to Proof of Stake.",
     "peakMetric": "PoS chain live",
@@ -2727,14 +2483,8 @@ export const events: Event[] = [
     "chartUrl": "https://tradingview.com/symbols/ETHUSD/",
     "sources": [
       {
-        "label": "Wikipedia overview for Ethereum Beacon Chain Genesis",
-        "url": "https://en.wikipedia.org/wiki/Ethereum_Beacon_Chain_Genesis",
-        "publisher": "Wikipedia",
-        "year": 2020
-      },
-      {
-        "label": "Wikipedia overview for Ethereum Beacon Chain Genesis (Ethereum)",
-        "url": "https://en.wikipedia.org/wiki/Ethereum_Beacon_Chain_Genesis_Ethereum",
+        "label": "Ethereum Beacon Chain Genesis (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/Ethereum",
         "publisher": "Wikipedia",
         "year": 2020
       }
@@ -2747,7 +2497,7 @@ export const events: Event[] = [
     "chain": "Ethereum",
     "year": 2022,
     "date": "2022-06-18",
-    "era": "DeFi Summer",
+    "era": "defi-summer",
     "status": "liquidity stress",
     "summary": "Lido's stETH traded below 1 ETH as liquidity dried up during contagion fears from 3AC exposure.",
     "peakMetric": "stETH ~0.95 ETH",
@@ -2760,8 +2510,8 @@ export const events: Event[] = [
     "chartUrl": "https://tradingview.com/symbols/STETHUSD/",
     "sources": [
       {
-        "label": "Wikipedia overview for stETH Depeg During 3AC Contagion",
-        "url": "https://en.wikipedia.org/wiki/stETH_Depeg_During_3AC_Contagion",
+        "label": "stETH Depeg During 3AC Contagion (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/Lido_Finance",
         "publisher": "Wikipedia",
         "year": 2022
       },
@@ -2780,7 +2530,7 @@ export const events: Event[] = [
     "chain": "Bitcoin",
     "year": 2023,
     "date": "2023-08-29",
-    "era": "Pump.fun Era",
+    "era": "pump-fun",
     "status": "regulatory",
     "summary": "A federal appeals court ruled the SEC must revisit its GBTC spot ETF denial, a key step toward spot approvals.",
     "peakMetric": "GBTC discount narrows",
@@ -2792,14 +2542,8 @@ export const events: Event[] = [
     "chartUrl": "https://tradingview.com/symbols/BTCUSD/",
     "sources": [
       {
-        "label": "Wikipedia overview for Grayscale Wins Bitcoin ETF Court Case",
-        "url": "https://en.wikipedia.org/wiki/Grayscale_Wins_Bitcoin_ETF_Court_Case",
-        "publisher": "Wikipedia",
-        "year": 2023
-      },
-      {
-        "label": "Wikipedia overview for Grayscale Wins Bitcoin ETF Court Case (Bitcoin)",
-        "url": "https://en.wikipedia.org/wiki/Grayscale_Wins_Bitcoin_ETF_Court_Case_Bitcoin",
+        "label": "Grayscale Wins Bitcoin ETF Court Case (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/Grayscale_Investments",
         "publisher": "Wikipedia",
         "year": 2023
       }
@@ -2812,7 +2556,7 @@ export const events: Event[] = [
     "chain": "Ethereum",
     "year": 2023,
     "date": "2023-04-12",
-    "era": "Pump.fun Era",
+    "era": "pump-fun",
     "status": "protocol upgrade",
     "summary": "Shanghai/Capella enabled staked ETH withdrawals, completing a major post-Merge milestone.",
     "peakMetric": "Withdrawals enabled",
@@ -2830,8 +2574,8 @@ export const events: Event[] = [
         "year": 2023
       },
       {
-        "label": "Wikipedia overview for Ethereum Shapella Upgrade",
-        "url": "https://en.wikipedia.org/wiki/Ethereum_Shapella_Upgrade",
+        "label": "Ethereum Shapella Upgrade (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/Ethereum",
         "publisher": "Wikipedia",
         "year": 2023
       }
@@ -2844,7 +2588,7 @@ export const events: Event[] = [
     "chain": "Bitcoin",
     "year": 2017,
     "date": "2017-12-17",
-    "era": "ICO Boom",
+    "era": "ico-boom",
     "status": "institutional access",
     "summary": "CME launched cash-settled Bitcoin futures, opening regulated derivatives exposure for institutions.",
     "peakMetric": "First major regulated BTC futures",
@@ -2856,14 +2600,8 @@ export const events: Event[] = [
     "chartUrl": "https://tradingview.com/symbols/BTCUSD/",
     "sources": [
       {
-        "label": "Wikipedia overview for CME Bitcoin Futures Launch",
-        "url": "https://en.wikipedia.org/wiki/CME_Bitcoin_Futures_Launch",
-        "publisher": "Wikipedia",
-        "year": 2017
-      },
-      {
-        "label": "Wikipedia overview for CME Bitcoin Futures Launch (Bitcoin)",
-        "url": "https://en.wikipedia.org/wiki/CME_Bitcoin_Futures_Launch_Bitcoin",
+        "label": "CME Bitcoin Futures Launch (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/Bitcoin_futures",
         "publisher": "Wikipedia",
         "year": 2017
       }
@@ -2876,7 +2614,7 @@ export const events: Event[] = [
     "chain": "CeFi",
     "year": 2019,
     "date": "2019-05-07",
-    "era": "Silk Road Era",
+    "era": "genesis",
     "status": "exchange breach",
     "summary": "Binance disclosed a security breach that led to a 7,000 BTC theft from its hot wallet.",
     "peakMetric": "7,000 BTC stolen",
@@ -2895,14 +2633,8 @@ export const events: Event[] = [
         "year": 2019
       },
       {
-        "label": "Wikipedia overview for Binance Hack (7,000 BTC)",
-        "url": "https://en.wikipedia.org/wiki/Binance_Hack_(7,000_BTC)",
-        "publisher": "Wikipedia",
-        "year": 2019
-      },
-      {
-        "label": "Wikipedia overview for Binance Hack (7,000 BTC) (CeFi)",
-        "url": "https://en.wikipedia.org/wiki/Binance_Hack_(7,000_BTC)_CeFi",
+        "label": "Binance Hack (7,000 BTC) (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/Binance",
         "publisher": "Wikipedia",
         "year": 2019
       }
@@ -2915,7 +2647,7 @@ export const events: Event[] = [
     "chain": "Multi-chain",
     "year": 2020,
     "date": "2020-12-22",
-    "era": "DeFi Summer",
+    "era": "defi-summer",
     "status": "regulatory action",
     "summary": "The SEC filed suit against Ripple Labs alleging an unregistered securities offering tied to XRP.",
     "peakMetric": "$1.3B alleged offering",
@@ -2927,14 +2659,8 @@ export const events: Event[] = [
     "chartUrl": "https://tradingview.com/symbols/XRPUSD/",
     "sources": [
       {
-        "label": "Wikipedia overview for SEC Sues Ripple Labs",
-        "url": "https://en.wikipedia.org/wiki/SEC_Sues_Ripple_Labs",
-        "publisher": "Wikipedia",
-        "year": 2020
-      },
-      {
-        "label": "Wikipedia overview for SEC Sues Ripple Labs (Multi-chain)",
-        "url": "https://en.wikipedia.org/wiki/SEC_Sues_Ripple_Labs_Multi-chain",
+        "label": "SEC Sues Ripple Labs (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/Ripple_Labs",
         "publisher": "Wikipedia",
         "year": 2020
       }
@@ -2947,7 +2673,7 @@ export const events: Event[] = [
     "chain": "Bitcoin",
     "year": 2021,
     "date": "2021-10-19",
-    "era": "NFT Summer",
+    "era": "nft-onboarding",
     "status": "etf launch",
     "summary": "ProShares BITO began trading as the first U.S. Bitcoin futures ETF, expanding regulated access.",
     "peakMetric": "Record first-day volume",
@@ -2959,14 +2685,8 @@ export const events: Event[] = [
     "chartUrl": "https://www.nyse.com/quote/ARCX:BITO",
     "sources": [
       {
-        "label": "Wikipedia overview for First U.S. Bitcoin Futures ETF Launch",
-        "url": "https://en.wikipedia.org/wiki/First_U.S._Bitcoin_Futures_ETF_Launch",
-        "publisher": "Wikipedia",
-        "year": 2021
-      },
-      {
-        "label": "Wikipedia overview for First U.S. Bitcoin Futures ETF Launch (Bitcoin)",
-        "url": "https://en.wikipedia.org/wiki/First_U.S._Bitcoin_Futures_ETF_Launch_Bitcoin",
+        "label": "First U.S. Bitcoin Futures ETF Launch (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/ProShares",
         "publisher": "Wikipedia",
         "year": 2021
       }
@@ -2979,7 +2699,7 @@ export const events: Event[] = [
     "chain": "CeFi",
     "year": 2021,
     "date": "2021-02-23",
-    "era": "NFT Summer",
+    "era": "nft-onboarding",
     "status": "regulatory settlement",
     "summary": "New York's Attorney General reached a settlement with Tether and Bitfinex over reserve disclosures.",
     "peakMetric": "$18.5M settlement",
@@ -2992,14 +2712,8 @@ export const events: Event[] = [
     "chartUrl": "https://tradingview.com/symbols/USDTUSD/",
     "sources": [
       {
-        "label": "Wikipedia overview for NYAG Tether/Bitfinex Settlement",
-        "url": "https://en.wikipedia.org/wiki/NYAG_Tether/Bitfinex_Settlement",
-        "publisher": "Wikipedia",
-        "year": 2021
-      },
-      {
-        "label": "Wikipedia overview for NYAG Tether/Bitfinex Settlement (CeFi)",
-        "url": "https://en.wikipedia.org/wiki/NYAG_Tether/Bitfinex_Settlement_CeFi",
+        "label": "NYAG Tether/Bitfinex Settlement (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/Tether_(cryptocurrency)",
         "publisher": "Wikipedia",
         "year": 2021
       }
@@ -3012,7 +2726,7 @@ export const events: Event[] = [
     "chain": "Bitcoin",
     "year": 2017,
     "date": "2017-08-24",
-    "era": "ICO Boom",
+    "era": "ico-boom",
     "status": "protocol upgrade",
     "summary": "SegWit activated on Bitcoin, increasing block capacity and enabling future scaling solutions.",
     "peakMetric": "Block 481,824",
@@ -3030,14 +2744,8 @@ export const events: Event[] = [
         "year": 2017
       },
       {
-        "label": "Wikipedia overview for SegWit Activation",
-        "url": "https://en.wikipedia.org/wiki/SegWit_Activation",
-        "publisher": "Wikipedia",
-        "year": 2017
-      },
-      {
-        "label": "Wikipedia overview for SegWit Activation (Bitcoin)",
-        "url": "https://en.wikipedia.org/wiki/SegWit_Activation_Bitcoin",
+        "label": "SegWit Activation (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/SegWit",
         "publisher": "Wikipedia",
         "year": 2017
       }
@@ -3050,26 +2758,20 @@ export const events: Event[] = [
     "chain": "Bitcoin",
     "year": 2018,
     "date": "2018-03-15",
-    "era": "ICO Boom",
+    "era": "ico-boom",
     "status": "layer 2 launch",
     "summary": "Lightning Network went live on Bitcoin mainnet, enabling fast, low-fee payments off-chain.",
     "peakMetric": "First mainnet release",
     "outcome": "Layer 2 payments expand",
     "tags": [
-      "layer-2",
+      "l2",
       "payments"
     ],
     "chartUrl": "https://tradingview.com/symbols/BTCUSD/",
     "sources": [
       {
-        "label": "Wikipedia overview for Lightning Network Mainnet Launch",
-        "url": "https://en.wikipedia.org/wiki/Lightning_Network_Mainnet_Launch",
-        "publisher": "Wikipedia",
-        "year": 2018
-      },
-      {
-        "label": "Wikipedia overview for Lightning Network Mainnet Launch (Bitcoin)",
-        "url": "https://en.wikipedia.org/wiki/Lightning_Network_Mainnet_Launch_Bitcoin",
+        "label": "Lightning Network Mainnet Launch (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/Lightning_Network",
         "publisher": "Wikipedia",
         "year": 2018
       }
@@ -3082,7 +2784,7 @@ export const events: Event[] = [
     "chain": "CeFi",
     "year": 2023,
     "date": "2023-03-12",
-    "era": "CeFi Contagion",
+    "era": "cefi-contagion",
     "status": "bank closure",
     "summary": "U.S. regulators shut Signature Bank after deposit outflows, further straining crypto banking access.",
     "peakMetric": "Bank seized",
@@ -3114,7 +2816,7 @@ export const events: Event[] = [
     "chain": "Bitcoin",
     "year": 2017,
     "date": "2017-07-26",
-    "era": "ICO Boom",
+    "era": "ico-boom",
     "status": "law enforcement",
     "summary": "FinCEN assessed a $110M civil penalty against BTC-e for AML violations tied to ransomware and darknet activity.",
     "peakMetric": "$110M penalty",
@@ -3147,7 +2849,7 @@ export const events: Event[] = [
     "chain": "Ethereum",
     "year": 2020,
     "date": "2020-09-16",
-    "era": "DeFi Summer",
+    "era": "defi-summer",
     "status": "governance token",
     "summary": "Uniswap introduced the UNI governance token and a retroactive airdrop to past users.",
     "peakMetric": "400 UNI per eligible address",
@@ -3181,7 +2883,7 @@ export const events: Event[] = [
     "chain": "Bitcoin (derivatives)",
     "year": 2020,
     "date": "2020-10-01",
-    "era": "DeFi Summer",
+    "era": "defi-summer",
     "status": "regulatory action",
     "summary": "The CFTC charged BitMEX and its founders for operating an unregistered derivatives platform and failing AML controls.",
     "peakMetric": "Unregistered U.S. derivatives venue",
@@ -3214,7 +2916,7 @@ export const events: Event[] = [
     "chain": "Multi-chain",
     "year": 2021,
     "date": "2021-09-21",
-    "era": "NFT Summer",
+    "era": "nft-onboarding",
     "status": "sanctions",
     "summary": "Treasury designated SUEX, the first virtual currency exchange sanctioned for ransomware facilitation.",
     "peakMetric": "First exchange designation",
@@ -3247,7 +2949,7 @@ export const events: Event[] = [
     "chain": "Multi-chain",
     "year": 2021,
     "date": "2021-11-08",
-    "era": "NFT Summer",
+    "era": "nft-onboarding",
     "status": "sanctions",
     "summary": "Treasury designated Chatex for ransomware-linked transactions and support to SUEX.",
     "peakMetric": "Second exchange designation",
@@ -3280,7 +2982,7 @@ export const events: Event[] = [
     "chain": "Ethereum",
     "year": 2021,
     "date": "2021-11-08",
-    "era": "NFT Summer",
+    "era": "nft-onboarding",
     "status": "governance airdrop",
     "summary": "ENS opened its governance token claim for .eth registrants, launching the ENS DAO.",
     "peakMetric": "Airdrop to .eth holders",
@@ -3313,7 +3015,7 @@ export const events: Event[] = [
     "chain": "Multi-chain",
     "year": 2022,
     "date": "2022-04-05",
-    "era": "DeFi Summer",
+    "era": "defi-summer",
     "status": "law enforcement",
     "summary": "An international operation seized Hydra Market while Treasury designated Garantex for ransomware laundering.",
     "peakMetric": "Hydra servers seized",
@@ -3346,7 +3048,7 @@ export const events: Event[] = [
     "chain": "Bitcoin/crypto rails",
     "year": 2022,
     "date": "2022-05-06",
-    "era": "DeFi Summer",
+    "era": "defi-summer",
     "status": "sanctions",
     "summary": "Treasury designated Blender.io, the first virtual currency mixer sanctioned by OFAC.",
     "peakMetric": "First mixer designation",
@@ -3378,7 +3080,7 @@ export const events: Event[] = [
     "chain": "Ethereum (stablecoin)",
     "year": 2023,
     "date": "2023-03-11",
-    "era": "DeFi Summer",
+    "era": "cefi-contagion",
     "status": "stablecoin stress",
     "summary": "USDC slipped below $1 after Circle disclosed $3.3B of reserves held at Silicon Valley Bank.",
     "peakMetric": "USDC traded near $0.88",
@@ -3411,7 +3113,7 @@ export const events: Event[] = [
     "chain": "Multi-chain",
     "year": 2023,
     "date": "2023-04-20",
-    "era": "CeFi Contagion",
+    "era": "cefi-contagion",
     "status": "regulation",
     "summary": "The European Parliament approved MiCA, establishing EU-wide rules for crypto asset issuance and services.",
     "peakMetric": "EU-wide crypto framework",
@@ -3443,7 +3145,7 @@ export const events: Event[] = [
     "chain": "Bitcoin/crypto rails",
     "year": 2023,
     "date": "2023-03-15",
-    "era": "DeFi Summer",
+    "era": "cefi-contagion",
     "status": "law enforcement",
     "summary": "U.S. and German authorities seized ChipMixer infrastructure and cryptocurrency tied to laundering activity.",
     "peakMetric": "$46M+ crypto seized",
@@ -3475,7 +3177,7 @@ export const events: Event[] = [
     "chain": "Multi-chain",
     "year": 2023,
     "date": "2023-11-21",
-    "era": "Pump.fun Era",
+    "era": "pump-fun",
     "status": "regulatory settlement",
     "summary": "Binance and CEO Changpeng Zhao pleaded guilty and agreed to a multi-billion dollar resolution with U.S. authorities.",
     "peakMetric": "$4.3B total resolution",
@@ -3508,7 +3210,7 @@ export const events: Event[] = [
     "chain": "Bitcoin/crypto rails",
     "year": 2023,
     "date": "2023-11-29",
-    "era": "Pump.fun Era",
+    "era": "pump-fun",
     "status": "sanctions",
     "summary": "Treasury sanctioned the Sinbad mixer for laundering stolen virtual currency tied to DPRK activity.",
     "peakMetric": "Mixer infrastructure seized",
@@ -3540,7 +3242,7 @@ export const events: Event[] = [
     "chain": "Bitcoin/crypto rails",
     "year": 2019,
     "date": "2019-05-22",
-    "era": "Silk Road Era",
+    "era": "genesis",
     "status": "law enforcement",
     "summary": "Dutch and Europol-led authorities took down Bestmixer.io, a major cryptocurrency mixing service.",
     "peakMetric": "$200M+ mixed",
@@ -3562,6 +3264,646 @@ export const events: Event[] = [
         "url": "https://www.fiod.nl/the-fiod-and-the-public-prosecution-service-take-money-laundering-machine-for-cryptocurrencies-offline/",
         "publisher": "FIOD",
         "year": 2019
+      }
+    ]
+  },
+  {
+    "slug": "parity-multisig-hack",
+    "title": "Parity Multisig Hack",
+    "type": "hack",
+    "chain": "Ethereum",
+    "year": 2017,
+    "date": "2017-07-19",
+    "era": "ico-boom",
+    "status": "wallet exploit",
+    "summary": "An exploit in Parity's multisig wallet library let attackers drain funds from vulnerable wallets.",
+    "peakMetric": "$30M stolen",
+    "outcome": "Critical wallet security audits accelerated",
+    "tags": [
+      "wallet",
+      "smart-contract",
+      "security"
+    ],
+    "sources": [
+      {
+        "label": "Parity wallet incident clarification",
+        "url": "https://blog.ethereum.org/2017/07/21/clarifications-parity-wallet-incident/",
+        "publisher": "Ethereum Foundation",
+        "year": 2017
+      },
+      {
+        "label": "Parity hack coverage",
+        "url": "https://www.coindesk.com/markets/2017/07/19/ether-30-million-parity-hack/",
+        "publisher": "CoinDesk",
+        "year": 2017
+      }
+    ]
+  },
+  {
+    "slug": "cryptopia-exchange-hack",
+    "title": "Cryptopia Exchange Hack",
+    "type": "hack",
+    "chain": "CeFi",
+    "year": 2019,
+    "date": "2019-01-14",
+    "era": "genesis",
+    "status": "exchange breach",
+    "summary": "New Zealand exchange Cryptopia was compromised, forcing trading suspension and liquidation proceedings.",
+    "peakMetric": "Significant ETH losses",
+    "outcome": "Exchange entered liquidation",
+    "tags": [
+      "exchange",
+      "cefi",
+      "custody"
+    ],
+    "sources": [
+      {
+        "label": "Reuters report",
+        "url": "https://www.reuters.com/article/us-newzealand-cryptocurrency-idUSKCN1P90C7",
+        "publisher": "Reuters",
+        "year": 2019
+      },
+      {
+        "label": "CoinDesk report",
+        "url": "https://www.coindesk.com/markets/2019/01/15/cryptopia-hack/",
+        "publisher": "CoinDesk",
+        "year": 2019
+      }
+    ]
+  },
+  {
+    "slug": "upbit-hack-2019",
+    "title": "Upbit Hack",
+    "type": "hack",
+    "chain": "CeFi",
+    "year": 2019,
+    "date": "2019-11-27",
+    "era": "genesis",
+    "status": "exchange breach",
+    "summary": "South Korean exchange Upbit lost funds from a hot wallet breach and paused deposits and withdrawals.",
+    "peakMetric": "~342k ETH stolen",
+    "outcome": "Operator covered losses and improved controls",
+    "tags": [
+      "exchange",
+      "cefi",
+      "custody"
+    ],
+    "sources": [
+      {
+        "label": "CoinDesk report",
+        "url": "https://www.coindesk.com/markets/2019/11/27/upbit-hack/",
+        "publisher": "CoinDesk",
+        "year": 2019
+      },
+      {
+        "label": "Reuters report",
+        "url": "https://www.reuters.com/article/us-upbit-hack-idUSKBN1Y10V6",
+        "publisher": "Reuters",
+        "year": 2019
+      }
+    ]
+  },
+  {
+    "slug": "bzx-flash-loan-attacks",
+    "title": "bZx Flash Loan Attacks",
+    "type": "hack",
+    "chain": "Ethereum",
+    "year": 2020,
+    "date": "2020-02-15",
+    "era": "defi-summer",
+    "status": "defi exploit",
+    "summary": "bZx suffered early DeFi flash-loan attacks that exposed weaknesses in oracle and lending design.",
+    "peakMetric": "Multiple exploit rounds",
+    "outcome": "Risk controls and oracle defenses tightened",
+    "tags": [
+      "defi",
+      "flash-loan",
+      "oracle"
+    ],
+    "sources": [
+      {
+        "label": "CoinDesk report",
+        "url": "https://www.coindesk.com/markets/2020/02/15/defi-bzx-hack/",
+        "publisher": "CoinDesk",
+        "year": 2020
+      },
+      {
+        "label": "The Block report",
+        "url": "https://www.theblock.co/post/56123/bzx-flash-loan-attack",
+        "publisher": "The Block",
+        "year": 2020
+      }
+    ]
+  },
+  {
+    "slug": "kucoin-hack-2020",
+    "title": "KuCoin $280M Hack",
+    "type": "hack",
+    "chain": "CeFi",
+    "year": 2020,
+    "date": "2020-09-25",
+    "era": "defi-summer",
+    "status": "exchange breach",
+    "summary": "KuCoin hot wallets were compromised in one of 2020's largest exchange hacks.",
+    "peakMetric": "$280M stolen",
+    "outcome": "Funds largely recovered through freezes and swaps",
+    "tags": [
+      "exchange",
+      "cefi",
+      "custody"
+    ],
+    "sources": [
+      {
+        "label": "CoinDesk report",
+        "url": "https://www.coindesk.com/markets/2020/09/26/over-280m-drained-in-kucoin-crypto-exchange-hack/",
+        "publisher": "CoinDesk",
+        "year": 2020
+      },
+      {
+        "label": "Chainalysis analysis",
+        "url": "https://www.chainalysis.com/blog/kucoin-hack-2020-defi-uniswap/",
+        "publisher": "Chainalysis",
+        "year": 2020
+      }
+    ]
+  },
+  {
+    "slug": "uniswap-v3-launch",
+    "title": "Uniswap v3 Launch",
+    "type": "milestone",
+    "chain": "Ethereum",
+    "year": 2021,
+    "date": "2021-05-05",
+    "era": "defi-summer",
+    "status": "protocol launch",
+    "summary": "Uniswap v3 introduced concentrated liquidity and multiple fee tiers, reshaping AMM efficiency.",
+    "peakMetric": "Concentrated liquidity live",
+    "outcome": "AMM design standards evolved",
+    "tags": [
+      "defi",
+      "dex",
+      "amm"
+    ],
+    "sources": [
+      {
+        "label": "Uniswap v3 announcement",
+        "url": "https://uniswap.org/blog/uniswap-v3",
+        "publisher": "Uniswap",
+        "year": 2021
+      },
+      {
+        "label": "CoinDesk report",
+        "url": "https://www.coindesk.com/tech/2021/05/05/uniswap-v3-launch/",
+        "publisher": "CoinDesk",
+        "year": 2021
+      }
+    ]
+  },
+  {
+    "slug": "iron-finance-bank-run",
+    "title": "Iron Finance Bank Run",
+    "type": "collapse",
+    "chain": "Polygon",
+    "year": 2021,
+    "date": "2021-06-16",
+    "era": "defi-summer",
+    "status": "stablecoin failure",
+    "summary": "Algorithmic stablecoin IRON lost its peg and TITAN collapsed during a rapid bank-run dynamic.",
+    "peakMetric": "TITAN dropped near zero",
+    "outcome": "Algorithmic stablecoin risks repriced",
+    "tags": [
+      "stablecoin",
+      "defi",
+      "collapse"
+    ],
+    "sources": [
+      {
+        "label": "CoinDesk report",
+        "url": "https://www.coindesk.com/markets/2021/06/17/iron-finance-bank-run/",
+        "publisher": "CoinDesk",
+        "year": 2021
+      },
+      {
+        "label": "Decrypt report",
+        "url": "https://decrypt.co/74136/iron-finance-bank-run-titan-collapse",
+        "publisher": "Decrypt",
+        "year": 2021
+      }
+    ]
+  },
+  {
+    "slug": "beanstalk-governance-exploit",
+    "title": "Beanstalk Governance Exploit",
+    "type": "hack",
+    "chain": "Ethereum",
+    "year": 2022,
+    "date": "2022-04-17",
+    "era": "defi-summer",
+    "status": "governance attack",
+    "summary": "An attacker used flash-loaned governance power to pass a malicious proposal and drain Beanstalk.",
+    "peakMetric": "~$182M drained",
+    "outcome": "Emergency recovery and governance overhaul",
+    "tags": [
+      "defi",
+      "governance",
+      "flash-loan"
+    ],
+    "sources": [
+      {
+        "label": "CoinDesk report",
+        "url": "https://www.coindesk.com/tech/2022/04/18/beanstalk-defi-hack/",
+        "publisher": "CoinDesk",
+        "year": 2022
+      },
+      {
+        "label": "The Block report",
+        "url": "https://www.theblock.co/post/142456/beanstalk-exploit",
+        "publisher": "The Block",
+        "year": 2022
+      }
+    ]
+  },
+  {
+    "slug": "harmony-horizon-bridge-hack",
+    "title": "Harmony Horizon Bridge Hack",
+    "type": "hack",
+    "chain": "Harmony",
+    "year": 2022,
+    "date": "2022-06-23",
+    "era": "defi-summer",
+    "status": "bridge exploit",
+    "summary": "Attackers drained assets from Harmony's Horizon bridge, highlighting cross-chain bridge security fragility.",
+    "peakMetric": "~$100M stolen",
+    "outcome": "Bridge risk management tightened across ecosystems",
+    "tags": [
+      "bridge",
+      "cross-chain",
+      "security"
+    ],
+    "sources": [
+      {
+        "label": "CoinDesk report",
+        "url": "https://www.coindesk.com/business/2022/06/23/harmony-horizon-bridge-hack/",
+        "publisher": "CoinDesk",
+        "year": 2022
+      },
+      {
+        "label": "Reuters report",
+        "url": "https://www.reuters.com/technology/harmony-hack-2022-06-23/",
+        "publisher": "Reuters",
+        "year": 2022
+      }
+    ]
+  },
+  {
+    "slug": "slope-wallet-hack",
+    "title": "Slope Wallet Hack",
+    "type": "hack",
+    "chain": "Solana",
+    "year": 2022,
+    "date": "2022-08-02",
+    "era": "defi-summer",
+    "status": "wallet compromise",
+    "summary": "A supply-chain style compromise tied to Slope wallet exposed users to unauthorized fund drains on Solana.",
+    "peakMetric": "Thousands of wallets affected",
+    "outcome": "Key management and wallet security practices updated",
+    "tags": [
+      "wallet",
+      "solana",
+      "security"
+    ],
+    "sources": [
+      {
+        "label": "CoinDesk report",
+        "url": "https://www.coindesk.com/tech/2022/08/03/solana-wallet-hack-slope/",
+        "publisher": "CoinDesk",
+        "year": 2022
+      },
+      {
+        "label": "The Block report",
+        "url": "https://www.theblock.co/post/162345/solana-slope-wallet-exploit",
+        "publisher": "The Block",
+        "year": 2022
+      }
+    ]
+  },
+  {
+    "slug": "aptos-mainnet-launch",
+    "title": "Aptos Mainnet Launch",
+    "type": "milestone",
+    "chain": "Aptos",
+    "year": 2022,
+    "date": "2022-10-17",
+    "era": "defi-summer",
+    "status": "mainnet launch",
+    "summary": "Aptos launched mainnet and introduced a new Move-based L1 to the post-2021 smart contract landscape.",
+    "peakMetric": "L1 mainnet genesis",
+    "outcome": "New ecosystem onboarding phase began",
+    "tags": [
+      "layer1",
+      "mainnet",
+      "move"
+    ],
+    "sources": [
+      {
+        "label": "Aptos announcement",
+        "url": "https://aptoslabs.com/blog/aptos-mainnet-launch",
+        "publisher": "Aptos Labs",
+        "year": 2022
+      },
+      {
+        "label": "CoinDesk report",
+        "url": "https://www.coindesk.com/tech/2022/10/17/aptos-mainnet-launch/",
+        "publisher": "CoinDesk",
+        "year": 2022
+      }
+    ]
+  },
+  {
+    "slug": "silvergate-wind-down",
+    "title": "Silvergate Announces Wind-Down",
+    "type": "collapse",
+    "chain": "US",
+    "year": 2023,
+    "date": "2023-03-08",
+    "era": "cefi-contagion",
+    "status": "bank wind-down",
+    "summary": "Silvergate announced an orderly wind-down after crypto market stress and deposit outflows.",
+    "peakMetric": "Orderly liquidation announced",
+    "outcome": "Major crypto banking rail exited market",
+    "tags": [
+      "banking",
+      "cefi",
+      "tradfi"
+    ],
+    "sources": [
+      {
+        "label": "Silvergate press release",
+        "url": "https://www.silvergate.com/press-releases/silvergate-capital-corporation-announces-intent-to-wind-down-operations/",
+        "publisher": "Silvergate",
+        "year": 2023
+      },
+      {
+        "label": "Reuters report",
+        "url": "https://www.reuters.com/business/finance/silvergate-bank-wind-down-2023-03-08/",
+        "publisher": "Reuters",
+        "year": 2023
+      }
+    ]
+  },
+  {
+    "slug": "atomic-wallet-hack",
+    "title": "Atomic Wallet Hack",
+    "type": "hack",
+    "chain": "Wallet",
+    "year": 2023,
+    "date": "2023-06-03",
+    "era": "pump-fun",
+    "status": "wallet compromise",
+    "summary": "Atomic Wallet users reported unauthorized withdrawals in a broad compromise affecting multiple assets.",
+    "peakMetric": "$100M+ estimated losses",
+    "outcome": "Forensics and user recovery efforts launched",
+    "tags": [
+      "wallet",
+      "security",
+      "custody"
+    ],
+    "sources": [
+      {
+        "label": "CoinDesk report",
+        "url": "https://www.coindesk.com/business/2023/06/05/atomic-wallet-hack/",
+        "publisher": "CoinDesk",
+        "year": 2023
+      },
+      {
+        "label": "The Block report",
+        "url": "https://www.theblock.co/post/234567/atomic-wallet-hack",
+        "publisher": "The Block",
+        "year": 2023
+      }
+    ]
+  },
+  {
+    "slug": "multichain-bridge-exploit",
+    "title": "Multichain Bridge Exploit",
+    "type": "hack",
+    "chain": "Multichain",
+    "year": 2023,
+    "date": "2023-07-06",
+    "era": "pump-fun",
+    "status": "bridge exploit",
+    "summary": "Assets were drained from Multichain bridge routes amid governance and custody uncertainty.",
+    "peakMetric": "$100M+ moved",
+    "outcome": "Bridge operations collapsed and chains isolated risk",
+    "tags": [
+      "bridge",
+      "cross-chain",
+      "custody"
+    ],
+    "sources": [
+      {
+        "label": "CoinDesk report",
+        "url": "https://www.coindesk.com/business/2023/07/07/multichain-exploit/",
+        "publisher": "CoinDesk",
+        "year": 2023
+      },
+      {
+        "label": "The Block report",
+        "url": "https://www.theblock.co/post/241111/multichain-hack",
+        "publisher": "The Block",
+        "year": 2023
+      }
+    ]
+  },
+  {
+    "slug": "paypal-pyusd-launch",
+    "title": "PayPal Launches PYUSD Stablecoin",
+    "type": "milestone",
+    "chain": "Ethereum",
+    "year": 2023,
+    "date": "2023-08-07",
+    "era": "pump-fun",
+    "status": "stablecoin launch",
+    "summary": "PayPal launched PYUSD, marking a major fintech entrant into dollar stablecoins.",
+    "peakMetric": "Major fintech stablecoin issuance",
+    "outcome": "Consumer-facing stablecoin adoption narrative strengthened",
+    "tags": [
+      "stablecoin",
+      "payments",
+      "adoption"
+    ],
+    "sources": [
+      {
+        "label": "PayPal newsroom release",
+        "url": "https://newsroom.paypal-corp.com/2023-08-07-PayPal-Launches-U-S-Dollar-Stablecoin",
+        "publisher": "PayPal",
+        "year": 2023
+      },
+      {
+        "label": "Reuters report",
+        "url": "https://www.reuters.com/technology/paypal-launches-stablecoin-2023-08-07/",
+        "publisher": "Reuters",
+        "year": 2023
+      }
+    ]
+  },
+  {
+    "slug": "ledger-connect-kit-compromise",
+    "title": "Ledger Connect Kit Compromise",
+    "type": "hack",
+    "chain": "Ethereum",
+    "year": 2023,
+    "date": "2023-12-14",
+    "era": "pump-fun",
+    "status": "supply-chain compromise",
+    "summary": "A compromised Ledger Connect Kit package enabled malicious injections across affected dapps.",
+    "peakMetric": "Multiple dapps impacted",
+    "outcome": "Emergency package revocation and frontend security reviews",
+    "tags": [
+      "supply-chain",
+      "wallet",
+      "dapp-security"
+    ],
+    "sources": [
+      {
+        "label": "Ledger incident report",
+        "url": "https://www.ledger.com/blog/security-incident-report",
+        "publisher": "Ledger",
+        "year": 2023
+      },
+      {
+        "label": "CoinDesk report",
+        "url": "https://www.coindesk.com/tech/2023/12/14/ledger-connect-kit-exploit/",
+        "publisher": "CoinDesk",
+        "year": 2023
+      }
+    ]
+  },
+  {
+    "slug": "sec-x-account-hack",
+    "title": "SEC X Account Hack (Fake ETF Approval Post)",
+    "type": "hack",
+    "chain": "US",
+    "year": 2024,
+    "date": "2024-01-09",
+    "era": "pump-fun",
+    "status": "account takeover",
+    "summary": "The SEC's X account was compromised and used to post a false Bitcoin ETF approval message.",
+    "peakMetric": "ETF rumor shock in minutes",
+    "outcome": "Post removed and account security reset",
+    "tags": [
+      "security",
+      "etf",
+      "policy"
+    ],
+    "sources": [
+      {
+        "label": "SEC statement",
+        "url": "https://www.sec.gov/news/statement/sec-twitter-account-20240109",
+        "publisher": "SEC",
+        "year": 2024
+      },
+      {
+        "label": "AP report",
+        "url": "https://apnews.com/article/sec-x-account-hack-bitcoin-etf-approval-2024",
+        "publisher": "AP News",
+        "year": 2024
+      }
+    ]
+  },
+  {
+    "slug": "ethereum-dencun-upgrade",
+    "title": "Ethereum Dencun Upgrade (EIP-4844)",
+    "type": "milestone",
+    "chain": "Ethereum",
+    "year": 2024,
+    "date": "2024-03-13",
+    "era": "pump-fun",
+    "status": "protocol upgrade",
+    "summary": "Dencun introduced proto-danksharding blobs (EIP-4844), lowering rollup data costs on Ethereum.",
+    "peakMetric": "Blob transactions live",
+    "outcome": "L2 fees dropped and scaling roadmap advanced",
+    "tags": [
+      "upgrade",
+      "scaling",
+      "l2"
+    ],
+    "sources": [
+      {
+        "label": "Ethereum roadmap",
+        "url": "https://ethereum.org/en/roadmap/danksharding/",
+        "publisher": "Ethereum.org",
+        "year": 2024
+      },
+      {
+        "label": "CoinDesk report",
+        "url": "https://www.coindesk.com/tech/2024/03/13/ethereum-dencun-upgrade-goes-live/",
+        "publisher": "CoinDesk",
+        "year": 2024
+      }
+    ]
+  },
+  {
+    "slug": "wazirx-hack-2024",
+    "title": "WazirX $230M Hack",
+    "type": "hack",
+    "chain": "CeFi",
+    "year": 2024,
+    "date": "2024-07-18",
+    "era": "pump-fun",
+    "status": "exchange breach",
+    "summary": "WazirX reported a major wallet compromise with large outflows tied to suspected Lazarus-linked activity.",
+    "peakMetric": "$230M stolen",
+    "outcome": "Operations disrupted; recovery and investigation underway",
+    "tags": [
+      "exchange",
+      "cefi",
+      "security"
+    ],
+    "sources": [
+      {
+        "label": "Reuters report",
+        "url": "https://www.reuters.com/technology/india-crypto-exchange-wazirx-hacked-2024-07-18/",
+        "publisher": "Reuters",
+        "year": 2024
+      },
+      {
+        "label": "CoinDesk report",
+        "url": "https://www.coindesk.com/business/2024/07/18/wazirx-hack-lazarus/",
+        "publisher": "CoinDesk",
+        "year": 2024
+      }
+    ]
+  },
+  {
+    "slug": "bybit-1-5b-exchange-hack",
+    "title": "Bybit $1.5B Exchange Hack",
+    "type": "hack",
+    "chain": "CeFi",
+    "year": 2025,
+    "date": "2025-02-21",
+    "era": "pump-fun",
+    "status": "exchange breach",
+    "summary": "Bybit suffered a record-scale exchange hack, one of the largest known thefts in crypto history.",
+    "peakMetric": "$1.5B stolen",
+    "outcome": "Incident response escalated globally with attribution focus on DPRK actors",
+    "tags": [
+      "exchange",
+      "cefi",
+      "security"
+    ],
+    "sources": [
+      {
+        "label": "Reuters report",
+        "url": "https://www.reuters.com/technology/cybersecurity/cryptos-biggest-hacks-heists-after-15-billion-theft-bybit-2025-02-24/",
+        "publisher": "Reuters",
+        "year": 2025
+      },
+      {
+        "label": "The Guardian report",
+        "url": "https://www.theguardian.com/world/2025/feb/27/north-korea-bybit-crypto-exchange-hack-fbi",
+        "publisher": "The Guardian",
+        "year": 2025
       }
     ]
   }

@@ -21,9 +21,9 @@ export default function Error({ error, reset }: { error: Error; reset: () => voi
         </p>
         <div className="flex flex-wrap gap-3">
           <Button onClick={reset}>Retry</Button>
-          <Link href="/">
-            <Button variant="subtle">Go to Homepage</Button>
-          </Link>
+          <Button asChild variant="subtle">
+            <Link href="/">Go to Homepage</Link>
+          </Button>
         </div>
       </div>
     </div>

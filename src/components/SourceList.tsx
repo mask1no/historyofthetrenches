@@ -11,11 +11,22 @@ function isPendingSource(url?: string) {
   }
 }
 
+function isWikipediaSource(source: Source) {
+  return source.publisher === "Wikipedia" || source.url?.includes("wikipedia.org");
+}
+
+const kindLabel: Record<string, string> = {
+  primary: "Primary",
+  secondary: "News",
+  community: "Community"
+};
+
 export function SourceList({ sources }: { sources: Source[] }) {
   return (
     <div className="space-y-3">
       {sources.map((source) => {
         const pending = source.kind === "pending" || isPendingSource(source.url);
+        const wiki = !pending && isWikipediaSource(source);
         const Wrapper = pending ? "div" : "a";
         const wrapperProps = pending
           ? {}
@@ -39,6 +50,14 @@ export function SourceList({ sources }: { sources: Source[] }) {
                 </div>
               </div>
               {pending && <Badge variant="muted">Source pending</Badge>}
+              {!pending && source.kind && kindLabel[source.kind] && (
+                <Badge variant={source.kind === "primary" ? "gold" : "muted"}>
+                  {kindLabel[source.kind]}
+                </Badge>
+              )}
+              {wiki && !source.kind && (
+                <Badge variant="muted">Reference</Badge>
+              )}
             </div>
             {!pending && <span className="text-xs text-accentGold">Open</span>}
           </Wrapper>

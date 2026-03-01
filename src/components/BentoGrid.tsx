@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import { events } from "@/data/events";
 import { eras } from "@/data/eras";
 import { Button } from "@/components/ui/button";
@@ -13,7 +13,8 @@ const rugOrder = [
   "anubisdao-rugpull",
   "thodex-exit-scam",
   "squid-game-token",
-  "safemoon-drain"
+  "safemoon-drain",
+  "meerkat-finance-rugpull"
 ];
 const runnerOrder = [
   "bitcoin-run-2017",
@@ -24,13 +25,15 @@ const runnerOrder = [
 ];
 
 const rugs = events
-  .filter((e) => e.type === "rugpull" && e.hallOfFame && rugOrder.includes(e.slug))
+  .filter((e) => (e.type === "rugpull" || e.type === "collapse") && e.hallOfFame && rugOrder.includes(e.slug))
   .sort((a, b) => rugOrder.indexOf(a.slug) - rugOrder.indexOf(b.slug));
 const runners = events
   .filter((e) => e.type === "runner" && e.hallOfFame && runnerOrder.includes(e.slug))
   .sort((a, b) => runnerOrder.indexOf(a.slug) - runnerOrder.indexOf(b.slug));
 
 export function BentoGrid() {
+  const [paused, setPaused] = useState(false);
+
   return (
     <section
       className="mx-auto grid max-w-6xl grid-cols-1 gap-6 px-6 pb-12 pt-6 md:grid-cols-12"
@@ -40,9 +43,9 @@ export function BentoGrid() {
         <CardHeader className="flex flex-row items-center justify-between">
           <div className="space-y-1">
             <CardTitle className="flex items-center gap-2 text-xl">
-              Hall of Fame Rugpulls
+              Hall of Fame Collapses
             </CardTitle>
-            <p className="text-sm text-muted">The most impactful collapses in web3 history.</p>
+            <p className="text-sm text-muted">The most impactful collapses and rugpulls in web3 history.</p>
           </div>
           <Badge variant="red">Rugs</Badge>
         </CardHeader>
@@ -51,7 +54,7 @@ export function BentoGrid() {
             <Link
               key={event.slug}
               href={`/event/${event.slug}`}
-              className={`${index > 2 ? "hidden md:flex" : "flex"} h-full items-center justify-between gap-3 rounded-lg border border-accentRed/30 bg-accentRed/5 px-4 py-3 transition duration-500 ease-out hover:border-accentRed/60 hover:bg-accentRed/10 dark:border-[rgba(209,106,106,0.20)]`}
+              className="flex h-full items-center justify-between gap-3 rounded-lg border border-accentRed/30 bg-accentRed/5 px-4 py-3 transition duration-500 ease-out hover:border-accentRed/60 hover:bg-accentRed/10 dark:border-accentRed/20"
             >
               <div className="min-w-0">
                 <div className="text-sm font-semibold line-clamp-2">{event.title}</div>
@@ -69,19 +72,6 @@ export function BentoGrid() {
               </div>
             </Link>
           ))}
-          {rugs.length > 3 && (
-            <div className="md:hidden">
-              <span className="mb-1 block text-center text-[11px] text-muted">
-                Showing 3 of {rugs.length}
-              </span>
-              <Link
-                href="/timeline"
-                className="flex items-center justify-center gap-1.5 rounded-lg border border-border px-3 py-1.5 text-xs font-medium text-muted transition hover:border-accentGold hover:text-fg"
-              >
-                Explore the full timeline
-              </Link>
-            </div>
-          )}
         </CardContent>
       </Card>
 
@@ -100,7 +90,7 @@ export function BentoGrid() {
             <Link
               key={event.slug}
               href={`/event/${event.slug}`}
-              className={`${index > 2 ? "hidden md:flex" : "flex"} h-full items-center justify-between gap-3 rounded-lg border border-accentGreen/30 bg-accentGreen/5 px-4 py-3 transition duration-500 ease-out hover:border-accentGreen/60 hover:bg-accentGreen/10 dark:border-[rgba(69,184,135,0.20)]`}
+              className="flex h-full items-center justify-between gap-3 rounded-lg border border-accentGreen/30 bg-accentGreen/5 px-4 py-3 transition duration-500 ease-out hover:border-accentGreen/60 hover:bg-accentGreen/10 dark:border-accentGreen/20"
             >
               <div className="min-w-0">
                 <div className="text-sm font-semibold line-clamp-2">{event.title}</div>
@@ -118,40 +108,37 @@ export function BentoGrid() {
               </div>
             </Link>
           ))}
-          {runners.length > 3 && (
-            <div className="md:hidden">
-              <span className="mb-1 block text-center text-[11px] text-muted">
-                Showing 3 of {runners.length}
-              </span>
-              <Link
-                href="/timeline"
-                className="flex items-center justify-center gap-1.5 rounded-lg border border-border px-3 py-1.5 text-xs font-medium text-muted transition hover:border-accentGold hover:text-fg"
-              >
-                Explore the full timeline
-              </Link>
-            </div>
-          )}
         </CardContent>
       </Card>
 
-      <Card className="md:col-span-12 relative overflow-hidden border border-border/80 bg-card/95 dark:border-white/[0.04] dark:shadow-[0_10px_28px_rgba(0,0,0,0.42)]">
-        <CardHeader className="flex flex-col items-start gap-2">
-          <CardTitle className="text-xl">Crypto Onboarding Eras</CardTitle>
-          <p className="text-sm text-muted">
-            Snap through formative chapters and the events that defined them.
-          </p>
+      <Card className="md:col-span-12 relative overflow-hidden border border-border/80 bg-card/95 dark:border-border-subtle dark:shadow-[0_10px_28px_rgba(0,0,0,0.42)]">
+        <CardHeader className="flex flex-col items-start gap-2 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <CardTitle className="text-xl">Crypto Onboarding Eras</CardTitle>
+            <p className="text-sm text-muted">
+              Snap through formative chapters and the events that defined them.
+            </p>
+          </div>
+          <button
+            type="button"
+            onClick={() => setPaused((p) => !p)}
+            aria-label={paused ? "Play carousel" : "Pause carousel"}
+            className="shrink-0 self-end sm:self-auto rounded-full border border-border px-3 py-1 text-xs text-muted hover:border-accentGold transition"
+          >
+            {paused ? "Play" : "Pause"}
+          </button>
         </CardHeader>
         <CardContent className="relative overflow-hidden px-0">
           <div className="marquee" role="region" aria-roledescription="carousel" aria-label="Crypto onboarding eras carousel">
-            <div className="marquee-track">
+            <div className="marquee-track" style={paused ? { animationPlayState: "paused" } : undefined}>
               <div className="marquee-group">
                 {eras.map((era) => (
                   <Link
                     key={`era-${era.id}`}
                     href={`/timeline#era-${era.id}`}
-                    className="flex-none basis-[75%] sm:basis-[48%] md:basis-[34%] lg:basis-[28%] xl:basis-[22%] max-w-[300px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-accentGold focus-visible:outline-offset-2 rounded-2xl"
+                    className="flex-none basis-[75%] sm:basis-[48%] md:basis-[34%] lg:basis-[28%] xl:basis-[22%] max-w-[300px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-accentGold focus-visible:outline-offset-2 rounded-xl"
                   >
-                    <div className="flex h-full min-h-[130px] md:min-h-[140px] flex-col rounded-2xl border border-border/80 dark:border-white/[0.04] bg-card px-4 py-3 shadow-subtle transition duration-500 ease-out hover:shadow-[0_0_14px_0px_rgba(214,177,94,0.25),0_14px_28px_rgba(0,0,0,0.08)] dark:shadow-[0_10px_24px_rgba(0,0,0,0.42)] dark:hover:shadow-[0_0_16px_0px_rgba(214,177,94,0.3),0_14px_28px_rgba(0,0,0,0.45)]">
+                    <div className="flex h-full min-h-[130px] md:min-h-[140px] flex-col rounded-xl border border-border/80 dark:border-border-subtle bg-card px-4 py-3 shadow-subtle transition duration-500 ease-out hover:shadow-[0_0_14px_0px_rgba(214,177,94,0.25),0_14px_28px_rgba(0,0,0,0.08)] dark:shadow-[0_10px_24px_rgba(0,0,0,0.42)] dark:hover:shadow-[0_0_16px_0px_rgba(214,177,94,0.3),0_14px_28px_rgba(0,0,0,0.45)]">
                       <div className="text-xs font-semibold uppercase text-muted">{era.range}</div>
                       <div className="text-base font-semibold line-clamp-2">{era.title}</div>
                       <p className="mt-2 text-sm text-muted line-clamp-3">{era.description}</p>
@@ -164,9 +151,9 @@ export function BentoGrid() {
                   <Link
                     key={`era-dup-${era.id}`}
                     href={`/timeline#era-${era.id}`}
-                    className="flex-none basis-[75%] sm:basis-[48%] md:basis-[34%] lg:basis-[28%] xl:basis-[22%] max-w-[300px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-accentGold focus-visible:outline-offset-2 rounded-2xl"
+                    className="flex-none basis-[75%] sm:basis-[48%] md:basis-[34%] lg:basis-[28%] xl:basis-[22%] max-w-[300px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-accentGold focus-visible:outline-offset-2 rounded-xl"
                   >
-                    <div className="flex h-full min-h-[130px] md:min-h-[140px] flex-col rounded-2xl border border-border/80 dark:border-white/[0.04] bg-card px-4 py-3 shadow-subtle transition duration-500 ease-out hover:shadow-[0_0_14px_0px_rgba(214,177,94,0.25),0_14px_28px_rgba(0,0,0,0.08)] dark:shadow-[0_10px_24px_rgba(0,0,0,0.42)] dark:hover:shadow-[0_0_16px_0px_rgba(214,177,94,0.3),0_14px_28px_rgba(0,0,0,0.45)]">
+                    <div className="flex h-full min-h-[130px] md:min-h-[140px] flex-col rounded-xl border border-border/80 dark:border-border-subtle bg-card px-4 py-3 shadow-subtle transition duration-500 ease-out hover:shadow-[0_0_14px_0px_rgba(214,177,94,0.25),0_14px_28px_rgba(0,0,0,0.08)] dark:shadow-[0_10px_24px_rgba(0,0,0,0.42)] dark:hover:shadow-[0_0_16px_0px_rgba(214,177,94,0.3),0_14px_28px_rgba(0,0,0,0.45)]">
                       <div className="text-xs font-semibold uppercase text-muted">{era.range}</div>
                       <div className="text-base font-semibold line-clamp-2">{era.title}</div>
                       <p className="mt-2 text-sm text-muted line-clamp-3">{era.description}</p>

@@ -79,7 +79,7 @@ export function Select({ label, value, options, onChange, className }: SelectPro
       <button
         ref={buttonRef}
         type="button"
-        className="flex h-11 w-full items-center justify-between rounded-2xl border border-border bg-card px-4 text-sm text-fg shadow-sm transition hover:border-accentGold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accentGold/60"
+        className="flex h-11 w-full items-center justify-between rounded-xl border border-border bg-card px-4 text-sm text-fg shadow-sm transition hover:border-accentGold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accentGold/60"
         aria-haspopup="listbox"
         aria-expanded={open}
         onClick={() => setOpen((prev) => !prev)}
@@ -92,8 +92,8 @@ export function Select({ label, value, options, onChange, className }: SelectPro
         ref={listRef}
         role="listbox"
         tabIndex={-1}
-        className={`absolute z-20 mt-2 max-h-60 w-full overflow-auto rounded-2xl border border-border bg-card p-1 text-sm shadow-subtle transition ${
-          open ? "opacity-100" : "pointer-events-none opacity-0"
+        className={`absolute z-20 mt-2 max-h-60 w-full overflow-auto rounded-xl border border-border bg-card p-1 text-sm shadow-subtle transition-all duration-200 origin-top ${
+          open ? "scale-100 opacity-100" : "pointer-events-none scale-95 opacity-0"
         }`}
       >
         {options.map((option, index) => {

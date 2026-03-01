@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Footer } from "@/components/Footer";
 import { NavBar } from "@/components/NavBar";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Server, Shield } from "lucide-react";
 
@@ -41,29 +42,38 @@ export default function KitPage() {
     <main id="main-content" className="min-h-screen pb-16">
       <NavBar />
       <section className="mx-auto max-w-6xl px-6 pb-12 pt-8">
-        <div className="mb-6 space-y-3">
+        <Breadcrumbs items={[{ label: "Kit", href: "/kit" }]} />
+        <div className="mb-8 space-y-4">
           <h1 className="font-display text-4xl font-semibold">
             The Kit
           </h1>
-          <p className="max-w-3xl text-base text-muted">
+          <p className="max-w-3xl text-base leading-relaxed text-muted">
             A toolkit bridge for newly onboarded traders who want to move from app-level clicks to
             first-principles control. Learn the systems, risks, and habits that keep you safe as
             you go deeper into web3.
           </p>
-        </div>
-
-        <div className="mb-8 grid grid-cols-1 gap-4 md:grid-cols-3">
-          <div className="rounded-xl border border-border bg-bg/70 px-4 py-3 text-sm">
-            <div className="text-xs uppercase tracking-[0.2em] text-muted">Principle</div>
-            <div className="text-lg font-semibold text-fg">Don&apos;t trust, verify</div>
-          </div>
-          <div className="rounded-xl border border-border bg-bg/70 px-4 py-3 text-sm">
-            <div className="text-xs uppercase tracking-[0.2em] text-muted">Goal</div>
-            <div className="text-lg font-semibold text-fg">Control is convenience</div>
-          </div>
-          <div className="rounded-xl border border-border bg-bg/70 px-4 py-3 text-sm">
-            <div className="text-xs uppercase tracking-[0.2em] text-muted">Signal</div>
-            <div className="text-lg font-semibold text-fg">Not your keys, not your crypto</div>
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
+            <div className="relative overflow-hidden rounded-xl border border-accentGold/20 bg-accentGold/5 px-4 py-3 text-sm">
+              <Shield className="absolute -right-2 -top-2 h-12 w-12 text-accentGold/10" aria-hidden="true" />
+              <div className="relative">
+                <div className="text-[10px] font-semibold uppercase tracking-[0.2em] text-accentGold">Principle</div>
+                <div className="mt-0.5 text-base font-semibold text-fg">Don&apos;t trust, verify</div>
+              </div>
+            </div>
+            <div className="relative overflow-hidden rounded-xl border border-accentGold/20 bg-accentGold/5 px-4 py-3 text-sm">
+              <Server className="absolute -right-2 -top-2 h-12 w-12 text-accentGold/10" aria-hidden="true" />
+              <div className="relative">
+                <div className="text-[10px] font-semibold uppercase tracking-[0.2em] text-accentGold">Goal</div>
+                <div className="mt-0.5 text-base font-semibold text-fg">Control is convenience</div>
+              </div>
+            </div>
+            <div className="relative overflow-hidden rounded-xl border border-accentGold/20 bg-accentGold/5 px-4 py-3 text-sm">
+              <Shield className="absolute -right-2 -top-2 h-12 w-12 text-accentGold/10" aria-hidden="true" />
+              <div className="relative">
+                <div className="text-[10px] font-semibold uppercase tracking-[0.2em] text-accentGold">Signal</div>
+                <div className="mt-0.5 text-base font-semibold text-fg">Not your keys, not your crypto</div>
+              </div>
+            </div>
           </div>
         </div>
 

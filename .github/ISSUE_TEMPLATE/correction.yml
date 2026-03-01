@@ -1,0 +1,26 @@
+name: Submit Correction
+description: Report an error or suggest a correction to an existing event
+title: "[Correction] "
+labels: ["correction"]
+body:
+  - type: input
+    id: event
+    attributes:
+      label: Event slug or title
+      placeholder: "e.g. mt-gox-bankruptcy"
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: What needs correcting?
+      description: "Describe the error and the correct information with sources"
+    validations:
+      required: true
+  - type: textarea
+    id: sources
+    attributes:
+      label: Sources
+      description: "URLs supporting the correction"
+    validations:
+      required: true

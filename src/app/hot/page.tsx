@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { NavBar } from "@/components/NavBar";
 import { Footer } from "@/components/Footer";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { LinkIcon } from "@/components/LinkIcon";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -41,14 +42,19 @@ export default function HotPage() {
     <main id="main-content" className="min-h-screen pb-16">
       <NavBar />
       <section className="mx-auto max-w-6xl px-6 pb-12 pt-8">
-        <div className="mb-6 space-y-3">
-          <h1 className="font-display text-4xl font-semibold">
-            $HOT
-          </h1>
-          <p className="max-w-3xl text-base text-muted">
-            A playful memecoin diary. Not financial advice, just a public record to keep the story
-            honest.
-          </p>
+        <Breadcrumbs items={[{ label: "$HOT", href: "/hot" }]} />
+        <div className="relative mb-8 overflow-hidden rounded-xl border border-accentGold/20 bg-accentGold/5 p-6 sm:p-8">
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_100%_0%,rgba(214,177,94,0.12),transparent_60%)]" aria-hidden="true" />
+          <div className="relative space-y-3">
+            <div className="flex items-center gap-3">
+              <Coins className="h-6 w-6 text-accentGold" aria-hidden="true" />
+              <h1 className="font-display text-4xl font-semibold">$HOT</h1>
+            </div>
+            <p className="max-w-2xl text-base leading-relaxed text-muted">
+              A playful memecoin diary. Not financial advice, just a public record to keep the story
+              honest. Every buy is logged, every wallet is doxxed.
+            </p>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3">

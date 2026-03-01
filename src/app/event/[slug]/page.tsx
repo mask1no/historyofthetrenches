@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Script from "next/script";
 import { NavBar } from "@/components/NavBar";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { SourceList } from "@/components/SourceList";
@@ -53,21 +54,12 @@ export function generateMetadata({ params }: EventPageProps): Metadata {
       siteName: "History of the Trenches",
       publishedTime,
       modifiedTime: publishedTime,
-      authors: ["History of the Trenches"],
-      images: [
-        {
-          url: "/og.png",
-          width: 1200,
-          height: 630,
-          alt: event ? event.title : "History of the Trenches"
-        }
-      ]
+      authors: ["History of the Trenches"]
     },
     twitter: {
       card: "summary_large_image",
       title: event ? `${event.title} | History of the Trenches` : "Event | History of the Trenches",
-      description,
-      images: ["/og.png"]
+      description
     }
   };
 }
@@ -110,25 +102,6 @@ export default function EventPage({ params }: EventPageProps) {
     keywords: event.tags.join(", ")
   };
 
-  const breadcrumbJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Archive",
-        item: "https://www.historyofthetrenches.xyz/archive"
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: event.title,
-        item: `https://www.historyofthetrenches.xyz/event/${event.slug}`
-      }
-    ]
-  };
-
   const related = events
     .filter((e) => e.slug !== event.slug)
     .map((e) => ({
@@ -159,13 +132,14 @@ export default function EventPage({ params }: EventPageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(eventJsonLd) }}
       />
-      <Script
-        id={`event-breadcrumb-jsonld-${event.slug}`}
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
-      />
       <NavBar />
       <section className="mx-auto max-w-6xl px-6 pb-10 pt-8">
+        <Breadcrumbs
+          items={[
+            { label: "Archive", href: "/archive" },
+            { label: event.title, href: `/event/${event.slug}` }
+          ]}
+        />
         <div className="mb-6 space-y-4">
           <div className="flex flex-wrap items-center gap-3">
             <Badge variant={typeVariant[event.type]}>{typeLabel[event.type]}</Badge>
@@ -178,7 +152,7 @@ export default function EventPage({ params }: EventPageProps) {
           </h1>
           <p className="max-w-3xl text-lg text-muted">{event.summary}</p>
           <div className="flex flex-wrap items-center gap-3 text-sm text-muted">
-            <span>Event date: {event.date}</span>
+            <time dateTime={event.date}>Event date: {event.date}</time>
           </div>
           <ShareButtons
             title={event.title}
@@ -360,6 +334,21 @@ export default function EventPage({ params }: EventPageProps) {
             </div>
           </div>
         )}
+
+        <div className="mt-10 flex flex-wrap items-center gap-4 border-t border-border/40 pt-6 text-sm dark:border-border-subtle">
+          <Link
+            href="/archive"
+            className="font-medium text-muted transition hover:text-fg hover:underline hover:decoration-accentGold hover:underline-offset-2"
+          >
+            &larr; Back to Archive
+          </Link>
+          <Link
+            href="/timeline"
+            className="font-medium text-muted transition hover:text-fg hover:underline hover:decoration-accentGold hover:underline-offset-2"
+          >
+            View Timeline
+          </Link>
+        </div>
       </section>
       <Footer />
     </main>

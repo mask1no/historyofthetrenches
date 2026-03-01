@@ -163,20 +163,17 @@ export function NavBar() {
           >
             {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
           </Button>
-          <a href="/trench-manual.pdf" download className="hidden md:inline-flex">
-            <Button
-              variant="default"
-              className="gap-2 bg-accentGold text-[#1a1a00] hover:bg-accentGold/90"
-            >
+          <Button asChild variant="subtle" className="hidden gap-2 md:inline-flex">
+            <a href="/trench-manual.pdf" download>
               <Download className="h-4 w-4" />
-              Download Trench Manual
-            </Button>
-          </a>
+              Trench Manual
+            </a>
+          </Button>
           <Button
             ref={menuButtonRef}
             variant="ghost"
             size="icon"
-            className="border border-border text-fg dark:border-white/10 dark:bg-white/[0.04] md:hidden"
+            className="border border-border text-fg dark:border-border-subtle md:hidden"
             aria-label="Open menu"
             aria-controls="mobile-nav-drawer"
             aria-expanded={isMenuOpen}
@@ -196,7 +193,7 @@ export function NavBar() {
         <div
           id="mobile-nav-drawer"
           ref={mobileDrawerRef}
-          className={`absolute right-0 top-0 flex h-full w-[88vw] max-w-sm flex-col border-l border-border bg-card/95 p-6 shadow-subtle transition-transform duration-300 will-change-transform dark:border-white/10 dark:bg-[#1a1a1a] dark:shadow-[0_0_0_1px_rgba(255,255,255,0.06),0_16px_48px_rgba(0,0,0,0.5)] ${
+          className={`absolute right-0 top-0 flex h-full w-[88vw] max-w-sm flex-col border-l border-border bg-card/95 p-6 shadow-subtle transition-transform duration-300 will-change-transform dark:border-border-subtle dark:bg-card-alt dark:shadow-[0_0_0_1px_var(--border-subtle),0_16px_48px_rgba(0,0,0,0.5)] ${
             isMenuOpen ? "translate-x-0" : "translate-x-full"
           }`}
           onClick={(e) => e.stopPropagation()}
@@ -206,7 +203,7 @@ export function NavBar() {
             <button
               ref={closeButtonRef}
               aria-label="Close menu"
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-border text-fg transition hover:border-accentGold hover:text-fg dark:border-white/10"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-border text-fg transition hover:border-accentGold hover:text-fg dark:border-border-subtle"
               onClick={closeMobileMenu}
             >
               <X className="h-4 w-4" />
@@ -219,8 +216,8 @@ export function NavBar() {
                 href={item.href}
                 target={item.href.startsWith("http") ? "_blank" : undefined}
                 rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                className={`rounded-2xl border border-border px-4 py-4 text-base text-fg transition hover:border-accentGold hover:bg-bg dark:border-white/[0.08] dark:hover:bg-white/[0.04] ${
-                  pathname === item.href ? "border-accentGold bg-bg dark:border-accentGold dark:bg-white/[0.04]" : ""
+                className={`rounded-xl border border-border px-4 py-3.5 text-base text-fg transition hover:border-accentGold hover:bg-bg dark:border-border-subtle dark:hover:bg-border-subtle ${
+                  pathname === item.href ? "border-accentGold bg-bg dark:border-accentGold dark:bg-border-subtle" : ""
                 }`}
                 onClick={closeMobileMenu}
               >
@@ -229,15 +226,15 @@ export function NavBar() {
             ))}
           </div>
           <div className="mt-6 flex flex-col gap-3">
-            <a href="/trench-manual.pdf" download onClick={closeMobileMenu}>
-              <Button className="w-full justify-center gap-2 bg-accentGold text-[#1a1a00] hover:bg-accentGold/90">
+            <Button asChild variant="subtle" className="w-full justify-center gap-2">
+              <a href="/trench-manual.pdf" download onClick={closeMobileMenu}>
                 <Download className="h-4 w-4" />
-                Download Trench Manual
-              </Button>
-            </a>
+                Trench Manual
+              </a>
+            </Button>
             <Button
               variant="ghost"
-              className="w-full justify-center gap-2 border border-border text-fg transition-colors duration-200 hover:border-accentGold/50 hover:text-foreground dark:border-white/[0.10]"
+              className="w-full justify-center gap-2 border border-border text-fg transition-colors duration-200 hover:border-accentGold/50 hover:text-foreground dark:border-border-subtle"
               aria-label="Toggle theme"
               onClick={toggleTheme}
             >
