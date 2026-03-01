@@ -118,6 +118,7 @@ export function AccentPicker() {
         size="icon"
         className="hidden border border-border bg-card/80 text-muted-foreground transition-colors duration-200 hover:border-accentGold/50 hover:text-fg md:inline-flex"
         aria-label="Change data accent color"
+        aria-haspopup="true"
         aria-expanded={open}
         onClick={() => setOpen((prev) => !prev)}
       >
@@ -129,6 +130,7 @@ export function AccentPicker() {
         type="button"
         className="flex h-8 w-8 items-center justify-center rounded-full transition-transform duration-150 active:scale-90 md:hidden"
         aria-label="Change data accent color"
+        aria-haspopup="true"
         aria-expanded={open}
         onClick={() => setOpen((prev) => !prev)}
       >
@@ -141,7 +143,7 @@ export function AccentPicker() {
       {/* Panel */}
       <div
         ref={panelRef}
-        className={`absolute right-0 top-full z-30 mt-2 w-[220px] rounded-xl border border-border bg-card p-3 shadow-subtle transition-all duration-200 origin-top-right dark:border-border-subtle dark:shadow-[0_12px_32px_rgba(0,0,0,0.5)] ${
+        className={`absolute right-0 top-full z-30 mt-2 w-[220px] max-w-[calc(100vw-2rem)] rounded-xl border border-border bg-card p-3 shadow-subtle transition-all duration-200 origin-top-right dark:border-border-subtle dark:shadow-[0_12px_32px_rgba(0,0,0,0.5)] ${
           open ? "scale-100 opacity-100" : "pointer-events-none scale-95 opacity-0"
         }`}
       >

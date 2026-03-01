@@ -25,7 +25,3 @@ export function compareEventDatesAsc(a: { date: string }, b: { date: string }) {
   return parseEventDate(a.date) - parseEventDate(b.date);
 }
 
-
-
-
-

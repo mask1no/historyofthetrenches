@@ -236,7 +236,7 @@ export function NavBar() {
             </Button>
             <Button
               variant="ghost"
-              className="w-full justify-center gap-2 border border-border text-fg transition-colors duration-200 hover:border-accentGold/50 hover:text-foreground dark:border-border-subtle"
+              className="w-full justify-center gap-2 border border-border text-fg transition-colors duration-200 hover:border-accentGold/50 hover:text-fg dark:border-border-subtle"
               aria-label="Toggle theme"
               onClick={toggleTheme}
             >

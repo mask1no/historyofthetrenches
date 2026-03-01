@@ -21,7 +21,7 @@ export function EraTimeline() {
       <div className="relative overflow-hidden rounded-xl border border-border bg-card p-6 shadow-subtle">
         <div className="relative flex flex-col gap-6">
           <div className="absolute left-[16px] top-0 bottom-0 w-px bg-border/60" aria-hidden="true" />
-          {eras.map((era, idx) => {
+          {eras.map((era) => {
             const orderedEvents = [...era.featured].sort((a, b) =>
               a.date.localeCompare(b.date)
             );

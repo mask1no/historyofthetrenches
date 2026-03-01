@@ -282,7 +282,7 @@ export default function EventPage({ params }: EventPageProps) {
                   <div className="text-sm font-semibold">{item.title}</div>
                   <div className="text-xs text-muted">
                     {item.chain} • {item.date}
-                    <span className="hidden sm:inline"> • {item.summary}</span>
+                    <span className="hidden truncate sm:inline"> • {item.summary}</span>
                   </div>
                 </div>
                 <Badge

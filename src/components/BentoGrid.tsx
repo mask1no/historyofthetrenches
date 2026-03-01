@@ -51,7 +51,7 @@ export function BentoGrid() {
           <Badge variant="red">Rugs</Badge>
         </CardHeader>
         <CardContent className="grid flex-1 auto-rows-[minmax(72px,1fr)] gap-3">
-          {rugs.map((event, index) => (
+          {rugs.map((event) => (
             <Link
               key={event.slug}
               href={`/event/${event.slug}`}
@@ -87,7 +87,7 @@ export function BentoGrid() {
           <Badge variant="green">Runners</Badge>
         </CardHeader>
         <CardContent className="grid flex-1 auto-rows-[minmax(72px,1fr)] gap-3">
-          {runners.map((event, index) => (
+          {runners.map((event) => (
             <Link
               key={event.slug}
               href={`/event/${event.slug}`}
