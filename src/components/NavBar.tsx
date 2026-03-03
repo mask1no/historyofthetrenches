@@ -185,70 +185,67 @@ export function NavBar() {
           </Button>
         </div>
       </div>
-      <div
-        className={`fixed inset-0 z-40 bg-black/80 backdrop-blur-lg backdrop-saturate-150 transition-opacity duration-300 ${
-          isMenuOpen ? "opacity-100" : "pointer-events-none opacity-0"
-        }`}
-        onClick={() => setShowMobileNav(false)}
-        aria-hidden={!isMenuOpen}
-      >
+      {isMenuOpen && (
         <div
-          id="mobile-nav-drawer"
-          ref={mobileDrawerRef}
-          role="dialog"
-          aria-modal="true"
-          aria-label="Mobile navigation"
-          className={`absolute right-0 top-0 flex h-full w-[88vw] max-w-sm flex-col border-l border-border bg-card/95 p-6 shadow-subtle transition-transform duration-300 will-change-transform dark:border-border-subtle dark:bg-card-alt dark:shadow-[0_0_0_1px_var(--border-subtle),0_16px_48px_rgba(0,0,0,0.5)] ${
-            isMenuOpen ? "translate-x-0" : "translate-x-full"
-          }`}
-          onClick={(e) => e.stopPropagation()}
+          className="fixed inset-0 z-40 bg-black/80 opacity-100 backdrop-blur-lg backdrop-saturate-150 transition-opacity duration-300"
+          onClick={() => setShowMobileNav(false)}
         >
-          <div className="mb-6 flex items-center justify-between">
-            <span className="text-base font-semibold">Navigate</span>
-            <button
-              ref={closeButtonRef}
-              aria-label="Close menu"
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-border text-fg transition hover:border-accentGold hover:text-fg dark:border-border-subtle"
-              onClick={closeMobileMenu}
-            >
-              <X className="h-4 w-4" />
-            </button>
-          </div>
-          <div className="flex flex-1 flex-col gap-3 text-sm">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                target={item.href.startsWith("http") ? "_blank" : undefined}
-                rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                className={`rounded-xl border border-border px-4 py-3.5 text-base text-fg transition hover:border-accentGold hover:bg-bg dark:border-border-subtle dark:hover:bg-border-subtle ${
-                  pathname === item.href ? "border-accentGold bg-bg dark:border-accentGold dark:bg-border-subtle" : ""
-                }`}
+          <div
+            id="mobile-nav-drawer"
+            ref={mobileDrawerRef}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Mobile navigation"
+            className="absolute right-0 top-0 flex h-full w-[88vw] max-w-sm flex-col border-l border-border bg-card/95 p-6 shadow-subtle transition-transform duration-300 will-change-transform dark:border-border-subtle dark:bg-card-alt dark:shadow-[0_0_0_1px_var(--border-subtle),0_16px_48px_rgba(0,0,0,0.5)]"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="mb-6 flex items-center justify-between">
+              <span className="text-base font-semibold">Navigate</span>
+              <button
+                ref={closeButtonRef}
+                aria-label="Close menu"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-border text-fg transition hover:border-accentGold hover:text-fg dark:border-border-subtle"
                 onClick={closeMobileMenu}
               >
-                {item.label}
-              </Link>
-            ))}
-          </div>
-          <div className="mt-6 flex flex-col gap-3">
-            <Button asChild variant="subtle" className="w-full justify-center gap-2">
-              <a href="/trench-manual.pdf" download onClick={closeMobileMenu}>
-                <Download className="h-4 w-4" />
-                Trench Manual
-              </a>
-            </Button>
-            <Button
-              variant="ghost"
-              className="w-full justify-center gap-2 border border-border text-fg transition-colors duration-200 hover:border-accentGold/50 hover:text-fg dark:border-border-subtle"
-              aria-label="Toggle theme"
-              onClick={toggleTheme}
-            >
-              {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-              {theme === "dark" ? "Light mode" : "Dark mode"}
-            </Button>
+                <X className="h-4 w-4" />
+              </button>
+            </div>
+            <div className="flex flex-1 flex-col gap-3 text-sm">
+              {navItems.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  target={item.href.startsWith("http") ? "_blank" : undefined}
+                  rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                  className={`rounded-xl border border-border px-4 py-3.5 text-base text-fg transition hover:border-accentGold hover:bg-bg dark:border-border-subtle dark:hover:bg-border-subtle ${
+                    pathname === item.href ? "border-accentGold bg-bg dark:border-accentGold dark:bg-border-subtle" : ""
+                  }`}
+                  onClick={closeMobileMenu}
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+            <div className="mt-6 flex flex-col gap-3">
+              <Button asChild variant="subtle" className="w-full justify-center gap-2">
+                <a href="/trench-manual.pdf" download onClick={closeMobileMenu}>
+                  <Download className="h-4 w-4" />
+                  Trench Manual
+                </a>
+              </Button>
+              <Button
+                variant="ghost"
+                className="w-full justify-center gap-2 border border-border text-fg transition-colors duration-200 hover:border-accentGold/50 hover:text-fg dark:border-border-subtle"
+                aria-label="Toggle theme"
+                onClick={toggleTheme}
+              >
+                {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+                {theme === "dark" ? "Light mode" : "Dark mode"}
+              </Button>
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </header>
   );
 }

@@ -18,7 +18,7 @@ export function EraTimeline() {
   return (
     <section className="space-y-6">
       <p className="text-sm text-muted">Collapse eras to focus, or expand to view all highlights.</p>
-      <div className="relative overflow-hidden rounded-xl border border-border bg-card p-6 shadow-subtle">
+      <div className="relative overflow-hidden rounded-xl border border-border bg-card p-6 shadow-subtle dark:border-[color:var(--border-dark-soft)]">
         <div className="relative flex flex-col gap-6">
           <div className="absolute left-[16px] top-0 bottom-0 w-px bg-border/60" aria-hidden="true" />
           {eras.map((era) => {
@@ -32,7 +32,7 @@ export function EraTimeline() {
               <div
                 key={era.id}
                 id={`era-${era.id}`}
-                className="card-lift relative grid gap-3 overflow-hidden rounded-xl border border-border bg-card/70 p-5 pl-10 shadow-sm transition duration-700 ease-in-out hover:-translate-y-0.5 hover:shadow-subtle md:grid-cols-[200px_1fr] scroll-mt-24"
+                className="card-lift relative grid gap-3 overflow-hidden rounded-xl border border-border bg-card/70 p-5 pl-10 shadow-sm transition duration-700 ease-in-out hover:-translate-y-0.5 hover:shadow-subtle dark:border-[color:var(--border-dark-soft)] md:grid-cols-[200px_1fr] scroll-mt-24"
               >
                 <div className="absolute left-[11px] top-6 h-3 w-3 rounded-full border-2 border-accentGold bg-card shadow-subtle" aria-hidden="true" />
                 <div>
@@ -43,11 +43,13 @@ export function EraTimeline() {
                   </p>
                 </div>
                 <div className="space-y-2">
-                  {visibleEvents.map((event) => (
+                  {visibleEvents.map((event, index) => (
                     <Link
                       key={event.slug}
                       href={`/event/${event.slug}`}
-                      className="flex items-center justify-between rounded-lg border border-border px-3 py-2 text-sm transition duration-500 ease-in-out hover:border-accentGold focus-visible:ring-2 focus-visible:ring-accentGold focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
+                      className={`items-center justify-between rounded-lg border border-border px-3 py-2 text-sm transition duration-500 ease-in-out hover:border-accentGold focus-visible:ring-2 focus-visible:ring-accentGold focus-visible:ring-offset-2 focus-visible:ring-offset-bg dark:border-[color:var(--border-dark-soft)] ${
+                        index === 3 ? "hidden md:flex" : "flex"
+                      }`}
                     >
                       <span className="flex flex-col">
                         <span className="font-medium">{event.title}</span>
@@ -67,7 +69,7 @@ export function EraTimeline() {
                             <Link
                               key={event.slug}
                               href={`/event/${event.slug}`}
-                              className="flex items-center justify-between rounded-lg border border-border px-3 py-2 text-sm transition duration-500 ease-in-out hover:border-accentGold focus-visible:ring-2 focus-visible:ring-accentGold focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
+                              className="flex items-center justify-between rounded-lg border border-border px-3 py-2 text-sm transition duration-500 ease-in-out hover:border-accentGold focus-visible:ring-2 focus-visible:ring-accentGold focus-visible:ring-offset-2 focus-visible:ring-offset-bg dark:border-[color:var(--border-dark-soft)]"
                             >
                               <span className="flex flex-col">
                                 <span className="font-medium">{event.title}</span>

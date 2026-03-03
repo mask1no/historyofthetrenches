@@ -100,40 +100,40 @@ export function Select({ id, label, value, options, onChange, className }: Selec
         <span className="truncate">{options[selectedIndex]?.label ?? "Select"}</span>
         <ChevronDown className={`h-4 w-4 text-muted transition ${open ? "rotate-180" : ""}`} />
       </button>
-      <ul
-        id={listId}
-        ref={listRef}
-        role="listbox"
-        tabIndex={-1}
-        className={`absolute z-20 mt-2 max-h-60 w-full overflow-auto rounded-xl border border-border bg-card p-1 text-sm shadow-subtle transition-all duration-200 origin-top ${
-          open ? "scale-100 opacity-100" : "pointer-events-none scale-95 opacity-0"
-        }`}
-      >
-        {options.map((option, index) => {
-          const isSelected = option.value === value;
-          const isActive = index === activeIndex;
-          return (
-            <li
-              id={`${listId}-option-${index}`}
-              key={option.value}
-              role="option"
-              aria-selected={isSelected}
-              className={cn(
-                "cursor-pointer rounded-xl px-3 py-2 transition",
-                isSelected ? "bg-accentGold/15 text-fg" : "text-muted hover:bg-bg",
-                isActive && !isSelected ? "bg-bg text-fg" : ""
-              )}
-              onMouseEnter={() => setActiveIndex(index)}
-              onClick={() => {
-                onChange(option.value);
-                setOpen(false);
-              }}
-            >
-              {option.label}
-            </li>
-          );
-        })}
-      </ul>
+      {open && (
+        <ul
+          id={listId}
+          ref={listRef}
+          role="listbox"
+          tabIndex={-1}
+          className="absolute z-20 mt-2 max-h-60 w-full origin-top overflow-auto rounded-xl border border-border bg-card p-1 text-sm shadow-subtle transition-all duration-200"
+        >
+          {options.map((option, index) => {
+            const isSelected = option.value === value;
+            const isActive = index === activeIndex;
+            return (
+              <li
+                id={`${listId}-option-${index}`}
+                key={option.value}
+                role="option"
+                aria-selected={isSelected}
+                className={cn(
+                  "cursor-pointer rounded-xl px-3 py-2 transition",
+                  isSelected ? "bg-accentGold/15 text-fg" : "text-muted hover:bg-bg",
+                  isActive && !isSelected ? "bg-bg text-fg" : ""
+                )}
+                onMouseEnter={() => setActiveIndex(index)}
+                onClick={() => {
+                  onChange(option.value);
+                  setOpen(false);
+                }}
+              >
+                {option.label}
+              </li>
+            );
+          })}
+        </ul>
+      )}
     </div>
   );
 }

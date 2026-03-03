@@ -36,9 +36,9 @@ const pillars = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-border/40 bg-card dark:border-border-subtle">
+    <footer className="border-t border-border/40 bg-card dark:border-[color:var(--border-dark-soft)]">
       <div className="mx-auto flex max-w-6xl flex-col gap-10 px-6 pt-12 pb-0">
-        <div className="relative overflow-hidden rounded-xl border border-border/40 bg-card p-6 shadow-subtle dark:border-border-subtle sm:p-8">
+        <div className="relative overflow-hidden rounded-xl border border-border/40 bg-card p-6 shadow-subtle dark:border-[color:var(--border-dark-soft)] sm:p-8">
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(80%_80%_at_10%_10%,var(--footerGlow),transparent_60%)]" />
           <div className="relative flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <div className="space-y-2">
@@ -62,7 +62,7 @@ export function Footer() {
           {pillars.map((pillar) => (
             <div
               key={pillar.title}
-              className="flex gap-3 rounded-xl border border-border/40 bg-card p-4 shadow-subtle dark:border-border-subtle"
+              className="flex gap-3 rounded-xl border border-border/40 bg-card p-4 shadow-subtle dark:border-[color:var(--border-dark-soft)]"
             >
               <pillar.icon className="mt-0.5 h-4 w-4 shrink-0 text-accentGold" aria-hidden="true" />
               <div>
@@ -92,7 +92,7 @@ export function Footer() {
           </div>
           <div className="space-y-3">
             <div className="text-xs font-semibold uppercase tracking-[0.2em] text-muted">
-              Community
+              Social
             </div>
             <nav className="flex flex-col gap-2 link-underline" aria-label="Footer community links">
               {links.community.map((link) => (
@@ -126,7 +126,7 @@ export function Footer() {
           </div>
           <div className="space-y-3">
             <div className="text-xs font-semibold uppercase tracking-[0.2em] text-muted">
-              Community
+              HOT
             </div>
             <div className="flex flex-col gap-2 link-underline">
               <Link href="/hot" className="text-fg">
@@ -139,7 +139,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="flex flex-col gap-2 border-t border-border/40 pt-6 text-xs text-muted dark:border-border-subtle sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex flex-col gap-2 border-t border-border/40 pt-6 text-xs text-muted dark:border-[color:var(--border-dark-soft)] sm:flex-row sm:items-center sm:justify-between">
           <span>&copy; {new Date().getFullYear()} History of the Trenches</span>
           <span>Events publish source status so verification quality stays visible.</span>
         </div>

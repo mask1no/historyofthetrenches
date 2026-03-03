@@ -1,9 +1,9 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState, useTransition } from "react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
-import { events, type Event, type EventType } from "@/data/events";
+import { events, type EventType } from "@/data/events";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Select } from "@/components/ui/select";
@@ -77,7 +77,7 @@ const sortOptions = [
 ];
 
 const chipBase =
-  "rounded-full border px-3 py-1 text-[11px] uppercase tracking-[0.16em] transition focus-visible:ring-2 focus-visible:ring-accentGold focus-visible:ring-offset-2 focus-visible:ring-offset-bg";
+  "rounded-full border px-3 py-1 text-xs uppercase tracking-[0.16em] transition focus-visible:ring-2 focus-visible:ring-accentGold focus-visible:ring-offset-2 focus-visible:ring-offset-bg";
 
 const typeChipTone: Record<EventType, string> = {
   rugpull: "border-accentRed/40 bg-accentRed/10 text-fg",
@@ -149,32 +149,11 @@ function parseFiltersFromSearchParams(
   return { type, chain, year, tags, search, sort };
 }
 
-function matchesFilters(event: Event, filters: FilterState) {
-  const search = filters.search.toLowerCase();
-  const haystack = [
-    event.title,
-    event.summary,
-    event.chain,
-    event.type,
-    ...event.tags
-  ]
-    .join(" ")
-    .toLowerCase();
-  const selectedTags = filters.tags.map((tag) => tag.toLowerCase());
-  return (
-    (filters.type === "all" || event.type === filters.type) &&
-    (filters.chain === "all" || event.chain === filters.chain) &&
-    (filters.year === "all" || event.year === filters.year) &&
-    (selectedTags.length === 0 ||
-      selectedTags.every((tag) => event.tags.some((t) => t.toLowerCase().includes(tag)))) &&
-    (!search || haystack.includes(search))
-  );
-}
-
 export function EventTable() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const searchInputRef = useRef<HTMLInputElement>(null);
+  const [, startTransition] = useTransition();
 
   const defaultFilters: FilterState = {
     type: "all",
@@ -212,9 +191,15 @@ export function EventTable() {
     if (debouncedSearch.trim()) params.set("search", debouncedSearch.trim());
     if (filters.sort !== "newest") params.set("sort", filters.sort);
     const qs = params.toString();
+    const currentQs = searchParams.toString();
+    if (qs === currentQs) {
+      return;
+    }
     const pathname = window.location.pathname;
     const newUrl = qs ? `${pathname}?${qs}` : pathname;
-    router.replace(newUrl, { scroll: false });
+    startTransition(() => {
+      router.replace(newUrl, { scroll: false });
+    });
   }, [
     filters.type,
     filters.chain,
@@ -222,7 +207,9 @@ export function EventTable() {
     filters.tags,
     filters.sort,
     debouncedSearch,
-    router
+    router,
+    searchParams,
+    startTransition
   ]);
 
   // Keyboard shortcut: "/" to focus search (when not in input/textarea/select)
@@ -254,10 +241,29 @@ export function EventTable() {
     (filters.year !== "all" ? 1 : 0) +
     filters.tags.length;
 
-  const filtered = useMemo(
-    () => events.filter((event) => matchesFilters(event, filters)),
-    [filters]
-  );
+  const filtered = useMemo(() => {
+    const search = filters.search.toLowerCase();
+    const selectedTags = filters.tags.map((tag) => tag.toLowerCase());
+    return events.filter((event) => {
+      const haystack = [
+        event.title,
+        event.summary,
+        event.chain,
+        event.type,
+        ...event.tags
+      ]
+        .join(" ")
+        .toLowerCase();
+      return (
+        (filters.type === "all" || event.type === filters.type) &&
+        (filters.chain === "all" || event.chain === filters.chain) &&
+        (filters.year === "all" || event.year === filters.year) &&
+        (selectedTags.length === 0 ||
+          selectedTags.every((tag) => event.tags.some((t) => t.toLowerCase().includes(tag)))) &&
+        (!search || haystack.includes(search))
+      );
+    });
+  }, [filters]);
 
   const sorted = useMemo(() => {
     const list = [...filtered];
@@ -279,7 +285,7 @@ export function EventTable() {
 
   return (
     <section className="space-y-4">
-      <div className="rounded-xl border border-border bg-bg p-4 shadow-subtle card-lift">
+      <div className="card-lift rounded-xl border border-border bg-bg p-4 shadow-subtle dark:border-[color:var(--border-dark-soft)]">
         <div>
           <label className="mb-1 block text-xs font-semibold uppercase tracking-[0.18em] text-muted">
             Search
@@ -296,7 +302,7 @@ export function EventTable() {
         <div className="mt-3 md:hidden">
           <button
             type="button"
-            className="inline-flex rounded-full border border-border px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-fg transition hover:border-accentGold"
+            className="inline-flex rounded-full border border-border px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-fg transition hover:border-accentGold dark:border-[color:var(--border-dark-soft)]"
             onClick={() => setFiltersOpen((prev) => !prev)}
             aria-expanded={filtersOpen}
             aria-controls="event-filters-panel"
@@ -382,7 +388,7 @@ export function EventTable() {
               </button>
             </div>
             {showAllTags && (
-              <div className="flex flex-wrap gap-2 border-t border-border/60 pt-2 text-xs">
+              <div className="flex flex-wrap gap-2 border-t border-border/60 pt-2 text-xs dark:border-[color:var(--border-dark-soft)]">
                 {tags
                   .filter((tag) => !topTags.includes(tag))
                   .map((tag) => (
@@ -487,8 +493,8 @@ export function EventTable() {
         </div>
       )}
 
-      <div className="overflow-hidden rounded-xl border border-border bg-card shadow-subtle">
-        <div className="border-b border-border px-4 py-3 text-xs uppercase tracking-[0.18em] text-muted">
+      <div className="overflow-hidden rounded-xl border border-border bg-card shadow-subtle dark:border-[color:var(--border-dark-soft)]">
+        <div className="border-b border-border px-4 py-3 text-xs uppercase tracking-[0.18em] text-muted dark:border-[color:var(--border-dark-soft)]">
           <span aria-live="polite"><AccentText>{sorted.length}</AccentText> events</span>
         </div>
         <div className="divide-y divide-border">
@@ -496,7 +502,7 @@ export function EventTable() {
             <Link
               key={event.slug}
               href={`/event/${event.slug}`}
-              className="flex flex-col gap-2 px-4 py-4 transition hover:bg-bg focus:outline-none focus-visible:ring-2 focus-visible:ring-accentGold"
+              className="flex flex-col gap-2.5 px-4 py-4 transition hover:bg-bg focus:outline-none focus-visible:ring-2 focus-visible:ring-accentGold"
             >
               <div className="flex flex-col gap-2 md:flex-row md:items-start md:justify-between">
                 <div className="space-y-1 md:flex-1">
@@ -504,19 +510,19 @@ export function EventTable() {
                     <div className="text-sm font-semibold">{event.title}</div>
                     {event.hallOfFame && <Badge variant="gold">Hall of Fame</Badge>}
                   </div>
-                  <p className="text-xs text-muted line-clamp-2">{event.summary}</p>
+                  <p className="line-clamp-2 text-sm text-muted">{event.summary}</p>
                   <div className="mt-1 flex flex-wrap items-center gap-2">
-                    <Badge variant={typeVariant[event.type]} className="w-fit text-[11px]">
+                    <Badge variant={typeVariant[event.type]} className="w-fit text-xs">
                       {typeLabel[event.type]}
                     </Badge>
-                    <Badge variant="muted" className="text-[11px]">
+                    <Badge variant="muted" className="text-xs">
                       {event.chain}
                     </Badge>
                     <time className="text-xs text-muted" dateTime={event.date}>{event.date}</time>
                   </div>
                 </div>
               </div>
-              <div className="flex flex-wrap items-center gap-2">
+              <div className="hidden flex-wrap items-center gap-2 sm:flex">
                 {event.tags.slice(0, 3).map((tag) => (
                   <Badge key={tag} variant="muted">
                     {tag}
@@ -526,10 +532,10 @@ export function EventTable() {
                   <Badge variant="muted">+{event.tags.length - 3} more</Badge>
                 )}
               </div>
-              <div className="flex items-center justify-between gap-3 text-xs text-muted">
+              <div className="flex items-center justify-between gap-3 text-xs text-muted sm:text-sm">
                 <span>{event.outcome ?? "Outcome pending"}</span>
                 {event.chartUrl && (
-                  <span className="link-accent">View chart</span>
+                  <span className="link-accent">Chart linked in event details</span>
                 )}
               </div>
             </Link>
@@ -547,7 +553,7 @@ export function EventTable() {
               </p>
               <button
                 type="button"
-                className="mt-1 rounded-full border border-border px-4 py-1.5 text-xs font-semibold text-muted transition hover:border-accentGold hover:text-fg"
+                className="mt-1 rounded-full border border-border px-4 py-1.5 text-xs font-semibold text-muted transition hover:border-accentGold hover:text-fg dark:border-[color:var(--border-dark-soft)]"
                 onClick={() => setFilters(defaultFilters)}
               >
                 Clear all filters
@@ -556,10 +562,10 @@ export function EventTable() {
           )}
         </div>
         {hasMore && (
-          <div className="border-t border-border px-4 py-3 text-center">
+          <div className="border-t border-border px-4 py-3 text-center dark:border-[color:var(--border-dark-soft)]">
             <button
               type="button"
-              className="rounded-full border border-border px-6 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-muted transition hover:border-accentGold hover:text-fg"
+              className="rounded-full border border-border px-6 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-muted transition hover:border-accentGold hover:text-fg dark:border-[color:var(--border-dark-soft)]"
               onClick={() => setVisibleCount((prev) => prev + PAGE_SIZE)}
             >
               Show more ({sorted.length - visibleCount} remaining)
