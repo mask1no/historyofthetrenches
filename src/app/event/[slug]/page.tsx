@@ -167,10 +167,10 @@ export default function EventPage({ params }: EventPageProps) {
             <CardHeader>
               <CardTitle>Sources</CardTitle>
               <p className="text-sm text-muted">
-                Verified references submitted by curators. Always include at least two.
+                Curated references with status labels so quality can improve transparently over time.
               </p>
               <p className="text-xs text-muted">
-                Links marked “Source pending” are awaiting verified references.
+                Links marked “Source pending” are still being verified by maintainers.
               </p>
             </CardHeader>
             <CardContent>

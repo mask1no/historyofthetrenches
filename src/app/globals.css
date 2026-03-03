@@ -5,7 +5,7 @@
 :root {
   --bg: #f7f6f3;
   --fg: #161616;
-  --muted: #4b4b4b;
+  --muted: #595247;
   --card: #ffffff;
   --card-alt: #f0eeea;
   --border: #d8d2c7;
@@ -21,7 +21,7 @@
 .dark {
   --bg: #0d0d0d;
   --fg: #e9e6df;
-  --muted: #9a948b;
+  --muted: #b2aca3;
   --card: #121212;
   --card-alt: #1a1a1a;
   --border: #1a1a1a;
@@ -124,23 +124,23 @@ a {
 }
 
 .card-lift {
-  transition: border-color 400ms ease-out, box-shadow 400ms ease-out, transform 400ms ease-out;
+  transition: border-color 280ms ease-out, box-shadow 280ms ease-out, transform 280ms ease-out;
 }
 
 .card-lift:hover,
 .card-lift:focus-within {
-  border-color: rgba(214, 177, 94, 0.45);
+  border-color: rgba(214, 177, 94, 0.32);
   box-shadow:
-    0 0 0 1px rgba(214, 177, 94, 0.22),
-    0 12px 26px rgba(0, 0, 0, 0.18);
+    0 0 0 1px rgba(214, 177, 94, 0.16),
+    0 8px 18px rgba(0, 0, 0, 0.12);
   transform: translateY(-1px);
 }
 
 .dark .card-lift:hover,
 .dark .card-lift:focus-within {
   box-shadow:
-    0 0 0 1px rgba(214, 177, 94, 0.24),
-    0 16px 34px rgba(0, 0, 0, 0.55);
+    0 0 0 1px rgba(214, 177, 94, 0.2),
+    0 12px 26px rgba(0, 0, 0, 0.48);
 }
 
 .marquee {
@@ -177,19 +177,19 @@ a {
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 56px;
+  width: 40px;
   pointer-events: none;
   z-index: 2;
 }
 
 .marquee::before {
   left: 0;
-  background: linear-gradient(90deg, var(--card), transparent);
+  background: linear-gradient(90deg, color-mix(in srgb, var(--card) 92%, transparent), transparent);
 }
 
 .marquee::after {
   right: 0;
-  background: linear-gradient(270deg, var(--card), transparent);
+  background: linear-gradient(270deg, color-mix(in srgb, var(--card) 92%, transparent), transparent);
 }
 
 @keyframes marquee-scroll {

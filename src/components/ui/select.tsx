@@ -8,6 +8,7 @@ type SelectOption = {
 };
 
 export interface SelectProps {
+  id?: string;
   label?: string;
   value: string;
   options: SelectOption[];
@@ -15,11 +16,15 @@ export interface SelectProps {
   className?: string;
 }
 
-export function Select({ label, value, options, onChange, className }: SelectProps) {
+export function Select({ id, label, value, options, onChange, className }: SelectProps) {
   const [open, setOpen] = React.useState(false);
   const [activeIndex, setActiveIndex] = React.useState(0);
   const buttonRef = React.useRef<HTMLButtonElement | null>(null);
   const listRef = React.useRef<HTMLUListElement | null>(null);
+  const fallbackId = React.useId();
+  const selectId = id ?? `select-${fallbackId}`;
+  const labelId = `${selectId}-label`;
+  const listId = `${selectId}-listbox`;
 
   const selectedIndex = Math.max(
     0,
@@ -72,16 +77,23 @@ export function Select({ label, value, options, onChange, className }: SelectPro
   return (
     <div className={cn("relative w-full", className)}>
       {label && (
-        <label className="mb-1 block text-xs font-semibold uppercase tracking-[0.18em] text-muted">
+        <label
+          id={labelId}
+          htmlFor={selectId}
+          className="mb-1 block text-xs font-semibold uppercase tracking-[0.18em] text-muted"
+        >
           {label}
         </label>
       )}
       <button
+        id={selectId}
         ref={buttonRef}
         type="button"
         className="flex h-11 w-full items-center justify-between rounded-xl border border-border bg-card px-4 text-sm text-fg shadow-sm transition hover:border-accentGold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accentGold/60"
         aria-haspopup="listbox"
         aria-expanded={open}
+        aria-labelledby={label ? `${labelId} ${selectId}` : undefined}
+        aria-controls={listId}
         onClick={() => setOpen((prev) => !prev)}
         onKeyDown={handleKeyDown}
       >
@@ -89,6 +101,7 @@ export function Select({ label, value, options, onChange, className }: SelectPro
         <ChevronDown className={`h-4 w-4 text-muted transition ${open ? "rotate-180" : ""}`} />
       </button>
       <ul
+        id={listId}
         ref={listRef}
         role="listbox"
         tabIndex={-1}
@@ -101,6 +114,7 @@ export function Select({ label, value, options, onChange, className }: SelectPro
           const isActive = index === activeIndex;
           return (
             <li
+              id={`${listId}-option-${index}`}
               key={option.value}
               role="option"
               aria-selected={isSelected}

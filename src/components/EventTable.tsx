@@ -21,6 +21,8 @@ type FilterState = {
   sort: "newest" | "oldest";
 };
 
+const SEARCH_SYNC_DELAY_MS = 250;
+
 const chains = Array.from(new Set(events.map((e) => e.chain)));
 const years = Array.from(new Set(events.map((e) => e.year))).sort((a, b) => b - a);
 const chainTagSet = new Set<string>();
@@ -185,12 +187,20 @@ export function EventTable() {
   const [filters, setFilters] = useState<FilterState>(() =>
     parseFiltersFromSearchParams(searchParams, chains, years)
   );
+  const [debouncedSearch, setDebouncedSearch] = useState(filters.search);
   const [filtersOpen, setFiltersOpen] = useState(false);
 
   // Read URL params on mount (handles hydration / client nav)
   useEffect(() => {
     setFilters(parseFiltersFromSearchParams(searchParams, chains, years));
   }, [searchParams]);
+
+  useEffect(() => {
+    const timer = window.setTimeout(() => {
+      setDebouncedSearch(filters.search);
+    }, SEARCH_SYNC_DELAY_MS);
+    return () => window.clearTimeout(timer);
+  }, [filters.search]);
 
   // Update URL when filters change
   useEffect(() => {
@@ -199,13 +209,21 @@ export function EventTable() {
     if (filters.chain !== "all") params.set("chain", filters.chain);
     if (filters.year !== "all") params.set("year", String(filters.year));
     if (filters.tags.length > 0) params.set("tags", filters.tags.join(","));
-    if (filters.search.trim()) params.set("search", filters.search.trim());
+    if (debouncedSearch.trim()) params.set("search", debouncedSearch.trim());
     if (filters.sort !== "newest") params.set("sort", filters.sort);
     const qs = params.toString();
     const pathname = window.location.pathname;
     const newUrl = qs ? `${pathname}?${qs}` : pathname;
     router.replace(newUrl, { scroll: false });
-  }, [filters, router]);
+  }, [
+    filters.type,
+    filters.chain,
+    filters.year,
+    filters.tags,
+    filters.sort,
+    debouncedSearch,
+    router
+  ]);
 
   // Keyboard shortcut: "/" to focus search (when not in input/textarea/select)
   useEffect(() => {

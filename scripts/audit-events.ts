@@ -46,6 +46,11 @@ const addIssue = (level: AuditIssue["level"], message: string) => {
 };
 
 const validSourceKinds = new Set(["primary", "secondary", "community", "pending"]);
+const highPrioritySlugs = new Set(
+  events
+    .filter((event) => event.hallOfFame)
+    .map((event) => event.slug)
+);
 
 const slugCounts = new Map<string, number>();
 const titleCounts = new Map<string, number>();
@@ -123,7 +128,10 @@ events.forEach((event) => {
   }
 
   if (!Array.isArray(event.sources) || event.sources.length < 2) {
-    addIssue("warn", `Less than two sources for ${event.slug}.`);
+    addIssue(
+      highPrioritySlugs.has(event.slug) ? "error" : "warn",
+      `Less than two sources for ${event.slug}.`
+    );
   }
 
   if (event.chartUrl && !isValidUrl(event.chartUrl)) {
@@ -153,7 +161,10 @@ events.forEach((event) => {
       addIssue("warn", `Source year looks invalid on ${event.slug}: "${source.year}".`);
     }
     if (!source.kind) {
-      addIssue("warn", `Source kind missing on ${event.slug}: "${source.label}".`);
+      addIssue(
+        highPrioritySlugs.has(event.slug) ? "error" : "warn",
+        `Source kind missing on ${event.slug}: "${source.label}".`
+      );
     } else if (!validSourceKinds.has(source.kind)) {
       addIssue(
         "error",

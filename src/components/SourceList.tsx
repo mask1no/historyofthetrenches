@@ -5,7 +5,8 @@ function isPendingSource(url?: string) {
   if (!url) return true;
   try {
     const parsed = new URL(url);
-    return parsed.hostname.includes("example.com");
+    const protocolAllowed = parsed.protocol === "https:" || parsed.protocol === "http:";
+    return !protocolAllowed || parsed.hostname.includes("example.com");
   } catch {
     return true;
   }

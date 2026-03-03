@@ -11,7 +11,7 @@ const navItems = [
   { label: "Archive", href: "/archive" },
   { label: "Timeline", href: "/timeline" },
   { label: "Kit", href: "/kit" },
-  { label: "$HOT", href: "/hot" }
+  { label: "$HOT (Community)", href: "/hot" }
 ];
 
 export function NavBar() {
@@ -195,6 +195,9 @@ export function NavBar() {
         <div
           id="mobile-nav-drawer"
           ref={mobileDrawerRef}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Mobile navigation"
           className={`absolute right-0 top-0 flex h-full w-[88vw] max-w-sm flex-col border-l border-border bg-card/95 p-6 shadow-subtle transition-transform duration-300 will-change-transform dark:border-border-subtle dark:bg-card-alt dark:shadow-[0_0_0_1px_var(--border-subtle),0_16px_48px_rgba(0,0,0,0.5)] ${
             isMenuOpen ? "translate-x-0" : "translate-x-full"
           }`}

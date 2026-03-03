@@ -46,8 +46,8 @@ export default function ArchivePage() {
             Archive
           </h1>
           <p className="text-base text-muted">
-            The archive holds crypto&apos;s defining moments. Filter by type, chain, or tags to
-            explore the full history with sources attached.
+            The archive tracks crypto&apos;s defining moments with date-first chronology and source
+            status metadata. Filter by type, chain, or tags to inspect the record.
           </p>
           <div className="h-px w-full bg-border" />
         </div>

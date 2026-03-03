@@ -20,24 +20,24 @@ const pillars = [
   {
     icon: BookOpen,
     title: "Field Notes",
-    text: "Every entry is anchored to sources so the next cycle remembers the last."
+    text: "Every entry is source-backed, preserving hard lessons so each cycle starts smarter than the last."
   },
   {
     icon: Flame,
-    title: "Community Ritual",
-    text: "Monthly $HOT buys are logged for transparency, not promises."
+    title: "Community Log",
+    text: "$HOT activity is published separately as a community diary, not archival evidence."
   },
   {
     icon: Compass,
     title: "Explore",
-    text: "Start with the archive or jump to the eras timeline to trace the story."
+    text: "Start with the archive or jump to the biggest crypto onboarding eras in timeline."
   }
 ];
 
 export function Footer() {
   return (
     <footer className="border-t border-border/40 bg-card dark:border-border-subtle">
-      <div className="mx-auto flex max-w-6xl flex-col gap-10 px-6 py-12">
+      <div className="mx-auto flex max-w-6xl flex-col gap-10 px-6 pt-12 pb-0">
         <div className="relative overflow-hidden rounded-xl border border-border/40 bg-card p-6 shadow-subtle dark:border-border-subtle sm:p-8">
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(80%_80%_at_10%_10%,var(--footerGlow),transparent_60%)]" />
           <div className="relative flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
@@ -46,8 +46,8 @@ export function Footer() {
                 History of the Trenches
               </div>
               <p className="max-w-xl text-sm leading-relaxed text-muted">
-                Built for the trenchers. For memory, not hype. A living record of
-                crypto&apos;s defining moments, sourced and preserved by the community.
+                A living record of crypto&apos;s defining moments, sourced and preserved by the
+                community. Archive pages prioritize factual chronology and transparent sourcing.
               </p>
             </div>
             <div className="flex shrink-0 flex-wrap items-center gap-3 text-[11px] uppercase tracking-[0.22em] text-muted">
@@ -126,11 +126,11 @@ export function Footer() {
           </div>
           <div className="space-y-3">
             <div className="text-xs font-semibold uppercase tracking-[0.2em] text-muted">
-              Token
+              Community
             </div>
             <div className="flex flex-col gap-2 link-underline">
               <Link href="/hot" className="text-fg">
-                About $HOT
+                $HOT Diary
               </Link>
               <Link href="/hot#wallets" className="text-fg">
                 Public Wallets
@@ -141,7 +141,7 @@ export function Footer() {
 
         <div className="flex flex-col gap-2 border-t border-border/40 pt-6 text-xs text-muted dark:border-border-subtle sm:flex-row sm:items-center sm:justify-between">
           <span>&copy; {new Date().getFullYear()} History of the Trenches</span>
-          <span>All events include sources for verification.</span>
+          <span>Events publish source status so verification quality stays visible.</span>
         </div>
       </div>
     </footer>

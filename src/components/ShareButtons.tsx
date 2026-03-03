@@ -13,16 +13,25 @@ type Props = {
 
 export function ShareButtons({ title, url, className }: Props) {
   const [copied, setCopied] = useState(false);
+  const [copyError, setCopyError] = useState(false);
 
   const shareText = encodeURIComponent(`${title}`);
   const shareUrl = encodeURIComponent(url);
   const xLink = `https://x.com/intent/tweet?text=${shareText}&url=${shareUrl}`;
 
   const handleCopy = () => {
-    navigator.clipboard.writeText(url).then(() => {
-      setCopied(true);
-      setTimeout(() => setCopied(false), 1200);
-    });
+    navigator.clipboard
+      .writeText(url)
+      .then(() => {
+        setCopyError(false);
+        setCopied(true);
+        setTimeout(() => setCopied(false), 1200);
+      })
+      .catch(() => {
+        setCopied(false);
+        setCopyError(true);
+        setTimeout(() => setCopyError(false), 1800);
+      });
   };
 
   return (
@@ -38,13 +47,13 @@ export function ShareButtons({ title, url, className }: Props) {
         size="sm"
         className="gap-2"
         onClick={handleCopy}
-        aria-label="Copy link to clipboard"
+        aria-label={copyError ? "Copy failed" : "Copy link to clipboard"}
       >
         <Copy className="h-4 w-4" />
-        {copied ? "Copied" : "Copy link"}
+        {copied ? "Copied" : copyError ? "Copy failed" : "Copy link"}
       </Button>
       <span className="sr-only" aria-live="polite">
-        {copied ? "Link copied to clipboard" : ""}
+        {copied ? "Link copied to clipboard" : copyError ? "Copy failed" : ""}
       </span>
     </div>
   );

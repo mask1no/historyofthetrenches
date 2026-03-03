@@ -52,26 +52,23 @@ export default function KitPage() {
             first-principles control. Learn the systems, risks, and habits that keep you safe as
             you go deeper into web3.
           </p>
-          <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
-            <div className="relative overflow-hidden rounded-xl border border-accentGold/20 bg-accentGold/5 px-4 py-3 text-sm">
-              <Shield className="absolute -right-2 -top-2 h-12 w-12 text-accentGold/10" aria-hidden="true" />
-              <div className="relative">
-                <div className="text-[10px] font-semibold uppercase tracking-[0.2em] text-accentGold">Principle</div>
-                <div className="mt-0.5 text-base font-semibold text-fg">Don&apos;t trust, verify</div>
+          <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-3 sm:gap-3">
+            <div className="rounded-xl border border-accentGold/20 bg-accentGold/5 px-4 py-3 text-sm dark:border-transparent">
+              <div>
+                <div className="text-[11px] font-semibold tracking-[0.12em] text-accentGold">Principle</div>
+                <div className="mt-0.5 text-[15px] font-semibold text-fg sm:text-base">Don&apos;t trust, verify</div>
               </div>
             </div>
-            <div className="relative overflow-hidden rounded-xl border border-accentGold/20 bg-accentGold/5 px-4 py-3 text-sm">
-              <Server className="absolute -right-2 -top-2 h-12 w-12 text-accentGold/10" aria-hidden="true" />
-              <div className="relative">
-                <div className="text-[10px] font-semibold uppercase tracking-[0.2em] text-accentGold">Goal</div>
-                <div className="mt-0.5 text-base font-semibold text-fg">Control is convenience</div>
+            <div className="rounded-xl border border-accentGold/20 bg-accentGold/5 px-4 py-3 text-sm dark:border-transparent">
+              <div>
+                <div className="text-[11px] font-semibold tracking-[0.12em] text-accentGold">Goal</div>
+                <div className="mt-0.5 text-[15px] font-semibold text-fg sm:text-base">Control is convenience</div>
               </div>
             </div>
-            <div className="relative overflow-hidden rounded-xl border border-accentGold/20 bg-accentGold/5 px-4 py-3 text-sm">
-              <Shield className="absolute -right-2 -top-2 h-12 w-12 text-accentGold/10" aria-hidden="true" />
-              <div className="relative">
-                <div className="text-[10px] font-semibold uppercase tracking-[0.2em] text-accentGold">Signal</div>
-                <div className="mt-0.5 text-base font-semibold text-fg">Not your keys, not your crypto</div>
+            <div className="rounded-xl border border-accentGold/20 bg-accentGold/5 px-4 py-3 text-sm dark:border-transparent">
+              <div>
+                <div className="text-[11px] font-semibold tracking-[0.12em] text-accentGold">Signal</div>
+                <div className="mt-0.5 text-[15px] font-semibold text-fg sm:text-base">Not your keys, not your crypto</div>
               </div>
             </div>
           </div>

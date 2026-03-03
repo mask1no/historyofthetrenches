@@ -91,7 +91,15 @@ export const events: Event[] = [
         "label": "Mt. Gox Collapse (Wikipedia)",
         "url": "https://en.wikipedia.org/wiki/Mt._Gox",
         "publisher": "Wikipedia",
-        "year": 2014
+        "year": 2014,
+        "kind": "secondary"
+      },
+      {
+        "label": "Mt. Gox Files for Bankruptcy Protection in Japan",
+        "url": "https://www.reuters.com/article/us-bitcoin-mtgox-idUSBREA1R03H20140228/",
+        "publisher": "Reuters",
+        "year": 2014,
+        "kind": "secondary"
       }
     ]
   },
@@ -183,13 +191,15 @@ export const events: Event[] = [
         "label": "Texas Securities Board cease and desist",
         "url": "https://www.ssb.texas.gov/news-publications/texas-securities-commissioner-enters-emergency-cease-and-desist-order-bitconnect",
         "publisher": "Texas SSB",
-        "year": 2018
+        "year": 2018,
+        "kind": "primary"
       },
       {
         "label": "Bitconnect Collapse (Wikipedia)",
         "url": "https://en.wikipedia.org/wiki/Bitconnect",
         "publisher": "Wikipedia",
-        "year": 2018
+        "year": 2018,
+        "kind": "secondary"
       }
     ]
   },
@@ -223,7 +233,8 @@ export const events: Event[] = [
         "label": "Bitcoin 2017 Bull Run (Wikipedia)",
         "url": "https://en.wikipedia.org/wiki/History_of_bitcoin",
         "publisher": "Wikipedia",
-        "year": 2017
+        "year": 2017,
+        "kind": "secondary"
       }
     ]
   },
@@ -427,7 +438,8 @@ export const events: Event[] = [
         "label": "Terra/Luna Rugpull (Wikipedia)",
         "url": "https://en.wikipedia.org/wiki/Terra_(blockchain)",
         "publisher": "Wikipedia",
-        "year": 2022
+        "year": 2022,
+        "kind": "secondary"
       }
     ]
   },
@@ -556,13 +568,15 @@ export const events: Event[] = [
         "label": "Post-mortem timeline",
         "url": "https://www.coindesk.com/learn/ftx-collapse-timeline-what-happened-to-sam-bankman-frieds-crypto-empire/",
         "publisher": "CoinDesk",
-        "year": 2022
+        "year": 2022,
+        "kind": "secondary"
       },
       {
         "label": "FTX Exchange Collapse (Wikipedia)",
         "url": "https://en.wikipedia.org/wiki/FTX_(company)",
         "publisher": "Wikipedia",
-        "year": 2022
+        "year": 2022,
+        "kind": "secondary"
       }
     ]
   },
@@ -755,7 +769,8 @@ export const events: Event[] = [
         "label": "Dogecoin Meme Run (Wikipedia)",
         "url": "https://en.wikipedia.org/wiki/Dogecoin",
         "publisher": "Wikipedia",
-        "year": 2021
+        "year": 2021,
+        "kind": "secondary"
       }
     ]
   },
@@ -790,7 +805,8 @@ export const events: Event[] = [
         "label": "Shiba Inu Ascent (Wikipedia)",
         "url": "https://en.wikipedia.org/wiki/Shiba_Inu_(cryptocurrency)",
         "publisher": "Wikipedia",
-        "year": 2021
+        "year": 2021,
+        "kind": "secondary"
       }
     ]
   },
@@ -824,7 +840,8 @@ export const events: Event[] = [
         "label": "AnubisDAO Rugpull (Wikipedia)",
         "url": "https://en.wikipedia.org/wiki/Decentralized_autonomous_organization",
         "publisher": "Wikipedia",
-        "year": 2021
+        "year": 2021,
+        "kind": "secondary"
       }
     ]
   },
@@ -860,7 +877,8 @@ export const events: Event[] = [
         "label": "Thodex Exchange Exit Scam (Wikipedia)",
         "url": "https://en.wikipedia.org/wiki/Thodex",
         "publisher": "Wikipedia",
-        "year": 2021
+        "year": 2021,
+        "kind": "secondary"
       }
     ]
   },
@@ -887,13 +905,15 @@ export const events: Event[] = [
         "label": "Post-mortem analysis",
         "url": "https://www.bbc.com/news/business-59129466",
         "publisher": "BBC",
-        "year": 2021
+        "year": 2021,
+        "kind": "secondary"
       },
       {
         "label": "Squid Game Token Rugpull (Wikipedia)",
         "url": "https://en.wikipedia.org/wiki/Squid_Game_token",
         "publisher": "Wikipedia",
-        "year": 2021
+        "year": 2021,
+        "kind": "secondary"
       }
     ]
   },
@@ -927,7 +947,8 @@ export const events: Event[] = [
         "label": "PEPE Meme Rally (Wikipedia)",
         "url": "https://en.wikipedia.org/wiki/Pepe_(cryptocurrency)",
         "publisher": "Wikipedia",
-        "year": 2023
+        "year": 2023,
+        "kind": "secondary"
       }
     ]
   },
@@ -961,7 +982,8 @@ export const events: Event[] = [
         "label": "BONK on Solana (Wikipedia)",
         "url": "https://en.wikipedia.org/wiki/Bonk_(cryptocurrency)",
         "publisher": "Wikipedia",
-        "year": 2023
+        "year": 2023,
+        "kind": "secondary"
       }
     ]
   },
@@ -996,7 +1018,8 @@ export const events: Event[] = [
         "label": "Solana Post-FTX Revival Run (Wikipedia)",
         "url": "https://en.wikipedia.org/wiki/Solana_(blockchain_platform)",
         "publisher": "Wikipedia",
-        "year": 2024
+        "year": 2024,
+        "kind": "secondary"
       }
     ]
   },
@@ -1089,13 +1112,15 @@ export const events: Event[] = [
         "label": "SafeMoon article",
         "url": "https://en.wikipedia.org/wiki/SafeMoon",
         "publisher": "Wikipedia",
-        "year": 2021
+        "year": 2021,
+        "kind": "secondary"
       },
       {
         "label": "SEC charges SafeMoon executives",
         "url": "https://www.sec.gov/newsroom/press-releases/2023-229",
         "publisher": "U.S. SEC",
-        "year": 2023
+        "year": 2023,
+        "kind": "primary"
       }
     ]
   },
@@ -1121,13 +1146,15 @@ export const events: Event[] = [
         "label": "Meerkat Finance disappears with $31M",
         "url": "https://www.coindesk.com/markets/2021/03/05/binance-smart-chain-defi-project-meerkat-finance-disappears-with-31m/",
         "publisher": "CoinDesk",
-        "year": 2021
+        "year": 2021,
+        "kind": "secondary"
       },
       {
         "label": "Binance Smart Chain project Meerkat vanishes",
         "url": "https://www.theblock.co/post/97032/binance-smart-chain-project-meerkat-finance-disappears-with-31-million",
         "publisher": "The Block",
-        "year": 2021
+        "year": 2021,
+        "kind": "secondary"
       }
     ]
   },

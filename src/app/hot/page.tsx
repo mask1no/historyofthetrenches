@@ -10,13 +10,13 @@ import { Coins, Wallet } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "$HOT | History of the Trenches",
-  description: "A playful web3 diary for the $HOT token, with public wallets and monthly receipts.",
+  description: "Community diary for the $HOT experiment, with public wallets and transparent activity logs.",
   alternates: {
     canonical: "https://www.historyofthetrenches.xyz/hot"
   },
   openGraph: {
     title: "$HOT | History of the Trenches",
-    description: "A playful web3 diary for the $HOT token, with public wallets and monthly receipts.",
+    description: "Community diary for the $HOT experiment, with public wallets and transparent activity logs.",
     url: "https://www.historyofthetrenches.xyz/hot",
     siteName: "History of the Trenches",
     type: "website",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "$HOT | History of the Trenches",
-    description: "A playful web3 diary for the $HOT token, with public wallets and monthly receipts.",
+    description: "Community diary for the $HOT experiment, with public wallets and transparent activity logs.",
     images: ["/og.png"]
   }
 };
@@ -43,28 +43,13 @@ export default function HotPage() {
       <NavBar />
       <section className="mx-auto max-w-6xl px-6 pb-12 pt-8">
         <Breadcrumbs items={[{ label: "$HOT", href: "/hot" }]} />
-        <div className="relative mb-8 overflow-hidden rounded-xl border border-accentGold/20 bg-accentGold/5 p-6 sm:p-8">
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_100%_0%,rgba(214,177,94,0.12),transparent_60%)]" aria-hidden="true" />
-          <div className="relative space-y-3">
-            <div className="flex items-center gap-3">
-              <Coins className="h-6 w-6 text-accentGold" aria-hidden="true" />
-              <h1 className="font-display text-4xl font-semibold">$HOT</h1>
-            </div>
-            <p className="max-w-2xl text-base leading-relaxed text-muted">
-              A playful memecoin diary. Not financial advice, just a public record to keep the story
-              honest. Every buy is logged, every wallet is doxxed.
-            </p>
-          </div>
-        </div>
-
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
           <Card className="md:col-span-3">
             <CardHeader>
               <CardTitle>What $HOT is</CardTitle>
               <p className="text-sm text-muted">
-                A playful web3 diary. I am a solo dev building sites for BTC, ETH, and SOL
-                communities. If you find me on X, feel free to DM. This is a tokenization project I
-                thought up, built, and plan to run as best I can. Cheers.
+                A community-facing experiment. This page tracks activity in public while the archive
+                remains focused on historical records and sourced events.
               </p>
             </CardHeader>
             <CardContent className="space-y-3 text-sm text-muted">
@@ -175,7 +160,7 @@ export default function HotPage() {
                 )}
               </div>
               <div className="text-xs text-muted">
-                If you&apos;re a jeet, skip step 4 and go touch grass.
+                Participate thoughtfully and only with risk you can afford.
               </div>
             </CardContent>
           </Card>
@@ -225,8 +210,7 @@ export default function HotPage() {
             </CardHeader>
             <CardContent className="space-y-3 text-sm text-muted">
               <div className="rounded-xl border border-border bg-bg/70 p-4">
-                Not financial advice. Not a promise. Not a yield product, and not something for
-                jeets.
+                Not financial advice. Not a promise. Not a yield product.
               </div>
               <div className="rounded-xl border border-border bg-bg/70 p-4">
                 Participation is optional and should be thoughtful, not impulsive.

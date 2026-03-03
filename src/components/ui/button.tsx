@@ -10,8 +10,8 @@ const buttonVariants = cva(
       variant: {
         default: "bg-accentGold text-[#1a1a00] hover:bg-accentGold/90",
         secondary: "bg-fg text-bg hover:bg-fg/90",
-        ghost: "bg-transparent border border-border text-muted hover:text-fg hover:border-accentGold/60",
-        subtle: "bg-card border border-border text-fg hover:border-accentGold/40 hover:shadow-subtle"
+        ghost: "bg-transparent border border-border text-muted hover:text-fg hover:border-border-subtle",
+        subtle: "bg-card border border-border text-fg hover:border-border-subtle hover:bg-card-alt"
       },
       size: {
         default: "h-10 px-5",
