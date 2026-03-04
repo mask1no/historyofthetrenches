@@ -1,5 +1,6 @@
 import { events } from "../src/data/events";
 import { normalizeSourceKind } from "../src/lib/events/sourceKind";
+import { isEnglishSourceUrl } from "../src/lib/events/sourceLanguage";
 
 type AuditIssue = {
   level: "error" | "warn";
@@ -37,22 +38,6 @@ const isValidUrl = (value: string) => {
   try {
     const url = new URL(value);
     return url.protocol === "http:" || url.protocol === "https:";
-  } catch {
-    return false;
-  }
-};
-
-const NON_ENGLISH_PATH_SEGMENT = /\/(es|fr|de|it|pt|ru|tr|zh|ja|ko)\//i;
-
-const isEnglishSourceUrl = (value: string) => {
-  try {
-    const parsed = new URL(value);
-    const host = parsed.hostname.toLowerCase();
-    const path = parsed.pathname.toLowerCase();
-    if (host.endsWith("wikipedia.org") && !host.startsWith("en.")) {
-      return false;
-    }
-    return !NON_ENGLISH_PATH_SEGMENT.test(path);
   } catch {
     return false;
   }
@@ -184,7 +169,6 @@ events.forEach((event) => {
     if (!Number.isInteger(source.year) || source.year < 1990 || source.year > 2100) {
       addIssue("warn", `Source year looks invalid on ${event.slug}: "${source.year}".`);
     }
-    const normalizedKind = normalizeSourceKind(source);
     if (source.kind && !validSourceKinds.has(source.kind)) {
       addIssue(
         "error",

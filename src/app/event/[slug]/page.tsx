@@ -10,7 +10,7 @@ import { ShareButtons } from "@/components/ShareButtons";
 import Link from "next/link";
 import { AccentText } from "@/components/AccentText";
 import { typeLabel, typeVariant } from "@/lib/eventType";
-import { compareEventDatesAsc } from "@/lib/utils";
+import { compareEventDatesAsc, parseEventDate } from "@/lib/utils";
 
 type EventPageProps = {
   params: { slug: string };
@@ -35,7 +35,12 @@ export function generateMetadata({ params }: EventPageProps): Metadata {
   const description = event
     ? clampDescription(`${event.title}: ${event.summary} (${event.chain}, ${event.date}).`)
     : "Event details from the History of the Trenches archive.";
-  const publishedTime = event ? new Date(event.date).toISOString() : undefined;
+  const publishedTime = event
+    ? (() => {
+        const ts = parseEventDate(event.date);
+        return ts > 0 ? new Date(ts).toISOString() : undefined;
+      })()
+    : undefined;
   return {
     title: event
       ? `${event.title} | History of the Trenches`
@@ -62,8 +67,6 @@ export function generateMetadata({ params }: EventPageProps): Metadata {
     }
   };
 }
-
-export const revalidate = 3600;
 
 export async function generateStaticParams() {
   return getPublicEvents().map((event) => ({ slug: event.slug }));

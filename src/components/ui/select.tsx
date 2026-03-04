@@ -106,6 +106,7 @@ export function Select({ id, label, value, options, onChange, className }: Selec
           ref={listRef}
           role="listbox"
           tabIndex={-1}
+          aria-labelledby={label ? labelId : undefined}
           className="absolute z-20 mt-2 max-h-60 w-full origin-top overflow-auto rounded-xl border border-border bg-card p-1 text-sm shadow-subtle transition-all duration-200"
         >
           {options.map((option, index) => {

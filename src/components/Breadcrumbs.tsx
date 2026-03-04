@@ -14,6 +14,7 @@ type Props = {
 export function Breadcrumbs({ items }: Props) {
   const allCrumbs: Crumb[] = [{ label: "Home", href: "/" }, ...items];
   const base = "https://www.historyofthetrenches.xyz";
+  const scriptId = `breadcrumb-jsonld-${allCrumbs.map((crumb) => crumb.href).join("-").replace(/[^a-z0-9-]/gi, "")}`;
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -29,7 +30,7 @@ export function Breadcrumbs({ items }: Props) {
   return (
     <>
       <Script
-        id="breadcrumb-jsonld"
+        id={scriptId}
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />

@@ -4,7 +4,7 @@ import { AccentText } from "@/components/AccentText";
 import { EventTable } from "@/components/EventTable";
 import { ScrollToTopButton } from "@/components/ScrollToTopButton";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
-import { getFilters, getPublicEvents, getStats } from "@/lib/events/selectors";
+import { getPublicEvents, getStats } from "@/lib/events/selectors";
 
 export const metadata: Metadata = {
   title: "Archive | History of the Trenches",
@@ -38,7 +38,6 @@ export const metadata: Metadata = {
 export default function ArchivePage() {
   const publicEvents = getPublicEvents();
   const stats = getStats(publicEvents);
-  const eventFilters = getFilters(publicEvents);
 
   return (
     <main id="main-content" className="min-h-screen pb-16">
@@ -59,7 +58,7 @@ export default function ArchivePage() {
           </div>
           <div className="h-px w-full bg-border" />
         </div>
-        <EventTable events={publicEvents} eventFilters={eventFilters} />
+        <EventTable />
 
         <div className="mt-8 flex flex-wrap items-center gap-4 text-sm">
           <Link

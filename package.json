@@ -10,10 +10,11 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "test": "tsx --test tests/**/*.test.ts",
     "audit:events": "tsx scripts/audit-events.ts --network",
     "check:data": "tsx scripts/audit-events.ts",
     "check:no-placeholders": "tsx scripts/no-placeholders.ts",
-    "check:all": "pnpm -s lint && pnpm -s build && pnpm -s check:data && pnpm -s audit:events"
+    "check:all": "pnpm -s lint && pnpm -s test && pnpm -s build && pnpm -s check:data && pnpm -s audit:events"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.2.4",

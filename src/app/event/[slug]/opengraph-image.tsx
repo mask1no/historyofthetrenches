@@ -1,5 +1,6 @@
 import { ImageResponse } from "next/og";
-import { getEventBySlug } from "@/data/events";
+import { getEventBySlug } from "@/lib/events/selectors";
+import { typeLabel } from "@/lib/eventType";
 
 export const runtime = "edge";
 export const size = { width: 1200, height: 630 };
@@ -12,15 +13,6 @@ const typeColor: Record<string, string> = {
   milestone: "#d6b15e",
   hack: "#9a948b",
   seizure: "#9a948b"
-};
-
-const typeLabel: Record<string, string> = {
-  rugpull: "Rugpull",
-  collapse: "Collapse",
-  runner: "Runner",
-  milestone: "Milestone",
-  hack: "Hack",
-  seizure: "Seizure"
 };
 
 export default async function OGImage({ params }: { params: { slug: string } }) {

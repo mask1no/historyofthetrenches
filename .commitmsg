@@ -1,3 +1,0 @@
-Make AccentPicker subtler and always visible on mobile
-
-Show a small colored dot trigger on mobile instead of hiding the picker in the drawer. Desktop keeps the full palette icon. Improved dark mode panel styling with better borders and shadow.

@@ -5,12 +5,12 @@ import { getPublicEvents } from "@/lib/events/selectors";
 import { typeLabel, typeVariant } from "@/lib/eventType";
 import { compareEventDatesDesc } from "@/lib/utils";
 
-const featuredEvents = [...getPublicEvents()]
-  .filter((e) => e.hallOfFame === true)
-  .sort(compareEventDatesDesc)
-  .slice(0, 5);
-
 export default function NotFound() {
+  const featuredEvents = [...getPublicEvents()]
+    .filter((e) => e.hallOfFame === true)
+    .sort(compareEventDatesDesc)
+    .slice(0, 5);
+
   return (
     <main id="main-content" className="min-h-screen pb-16">
       <section className="mx-auto flex max-w-6xl flex-col items-start gap-6 px-6 py-16">

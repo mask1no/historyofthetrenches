@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { LinkIcon } from "@/components/LinkIcon";
 import { BookOpen, Flame, Compass } from "lucide-react";
-import { getPrimaryNavItems, socialLinks } from "@/config/nav";
+import { primaryNavItems, socialLinks } from "@/config/nav";
 
 const pillars = [
   {
@@ -22,7 +22,7 @@ const pillars = [
 ];
 
 export function Footer() {
-  const exploreLinks = getPrimaryNavItems();
+  const exploreLinks = primaryNavItems;
 
   return (
     <footer className="border-t border-border/40 bg-card dark:border-[color:var(--border-dark-soft)]">
@@ -106,7 +106,7 @@ export function Footer() {
             </div>
             <div className="flex flex-col gap-2 link-underline">
               <Link href="/kit" className="text-fg">
-                Starter Kit
+                Trench Manual
               </Link>
             </div>
           </div>

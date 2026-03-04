@@ -3,6 +3,7 @@ import { compareEventDatesDesc } from "@/lib/utils";
 import type { Event, EventFilters, EventStats, Source } from "@/lib/events/schema";
 import { canonicalizeChain, canonicalizeChains } from "@/lib/events/taxonomy";
 import { normalizeSourceKind } from "@/lib/events/sourceKind";
+import { isEnglishSourceUrl } from "@/lib/events/sourceLanguage";
 
 const CHAIN_TAG_ALIASES = new Set([
   "bnb",
@@ -25,29 +26,15 @@ const CHAIN_TAG_ALIASES = new Set([
 ]);
 
 const LEGAL_OR_SEIZURE_TAGS = new Set(["regulation", "policy", "seizure", "enforcement", "legal"]);
-const NON_ENGLISH_PATH_SEGMENT = /\/(es|fr|de|it|pt|ru|tr|zh|ja|ko)\//i;
-
 const isWikipediaSource = (source: Source) =>
   source.publisher.toLowerCase().includes("wikipedia") || source.url.includes("wikipedia.org");
 
 export const isEnglishSource = (source: Source) => {
-  try {
-    const parsed = new URL(source.url);
-    const host = parsed.hostname.toLowerCase();
-    const path = parsed.pathname.toLowerCase();
-    if (host.endsWith("wikipedia.org") && !host.startsWith("en.")) {
-      return false;
-    }
-    return !NON_ENGLISH_PATH_SEGMENT.test(path);
-  } catch {
-    return false;
-  }
+  return isEnglishSourceUrl(source.url);
 };
 
 const isLegalOrSeizureEvent = (event: Event) =>
   event.type === "seizure" || event.tags.some((tag) => LEGAL_OR_SEIZURE_TAGS.has(tag.toLowerCase()));
-
-export const getAllEvents = () => events;
 
 export const getPublicEvents = () => events;
 

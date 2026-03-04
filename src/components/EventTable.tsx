@@ -114,19 +114,21 @@ function parseFiltersFromSearchParams(
   return { type, chain, year, tags, search, sort };
 }
 
-type EventTableProps = {
+type ArchiveApiResponse = {
   events: Event[];
   eventFilters: EventFilters;
 };
 
-export function EventTable({ events, eventFilters }: EventTableProps) {
+export function EventTable() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const searchInputRef = useRef<HTMLInputElement>(null);
   const [, startTransition] = useTransition();
-  const chains = eventFilters.chains;
-  const years = eventFilters.years;
-  const tags = eventFilters.tags;
+  const [archiveData, setArchiveData] = useState<ArchiveApiResponse | null>(null);
+  const [loadError, setLoadError] = useState(false);
+  const chains = useMemo(() => archiveData?.eventFilters.chains ?? [], [archiveData]);
+  const years = useMemo(() => archiveData?.eventFilters.years ?? [], [archiveData]);
+  const tags = useMemo(() => archiveData?.eventFilters.tags ?? [], [archiveData]);
 
   const defaultFilters: FilterState = {
     type: "all",
@@ -141,6 +143,33 @@ export function EventTable({ events, eventFilters }: EventTableProps) {
   );
   const [debouncedSearch, setDebouncedSearch] = useState(filters.search);
   const [filtersOpen, setFiltersOpen] = useState(false);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    const loadArchiveData = async () => {
+      try {
+        const response = await fetch("/api/archive", { cache: "force-cache" });
+        if (!response.ok) {
+          throw new Error(`Archive request failed: ${response.status}`);
+        }
+        const data = (await response.json()) as ArchiveApiResponse;
+        if (!cancelled) {
+          setArchiveData(data);
+          setLoadError(false);
+        }
+      } catch {
+        if (!cancelled) {
+          setLoadError(true);
+        }
+      }
+    };
+
+    loadArchiveData();
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   // Read URL params on mount (handles hydration / client nav)
   useEffect(() => {
@@ -217,7 +246,7 @@ export function EventTable({ events, eventFilters }: EventTableProps) {
   const filtered = useMemo(() => {
     const search = filters.search.toLowerCase();
     const selectedTags = filters.tags.map((tag) => tag.toLowerCase());
-    return events.filter((event) => {
+    return (archiveData?.events ?? []).filter((event) => {
       const haystack = [
         event.title,
         event.summary,
@@ -237,7 +266,7 @@ export function EventTable({ events, eventFilters }: EventTableProps) {
         (!search || haystack.includes(search))
       );
     });
-  }, [filters, events]);
+  }, [archiveData?.events, filters]);
 
   const sorted = useMemo(() => {
     const list = [...filtered];
@@ -259,6 +288,11 @@ export function EventTable({ events, eventFilters }: EventTableProps) {
 
   return (
     <section className="space-y-4">
+      {loadError && (
+        <div className="rounded-xl border border-accentRed/40 bg-accentRed/10 px-4 py-3 text-sm text-fg">
+          Archive data failed to load. Refresh the page to retry.
+        </div>
+      )}
       <div className="card-lift rounded-xl border border-border bg-bg p-4 shadow-subtle dark:border-[color:var(--border-dark-soft)]">
         <div>
           <label className="mb-1 block text-xs font-semibold uppercase tracking-[0.18em] text-muted">

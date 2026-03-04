@@ -3,13 +3,13 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import { Menu, Moon, Sun, X } from "lucide-react";
+import { Download, Menu, Moon, Sun, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { AccentPicker } from "@/components/AccentPicker";
-import { getPrimaryNavItems } from "@/config/nav";
+import { primaryNavItems } from "@/config/nav";
 
 export function NavBar() {
-  const navItems = getPrimaryNavItems();
+  const navItems = primaryNavItems;
   const pathname = usePathname();
   const [showMobileNav, setShowMobileNav] = useState(false);
   const isMenuOpen = showMobileNav;
@@ -160,6 +160,12 @@ export function NavBar() {
           >
             {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
           </Button>
+          <Button asChild variant="subtle" className="hidden gap-2 md:inline-flex">
+            <Link href="/kit">
+              <Download className="h-4 w-4" />
+              Trench Manual
+            </Link>
+          </Button>
           <Button
             ref={menuButtonRef}
             variant="ghost"
@@ -216,6 +222,12 @@ export function NavBar() {
               ))}
             </div>
             <div className="mt-6 flex flex-col gap-3">
+              <Button asChild variant="subtle" className="w-full justify-center gap-2">
+                <Link href="/kit" onClick={closeMobileMenu}>
+                  <Download className="h-4 w-4" />
+                  Trench Manual
+                </Link>
+              </Button>
               <Button
                 variant="ghost"
                 className="w-full justify-center gap-2 border border-border text-fg transition-colors duration-200 hover:border-accentGold/50 hover:text-fg dark:border-border-subtle"
