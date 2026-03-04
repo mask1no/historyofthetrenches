@@ -51,8 +51,9 @@ export default function HotPage() {
             </CardHeader>
             <CardContent className="space-y-3 text-sm text-muted">
               <div className="rounded-xl border border-border bg-bg/70 p-4">
-                A portion of my savings each month goes toward buying the token. Every buy is logged
-                publicly.
+                A portion of my savings each month goes toward buying the token, and a random amount
+                is burned as part of the same transparency cycle so both actions stay publicly
+                verifiable.
               </div>
               <div className="rounded-xl border border-border bg-bg/70 p-4">
                 All wallets are doxxed and directly linked.{" "}
@@ -94,7 +95,19 @@ export default function HotPage() {
                     <div className="text-sm font-semibold text-fg">Phantom</div>
                   </div>
                 </a>
-                <div className="flex items-center gap-3 rounded-xl border border-border bg-bg/70 px-4 py-3">
+                <a
+                  href="https://backpack.app"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 rounded-xl border border-border bg-bg/70 px-4 py-3 transition hover:border-accentGold"
+                >
+                  <Wallet className="h-4 w-4 text-accentGold" />
+                  <div>
+                    <div className="text-xs font-semibold uppercase text-muted">Wallet</div>
+                    <div className="text-sm font-semibold text-fg">Backpack</div>
+                  </div>
+                </a>
+                <div className="flex items-center gap-3 rounded-xl border border-border bg-bg/70 px-4 py-3 md:col-span-2">
                   <Coins className="h-4 w-4 text-accentGold" />
                   <div>
                     <div className="text-xs font-semibold uppercase text-muted">Chain</div>
@@ -102,7 +115,39 @@ export default function HotPage() {
                   </div>
                 </div>
               </div>
-              <div className="flex flex-wrap gap-3">
+              <div className="hidden items-center gap-4 md:flex">
+                <a
+                  href="https://jup.ag"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm font-semibold link-accent"
+                >
+                  Swap on Jupiter
+                </a>
+                <a
+                  href="https://pump.fun"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm font-semibold link-accent"
+                >
+                  <span className="mr-2 inline-flex align-middle">
+                    <LinkIcon name="pumpfun" />
+                  </span>
+                  Pump.fun
+                </a>
+                <a
+                  href={hotLinks.communityXUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm font-semibold link-accent"
+                >
+                  <span className="mr-2 inline-flex align-middle">
+                    <LinkIcon name="x" />
+                  </span>
+                  Join the Community
+                </a>
+              </div>
+              <div className="flex flex-wrap items-center gap-4 md:hidden">
                 <a
                   href="https://jup.ag"
                   target="_blank"
@@ -123,7 +168,7 @@ export default function HotPage() {
                   Pump.fun
                 </a>
               </div>
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-wrap items-center gap-4 md:hidden">
                 <a
                   href={hotLinks.communityXUrl}
                   target="_blank"
@@ -135,6 +180,8 @@ export default function HotPage() {
                   </span>
                   Join the Community
                 </a>
+              </div>
+              <div className="flex flex-wrap items-center gap-4">
                 {hotLinks.chartUrl && (
                   <a
                     href={hotLinks.chartUrl}
@@ -170,31 +217,62 @@ export default function HotPage() {
               </p>
             </CardHeader>
             <CardContent className="space-y-3 text-sm">
-              {curatorWallets.map((wallet) => (
-                <div
-                  key={`${wallet.address}-${wallet.label}`}
-                  className="flex flex-col gap-3 rounded-xl border border-border bg-bg/70 px-4 py-3 md:flex-row md:items-center md:justify-between"
-                >
-                  <div>
-                    <div className="flex flex-wrap items-center gap-2">
-                      <div className="font-semibold">{wallet.label}</div>
-                      <Badge variant="gold">Doxxed</Badge>
-                    </div>
-                    <div className="mt-2 text-xs text-muted">{wallet.purpose}</div>
-                    <div className="mt-1 text-xs text-muted break-all">
-                      {wallet.chain} • {wallet.address}
-                    </div>
-                  </div>
-                  <a
-                    href={wallet.explorerUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-xs font-semibold link-accent"
-                  >
-                    Open explorer
-                  </a>
+              <div className="grid gap-3 md:grid-cols-3">
+                <div className="rounded-xl border border-border bg-bg/70 p-4">
+                  <div className="text-xs font-semibold uppercase text-muted">Dev Wallet</div>
+                  <div className="mt-1 text-sm font-semibold text-fg">Ops + liquidity flow</div>
+                  <p className="mt-2 text-xs text-muted">
+                    Used for deployment and project-side operations with public tracking.
+                  </p>
                 </div>
-              ))}
+                <div className="rounded-xl border border-border bg-bg/70 p-4">
+                  <div className="text-xs font-semibold uppercase text-muted">Public Wallet</div>
+                  <div className="mt-1 text-sm font-semibold text-fg">Community-facing ledger</div>
+                  <p className="mt-2 text-xs text-muted">
+                    Used for routine buys and transparent community receipt posts.
+                  </p>
+                </div>
+                <div className="rounded-xl border border-border bg-bg/70 p-4">
+                  <div className="text-xs font-semibold uppercase text-muted">Burn Wallet</div>
+                  <div className="mt-1 text-sm font-semibold text-fg">Supply reduction wallet</div>
+                  <p className="mt-2 text-xs text-muted">
+                    Randomized burns are routed here and visible on chain.
+                  </p>
+                </div>
+              </div>
+              {curatorWallets.length > 0 ? (
+                curatorWallets.map((wallet) => (
+                  <div
+                    key={`${wallet.address}-${wallet.label}`}
+                    className="flex flex-col gap-3 rounded-xl border border-border bg-bg/70 px-4 py-3 md:flex-row md:items-center md:justify-between"
+                  >
+                    <div>
+                      <div className="flex flex-wrap items-center gap-2">
+                        <div className="font-semibold">{wallet.label}</div>
+                        <Badge variant="gold">Doxxed</Badge>
+                      </div>
+                      <div className="mt-2 text-xs text-muted">{wallet.purpose}</div>
+                      <div className="mt-1 text-xs text-muted break-all">
+                        {wallet.chain} • {wallet.address}
+                      </div>
+                    </div>
+                    <a
+                      href={wallet.explorerUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs font-semibold link-accent"
+                    >
+                      Open explorer
+                    </a>
+                  </div>
+                ))
+              ) : (
+                <div>
+                  <div className="rounded-xl border border-border bg-bg/70 px-4 py-3 text-xs text-muted">
+                    Explorer links will appear here once each wallet address is published.
+                  </div>
+                </div>
+              )}
             </CardContent>
           </Card>
 
@@ -207,10 +285,13 @@ export default function HotPage() {
             </CardHeader>
             <CardContent className="space-y-3 text-sm text-muted">
               <div className="rounded-xl border border-border bg-bg/70 p-4">
-                Not financial advice. Not a promise. Not a yield product.
+                $HOT is built for patience and conviction, not short-term impulse trades. Not
+                financial advice.
               </div>
               <div className="rounded-xl border border-border bg-bg/70 p-4">
-                Participation is optional and should be thoughtful, not impulsive.
+                This is a community-led, high-volatility experiment with transparent monthly buys and
+                randomized burns. Participation is optional and should only use risk capital you can
+                afford.
               </div>
             </CardContent>
           </Card>

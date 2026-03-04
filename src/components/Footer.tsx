@@ -51,10 +51,10 @@ export function Footer() {
           {pillars.map((pillar) => (
             <div
               key={pillar.title}
-              className="flex gap-3 rounded-xl border border-border/40 bg-card p-4 shadow-subtle dark:border-[color:var(--border-dark-soft)]"
+              className="flex h-full gap-3 rounded-xl border border-border/40 bg-card p-5 shadow-subtle dark:border-[color:var(--border-dark-soft)]"
             >
               <pillar.icon className="mt-0.5 h-4 w-4 shrink-0 text-accentGold" aria-hidden="true" />
-              <div>
+              <div className="flex min-h-[100px] flex-col justify-between">
                 <div className="text-xs font-semibold uppercase tracking-[0.18em] text-fg">
                   {pillar.title}
                 </div>
@@ -66,49 +66,60 @@ export function Footer() {
           ))}
         </div>
 
-        <div className="grid gap-8 text-sm sm:grid-cols-2 lg:grid-cols-3">
-          <div className="space-y-3">
-            <div className="text-xs font-semibold uppercase tracking-[0.2em] text-muted">
-              Explore
+        <div className="grid gap-8 text-sm lg:grid-cols-12">
+          <div className="grid gap-8 sm:grid-cols-2 lg:col-span-7 lg:grid-cols-3">
+            <div className="space-y-3">
+              <div className="text-xs font-semibold uppercase tracking-[0.2em] text-muted">
+                Explore
+              </div>
+              <nav className="flex flex-col gap-2 link-underline" aria-label="Footer explore links">
+                {exploreLinks.map((link) => (
+                  <Link key={link.href} href={link.href} className="text-fg">
+                    {link.label}
+                  </Link>
+                ))}
+              </nav>
             </div>
-            <nav className="flex flex-col gap-2 link-underline" aria-label="Footer explore links">
-              {exploreLinks.map((link) => (
-                <Link key={link.href} href={link.href} className="text-fg">
-                  {link.label}
+            <div className="space-y-3">
+              <div className="text-xs font-semibold uppercase tracking-[0.2em] text-muted">
+                Social
+              </div>
+              <nav className="flex flex-col gap-2 link-underline" aria-label="Footer community links">
+                {socialLinks.map((link) => (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-fg"
+                  >
+                    {link.icon === "x" && <LinkIcon name="x" />}
+                    {link.icon === "dexscreener" && <LinkIcon name="dexscreener" />}
+                    {link.icon === "pumpfun" && <LinkIcon name="pumpfun" />}
+                    {link.label}
+                  </a>
+                ))}
+              </nav>
+            </div>
+            <div className="space-y-3">
+              <div className="text-xs font-semibold uppercase tracking-[0.2em] text-muted">
+                Resources
+              </div>
+              <div className="flex flex-col gap-2 link-underline">
+                <Link href="/kit" className="font-semibold text-accentGold">
+                  Trench Manual
                 </Link>
-              ))}
-            </nav>
+              </div>
+            </div>
           </div>
-          <div className="space-y-3">
+          <div className="rounded-xl border border-border/40 bg-card/70 p-4 dark:border-[color:var(--border-dark-soft)] lg:col-span-5">
             <div className="text-xs font-semibold uppercase tracking-[0.2em] text-muted">
-              Social
+              Notes
             </div>
-            <nav className="flex flex-col gap-2 link-underline" aria-label="Footer community links">
-              {socialLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-fg"
-                >
-                  {link.icon === "x" && <LinkIcon name="x" />}
-                  {link.icon === "dexscreener" && <LinkIcon name="dexscreener" />}
-                  {link.icon === "pumpfun" && <LinkIcon name="pumpfun" />}
-                  {link.label}
-                </a>
-              ))}
-            </nav>
-          </div>
-          <div className="space-y-3">
-            <div className="text-xs font-semibold uppercase tracking-[0.2em] text-muted">
-              Resources
-            </div>
-            <div className="flex flex-col gap-2 link-underline">
-              <Link href="/kit" className="text-fg">
-                Trench Manual
-              </Link>
-            </div>
+            <p className="mt-2 text-sm leading-relaxed text-muted">
+              Built in public with a sources-first mindset. Archive pages preserve historical context;
+              community pages track active experiments so signal and narrative stay separated.
+            </p>
           </div>
         </div>
 

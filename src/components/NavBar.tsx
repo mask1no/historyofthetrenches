@@ -160,7 +160,7 @@ export function NavBar() {
           >
             {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
           </Button>
-          <Button asChild variant="subtle" className="hidden gap-2 md:inline-flex">
+          <Button asChild variant="default" className="hidden gap-2 md:inline-flex">
             <Link href="/kit">
               <Download className="h-4 w-4" />
               Trench Manual
@@ -222,7 +222,7 @@ export function NavBar() {
               ))}
             </div>
             <div className="mt-6 flex flex-col gap-3">
-              <Button asChild variant="subtle" className="w-full justify-center gap-2">
+              <Button asChild variant="default" className="w-full justify-center gap-2">
                 <Link href="/kit" onClick={closeMobileMenu}>
                   <Download className="h-4 w-4" />
                   Trench Manual
