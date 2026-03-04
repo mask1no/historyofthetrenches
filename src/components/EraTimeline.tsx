@@ -5,8 +5,13 @@ import { useState } from "react";
 import { eras } from "@/data/eras";
 import { Badge } from "@/components/ui/badge";
 import { typeVariant } from "@/lib/eventType";
+import type { Event } from "@/lib/events/schema";
 
-export function EraTimeline() {
+type EraTimelineProps = {
+  highlights: Event[];
+};
+
+export function EraTimeline({ highlights }: EraTimelineProps) {
   const [openEraIds, setOpenEraIds] = useState<string[]>([]);
 
   const toggleEra = (id: string) => {
@@ -22,9 +27,11 @@ export function EraTimeline() {
         <div className="relative flex flex-col gap-6">
           <div className="absolute left-[16px] top-0 bottom-0 w-px bg-border/60" aria-hidden="true" />
           {eras.map((era) => {
-            const orderedEvents = [...era.featured].sort((a, b) =>
+            const orderedEvents = highlights
+              .filter((event) => event.era === era.id)
+              .sort((a, b) =>
               a.date.localeCompare(b.date)
-            );
+              );
             const isOpen = openEraIds.includes(era.id);
             const visibleEvents = orderedEvents.slice(0, 4);
             const hiddenEvents = orderedEvents.slice(4);
@@ -43,6 +50,11 @@ export function EraTimeline() {
                   </p>
                 </div>
                 <div className="space-y-2">
+                  {orderedEvents.length === 0 && (
+                    <div className="rounded-lg border border-border px-3 py-2 text-sm text-muted dark:border-[color:var(--border-dark-soft)]">
+                      Verification pending: no quality-approved highlights in this era yet.
+                    </div>
+                  )}
                   {visibleEvents.map((event, index) => (
                     <Link
                       key={event.slug}

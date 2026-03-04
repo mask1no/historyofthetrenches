@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { NavBar } from "@/components/NavBar";
 import { EraTimeline } from "@/components/EraTimeline";
-import { Footer } from "@/components/Footer";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { TimelineScrollToHash } from "@/components/TimelineScrollToHash";
 import { ScrollToTopButton } from "@/components/ScrollToTopButton";
+import { getHighlights, getPublicEvents } from "@/lib/events/selectors";
 
 export const metadata: Metadata = {
   title: "Crypto Timeline | History of the Trenches",
@@ -37,10 +36,11 @@ export const metadata: Metadata = {
 };
 
 export default function TimelinePage() {
+  const highlights = getHighlights(getPublicEvents());
+
   return (
     <main id="main-content" className="min-h-screen pb-16">
       <TimelineScrollToHash />
-      <NavBar />
       <section className="mx-auto max-w-6xl px-6 pb-12 pt-8">
         <Breadcrumbs items={[{ label: "Timeline", href: "/timeline" }]} />
         <div className="mb-6 space-y-3">
@@ -51,7 +51,7 @@ export default function TimelinePage() {
             Chronological chapters tracking the biggest onboarding waves in crypto.
           </p>
         </div>
-        <EraTimeline />
+        <EraTimeline highlights={highlights} />
 
         <div className="mt-8 flex flex-wrap items-center gap-4 text-sm">
           <Link
@@ -69,7 +69,6 @@ export default function TimelinePage() {
         </div>
       </section>
       <ScrollToTopButton />
-      <Footer />
     </main>
   );
 }

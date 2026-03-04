@@ -3,18 +3,13 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import { Download, Menu, Moon, Sun, X } from "lucide-react";
+import { Menu, Moon, Sun, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { AccentPicker } from "@/components/AccentPicker";
-
-const navItems = [
-  { label: "Archive", href: "/archive" },
-  { label: "Timeline", href: "/timeline" },
-  { label: "Kit", href: "/kit" },
-  { label: "$HOT (Community)", href: "/hot" }
-];
+import { getPrimaryNavItems } from "@/config/nav";
 
 export function NavBar() {
+  const navItems = getPrimaryNavItems();
   const pathname = usePathname();
   const [showMobileNav, setShowMobileNav] = useState(false);
   const isMenuOpen = showMobileNav;
@@ -165,12 +160,6 @@ export function NavBar() {
           >
             {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
           </Button>
-          <Button asChild variant="subtle" className="hidden gap-2 md:inline-flex">
-            <a href="/trench-manual.pdf" download>
-              <Download className="h-4 w-4" />
-              Trench Manual
-            </a>
-          </Button>
           <Button
             ref={menuButtonRef}
             variant="ghost"
@@ -200,11 +189,11 @@ export function NavBar() {
             onClick={(e) => e.stopPropagation()}
           >
             <div className="mb-6 flex items-center justify-between">
-              <span className="text-base font-semibold">Navigate</span>
+              <span className="text-base font-semibold">Menu</span>
               <button
                 ref={closeButtonRef}
                 aria-label="Close menu"
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-border text-fg transition hover:border-accentGold hover:text-fg dark:border-border-subtle"
+                className="flex h-11 w-11 items-center justify-center rounded-full border border-border text-fg transition hover:border-accentGold hover:text-fg dark:border-border-subtle"
                 onClick={closeMobileMenu}
               >
                 <X className="h-4 w-4" />
@@ -227,12 +216,6 @@ export function NavBar() {
               ))}
             </div>
             <div className="mt-6 flex flex-col gap-3">
-              <Button asChild variant="subtle" className="w-full justify-center gap-2">
-                <a href="/trench-manual.pdf" download onClick={closeMobileMenu}>
-                  <Download className="h-4 w-4" />
-                  Trench Manual
-                </a>
-              </Button>
               <Button
                 variant="ghost"
                 className="w-full justify-center gap-2 border border-border text-fg transition-colors duration-200 hover:border-accentGold/50 hover:text-fg dark:border-border-subtle"
@@ -240,7 +223,7 @@ export function NavBar() {
                 onClick={toggleTheme}
               >
                 {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-                {theme === "dark" ? "Light mode" : "Dark mode"}
+                {theme === "dark" ? "Light theme" : "Dark theme"}
               </Button>
             </div>
           </div>

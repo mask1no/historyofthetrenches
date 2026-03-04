@@ -1,18 +1,16 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Script from "next/script";
-import { NavBar } from "@/components/NavBar";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { SourceList } from "@/components/SourceList";
-import { events, getEventBySlug } from "@/data/events";
+import { getEventBySlug, getPublicEvents, getVerificationReasons } from "@/lib/events/selectors";
 import { ShareButtons } from "@/components/ShareButtons";
 import Link from "next/link";
 import { AccentText } from "@/components/AccentText";
 import { typeLabel, typeVariant } from "@/lib/eventType";
 import { compareEventDatesAsc } from "@/lib/utils";
-import { Footer } from "@/components/Footer";
 
 type EventPageProps = {
   params: { slug: string };
@@ -68,10 +66,11 @@ export function generateMetadata({ params }: EventPageProps): Metadata {
 export const revalidate = 3600;
 
 export async function generateStaticParams() {
-  return events.map((event) => ({ slug: event.slug }));
+  return getPublicEvents().map((event) => ({ slug: event.slug }));
 }
 
 export default function EventPage({ params }: EventPageProps) {
+  const events = getPublicEvents();
   const maybeEvent = getEventBySlug(params.slug);
 
   if (!maybeEvent) {
@@ -79,6 +78,8 @@ export default function EventPage({ params }: EventPageProps) {
   }
 
   const event = maybeEvent;
+  const verificationReasons = getVerificationReasons(event);
+  const verificationPending = verificationReasons.length > 0;
 
   const eventJsonLd = {
     "@context": "https://schema.org",
@@ -133,7 +134,6 @@ export default function EventPage({ params }: EventPageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(eventJsonLd) }}
       />
-      <NavBar />
       <section className="mx-auto max-w-6xl px-6 pb-10 pt-8">
         <Breadcrumbs
           items={[
@@ -169,9 +169,11 @@ export default function EventPage({ params }: EventPageProps) {
               <p className="text-sm text-muted">
                 Curated references with status labels so quality can improve transparently over time.
               </p>
-              <p className="text-xs text-muted">
-                Links marked “Source pending” are still being verified by maintainers.
-              </p>
+              {verificationPending && (
+                <div className="rounded-lg border border-border bg-bg/60 px-3 py-2 text-xs text-muted">
+                  Verification pending: {verificationReasons.join(" ")}
+                </div>
+              )}
             </CardHeader>
             <CardContent>
               <SourceList sources={event.sources} />
@@ -351,7 +353,6 @@ export default function EventPage({ params }: EventPageProps) {
           </Link>
         </div>
       </section>
-      <Footer />
     </main>
   );
 }

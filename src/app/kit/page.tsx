@@ -1,6 +1,4 @@
 import type { Metadata } from "next";
-import { Footer } from "@/components/Footer";
-import { NavBar } from "@/components/NavBar";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Server, Shield } from "lucide-react";
@@ -40,7 +38,6 @@ export const metadata: Metadata = {
 export default function KitPage() {
   return (
     <main id="main-content" className="min-h-screen pb-16">
-      <NavBar />
       <section className="mx-auto max-w-6xl px-6 pb-12 pt-8">
         <Breadcrumbs items={[{ label: "Kit", href: "/kit" }]} />
         <div className="mb-8 space-y-4">
@@ -446,7 +443,6 @@ export default function KitPage() {
           </Card>
         </div>
       </section>
-      <Footer />
     </main>
   );
 }

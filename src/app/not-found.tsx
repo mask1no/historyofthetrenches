@@ -1,13 +1,11 @@
 import Link from "next/link";
-import { NavBar } from "@/components/NavBar";
-import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { events } from "@/data/events";
+import { getPublicEvents } from "@/lib/events/selectors";
 import { typeLabel, typeVariant } from "@/lib/eventType";
 import { compareEventDatesDesc } from "@/lib/utils";
 
-const featuredEvents = [...events]
+const featuredEvents = [...getPublicEvents()]
   .filter((e) => e.hallOfFame === true)
   .sort(compareEventDatesDesc)
   .slice(0, 5);
@@ -15,7 +13,6 @@ const featuredEvents = [...events]
 export default function NotFound() {
   return (
     <main id="main-content" className="min-h-screen pb-16">
-      <NavBar />
       <section className="mx-auto flex max-w-6xl flex-col items-start gap-6 px-6 py-16">
         <div className="text-xs font-semibold uppercase tracking-[0.3em] text-muted">404</div>
         <h1 className="font-display text-4xl font-semibold">
@@ -61,7 +58,6 @@ export default function NotFound() {
           </div>
         )}
       </section>
-      <Footer />
     </main>
   );
 }

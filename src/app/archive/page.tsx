@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { NavBar } from "@/components/NavBar";
+import { AccentText } from "@/components/AccentText";
 import { EventTable } from "@/components/EventTable";
 import { ScrollToTopButton } from "@/components/ScrollToTopButton";
-import { Footer } from "@/components/Footer";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { getFilters, getPublicEvents, getStats } from "@/lib/events/selectors";
 
 export const metadata: Metadata = {
   title: "Archive | History of the Trenches",
@@ -36,9 +36,12 @@ export const metadata: Metadata = {
 };
 
 export default function ArchivePage() {
+  const publicEvents = getPublicEvents();
+  const stats = getStats(publicEvents);
+  const eventFilters = getFilters(publicEvents);
+
   return (
     <main id="main-content" className="min-h-screen pb-16">
-      <NavBar />
       <section className="mx-auto max-w-6xl px-6 pb-12 pt-8">
         <Breadcrumbs items={[{ label: "Archive", href: "/archive" }]} />
         <div className="mb-8 space-y-3">
@@ -49,9 +52,14 @@ export default function ArchivePage() {
             The archive tracks crypto&apos;s defining moments with date-first chronology and source
             status metadata. Filter by type, chain, or tags to inspect the record.
           </p>
+          <div className="flex flex-wrap items-center gap-4 text-xs uppercase tracking-[0.16em] text-muted">
+            <span><AccentText>{stats.total}</AccentText> events</span>
+            <span><AccentText>{stats.sourcesTotal}</AccentText> sources</span>
+            <span><AccentText>{stats.chainsTotal}</AccentText> chains</span>
+          </div>
           <div className="h-px w-full bg-border" />
         </div>
-        <EventTable />
+        <EventTable events={publicEvents} eventFilters={eventFilters} />
 
         <div className="mt-8 flex flex-wrap items-center gap-4 text-sm">
           <Link
@@ -69,7 +77,6 @@ export default function ArchivePage() {
         </div>
       </section>
       <ScrollToTopButton />
-      <Footer />
     </main>
   );
 }

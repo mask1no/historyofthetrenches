@@ -1,12 +1,13 @@
 import type { Source } from "@/data/events";
 import { Badge } from "@/components/ui/badge";
+import { normalizeSourceKind } from "@/lib/events/sourceKind";
 
 function isPendingSource(url?: string) {
   if (!url) return true;
   try {
     const parsed = new URL(url);
     const protocolAllowed = parsed.protocol === "https:" || parsed.protocol === "http:";
-    return !protocolAllowed || parsed.hostname.includes("example.com");
+    return !protocolAllowed;
   } catch {
     return true;
   }
@@ -18,15 +19,17 @@ function isWikipediaSource(source: Source) {
 
 const kindLabel: Record<string, string> = {
   primary: "Primary",
-  secondary: "News",
-  community: "Community"
+  secondary: "Secondary",
+  community: "Community",
+  pending: "Pending"
 };
 
 export function SourceList({ sources }: { sources: Source[] }) {
   return (
     <div className="space-y-3">
       {sources.map((source) => {
-        const pending = source.kind === "pending" || isPendingSource(source.url);
+        const sourceKind = normalizeSourceKind(source);
+        const pending = sourceKind === "pending" || isPendingSource(source.url);
         const wiki = !pending && isWikipediaSource(source);
         const Wrapper = pending ? "div" : "a";
         const wrapperProps = pending
@@ -50,10 +53,10 @@ export function SourceList({ sources }: { sources: Source[] }) {
                   {source.publisher} • {source.year}
                 </div>
               </div>
-              {pending && <Badge variant="muted">Source pending</Badge>}
-              {!pending && source.kind && kindLabel[source.kind] && (
-                <Badge variant={source.kind === "primary" ? "gold" : "muted"}>
-                  {kindLabel[source.kind]}
+              {pending && <Badge variant="muted">Pending</Badge>}
+              {!pending && kindLabel[sourceKind] && (
+                <Badge variant={sourceKind === "primary" ? "gold" : "muted"}>
+                  {kindLabel[sourceKind]}
                 </Badge>
               )}
               {wiki && !source.kind && (

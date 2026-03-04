@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { NavBar } from "@/components/NavBar";
-import { Footer } from "@/components/Footer";
+import { notFound } from "next/navigation";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { LinkIcon } from "@/components/LinkIcon";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { curatorWallets, hotLinks } from "@/data/hot";
+import { isHotFeatureEnabled } from "@/config/featureFlags";
 import { Coins, Wallet } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -38,9 +38,12 @@ export const metadata: Metadata = {
 };
 
 export default function HotPage() {
+  if (!isHotFeatureEnabled) {
+    notFound();
+  }
+
   return (
     <main id="main-content" className="min-h-screen pb-16">
-      <NavBar />
       <section className="mx-auto max-w-6xl px-6 pb-12 pt-8">
         <Breadcrumbs items={[{ label: "$HOT", href: "/hot" }]} />
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
@@ -219,7 +222,6 @@ export default function HotPage() {
           </Card>
         </div>
       </section>
-      <Footer />
     </main>
   );
 }

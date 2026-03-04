@@ -1,14 +1,14 @@
 import { BentoGrid } from "@/components/BentoGrid";
 import { Hero } from "@/components/Hero";
-import { NavBar } from "@/components/NavBar";
-import { Footer } from "@/components/Footer";
 import { FadeIn } from "@/components/FadeIn";
+import { getPublicEvents, getStats } from "@/lib/events/selectors";
 
 export default function HomePage() {
+  const stats = getStats(getPublicEvents());
+
   return (
     <main id="main-content" className="min-h-screen pb-24">
-      <NavBar />
-      <Hero />
+      <Hero stats={stats} />
       <FadeIn className="mx-auto max-w-6xl px-6 pb-10">
         <div className="mb-4 max-w-2xl space-y-2 sm:mb-6">
           <h2 className="font-display text-2xl font-semibold sm:text-3xl">
@@ -22,7 +22,6 @@ export default function HomePage() {
       <FadeIn className="mb-16 md:mb-20" delay={100}>
         <BentoGrid />
       </FadeIn>
-      <Footer />
     </main>
   );
 }

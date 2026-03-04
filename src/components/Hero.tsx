@@ -2,17 +2,19 @@ import { ArrowRight, Play, BookOpen, Shield, TrendingUp } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { AccentText } from "@/components/AccentText";
-import { events } from "@/data/events";
-import { compareEventDatesDesc } from "@/lib/utils";
+import type { EventStats } from "@/lib/events/schema";
 
-export function Hero() {
-  const totalEvents = events.length;
-  const years = events.map((event) => event.year);
-  const earliestYear = years.length ? Math.min(...years) : undefined;
-  const latestYear = years.length ? Math.max(...years) : undefined;
-  const latestEventDate = [...events].sort(compareEventDatesDesc)[0]?.date ?? "Unknown";
-  const uniqueChains = new Set(events.map((e) => e.chain)).size;
-  const sourcesCount = events.reduce((sum, e) => sum + e.sources.length, 0);
+type HeroProps = {
+  stats: EventStats;
+};
+
+export function Hero({ stats }: HeroProps) {
+  const totalEvents = stats.total;
+  const earliestYear = stats.yearMin;
+  const latestYear = stats.yearMax;
+  const latestEventDate = stats.latestDate ?? "Unknown";
+  const uniqueChains = stats.chainsTotal;
+  const sourcesCount = stats.sourcesTotal;
 
   return (
     <section className="relative overflow-hidden">
@@ -74,7 +76,7 @@ export function Hero() {
             <div className="rounded-lg border border-border/70 bg-bg/55 p-3 sm:col-span-2">
               <div className="text-[11px] text-muted">Years covered</div>
               <AccentText className="mt-1 text-base">
-                {earliestYear && latestYear ? `${earliestYear}\u2009\u2013\u2009${latestYear}` : "Unknown"}
+                {earliestYear && latestYear ? `${earliestYear} - ${latestYear}` : "Unknown"}
               </AccentText>
             </div>
             <div className="rounded-lg border border-border/70 bg-bg/55 p-3">

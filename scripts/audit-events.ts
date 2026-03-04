@@ -1,4 +1,5 @@
 import { events } from "../src/data/events";
+import { normalizeSourceKind } from "../src/lib/events/sourceKind";
 
 type AuditIssue = {
   level: "error" | "warn";
@@ -41,11 +42,31 @@ const isValidUrl = (value: string) => {
   }
 };
 
+const NON_ENGLISH_PATH_SEGMENT = /\/(es|fr|de|it|pt|ru|tr|zh|ja|ko)\//i;
+
+const isEnglishSourceUrl = (value: string) => {
+  try {
+    const parsed = new URL(value);
+    const host = parsed.hostname.toLowerCase();
+    const path = parsed.pathname.toLowerCase();
+    if (host.endsWith("wikipedia.org") && !host.startsWith("en.")) {
+      return false;
+    }
+    return !NON_ENGLISH_PATH_SEGMENT.test(path);
+  } catch {
+    return false;
+  }
+};
+
+const isWikipediaSource = (value: { url: string; publisher: string }) =>
+  value.publisher.toLowerCase().includes("wikipedia") || value.url.toLowerCase().includes("wikipedia.org");
+
 const addIssue = (level: AuditIssue["level"], message: string) => {
   issues.push({ level, message });
 };
 
 const validSourceKinds = new Set(["primary", "secondary", "community", "pending"]);
+const legalTags = new Set(["regulation", "policy", "seizure", "enforcement", "legal"]);
 const highPrioritySlugs = new Set(
   events
     .filter((event) => event.hallOfFame)
@@ -151,6 +172,9 @@ events.forEach((event) => {
     if (source.url?.startsWith("http://")) {
       addIssue("warn", `Source URL should use https on ${event.slug}: "${source.url}".`);
     }
+    if (source.url && !isEnglishSourceUrl(source.url)) {
+      addIssue("error", `Non-English source URL on ${event.slug}: "${source.url}".`);
+    }
     if (!source.label || source.label.trim().length === 0) {
       addIssue("error", `Source label missing on ${event.slug}.`);
     }
@@ -160,12 +184,8 @@ events.forEach((event) => {
     if (!Number.isInteger(source.year) || source.year < 1990 || source.year > 2100) {
       addIssue("warn", `Source year looks invalid on ${event.slug}: "${source.year}".`);
     }
-    if (!source.kind) {
-      addIssue(
-        highPrioritySlugs.has(event.slug) ? "error" : "warn",
-        `Source kind missing on ${event.slug}: "${source.label}".`
-      );
-    } else if (!validSourceKinds.has(source.kind)) {
+    const normalizedKind = normalizeSourceKind(source);
+    if (source.kind && !validSourceKinds.has(source.kind)) {
       addIssue(
         "error",
         `Invalid source kind on ${event.slug}: "${source.kind}".`
@@ -190,6 +210,31 @@ events.forEach((event) => {
       );
     }
   });
+
+  if (event.hallOfFame) {
+    const hasEnoughSources = event.sources.length >= 2;
+    const hasNonWikipediaSource = event.sources.some((source) => !isWikipediaSource(source));
+    const requiresPrimary =
+      event.type === "seizure" ||
+      event.tags.some((tag) => legalTags.has(tag.toLowerCase()));
+    const hasPrimarySource = event.sources.some((source) => normalizeSourceKind(source) === "primary");
+
+    if (!hasEnoughSources) {
+      addIssue("error", `Highlight gating failed on ${event.slug}: minimum two sources required.`);
+    }
+    if (!hasNonWikipediaSource) {
+      addIssue(
+        "error",
+        `Highlight gating failed on ${event.slug}: at least one non-Wikipedia source required.`
+      );
+    }
+    if (requiresPrimary && !hasPrimarySource) {
+      addIssue(
+        "error",
+        `Highlight gating failed on ${event.slug}: legal/regulatory/seizure entries need one primary source.`
+      );
+    }
+  }
 
   slugCounts.set(event.slug, (slugCounts.get(event.slug) ?? 0) + 1);
   titleCounts.set(event.title, (titleCounts.get(event.title) ?? 0) + 1);

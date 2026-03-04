@@ -128,7 +128,7 @@ export function AccentPicker() {
       {/* Mobile: subtle colored dot */}
       <button
         type="button"
-        className="flex h-8 w-8 items-center justify-center rounded-full transition-transform duration-150 active:scale-90 md:hidden"
+        className="flex h-11 w-11 items-center justify-center rounded-full transition-transform duration-150 active:scale-90 md:hidden"
         aria-label="Change data accent color"
         aria-haspopup="true"
         aria-expanded={open}
@@ -148,7 +148,7 @@ export function AccentPicker() {
         }`}
       >
         <div className="mb-2.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-muted">
-          Data Accent
+          Accent
         </div>
 
         <div className="grid grid-cols-4 gap-2">

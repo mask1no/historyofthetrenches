@@ -1,4 +1,4 @@
-name: Build
+name: Build and Quality
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
     branches: ["main"]
 
 jobs:
-  build:
+  quality:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -22,7 +22,7 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: 9
+          version: 10
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
@@ -32,6 +32,9 @@ jobs:
 
       - name: Validate event data
         run: pnpm run check:data
+
+      - name: Check placeholder strings
+        run: pnpm run check:no-placeholders
 
       - name: Build
         run: pnpm run build

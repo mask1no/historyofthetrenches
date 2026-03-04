@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useRef, useState, useTransition } from "react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
-import { events, type EventType } from "@/data/events";
+import type { EventType } from "@/data/events";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Select } from "@/components/ui/select";
@@ -11,6 +11,8 @@ import { X } from "lucide-react";
 import { AccentText } from "@/components/AccentText";
 import { typeLabel, typeVariant } from "@/lib/eventType";
 import { compareEventDatesAsc, compareEventDatesDesc } from "@/lib/utils";
+import { canonicalizeChain } from "@/lib/events/taxonomy";
+import type { Event, EventFilters } from "@/lib/events/schema";
 
 type FilterState = {
   type: EventType | "all";
@@ -22,44 +24,6 @@ type FilterState = {
 };
 
 const SEARCH_SYNC_DELAY_MS = 250;
-
-const chains = Array.from(new Set(events.map((e) => e.chain)));
-const years = Array.from(new Set(events.map((e) => e.year))).sort((a, b) => b - a);
-const chainTagSet = new Set<string>();
-const extraChainTags = [
-  "bnb",
-  "bsc",
-  "eth",
-  "ethereum",
-  "btc",
-  "bitcoin",
-  "sol",
-  "solana",
-  "arb",
-  "arbitrum",
-  "op",
-  "optimism",
-  "matic",
-  "polygon",
-  "avax",
-  "avalanche",
-  "base"
-];
-
-chains.forEach((chain) => {
-  chainTagSet.add(chain.toLowerCase());
-  chain
-    .split(/[^a-z0-9]+/i)
-    .map((token) => token.toLowerCase())
-    .filter((token) => token.length > 2)
-    .forEach((token) => chainTagSet.add(token));
-});
-
-extraChainTags.forEach((tag) => chainTagSet.add(tag));
-
-const tags = Array.from(
-  new Set(events.flatMap((e) => e.tags.filter((tag) => !chainTagSet.has(tag.toLowerCase()))))
-).sort();
 
 const typeOptions = [
   { label: "All", value: "all" },
@@ -129,7 +93,8 @@ function parseFiltersFromSearchParams(
   const type = validTypes.includes(typeParam as EventType | "all") ? (typeParam as EventType | "all") : "all";
 
   const chainParam = searchParams.get("chain") ?? "all";
-  const chain = chainParam === "all" || chains.includes(chainParam) ? chainParam : "all";
+  const canonicalChain = chainParam === "all" ? "all" : canonicalizeChain(chainParam);
+  const chain = canonicalChain === "all" || chains.includes(canonicalChain) ? canonicalChain : "all";
 
   const yearParam = searchParams.get("year");
   let year: number | "all" = "all";
@@ -149,11 +114,19 @@ function parseFiltersFromSearchParams(
   return { type, chain, year, tags, search, sort };
 }
 
-export function EventTable() {
+type EventTableProps = {
+  events: Event[];
+  eventFilters: EventFilters;
+};
+
+export function EventTable({ events, eventFilters }: EventTableProps) {
   const searchParams = useSearchParams();
   const router = useRouter();
   const searchInputRef = useRef<HTMLInputElement>(null);
   const [, startTransition] = useTransition();
+  const chains = eventFilters.chains;
+  const years = eventFilters.years;
+  const tags = eventFilters.tags;
 
   const defaultFilters: FilterState = {
     type: "all",
@@ -172,7 +145,7 @@ export function EventTable() {
   // Read URL params on mount (handles hydration / client nav)
   useEffect(() => {
     setFilters(parseFiltersFromSearchParams(searchParams, chains, years));
-  }, [searchParams]);
+  }, [searchParams, chains, years]);
 
   useEffect(() => {
     const timer = window.setTimeout(() => {
@@ -249,6 +222,7 @@ export function EventTable() {
         event.title,
         event.summary,
         event.chain,
+        canonicalizeChain(event.chain),
         event.type,
         ...event.tags
       ]
@@ -256,14 +230,14 @@ export function EventTable() {
         .toLowerCase();
       return (
         (filters.type === "all" || event.type === filters.type) &&
-        (filters.chain === "all" || event.chain === filters.chain) &&
+        (filters.chain === "all" || canonicalizeChain(event.chain) === filters.chain) &&
         (filters.year === "all" || event.year === filters.year) &&
         (selectedTags.length === 0 ||
           selectedTags.every((tag) => event.tags.some((t) => t.toLowerCase().includes(tag)))) &&
         (!search || haystack.includes(search))
       );
     });
-  }, [filters]);
+  }, [filters, events]);
 
   const sorted = useMemo(() => {
     const list = [...filtered];
@@ -516,7 +490,7 @@ export function EventTable() {
                       {typeLabel[event.type]}
                     </Badge>
                     <Badge variant="muted" className="text-xs">
-                      {event.chain}
+                      {canonicalizeChain(event.chain)}
                     </Badge>
                     <time className="text-xs text-muted" dateTime={event.date}>{event.date}</time>
                   </div>
