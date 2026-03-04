@@ -3933,6 +3933,966 @@ export const events: Event[] = [
         "year": 2025
       }
     ]
+  },
+  {
+    "slug": "facebook-libra-announcement",
+    "title": "Facebook Announces Libra (Later Diem)",
+    "type": "milestone",
+    "chain": "Multichain",
+    "year": 2019,
+    "date": "2019-06-18",
+    "era": "ico-boom",
+    "status": "stablecoin launch plan",
+    "summary": "Facebook unveiled Libra, a global stablecoin initiative that accelerated policy debates around private digital money.",
+    "peakMetric": "2B+ user distribution potential",
+    "outcome": "Rebranded to Diem and later wound down under regulatory pressure",
+    "tags": [
+      "stablecoin",
+      "policy",
+      "adoption"
+    ],
+    "sources": [
+      {
+        "label": "Meta announcement",
+        "url": "https://about.fb.com/news/2019/06/coming-in-2020-libra/",
+        "publisher": "Meta",
+        "year": 2019
+      },
+      {
+        "label": "Diem background",
+        "url": "https://en.wikipedia.org/wiki/Diem_(digital_currency)",
+        "publisher": "Wikipedia",
+        "year": 2019
+      }
+    ]
+  },
+  {
+    "slug": "telegram-ton-sec-settlement",
+    "title": "Telegram Settles SEC Case Over TON Sale",
+    "type": "seizure",
+    "chain": "TON",
+    "year": 2020,
+    "date": "2020-06-26",
+    "era": "defi-summer",
+    "status": "regulatory enforcement",
+    "summary": "Telegram agreed to return investor funds and pay penalties after the SEC challenged its TON token offering.",
+    "peakMetric": "$1.2B investor capital at issue",
+    "outcome": "TON launch by Telegram halted in the U.S. pathway",
+    "tags": [
+      "regulation",
+      "sec",
+      "token-sale"
+    ],
+    "sources": [
+      {
+        "label": "SEC press release",
+        "url": "https://www.sec.gov/news/press-release/2020-146",
+        "publisher": "U.S. SEC",
+        "year": 2020
+      },
+      {
+        "label": "TON background",
+        "url": "https://en.wikipedia.org/wiki/The_Open_Network",
+        "publisher": "Wikipedia",
+        "year": 2020
+      }
+    ]
+  },
+  {
+    "slug": "plus-token-asset-seizure",
+    "title": "Chinese Authorities Seize PlusToken Assets",
+    "type": "seizure",
+    "chain": "Multichain",
+    "year": 2020,
+    "date": "2020-11-26",
+    "era": "defi-summer",
+    "status": "ponzi crackdown",
+    "summary": "Authorities seized billions in crypto linked to PlusToken, one of the largest known crypto Ponzi schemes.",
+    "peakMetric": "$4B+ seized",
+    "outcome": "Major enforcement precedent for cross-chain fraud seizures",
+    "tags": [
+      "ponzi",
+      "enforcement",
+      "seizure"
+    ],
+    "sources": [
+      {
+        "label": "CoinDesk report",
+        "url": "https://www.coindesk.com/markets/2020/11/27/chinese-authorities-seize-42b-from-plus-token-ponzi/",
+        "publisher": "CoinDesk",
+        "year": 2020
+      },
+      {
+        "label": "PlusToken background",
+        "url": "https://en.wikipedia.org/wiki/PlusToken",
+        "publisher": "Wikipedia",
+        "year": 2020
+      }
+    ]
+  },
+  {
+    "slug": "kucoin-hot-wallet-hack",
+    "title": "KuCoin Hot Wallet Hack",
+    "type": "hack",
+    "chain": "CeFi",
+    "year": 2020,
+    "date": "2020-09-26",
+    "era": "defi-summer",
+    "status": "exchange breach",
+    "summary": "KuCoin disclosed a major hot-wallet compromise that triggered large coordinated asset freezes across projects.",
+    "peakMetric": "$150M+ initially reported",
+    "outcome": "Large portion of funds traced, frozen, or recovered",
+    "tags": [
+      "exchange",
+      "security",
+      "cefi"
+    ],
+    "sources": [
+      {
+        "label": "CoinDesk report",
+        "url": "https://www.coindesk.com/markets/2020/09/26/kucoin-says-150m-in-crypto-stolen-in-exchange-hack/",
+        "publisher": "CoinDesk",
+        "year": 2020
+      },
+      {
+        "label": "Reuters follow-up",
+        "url": "https://www.reuters.com/world/asia-pacific/singapore-police-help-freeze-funds-stolen-kucoin-hack-2020-11-19/",
+        "publisher": "Reuters",
+        "year": 2020
+      }
+    ]
+  },
+  {
+    "slug": "paypal-crypto-launch",
+    "title": "PayPal Launches U.S. Crypto Trading",
+    "type": "milestone",
+    "chain": "Bitcoin",
+    "year": 2020,
+    "date": "2020-10-21",
+    "era": "defi-summer",
+    "status": "retail onboarding",
+    "summary": "PayPal enabled U.S. users to buy, hold, and sell crypto, marking a major mainstream access milestone.",
+    "peakMetric": "300M+ account distribution",
+    "outcome": "Normalized crypto access through fintech rails",
+    "tags": [
+      "adoption",
+      "payments",
+      "retail"
+    ],
+    "sources": [
+      {
+        "label": "PayPal product update",
+        "url": "https://www.paypal.com/us/brc/article/buying-selling-and-holding-cryptocurrency-on-paypal",
+        "publisher": "PayPal",
+        "year": 2020
+      },
+      {
+        "label": "CNBC report",
+        "url": "https://www.cnbc.com/2020/10/21/paypal-to-launch-crypto-buying-and-selling-in-the-us.html",
+        "publisher": "CNBC",
+        "year": 2020
+      }
+    ]
+  },
+  {
+    "slug": "block-bitcoin-purchase-2020",
+    "title": "Square (Block) Buys Bitcoin Treasury Position",
+    "type": "milestone",
+    "chain": "Bitcoin",
+    "year": 2020,
+    "date": "2020-10-08",
+    "era": "defi-summer",
+    "status": "corporate treasury",
+    "summary": "Square announced a meaningful Bitcoin treasury allocation, reinforcing the early public-company BTC strategy wave.",
+    "peakMetric": "$50M purchase",
+    "outcome": "Corporate treasury narrative expanded beyond single-company precedent",
+    "tags": [
+      "corporate",
+      "bitcoin",
+      "treasury"
+    ],
+    "sources": [
+      {
+        "label": "CoinDesk report",
+        "url": "https://www.coindesk.com/markets/2020/10/08/square-buys-50m-in-bitcoin-says-cryptocurrency-aligns-with-companys-purpose/",
+        "publisher": "CoinDesk",
+        "year": 2020
+      },
+      {
+        "label": "CNBC report",
+        "url": "https://www.cnbc.com/2020/10/08/square-buys-50-million-in-bitcoin-says-cryptocurrency-aligns-with-company-purpose.html",
+        "publisher": "CNBC",
+        "year": 2020
+      }
+    ]
+  },
+  {
+    "slug": "coinbase-direct-listing",
+    "title": "Coinbase Direct Listing on Nasdaq",
+    "type": "milestone",
+    "chain": "CeFi",
+    "year": 2021,
+    "date": "2021-04-14",
+    "era": "nft-onboarding",
+    "status": "public markets debut",
+    "summary": "Coinbase listed publicly on Nasdaq, becoming a flagship listed crypto-native company.",
+    "peakMetric": "$100B+ implied valuation at debut",
+    "outcome": "Raised institutional visibility of crypto infrastructure businesses",
+    "tags": [
+      "exchange",
+      "public-markets",
+      "adoption"
+    ],
+    "sources": [
+      {
+        "label": "Nasdaq coverage",
+        "url": "https://www.nasdaq.com/articles/coinbase-makes-its-public-debut-on-nasdaq-2021-04-14",
+        "publisher": "Nasdaq",
+        "year": 2021
+      },
+      {
+        "label": "Reuters report",
+        "url": "https://www.reuters.com/world/us/coinbase-goes-public-nasdaq-2021-04-14/",
+        "publisher": "Reuters",
+        "year": 2021
+      }
+    ]
+  },
+  {
+    "slug": "tesla-bitcoin-purchase",
+    "title": "Tesla Adds Bitcoin to Treasury",
+    "type": "runner",
+    "chain": "Bitcoin",
+    "year": 2021,
+    "date": "2021-02-08",
+    "era": "nft-onboarding",
+    "status": "corporate treasury",
+    "summary": "Tesla disclosed a large Bitcoin purchase and intent to accept BTC payments, amplifying market momentum.",
+    "peakMetric": "$1.5B purchase",
+    "outcome": "Catalyzed broader public-company treasury discussions",
+    "tags": [
+      "corporate",
+      "bitcoin",
+      "market-sentiment"
+    ],
+    "sources": [
+      {
+        "label": "Reuters report",
+        "url": "https://www.reuters.com/article/us-tesla-bitcoin-idUSKBN2A81CG/",
+        "publisher": "Reuters",
+        "year": 2021
+      },
+      {
+        "label": "Tesla SEC filing",
+        "url": "https://www.sec.gov/ixviewer/ix.html?doc=/Archives/edgar/data/1318605/000156459021004599/tsla-10k_20201231.htm",
+        "publisher": "U.S. SEC",
+        "year": 2021
+      }
+    ]
+  },
+  {
+    "slug": "tesla-suspends-bitcoin-payments",
+    "title": "Tesla Suspends Bitcoin Payments",
+    "type": "collapse",
+    "chain": "Bitcoin",
+    "year": 2021,
+    "date": "2021-05-12",
+    "era": "nft-onboarding",
+    "status": "policy reversal",
+    "summary": "Tesla paused Bitcoin payments over environmental concerns, triggering a sharp narrative reversal in market sentiment.",
+    "peakMetric": "Major sentiment shock",
+    "outcome": "Reframed institutional discussion around mining energy mix",
+    "tags": [
+      "bitcoin",
+      "policy",
+      "sentiment"
+    ],
+    "sources": [
+      {
+        "label": "Reuters report",
+        "url": "https://www.reuters.com/business/autos-transportation/tesla-stops-accepting-bitcoin-cites-environmental-concerns-2021-05-13/",
+        "publisher": "Reuters",
+        "year": 2021
+      },
+      {
+        "label": "Elon Musk statement",
+        "url": "https://x.com/elonmusk/status/1392602041025843203",
+        "publisher": "X",
+        "year": 2021
+      }
+    ]
+  },
+  {
+    "slug": "china-crypto-transactions-ban",
+    "title": "China Declares Crypto Transactions Illegal",
+    "type": "seizure",
+    "chain": "Multichain",
+    "year": 2021,
+    "date": "2021-09-24",
+    "era": "nft-onboarding",
+    "status": "regulatory ban",
+    "summary": "China’s central bank reiterated a broad ban on crypto-related activities, escalating prior restrictions.",
+    "peakMetric": "Nationwide compliance impact",
+    "outcome": "Accelerated offshore migration of trading and service activity",
+    "tags": [
+      "regulation",
+      "china",
+      "enforcement"
+    ],
+    "sources": [
+      {
+        "label": "Reuters report",
+        "url": "https://www.reuters.com/world/china/chinas-central-bank-vows-crackdown-cryptocurrency-trading-2021-09-24/",
+        "publisher": "Reuters",
+        "year": 2021
+      },
+      {
+        "label": "PBOC notice",
+        "url": "https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/4348521/index.html",
+        "publisher": "People's Bank of China",
+        "year": 2021
+      }
+    ]
+  },
+  {
+    "slug": "celsius-withdrawals-paused",
+    "title": "Celsius Freezes Withdrawals",
+    "type": "collapse",
+    "chain": "CeFi",
+    "year": 2022,
+    "date": "2022-06-12",
+    "era": "cefi-contagion",
+    "status": "liquidity crisis",
+    "summary": "Celsius paused withdrawals citing extreme market conditions, becoming a key trigger in the 2022 contagion cycle.",
+    "peakMetric": "Billions in user assets frozen",
+    "outcome": "Deepened lender confidence crisis ahead of bankruptcy proceedings",
+    "tags": [
+      "cefi",
+      "lending",
+      "contagion"
+    ],
+    "sources": [
+      {
+        "label": "Reuters report",
+        "url": "https://www.reuters.com/world/us/crypto-lender-celsius-freezes-withdrawals-citing-extreme-market-conditions-2022-06-13/",
+        "publisher": "Reuters",
+        "year": 2022
+      },
+      {
+        "label": "Celsius statement",
+        "url": "https://blog.celsius.network/a-memo-to-the-celsius-community-59532a06ecc6",
+        "publisher": "Celsius",
+        "year": 2022
+      }
+    ]
+  },
+  {
+    "slug": "bnb-bridge-exploit",
+    "title": "BNB Chain Bridge Exploit",
+    "type": "hack",
+    "chain": "BNB Chain",
+    "year": 2022,
+    "date": "2022-10-06",
+    "era": "cefi-contagion",
+    "status": "bridge exploit",
+    "summary": "Attackers exploited BNB Chain bridge logic, prompting temporary chain pause and coordinated validator response.",
+    "peakMetric": "$500M+ affected",
+    "outcome": "Restarted network after emergency governance and patching",
+    "tags": [
+      "bridge",
+      "hack",
+      "security"
+    ],
+    "sources": [
+      {
+        "label": "Reuters report",
+        "url": "https://www.reuters.com/world/china/binance-halts-bnb-chain-after-possible-hack-2022-10-07/",
+        "publisher": "Reuters",
+        "year": 2022
+      },
+      {
+        "label": "BNB Chain update",
+        "url": "https://www.bnbchain.org/en/blog/bnb-chain-ecosystem-update",
+        "publisher": "BNB Chain",
+        "year": 2022
+      }
+    ]
+  },
+  {
+    "slug": "tornado-cash-sanctions",
+    "title": "U.S. Sanctions Tornado Cash",
+    "type": "seizure",
+    "chain": "Ethereum",
+    "year": 2022,
+    "date": "2022-08-08",
+    "era": "cefi-contagion",
+    "status": "sanctions action",
+    "summary": "OFAC sanctioned Tornado Cash, triggering broad compliance responses across wallets, protocols, and infrastructure providers.",
+    "peakMetric": "$7B+ cited in laundering flows",
+    "outcome": "Set major precedent for sanctions and protocol-level compliance debates",
+    "tags": [
+      "sanctions",
+      "regulation",
+      "privacy"
+    ],
+    "sources": [
+      {
+        "label": "U.S. Treasury release",
+        "url": "https://home.treasury.gov/news/press-releases/jy0916",
+        "publisher": "U.S. Treasury",
+        "year": 2022
+      },
+      {
+        "label": "Reuters report",
+        "url": "https://www.reuters.com/world/us/us-sanctions-crypto-mixer-tornado-cash-over-north-korea-cyber-threat-2022-08-08/",
+        "publisher": "Reuters",
+        "year": 2022
+      }
+    ]
+  },
+  {
+    "slug": "silvergate-bank-liquidation",
+    "title": "Silvergate Announces Bank Wind-Down",
+    "type": "collapse",
+    "chain": "CeFi",
+    "year": 2023,
+    "date": "2023-03-08",
+    "era": "cefi-contagion",
+    "status": "bank liquidation",
+    "summary": "Crypto-focused bank Silvergate announced plans to wind down operations, intensifying fiat-rail concerns for the industry.",
+    "peakMetric": "Key U.S. crypto banking rail impaired",
+    "outcome": "Accelerated migration to alternate banking and settlement channels",
+    "tags": [
+      "banking",
+      "cefi",
+      "contagion"
+    ],
+    "sources": [
+      {
+        "label": "Reuters report",
+        "url": "https://www.reuters.com/world/us/crypto-focused-bank-silvergate-winds-down-operations-2023-03-08/",
+        "publisher": "Reuters",
+        "year": 2023
+      },
+      {
+        "label": "Silvergate press release",
+        "url": "https://www.silvergate.com/press/silvergate-capital-corporation-announces-plan-to-wind-down-operations-and-voluntarily-liquidate-silvergate-bank/",
+        "publisher": "Silvergate",
+        "year": 2023
+      }
+    ]
+  },
+  {
+    "slug": "usdc-depeg-svb-crisis",
+    "title": "USDC Depeg During SVB Crisis",
+    "type": "collapse",
+    "chain": "Ethereum",
+    "year": 2023,
+    "date": "2023-03-11",
+    "era": "cefi-contagion",
+    "status": "stablecoin stress",
+    "summary": "USDC briefly lost dollar parity after Circle disclosed reserve exposure linked to Silicon Valley Bank.",
+    "peakMetric": "USDC traded below $0.90 intraday",
+    "outcome": "Peg restored after U.S. banking backstop announcements",
+    "tags": [
+      "stablecoin",
+      "banking",
+      "depeg"
+    ],
+    "sources": [
+      {
+        "label": "Circle update",
+        "url": "https://www.circle.com/blog/an-update-on-usdc-and-silicon-valley-bank",
+        "publisher": "Circle",
+        "year": 2023
+      },
+      {
+        "label": "Reuters report",
+        "url": "https://www.reuters.com/world/us/stablecoin-usdc-re-pegs-dollar-after-u-s-regulators-step-in-2023-03-13/",
+        "publisher": "Reuters",
+        "year": 2023
+      }
+    ]
+  },
+  {
+    "slug": "blackrock-spot-bitcoin-etf-filing",
+    "title": "BlackRock Files for U.S. Spot Bitcoin ETF",
+    "type": "milestone",
+    "chain": "Bitcoin",
+    "year": 2023,
+    "date": "2023-06-15",
+    "era": "pump-fun",
+    "status": "institutional filing",
+    "summary": "BlackRock’s filing reset expectations for spot Bitcoin ETFs and helped re-open institutional demand narratives.",
+    "peakMetric": "Largest asset manager enters spot ETF race",
+    "outcome": "Catalyzed subsequent approvals cycle in 2024",
+    "tags": [
+      "etf",
+      "institutional",
+      "bitcoin"
+    ],
+    "sources": [
+      {
+        "label": "Reuters report",
+        "url": "https://www.reuters.com/world/us/blackrock-files-bitcoin-etf-application-with-us-sec-2023-06-15/",
+        "publisher": "Reuters",
+        "year": 2023
+      },
+      {
+        "label": "iShares Bitcoin Trust page",
+        "url": "https://www.ishares.com/us/products/333011/ishares-bitcoin-trust",
+        "publisher": "BlackRock iShares",
+        "year": 2023
+      }
+    ]
+  },
+  {
+    "slug": "sec-sues-coinbase",
+    "title": "SEC Sues Coinbase",
+    "type": "seizure",
+    "chain": "CeFi",
+    "year": 2023,
+    "date": "2023-06-06",
+    "era": "pump-fun",
+    "status": "regulatory enforcement",
+    "summary": "The SEC sued Coinbase, alleging operation of an unregistered exchange, broker, and clearing agency.",
+    "peakMetric": "Major U.S. exchange litigation",
+    "outcome": "Became a central case in U.S. market-structure disputes",
+    "tags": [
+      "sec",
+      "regulation",
+      "exchange"
+    ],
+    "sources": [
+      {
+        "label": "SEC complaint announcement",
+        "url": "https://www.sec.gov/news/press-release/2023-102",
+        "publisher": "U.S. SEC",
+        "year": 2023
+      },
+      {
+        "label": "Reuters report",
+        "url": "https://www.reuters.com/world/us/us-sec-sues-coinbase-over-operations-crypto-trading-platform-2023-06-06/",
+        "publisher": "Reuters",
+        "year": 2023
+      }
+    ]
+  },
+  {
+    "slug": "xrp-partial-summary-judgment",
+    "title": "Ripple Wins Partial XRP Ruling",
+    "type": "milestone",
+    "chain": "XRP Ledger",
+    "year": 2023,
+    "date": "2023-07-13",
+    "era": "pump-fun",
+    "status": "court ruling",
+    "summary": "A U.S. court held that programmatic XRP sales on exchanges were not securities transactions under that ruling context.",
+    "peakMetric": "Major U.S. crypto market-structure precedent",
+    "outcome": "Reshaped token-listing and enforcement expectations",
+    "tags": [
+      "regulation",
+      "court",
+      "xrp"
+    ],
+    "sources": [
+      {
+        "label": "Reuters report",
+        "url": "https://www.reuters.com/world/us/us-judge-says-xrp-token-is-not-security-crypto-exchanges-2023-07-13/",
+        "publisher": "Reuters",
+        "year": 2023
+      },
+      {
+        "label": "Case docket",
+        "url": "https://www.courtlistener.com/docket/19857399/sec-v-ripple-labs-inc/",
+        "publisher": "CourtListener",
+        "year": 2023
+      }
+    ]
+  },
+  {
+    "slug": "worldcoin-token-launch",
+    "title": "Worldcoin Launches Token and Network",
+    "type": "milestone",
+    "chain": "Ethereum L2",
+    "year": 2023,
+    "date": "2023-07-24",
+    "era": "pump-fun",
+    "status": "network launch",
+    "summary": "Worldcoin launched globally with identity-linked distribution and immediately became a focal point in biometrics debates.",
+    "peakMetric": "Large global onboarding push",
+    "outcome": "Triggered worldwide privacy, identity, and compliance scrutiny",
+    "tags": [
+      "identity",
+      "adoption",
+      "policy"
+    ],
+    "sources": [
+      {
+        "label": "Worldcoin launch post",
+        "url": "https://world.org/blog/announcements/worldcoin-launches-globally",
+        "publisher": "Worldcoin",
+        "year": 2023
+      },
+      {
+        "label": "Reuters report",
+        "url": "https://www.reuters.com/world/uk/openai-ceo-altmans-worldcoin-project-launches-token-2023-07-24/",
+        "publisher": "Reuters",
+        "year": 2023
+      }
+    ]
+  },
+  {
+    "slug": "binance-doj-settlement",
+    "title": "Binance and CZ Plead Guilty in U.S. Case",
+    "type": "seizure",
+    "chain": "CeFi",
+    "year": 2023,
+    "date": "2023-11-21",
+    "era": "pump-fun",
+    "status": "criminal settlement",
+    "summary": "Binance and founder CZ entered a major U.S. settlement and plea framework over anti-money-laundering failures.",
+    "peakMetric": "$4.3B settlement",
+    "outcome": "Reshaped global exchange compliance standards",
+    "tags": [
+      "exchange",
+      "regulation",
+      "enforcement"
+    ],
+    "sources": [
+      {
+        "label": "DOJ announcement",
+        "url": "https://www.justice.gov/opa/pr/binance-and-cz-plead-guilty",
+        "publisher": "U.S. DOJ",
+        "year": 2023
+      },
+      {
+        "label": "Reuters report",
+        "url": "https://www.reuters.com/world/us/binance-ceo-zhao-step-down-plead-guilty-violating-us-anti-money-laundering-laws-2023-11-21/",
+        "publisher": "Reuters",
+        "year": 2023
+      }
+    ]
+  },
+  {
+    "slug": "bitcoin-runes-launch",
+    "title": "Bitcoin Runes Protocol Goes Live",
+    "type": "milestone",
+    "chain": "Bitcoin",
+    "year": 2024,
+    "date": "2024-04-20",
+    "era": "pump-fun",
+    "status": "token standard launch",
+    "summary": "The Runes protocol launched on Bitcoin at halving, expanding fungible token experimentation on the base chain.",
+    "peakMetric": "High-fee block activity around launch",
+    "outcome": "Accelerated on-chain experimentation beyond ordinal inscriptions",
+    "tags": [
+      "bitcoin",
+      "tokens",
+      "infrastructure"
+    ],
+    "sources": [
+      {
+        "label": "Ordinals docs (Runes)",
+        "url": "https://docs.ordinals.com/runes/",
+        "publisher": "Ordinals Docs",
+        "year": 2024
+      },
+      {
+        "label": "CoinDesk explainer",
+        "url": "https://www.coindesk.com/tech/2024/04/20/what-are-runes-bitcoin-new-token-standard-goes-live-at-halving/",
+        "publisher": "CoinDesk",
+        "year": 2024
+      }
+    ]
+  },
+  {
+    "slug": "starknet-token-airdrop",
+    "title": "Starknet STRK Airdrop Begins",
+    "type": "runner",
+    "chain": "Ethereum L2",
+    "year": 2024,
+    "date": "2024-02-20",
+    "era": "pump-fun",
+    "status": "token distribution",
+    "summary": "Starknet initiated one of the cycle’s most watched L2 airdrops, driving activity and governance onboarding.",
+    "peakMetric": "Millions of wallets assessed for eligibility",
+    "outcome": "Renewed focus on airdrop design and sybil resistance",
+    "tags": [
+      "airdrop",
+      "layer2",
+      "governance"
+    ],
+    "sources": [
+      {
+        "label": "Starknet provisions program",
+        "url": "https://www.starknet.io/blog/starknet-provisions-program/",
+        "publisher": "Starknet",
+        "year": 2024
+      },
+      {
+        "label": "CoinDesk report",
+        "url": "https://www.coindesk.com/markets/2024/02/14/ethereum-layer-2-network-starknet-to-distribute-its-strk-token-in-airdrop/",
+        "publisher": "CoinDesk",
+        "year": 2024
+      }
+    ]
+  },
+  {
+    "slug": "samourai-wallet-charges",
+    "title": "U.S. Charges Samourai Wallet Founders",
+    "type": "seizure",
+    "chain": "Bitcoin",
+    "year": 2024,
+    "date": "2024-04-24",
+    "era": "pump-fun",
+    "status": "criminal charges",
+    "summary": "U.S. prosecutors charged Samourai Wallet leadership, intensifying enforcement pressure around privacy tooling.",
+    "peakMetric": "$100M+ alleged laundering flows cited",
+    "outcome": "Reignited privacy-vs-compliance debates in Bitcoin tooling",
+    "tags": [
+      "privacy",
+      "enforcement",
+      "bitcoin"
+    ],
+    "sources": [
+      {
+        "label": "SDNY DOJ announcement",
+        "url": "https://www.justice.gov/usao-sdny/pr/founders-and-ceo-crypto-mixer-samourai-wallet-charged-money-laundering",
+        "publisher": "U.S. DOJ",
+        "year": 2024
+      },
+      {
+        "label": "Reuters report",
+        "url": "https://www.reuters.com/world/us/us-charges-founders-cryptocurrency-mixer-samourai-wallet-with-money-laundering-2024-04-24/",
+        "publisher": "Reuters",
+        "year": 2024
+      }
+    ]
+  },
+  {
+    "slug": "eigenlayer-mainnet-launch",
+    "title": "EigenLayer Mainnet Goes Live",
+    "type": "milestone",
+    "chain": "Ethereum",
+    "year": 2024,
+    "date": "2024-04-09",
+    "era": "pump-fun",
+    "status": "restaking mainnet",
+    "summary": "EigenLayer launched mainnet features for Ethereum restaking, opening a new design space for shared security.",
+    "peakMetric": "Large ETH restaking inflows",
+    "outcome": "Restaking became a core infrastructure narrative in 2024",
+    "tags": [
+      "ethereum",
+      "restaking",
+      "infrastructure"
+    ],
+    "sources": [
+      {
+        "label": "EigenLayer mainnet update",
+        "url": "https://blog.eigenlayer.xyz/eigenlayer-mainnet/",
+        "publisher": "EigenLayer",
+        "year": 2024
+      },
+      {
+        "label": "The Block report",
+        "url": "https://www.theblock.co/post/287131/eigenlayer-mainnet-launch-restaking",
+        "publisher": "The Block",
+        "year": 2024
+      }
+    ]
+  },
+  {
+    "slug": "bitcoin-halving-2024",
+    "title": "Bitcoin Fourth Halving",
+    "type": "milestone",
+    "chain": "Bitcoin",
+    "year": 2024,
+    "date": "2024-04-20",
+    "era": "pump-fun",
+    "status": "protocol issuance event",
+    "summary": "Bitcoin’s fourth halving reduced block subsidy from 6.25 BTC to 3.125 BTC at block 840,000.",
+    "peakMetric": "Block reward cut by 50%",
+    "outcome": "Reset issuance dynamics amid ETF-era demand",
+    "tags": [
+      "bitcoin",
+      "halving",
+      "issuance"
+    ],
+    "sources": [
+      {
+        "label": "Blockchain.com block 840000",
+        "url": "https://www.blockchain.com/explorer/blocks/btc/840000",
+        "publisher": "Blockchain.com",
+        "year": 2024
+      },
+      {
+        "label": "CoinDesk halving coverage",
+        "url": "https://www.coindesk.com/consensus-magazine/2024/04/20/bitcoin-halving-2024/",
+        "publisher": "CoinDesk",
+        "year": 2024
+      }
+    ]
+  },
+  {
+    "slug": "sec-approves-spot-eth-etfs",
+    "title": "SEC Approves Rule Changes for Spot Ether ETFs",
+    "type": "milestone",
+    "chain": "Ethereum",
+    "year": 2024,
+    "date": "2024-05-23",
+    "era": "pump-fun",
+    "status": "etf approval",
+    "summary": "The SEC approved key exchange rule changes required for U.S. spot Ether ETFs.",
+    "peakMetric": "U.S. spot ETH ETF pathway opened",
+    "outcome": "Established Ethereum’s next institutional market access channel",
+    "tags": [
+      "ethereum",
+      "etf",
+      "regulation"
+    ],
+    "sources": [
+      {
+        "label": "Reuters report",
+        "url": "https://www.reuters.com/world/us/us-sec-approves-rule-change-allowing-spot-ether-etfs-2024-05-23/",
+        "publisher": "Reuters",
+        "year": 2024
+      },
+      {
+        "label": "SEC rule filing",
+        "url": "https://www.sec.gov/files/rules/sro/nysearca/2024/34-100224.pdf",
+        "publisher": "U.S. SEC",
+        "year": 2024
+      }
+    ]
+  },
+  {
+    "slug": "dmm-bitcoin-hack",
+    "title": "DMM Bitcoin Reports Major Theft",
+    "type": "hack",
+    "chain": "CeFi",
+    "year": 2024,
+    "date": "2024-05-31",
+    "era": "pump-fun",
+    "status": "exchange breach",
+    "summary": "DMM Bitcoin disclosed one of Japan’s largest crypto exchange hacks, with substantial BTC losses.",
+    "peakMetric": "$300M+ equivalent stolen",
+    "outcome": "Exchange operations and reimbursements moved into emergency mode",
+    "tags": [
+      "exchange",
+      "security",
+      "cefi"
+    ],
+    "sources": [
+      {
+        "label": "Reuters report",
+        "url": "https://www.reuters.com/world/asia-pacific/japans-dmm-bitcoin-says-48-bln-bitcoin-lost-unauthorized-leak-2024-05-31/",
+        "publisher": "Reuters",
+        "year": 2024
+      },
+      {
+        "label": "DMM announcement",
+        "url": "https://bitcoin.dmm.com/news/20240531_01",
+        "publisher": "DMM Bitcoin",
+        "year": 2024
+      }
+    ]
+  },
+  {
+    "slug": "mt-gox-repayments-begin",
+    "title": "Mt. Gox Creditor Repayments Begin",
+    "type": "milestone",
+    "chain": "Bitcoin",
+    "year": 2024,
+    "date": "2024-07-05",
+    "era": "pump-fun",
+    "status": "estate distribution",
+    "summary": "Defunct exchange Mt. Gox began long-awaited repayments to creditors after years of legal process.",
+    "peakMetric": "Decade-long creditor process advances",
+    "outcome": "Reduced one of crypto’s largest legacy overhang narratives",
+    "tags": [
+      "exchange",
+      "bankruptcy",
+      "bitcoin"
+    ],
+    "sources": [
+      {
+        "label": "Reuters report",
+        "url": "https://www.reuters.com/world/asia-pacific/defunct-japanese-exchange-mt-gox-starts-repaying-bitcoin-creditors-2024-07-05/",
+        "publisher": "Reuters",
+        "year": 2024
+      },
+      {
+        "label": "Mt. Gox official site",
+        "url": "https://www.mtgox.com/",
+        "publisher": "Mt. Gox",
+        "year": 2024
+      }
+    ]
+  },
+  {
+    "slug": "spot-eth-etfs-launch-us",
+    "title": "U.S. Spot Ether ETFs Begin Trading",
+    "type": "milestone",
+    "chain": "Ethereum",
+    "year": 2024,
+    "date": "2024-07-23",
+    "era": "pump-fun",
+    "status": "etf launch",
+    "summary": "Spot Ether ETFs started trading in the U.S., extending the institutional ETF bridge beyond Bitcoin.",
+    "peakMetric": "Strong first-week institutional participation",
+    "outcome": "Broadened regulated access to ETH exposure",
+    "tags": [
+      "ethereum",
+      "etf",
+      "institutional"
+    ],
+    "sources": [
+      {
+        "label": "Reuters launch coverage",
+        "url": "https://www.reuters.com/world/us/spot-ether-etfs-see-107-million-net-inflows-trading-debut-2024-07-24/",
+        "publisher": "Reuters",
+        "year": 2024
+      },
+      {
+        "label": "iShares Ethereum Trust ETF",
+        "url": "https://www.ishares.com/us/products/333013/ishares-ethereum-trust-etf",
+        "publisher": "BlackRock iShares",
+        "year": 2024
+      }
+    ]
+  },
+  {
+    "slug": "ftx-repayment-plan-approved",
+    "title": "FTX Repayment Plan Approved",
+    "type": "milestone",
+    "chain": "CeFi",
+    "year": 2024,
+    "date": "2024-10-07",
+    "era": "pump-fun",
+    "status": "bankruptcy court approval",
+    "summary": "A U.S. bankruptcy judge approved FTX’s repayment plan, setting a formal path for creditor distributions.",
+    "peakMetric": "Major post-collapse recovery milestone",
+    "outcome": "Shifted focus from collapse narrative to claims execution",
+    "tags": [
+      "bankruptcy",
+      "cefi",
+      "recovery"
+    ],
+    "sources": [
+      {
+        "label": "Reuters report",
+        "url": "https://www.reuters.com/world/us/ftx-bankruptcy-judge-approves-liquidated-crypto-exchanges-repayment-plan-2024-10-07/",
+        "publisher": "Reuters",
+        "year": 2024
+      },
+      {
+        "label": "FTX restructuring docket",
+        "url": "https://cases.ra.kroll.com/FTX/",
+        "publisher": "Kroll",
+        "year": 2024
+      }
+    ]
   }
 ];
 
