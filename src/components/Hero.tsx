@@ -20,16 +20,14 @@ export function Hero({ stats }: HeroProps) {
     <section className="relative overflow-hidden">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(214,177,94,0.10),transparent_70%)]" aria-hidden="true" />
 
-      <div className="relative mx-auto flex max-w-6xl flex-col gap-7 px-4 pb-10 pt-8 sm:px-6 md:flex-row md:items-start md:gap-10 md:pt-12">
+      <div className="relative mx-auto flex max-w-6xl flex-col gap-7 px-4 pb-6 pt-8 sm:px-6 md:flex-row md:items-start md:gap-10 md:pt-12">
         <div className="flex-1 space-y-6">
           <p className="text-sm text-muted">Community-maintained crypto archive</p>
           <div className="space-y-4">
             <h1 className="font-display text-[1.95rem] font-bold leading-[1.08] text-fg sm:text-[2.6rem] md:text-[3.2rem]">
               History of the Trenches
             </h1>
-            <p className="max-w-lg text-base leading-relaxed text-muted sm:text-lg">
-              Every wave that brought people into crypto &mdash; sourced, preserved, and verified by the community.
-            </p>
+            <p className="max-w-lg text-base leading-relaxed text-muted sm:text-lg">Every wave that brought people into crypto, sourced, archived, and verified by the community.</p>
           </div>
 
           <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-muted">

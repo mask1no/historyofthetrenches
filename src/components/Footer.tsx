@@ -26,9 +26,8 @@ export function Footer() {
 
   return (
     <footer className="border-t border-border/40 bg-card dark:border-[color:var(--border-dark-soft)]">
-      <div className="mx-auto flex max-w-6xl flex-col gap-10 px-6 pt-12 pb-0">
-        <div className="relative overflow-hidden rounded-xl border border-border/40 bg-card p-6 shadow-subtle dark:border-[color:var(--border-dark-soft)] sm:p-8">
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(80%_80%_at_10%_10%,var(--footerGlow),transparent_60%)]" />
+      <div className="mx-auto flex max-w-6xl flex-col gap-10 px-6 pb-5 pt-12">
+        <div className="relative overflow-hidden rounded-xl border border-border/40 bg-card p-6 dark:border-[color:var(--border-dark-soft)] sm:p-8">
           <div className="relative flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <div className="space-y-2">
               <div className="font-display text-xl font-semibold text-fg sm:text-2xl">
@@ -47,27 +46,25 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="grid gap-4 sm:grid-cols-3">
+        <div className="grid items-stretch gap-4 md:grid-cols-3">
           {pillars.map((pillar) => (
             <div
               key={pillar.title}
-              className="flex h-full gap-3 rounded-xl border border-border/40 bg-card p-5 shadow-subtle dark:border-[color:var(--border-dark-soft)]"
+              className="flex h-full flex-col rounded-xl border border-border/40 bg-card p-5 dark:border-[color:var(--border-dark-soft)]"
             >
-              <pillar.icon className="mt-0.5 h-4 w-4 shrink-0 text-accentGold" aria-hidden="true" />
-              <div className="flex min-h-[100px] flex-col justify-between">
+              <div className="flex items-center gap-2">
+                <pillar.icon className="h-4 w-4 shrink-0 text-accentGold" aria-hidden="true" />
                 <div className="text-xs font-semibold uppercase tracking-[0.18em] text-fg">
                   {pillar.title}
                 </div>
-                <p className="mt-1.5 text-sm leading-relaxed text-muted">
-                  {pillar.text}
-                </p>
               </div>
+              <p className="mt-2.5 text-sm leading-relaxed text-muted">{pillar.text}</p>
             </div>
           ))}
         </div>
 
         <div className="grid gap-8 text-sm lg:grid-cols-12">
-          <div className="grid gap-8 sm:grid-cols-2 lg:col-span-7 lg:grid-cols-3">
+          <div className="grid gap-8 sm:grid-cols-2 lg:col-span-12 lg:grid-cols-3">
             <div className="space-y-3">
               <div className="text-xs font-semibold uppercase tracking-[0.2em] text-muted">
                 Explore
@@ -111,15 +108,6 @@ export function Footer() {
                 </Link>
               </div>
             </div>
-          </div>
-          <div className="rounded-xl border border-border/40 bg-card/70 p-4 dark:border-[color:var(--border-dark-soft)] lg:col-span-5">
-            <div className="text-xs font-semibold uppercase tracking-[0.2em] text-muted">
-              Notes
-            </div>
-            <p className="mt-2 text-sm leading-relaxed text-muted">
-              Built in public with a sources-first mindset. Archive pages preserve historical context;
-              community pages track active experiments so signal and narrative stay separated.
-            </p>
           </div>
         </div>
 

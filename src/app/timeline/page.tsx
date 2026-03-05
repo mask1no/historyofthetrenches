@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { EraTimeline } from "@/components/EraTimeline";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { TimelineScrollToHash } from "@/components/TimelineScrollToHash";
@@ -52,21 +51,6 @@ export default function TimelinePage() {
           </p>
         </div>
         <EraTimeline highlights={highlights} />
-
-        <div className="mt-8 flex flex-wrap items-center gap-4 text-sm">
-          <Link
-            href="/archive"
-            className="font-medium text-muted transition hover:text-fg hover:underline hover:decoration-accentGold hover:underline-offset-2"
-          >
-            Browse full Archive
-          </Link>
-          <Link
-            href="/kit"
-            className="font-medium text-muted transition hover:text-fg hover:underline hover:decoration-accentGold hover:underline-offset-2"
-          >
-            Explore the Kit
-          </Link>
-        </div>
       </section>
       <ScrollToTopButton />
     </main>

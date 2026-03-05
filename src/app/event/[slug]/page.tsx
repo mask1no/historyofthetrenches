@@ -11,6 +11,7 @@ import Link from "next/link";
 import { AccentText } from "@/components/AccentText";
 import { typeLabel, typeVariant } from "@/lib/eventType";
 import { compareEventDatesAsc, parseEventDate } from "@/lib/utils";
+import { hasUsableChartUrl } from "@/lib/events/chart";
 
 type EventPageProps = {
   params: { slug: string };
@@ -129,6 +130,7 @@ export default function EventPage({ params }: EventPageProps) {
     currentIndex >= 0 && currentIndex < sortedByDate.length - 1
       ? sortedByDate[currentIndex + 1]
       : undefined;
+  const chartUrl = hasUsableChartUrl(event.chartUrl, event.chartHidden) ? event.chartUrl : undefined;
 
   return (
     <main id="main-content" className="min-h-screen pb-16">
@@ -249,7 +251,7 @@ export default function EventPage({ params }: EventPageProps) {
           </div>
         )}
 
-        {event.chartUrl && (
+        {chartUrl && (
           <div className="mt-8">
             <Card>
               <CardHeader>
@@ -260,7 +262,7 @@ export default function EventPage({ params }: EventPageProps) {
               </CardHeader>
               <CardContent>
                 <Link
-                  href={event.chartUrl}
+                  href={chartUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-sm text-accentGold underline"

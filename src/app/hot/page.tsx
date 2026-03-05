@@ -6,6 +6,10 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { curatorWallets, hotLinks } from "@/data/hot";
 import { Coins, Wallet } from "lucide-react";
 
+const PHANTOM_BRAND_PURPLE = "#AB9FF2";
+// Source: Backpack official media kit SVG folder (Backpack Media Kit), extracted 2026-03-05.
+const BACKPACK_BRAND_RED = "#E33E3F";
+
 export const metadata: Metadata = {
   title: "$HOT | History of the Trenches",
   description: "Community diary for the $HOT experiment, with public wallets and transparent activity logs.",
@@ -45,11 +49,15 @@ export default function HotPage() {
             <CardHeader>
               <CardTitle>What $HOT is</CardTitle>
               <p className="text-sm text-muted">
-                A community-facing experiment. This page tracks activity in public while the archive
+                A community experiment. This page tracks activity in public while the archive
                 remains focused on historical records and sourced events.
               </p>
             </CardHeader>
             <CardContent className="space-y-3 text-sm text-muted">
+              <div className="rounded-xl border border-border bg-bg/70 p-4">
+                The archive will be continuously updated to record the next major crypto events as
+                they happen.
+              </div>
               <div className="rounded-xl border border-border bg-bg/70 p-4">
                 A portion of my savings each month goes toward buying the token, and a random amount
                 is burned as part of the same transparency cycle so both actions stay publicly
@@ -87,9 +95,9 @@ export default function HotPage() {
                   href="https://phantom.app"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 rounded-xl border border-border bg-bg/70 px-4 py-3 transition hover:border-accentGold"
+                  className="flex min-h-11 items-center gap-3 rounded-xl border border-border bg-bg/70 px-4 py-3 transition-colors hover:border-[color:#AB9FF2] hover:bg-[#AB9FF2]/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#AB9FF2]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
                 >
-                  <Wallet className="h-4 w-4 text-accentGold" />
+                  <Wallet className="h-4 w-4" style={{ color: PHANTOM_BRAND_PURPLE }} />
                   <div>
                     <div className="text-xs font-semibold uppercase text-muted">Wallet</div>
                     <div className="text-sm font-semibold text-fg">Phantom</div>
@@ -99,9 +107,9 @@ export default function HotPage() {
                   href="https://backpack.app"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 rounded-xl border border-border bg-bg/70 px-4 py-3 transition hover:border-accentGold"
+                  className="flex min-h-11 items-center gap-3 rounded-xl border border-border bg-bg/70 px-4 py-3 transition-colors hover:border-[color:#E33E3F] hover:bg-[#E33E3F]/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E33E3F]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
                 >
-                  <Wallet className="h-4 w-4 text-accentGold" />
+                  <Wallet className="h-4 w-4" style={{ color: BACKPACK_BRAND_RED }} />
                   <div>
                     <div className="text-xs font-semibold uppercase text-muted">Wallet</div>
                     <div className="text-sm font-semibold text-fg">Backpack</div>
@@ -227,7 +235,7 @@ export default function HotPage() {
                 </div>
                 <div className="rounded-xl border border-border bg-bg/70 p-4">
                   <div className="text-xs font-semibold uppercase text-muted">Public Wallet</div>
-                  <div className="mt-1 text-sm font-semibold text-fg">Community-facing ledger</div>
+                  <div className="mt-1 text-sm font-semibold text-fg">Community ledger</div>
                   <p className="mt-2 text-xs text-muted">
                     Used for routine buys and transparent community receipt posts.
                   </p>
@@ -266,13 +274,7 @@ export default function HotPage() {
                     </a>
                   </div>
                 ))
-              ) : (
-                <div>
-                  <div className="rounded-xl border border-border bg-bg/70 px-4 py-3 text-xs text-muted">
-                    Explorer links will appear here once each wallet address is published.
-                  </div>
-                </div>
-              )}
+              ) : null}
             </CardContent>
           </Card>
 
@@ -289,9 +291,8 @@ export default function HotPage() {
                 financial advice.
               </div>
               <div className="rounded-xl border border-border bg-bg/70 p-4">
-                This is a community-led, high-volatility experiment with transparent monthly buys and
-                randomized burns. Participation is optional and should only use risk capital you can
-                afford.
+                A community-built nostalgic project for degens and trenchers, preserving crypto
+                culture and history as it happens.
               </div>
             </CardContent>
           </Card>

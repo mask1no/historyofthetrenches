@@ -154,7 +154,7 @@ export function NavBar() {
           <Button
             variant="ghost"
             size="icon"
-            className="hidden border border-border bg-card/80 text-muted-foreground transition-colors duration-200 hover:border-accentGold/50 hover:text-fg md:inline-flex"
+            className="hidden border border-border bg-card/80 text-muted-foreground transition-colors duration-200 hover:border-[#D6B15E] hover:bg-[#D6B15E]/10 hover:text-fg focus-visible:ring-[#D6B15E]/60 md:inline-flex"
             aria-label="Toggle theme"
             onClick={toggleTheme}
           >

@@ -1,4 +1,5 @@
 import { events } from "@/data/events";
+import { eras } from "@/data/eras";
 import { compareEventDatesDesc } from "@/lib/utils";
 import type { Event, EventFilters, EventStats, Source } from "@/lib/events/schema";
 import { canonicalizeChain, canonicalizeChains } from "@/lib/events/taxonomy";
@@ -116,9 +117,11 @@ const isHighlightEligible = (event: Event) => getVerificationReasons(event).leng
 
 export const isVerificationPending = (event: Event) => getVerificationReasons(event).length > 0;
 
+const FEATURED_ERA_SLUGS = new Set(eras.flatMap((era) => era.featured.map((event) => event.slug)));
+
 export const getHighlights = (inputEvents: Event[]) =>
   inputEvents
-    .filter((event) => event.hallOfFame)
+    .filter((event) => event.hallOfFame || FEATURED_ERA_SLUGS.has(event.slug))
     .filter((event) => isHighlightEligible(event))
     .sort(compareEventDatesDesc);
 

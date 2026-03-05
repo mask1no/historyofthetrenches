@@ -6,28 +6,27 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { AccentText } from "@/components/AccentText";
 
-const rugOrder = [
+const FEATURED_RUGS = [
+  "openclaw-moltbook-incident",
   "terra-luna-collapse",
   "anubisdao-rugpull",
   "thodex-exit-scam",
-  "squid-game-token",
-  "safemoon-drain",
-  "meerkat-finance-rugpull"
-];
-const runnerOrder = [
-  "bitcoin-run-2017",
+  "squid-game-token"
+] as const;
+const FEATURED_RUNNERS = [
+  "trump-memecoin-launch",
   "solana-revival-run",
   "dogecoin-run",
   "shiba-inu-run",
   "pepe-memecoin"
-];
+] as const;
 
 const rugs = events
-  .filter((e) => (e.type === "rugpull" || e.type === "collapse") && e.hallOfFame && rugOrder.includes(e.slug))
-  .sort((a, b) => rugOrder.indexOf(a.slug) - rugOrder.indexOf(b.slug));
+  .filter((e) => (e.type === "rugpull" || e.type === "collapse") && FEATURED_RUGS.includes(e.slug as (typeof FEATURED_RUGS)[number]))
+  .sort((a, b) => FEATURED_RUGS.indexOf(a.slug as (typeof FEATURED_RUGS)[number]) - FEATURED_RUGS.indexOf(b.slug as (typeof FEATURED_RUGS)[number]));
 const runners = events
-  .filter((e) => e.type === "runner" && e.hallOfFame && runnerOrder.includes(e.slug))
-  .sort((a, b) => runnerOrder.indexOf(a.slug) - runnerOrder.indexOf(b.slug));
+  .filter((e) => e.type === "runner" && FEATURED_RUNNERS.includes(e.slug as (typeof FEATURED_RUNNERS)[number]))
+  .sort((a, b) => FEATURED_RUNNERS.indexOf(a.slug as (typeof FEATURED_RUNNERS)[number]) - FEATURED_RUNNERS.indexOf(b.slug as (typeof FEATURED_RUNNERS)[number]));
 
 export function BentoGrid() {
   return (

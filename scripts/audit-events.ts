@@ -1,6 +1,7 @@
 import { events } from "../src/data/events";
 import { normalizeSourceKind } from "../src/lib/events/sourceKind";
 import { isEnglishSourceUrl } from "../src/lib/events/sourceLanguage";
+import { hasUsableChartUrl } from "../src/lib/events/chart";
 
 type AuditIssue = {
   level: "error" | "warn";
@@ -144,6 +145,8 @@ events.forEach((event) => {
     addIssue("error", `Invalid chartUrl on ${event.slug}: "${event.chartUrl}".`);
   } else if (event.chartUrl?.startsWith("http://")) {
     addIssue("warn", `Chart URL should use https on ${event.slug}: "${event.chartUrl}".`);
+  } else if (event.chartUrl && !event.chartHidden && !hasUsableChartUrl(event.chartUrl, event.chartHidden)) {
+    addIssue("warn", `Chart URL appears unusable/placeholder on ${event.slug}: "${event.chartUrl}".`);
   }
   checkChartSymbol(event.slug, event.title, event.chain, event.chartUrl);
 

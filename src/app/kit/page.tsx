@@ -50,19 +50,19 @@ export default function KitPage() {
             you go deeper into web3.
           </p>
           <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-3 sm:gap-3">
-            <div className="rounded-xl border border-accentGold/20 bg-accentGold/5 px-4 py-3 text-sm dark:border-transparent">
+            <div className="rounded-xl border border-border bg-bg/70 p-4 text-sm">
               <div>
                 <div className="text-[11px] font-semibold tracking-[0.12em] text-accentGold">Principle</div>
                 <div className="mt-0.5 text-[15px] font-semibold text-fg sm:text-base">Don&apos;t trust, verify</div>
               </div>
             </div>
-            <div className="rounded-xl border border-accentGold/20 bg-accentGold/5 px-4 py-3 text-sm dark:border-transparent">
+            <div className="rounded-xl border border-border bg-bg/70 p-4 text-sm">
               <div>
                 <div className="text-[11px] font-semibold tracking-[0.12em] text-accentGold">Goal</div>
                 <div className="mt-0.5 text-[15px] font-semibold text-fg sm:text-base">Control is convenience</div>
               </div>
             </div>
-            <div className="rounded-xl border border-accentGold/20 bg-accentGold/5 px-4 py-3 text-sm dark:border-transparent">
+            <div className="rounded-xl border border-border bg-bg/70 p-4 text-sm">
               <div>
                 <div className="text-[11px] font-semibold tracking-[0.12em] text-accentGold">Signal</div>
                 <div className="mt-0.5 text-[15px] font-semibold text-fg sm:text-base">Not your keys, not your crypto</div>
@@ -77,54 +77,56 @@ export default function KitPage() {
               <CardTitle>Wallets</CardTitle>
               <p className="text-sm text-muted">Hot and cold setups for custody control.</p>
             </CardHeader>
-            <CardContent className="grid gap-3 text-[13px] text-muted md:grid-cols-2 link-underline">
-              <div className="rounded-lg border border-border bg-bg/60 p-3 transition-colors hover:border-accentGold/40 dark:bg-white/[0.02]">
-                <div className="font-semibold text-fg">
-                  <a href="https://sparrowwallet.com" target="_blank" rel="noopener noreferrer">
-                    Sparrow (BTC)
-                  </a>
+            <CardContent className="space-y-5 text-[13px] text-muted link-underline">
+              <div className="space-y-3">
+                <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted">Hot wallets</div>
+                <div className="grid gap-3 md:grid-cols-3">
+                  <div className="rounded-lg border border-border bg-bg/60 p-3 transition-colors hover:border-accentGold/40">
+                    <div className="font-semibold text-fg">
+                      <a href="https://phantom.app" target="_blank" rel="noopener noreferrer">
+                        Phantom (Solana)
+                      </a>
+                    </div>
+                    <p className="text-xs">Solana DeFi + NFT wallet.</p>
+                  </div>
+                  <div className="rounded-lg border border-border bg-bg/60 p-3 transition-colors hover:border-accentGold/40">
+                    <div className="font-semibold text-fg">
+                      <a href="https://metamask.io" target="_blank" rel="noopener noreferrer">
+                        MetaMask (EVM)
+                      </a>
+                    </div>
+                    <p className="text-xs">Default EVM wallet.</p>
+                  </div>
+                  <div className="rounded-lg border border-border bg-bg/60 p-3 transition-colors hover:border-accentGold/40">
+                    <div className="font-semibold text-fg">
+                      <a href="https://backpack.app" target="_blank" rel="noopener noreferrer">
+                        Backpack (Solana)
+                      </a>
+                    </div>
+                    <p className="text-xs">Solana wallet with exchange integration.</p>
+                  </div>
                 </div>
-                <p className="text-xs">PSBT + privacy tooling.</p>
               </div>
-              <div className="rounded-lg border border-border bg-bg/60 p-3 transition-colors hover:border-accentGold/40 dark:bg-white/[0.02]">
-                <div className="font-semibold text-fg">
-                  <a href="https://wasabiwallet.io" target="_blank" rel="noopener noreferrer">
-                    Wasabi (BTC)
-                  </a>
+              <div className="space-y-3">
+                <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted">Cold storage</div>
+                <div className="grid gap-3 md:grid-cols-2">
+                  <div className="rounded-lg border border-border bg-bg/60 p-3 transition-colors hover:border-accentGold/40">
+                    <div className="font-semibold text-fg">
+                      <a href="https://trezor.io" target="_blank" rel="noopener noreferrer">
+                        Trezor Safe
+                      </a>
+                    </div>
+                    <p className="text-xs">Open-source hardware wallet security.</p>
+                  </div>
+                  <div className="rounded-lg border border-border bg-bg/60 p-3 transition-colors hover:border-accentGold/40">
+                    <div className="font-semibold text-fg">
+                      <a href="https://coldcard.com" target="_blank" rel="noopener noreferrer">
+                        Coldcard Mk4
+                      </a>
+                    </div>
+                    <p className="text-xs">Bitcoin-only, air-gapped custody.</p>
+                  </div>
                 </div>
-                <p className="text-xs">CoinJoin + Tor support.</p>
-              </div>
-              <div className="rounded-lg border border-border bg-bg/60 p-3 transition-colors hover:border-accentGold/40 dark:bg-white/[0.02]">
-                <div className="font-semibold text-fg">
-                  <a href="https://phantom.app" target="_blank" rel="noopener noreferrer">
-                    Phantom (Solana)
-                  </a>
-                </div>
-                <p className="text-xs">Solana DeFi + NFT wallet.</p>
-              </div>
-              <div className="rounded-lg border border-border bg-bg/60 p-3 transition-colors hover:border-accentGold/40 dark:bg-white/[0.02]">
-                <div className="font-semibold text-fg">
-                  <a href="https://metamask.io" target="_blank" rel="noopener noreferrer">
-                    MetaMask (EVM)
-                  </a>
-                </div>
-                <p className="text-xs">Default EVM wallet.</p>
-              </div>
-              <div className="rounded-lg border border-border bg-bg/60 p-3 transition-colors hover:border-accentGold/40 dark:bg-white/[0.02]">
-                <div className="font-semibold text-fg">
-                  <a href="https://coldcard.com" target="_blank" rel="noopener noreferrer">
-                    Coldcard Mk4
-                  </a>
-                </div>
-                <p className="text-xs">Bitcoin-only, air-gapped.</p>
-              </div>
-              <div className="rounded-lg border border-border bg-bg/60 p-3 transition-colors hover:border-accentGold/40 dark:bg-white/[0.02]">
-                <div className="font-semibold text-fg">
-                  <a href="https://trezor.io" target="_blank" rel="noopener noreferrer">
-                    Trezor Safe
-                  </a>
-                </div>
-                <p className="text-xs">Open-source security.</p>
               </div>
             </CardContent>
           </Card>
@@ -134,66 +136,73 @@ export default function KitPage() {
               <CardTitle>On-Ramps</CardTitle>
               <p className="text-sm text-muted">KYC and non-KYC routes to get started safely.</p>
             </CardHeader>
-            <CardContent className="grid gap-3 text-[13px] text-muted md:grid-cols-2 link-underline">
-              <div className="rounded-lg border border-border bg-bg/60 p-3 transition-colors hover:border-accentGold/40 dark:bg-white/[0.02]">
-                <div className="font-semibold text-fg">
-                  <a href="https://www.kraken.com" target="_blank" rel="noopener noreferrer">
-                    Kraken
-                  </a>
+            <CardContent className="space-y-5 text-[13px] text-muted link-underline">
+              <div className="space-y-3">
+                <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted">KYC exchanges</div>
+                <div className="grid gap-3 md:grid-cols-2">
+                  <div className="rounded-lg border border-border bg-bg/60 p-3 transition-colors hover:border-accentGold/40">
+                    <div className="font-semibold text-fg">
+                      <a href="https://www.kraken.com" target="_blank" rel="noopener noreferrer">
+                        Kraken
+                      </a>
+                    </div>
+                    <p className="text-xs">Low fees with deep fiat rails.</p>
+                  </div>
+                  <div className="rounded-lg border border-border bg-bg/60 p-3 transition-colors hover:border-accentGold/40">
+                    <div className="font-semibold text-fg">
+                      <a href="https://www.coinbase.com/exchange" target="_blank" rel="noopener noreferrer">
+                        Coinbase Exchange
+                      </a>
+                    </div>
+                    <p className="text-xs">Beginner-friendly onboarding path.</p>
+                  </div>
                 </div>
-                <p className="text-xs">Low fees, advanced trading.</p>
               </div>
-              <div className="rounded-lg border border-border bg-bg/60 p-3 transition-colors hover:border-accentGold/40 dark:bg-white/[0.02]">
-                <div className="font-semibold text-fg">
-                  <a
-                    href="https://www.coinbase.com/exchange"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Coinbase Exchange
-                  </a>
+              <div className="space-y-3">
+                <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted">Non-KYC venues</div>
+                <div className="rounded-lg border border-border bg-bg/60 p-3 transition-colors hover:border-accentGold/40">
+                  <p className="text-xs">
+                    <a href="https://www.mexc.com" target="_blank" rel="noopener noreferrer">
+                      MEXC
+                    </a>
+                    ,{" "}
+                    <a href="https://www.bybit.com" target="_blank" rel="noopener noreferrer">
+                      Bybit
+                    </a>
+                  </p>
                 </div>
-                <p className="text-xs">Beginner on-ramp.</p>
               </div>
-              <div className="rounded-lg border border-border bg-bg/60 p-3 transition-colors hover:border-accentGold/40 dark:bg-white/[0.02] md:col-span-2">
-                <div className="font-semibold text-fg">Decentralized P2P</div>
-                <p className="text-xs">
-                  <a href="https://bisq.network" target="_blank" rel="noopener noreferrer">
-                    Bisq
-                  </a>
-                  ,{" "}
-                  <a href="https://hodlhodl.com" target="_blank" rel="noopener noreferrer">
-                    Hodl Hodl
-                  </a>
-                  ,{" "}
-                  <a href="https://robosats.com" target="_blank" rel="noopener noreferrer">
-                    RoboSats
-                  </a>
-                </p>
+              <div className="space-y-3">
+                <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted">Decentralized swaps</div>
+                <div className="rounded-lg border border-border bg-bg/60 p-3 transition-colors hover:border-accentGold/40">
+                  <p className="text-xs">
+                    <a href="https://app.uniswap.org" target="_blank" rel="noopener noreferrer">
+                      Uniswap
+                    </a>
+                    ,{" "}
+                    <a href="https://app.1inch.io" target="_blank" rel="noopener noreferrer">
+                      1inch
+                    </a>
+                  </p>
+                </div>
               </div>
-              <div className="rounded-lg border border-border bg-bg/60 p-3 transition-colors hover:border-accentGold/40 dark:bg-white/[0.02]">
-                <div className="font-semibold text-fg">Non-KYC exchanges</div>
-                <p className="text-xs">
-                  <a href="https://www.mexc.com" target="_blank" rel="noopener noreferrer">
-                    MEXC
-                  </a>
-                  ,{" "}
-                  <a href="https://www.bybit.com" target="_blank" rel="noopener noreferrer">
-                    Bybit
-                  </a>
-                </p>
-              </div>
-              <div className="rounded-lg border border-border bg-bg/60 p-3 transition-colors hover:border-accentGold/40 dark:bg-white/[0.02]">
-                <div className="font-semibold text-fg">Decentralized swaps</div>
-                <p className="text-xs">
-                  <a href="https://app.uniswap.org" target="_blank" rel="noopener noreferrer">
-                    Uniswap
-                  </a>
-                  ,{" "}
-                  <a href="https://app.1inch.io" target="_blank" rel="noopener noreferrer">
-                    1inch
-                  </a>
-                </p>
+              <div className="space-y-3">
+                <div className="text-xs font-semibold uppercase tracking-[0.18em] text-muted">P2P</div>
+                <div className="rounded-lg border border-border bg-bg/60 p-3 transition-colors hover:border-accentGold/40">
+                  <p className="text-xs">
+                    <a href="https://bisq.network" target="_blank" rel="noopener noreferrer">
+                      Bisq
+                    </a>
+                    ,{" "}
+                    <a href="https://hodlhodl.com" target="_blank" rel="noopener noreferrer">
+                      Hodl Hodl
+                    </a>
+                    ,{" "}
+                    <a href="https://robosats.com" target="_blank" rel="noopener noreferrer">
+                      RoboSats
+                    </a>
+                  </p>
+                </div>
               </div>
             </CardContent>
           </Card>
@@ -203,7 +212,7 @@ export default function KitPage() {
               <CardTitle>Contribute to the Network</CardTitle>
             </CardHeader>
             <CardContent className="grid gap-3 text-[13px] text-muted md:grid-cols-2 link-underline">
-              <div className="rounded-lg border border-border bg-bg/60 p-3 transition-colors hover:border-accentGold/40 dark:bg-white/[0.02]">
+              <div className="rounded-lg border border-border bg-bg/60 p-3 transition-colors hover:border-accentGold/40">
                 <div className="font-semibold text-fg">Run your own node</div>
                 <p className="text-xs">
                   <a href="https://bitcoincore.org" target="_blank" rel="noopener noreferrer">
@@ -219,17 +228,14 @@ export default function KitPage() {
                   </a>
                 </p>
               </div>
-              <div className="rounded-lg border border-border bg-bg/60 p-3 transition-colors hover:border-accentGold/40 dark:bg-white/[0.02]">
+              <div className="rounded-lg border border-border bg-bg/60 p-3 transition-colors hover:border-accentGold/40">
                 <div className="font-semibold text-fg">Self-hosted infra</div>
                 <p className="text-xs">
-                  Run RPCs to reduce dependency on centralized gateways with{" "}
-                  <a href="https://start9.com" target="_blank" rel="noopener noreferrer">
-                    Start9
-                  </a>
-                  .
+                  Run your own nodes to reduce dependency on centralized gateways (Start9, Umbrel,
+                  RaspiBlitz, myNode).
                 </p>
               </div>
-              <div className="rounded-lg border border-border bg-bg/60 p-3 transition-colors hover:border-accentGold/40 dark:bg-white/[0.02]">
+              <div className="rounded-lg border border-border bg-bg/60 p-3 transition-colors hover:border-accentGold/40">
                 <div className="font-semibold text-fg">Lightning</div>
                 <p className="text-xs">
                   <a href="https://umbrel.com" target="_blank" rel="noopener noreferrer">
@@ -241,7 +247,7 @@ export default function KitPage() {
                   </a>
                 </p>
               </div>
-              <div className="rounded-lg border border-border bg-bg/60 p-3 transition-colors hover:border-accentGold/40 dark:bg-white/[0.02]">
+              <div className="rounded-lg border border-border bg-bg/60 p-3 transition-colors hover:border-accentGold/40">
                 <div className="font-semibold text-fg">Monitoring</div>
                 <p className="text-xs">
                   <a href="https://uptimerobot.com" target="_blank" rel="noopener noreferrer">
@@ -262,7 +268,7 @@ export default function KitPage() {
             </CardHeader>
             <CardContent className="space-y-4 text-[13px] text-muted link-underline">
               <div className="grid gap-3 md:grid-cols-2">
-                <div className="rounded-lg border border-border bg-bg/60 p-3 transition-colors hover:border-accentGold/40 dark:bg-white/[0.02]">
+                <div className="rounded-lg border border-border bg-bg/60 p-3 transition-colors hover:border-accentGold/40">
                   <div className="font-semibold text-fg">Explorers</div>
                   <p className="text-xs">
                     <a href="https://etherscan.io" target="_blank" rel="noopener noreferrer">
@@ -278,7 +284,7 @@ export default function KitPage() {
                     </a>
                   </p>
                 </div>
-                <div className="rounded-lg border border-border bg-bg/60 p-3 transition-colors hover:border-accentGold/40 dark:bg-white/[0.02]">
+                <div className="rounded-lg border border-border bg-bg/60 p-3 transition-colors hover:border-accentGold/40">
                   <div className="font-semibold text-fg">Charts</div>
                   <p className="text-xs">
                     <a href="https://dexscreener.com" target="_blank" rel="noopener noreferrer">
@@ -294,7 +300,7 @@ export default function KitPage() {
                     </a>
                   </p>
                 </div>
-                <div className="rounded-lg border border-border bg-bg/60 p-3 transition-colors hover:border-accentGold/40 dark:bg-white/[0.02]">
+                <div className="rounded-lg border border-border bg-bg/60 p-3 transition-colors hover:border-accentGold/40">
                   <div className="font-semibold text-fg">Data</div>
                   <p className="text-xs">
                     <a href="https://www.coingecko.com" target="_blank" rel="noopener noreferrer">
@@ -310,7 +316,7 @@ export default function KitPage() {
                     </a>
                   </p>
                 </div>
-                <div className="rounded-lg border border-border bg-bg/60 p-3 transition-colors hover:border-accentGold/40 dark:bg-white/[0.02]">
+                <div className="rounded-lg border border-border bg-bg/60 p-3 transition-colors hover:border-accentGold/40">
                   <div className="font-semibold text-fg">Infrastructure</div>
                   <p className="text-xs">
                     <a href="https://www.alchemy.com" target="_blank" rel="noopener noreferrer">
@@ -332,37 +338,8 @@ export default function KitPage() {
                 </div>
               </div>
 
-              <div className="grid gap-3 md:grid-cols-3">
-                <div className="rounded-lg border border-border bg-bg/60 p-3 transition-colors hover:border-accentGold/40 dark:bg-white/[0.02]">
-                  <div className="mb-2 flex items-center gap-2 font-semibold text-fg">
-                    <Shield className="h-4 w-4 text-accentGold" />
-                    OpSec
-                  </div>
-                  <div className="text-sm text-muted">
-                    Know the trust model; every shortcut shifts your risk surface.
-                  </div>
-                </div>
-                <div className="rounded-lg border border-border bg-bg/60 p-3 transition-colors hover:border-accentGold/40 dark:bg-white/[0.02]">
-                  <div className="mb-2 flex items-center gap-2 font-semibold text-fg">
-                    <Server className="h-4 w-4 text-accentGold" />
-                    Layering
-                  </div>
-                  <div className="text-sm text-muted">
-                    Chain your moves: acquire → isolate → swap → cold storage.
-                  </div>
-                </div>
-                <div className="rounded-lg border border-border bg-bg/60 p-3 transition-colors hover:border-accentGold/40 dark:bg-white/[0.02]">
-                  <div className="mb-2 flex items-center gap-2 font-semibold text-fg">
-                    <Shield className="h-4 w-4 text-accentGold" />
-                    Hygiene
-                  </div>
-                  <div className="text-sm text-muted">
-                    Use your own node, coin control, and avoid KYC/non-KYC mixing.
-                  </div>
-                </div>
-              </div>
               <div className="grid gap-3 md:grid-cols-2">
-                <div className="rounded-lg border border-border bg-bg/60 p-3 transition-colors hover:border-accentGold/40 dark:bg-white/[0.02]">
+                <div className="rounded-lg border border-border bg-bg/60 p-3 transition-colors hover:border-accentGold/40">
                   <div className="font-semibold text-fg">CoinJoin (BTC)</div>
                   <p className="text-xs">
                     <a href="https://wasabiwallet.io" target="_blank" rel="noopener noreferrer">
@@ -386,7 +363,7 @@ export default function KitPage() {
                     </a>
                   </p>
                 </div>
-                <div className="rounded-lg border border-border bg-bg/60 p-3 transition-colors hover:border-accentGold/40 dark:bg-white/[0.02]">
+                <div className="rounded-lg border border-border bg-bg/60 p-3 transition-colors hover:border-accentGold/40">
                   <div className="font-semibold text-fg">Cross-Chain Privacy</div>
                   <p className="text-xs">
                     <a href="https://houdiniswap.com" target="_blank" rel="noopener noreferrer">
@@ -406,7 +383,7 @@ export default function KitPage() {
                     </a>
                   </p>
                 </div>
-                <div className="rounded-lg border border-border bg-bg/60 p-3 transition-colors hover:border-accentGold/40 dark:bg-white/[0.02]">
+                <div className="rounded-lg border border-border bg-bg/60 p-3 transition-colors hover:border-accentGold/40">
                   <div className="font-semibold text-fg">Research & Intel</div>
                   <p className="text-xs">
                     <a href="https://www.nansen.ai" target="_blank" rel="noopener noreferrer">
@@ -422,7 +399,7 @@ export default function KitPage() {
                     </a>
                   </p>
                 </div>
-                <div className="rounded-lg border border-border bg-bg/60 p-3 transition-colors hover:border-accentGold/40 dark:bg-white/[0.02]">
+                <div className="rounded-lg border border-border bg-bg/60 p-3 transition-colors hover:border-accentGold/40">
                   <div className="font-semibold text-fg">Security & Audit</div>
                   <p className="text-xs">
                     <a href="https://revoke.cash" target="_blank" rel="noopener noreferrer">
@@ -437,6 +414,36 @@ export default function KitPage() {
                       GoPlus
                     </a>
                   </p>
+                </div>
+              </div>
+
+              <div className="grid gap-3 md:grid-cols-3">
+                <div className="rounded-lg border border-border bg-bg/60 p-3 transition-colors hover:border-accentGold/40">
+                  <div className="mb-2 flex items-center gap-2 font-semibold text-fg">
+                    <Shield className="h-4 w-4 text-accentGold" />
+                    OpSec
+                  </div>
+                  <div className="text-sm text-muted">
+                    Know the trust model; every shortcut shifts your risk surface.
+                  </div>
+                </div>
+                <div className="rounded-lg border border-border bg-bg/60 p-3 transition-colors hover:border-accentGold/40">
+                  <div className="mb-2 flex items-center gap-2 font-semibold text-fg">
+                    <Server className="h-4 w-4 text-accentGold" />
+                    Layering
+                  </div>
+                  <div className="text-sm text-muted">
+                    Chain your moves: acquire to isolate, swap, then cold storage.
+                  </div>
+                </div>
+                <div className="rounded-lg border border-border bg-bg/60 p-3 transition-colors hover:border-accentGold/40">
+                  <div className="mb-2 flex items-center gap-2 font-semibold text-fg">
+                    <Shield className="h-4 w-4 text-accentGold" />
+                    Hygiene
+                  </div>
+                  <div className="text-sm text-muted">
+                    Use your own node, coin control, and avoid KYC/non-KYC mixing.
+                  </div>
                 </div>
               </div>
             </CardContent>

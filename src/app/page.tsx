@@ -9,8 +9,8 @@ export default function HomePage() {
   return (
     <main id="main-content" className="min-h-screen pb-24">
       <Hero stats={stats} />
-      <FadeIn className="mx-auto max-w-6xl px-6 pb-10">
-        <div className="mb-4 max-w-2xl space-y-2 sm:mb-6">
+      <FadeIn className="mx-auto max-w-6xl px-6 pb-8">
+        <div className="mb-3 max-w-2xl space-y-2 sm:mb-5">
           <h2 className="font-display text-2xl font-semibold sm:text-3xl">
             Markets forget. <span className="whitespace-nowrap">Communities don&apos;t.</span>
           </h2>

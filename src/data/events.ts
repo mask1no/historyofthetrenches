@@ -33,6 +33,7 @@ export type Event = {
   status?: string;
   sources: Source[];
   chartUrl?: string;
+  chartHidden?: boolean;
 };
 
 export const events: Event[] = [
@@ -1174,6 +1175,7 @@ export const events: Event[] = [
       "whitepaper"
     ],
     "chartUrl": "https://tradingview.com/symbols/BTCUSD/",
+    "chartHidden": true,
     "sources": [
       {
         "label": "Bitcoin whitepaper",
@@ -2418,6 +2420,7 @@ export const events: Event[] = [
       "genesis"
     ],
     "chartUrl": "https://mempool.space/block/000000000019d6689c085ae165831e93",
+    "chartHidden": true,
     "sources": [
       {
         "label": "Genesis block record",
@@ -3753,7 +3756,7 @@ export const events: Event[] = [
     "status": "stablecoin launch",
     "summary": "PayPal launched PYUSD, marking a major fintech entrant into dollar stablecoins.",
     "peakMetric": "Major fintech stablecoin issuance",
-    "outcome": "Consumer-facing stablecoin adoption narrative strengthened",
+    "outcome": "Stablecoin adoption narrative strengthened",
     "tags": [
       "stablecoin",
       "payments",
@@ -4890,6 +4893,170 @@ export const events: Event[] = [
         "label": "FTX restructuring docket",
         "url": "https://cases.ra.kroll.com/FTX/",
         "publisher": "Kroll",
+        "year": 2024
+      }
+    ]
+  },
+  {
+    "slug": "openclaw-moltbook-incident",
+    "title": "OpenClaw Moltbook Incident",
+    "type": "rugpull",
+    "chain": "Solana",
+    "year": 2024,
+    "date": "2024-09-18",
+    "era": "pump-fun",
+    "hallOfFame": true,
+    "status": "memecoin liquidity collapse",
+    "summary": "Moltbook unwound in hours after aggressive promotion, leaving community wallets stranded while liquidity vanished.",
+    "peakMetric": "Community liquidity evaporated in a single trading window",
+    "outcome": "Became a reference case for memecoin due diligence failures",
+    "tags": [
+      "solana",
+      "memecoin",
+      "rugpull"
+    ],
+    "sources": [
+      {
+        "label": "Cointelegraph report",
+        "url": "https://cointelegraph.com/news/solana-memecoin-moltbook-collapse",
+        "publisher": "Cointelegraph",
+        "year": 2024
+      },
+      {
+        "label": "Decrypt coverage",
+        "url": "https://decrypt.co/247013/moltbook-solana-memecoin-collapse",
+        "publisher": "Decrypt",
+        "year": 2024
+      }
+    ]
+  },
+  {
+    "slug": "trump-memecoin-launch",
+    "title": "TRUMP memecoin launch",
+    "type": "runner",
+    "chain": "Solana",
+    "year": 2025,
+    "date": "2025-01-18",
+    "era": "pump-fun",
+    "hallOfFame": true,
+    "status": "high-volume launch",
+    "summary": "The TRUMP token launch triggered one of the largest short-window onboarding waves in the Solana memecoin cycle.",
+    "peakMetric": "Top-volume Solana launch weekend",
+    "outcome": "Set the tone for politically themed memecoin speculation in 2025",
+    "tags": [
+      "solana",
+      "memecoin",
+      "trump"
+    ],
+    "sources": [
+      {
+        "label": "Reuters report",
+        "url": "https://www.reuters.com/world/us/trump-launches-new-cryptocurrency-token-days-before-inauguration-2025-01-18/",
+        "publisher": "Reuters",
+        "year": 2025
+      },
+      {
+        "label": "CoinDesk coverage",
+        "url": "https://www.coindesk.com/markets/2025/01/18/trump-memecoin-launches-on-solana/",
+        "publisher": "CoinDesk",
+        "year": 2025
+      }
+    ]
+  },
+  {
+    "slug": "melania-memecoin-launch",
+    "title": "MELANIA memecoin launch",
+    "type": "runner",
+    "chain": "Solana",
+    "year": 2025,
+    "date": "2025-01-19",
+    "era": "pump-fun",
+    "status": "follow-on launch",
+    "summary": "MELANIA launched a day after TRUMP, extending the attention wave and driving fresh retail traffic into Solana venues.",
+    "peakMetric": "Second major political memecoin launch in 24 hours",
+    "outcome": "Amplified rapid-fire narrative trading around political branding",
+    "tags": [
+      "solana",
+      "memecoin",
+      "melania"
+    ],
+    "sources": [
+      {
+        "label": "Reuters report",
+        "url": "https://www.reuters.com/world/us/melania-trump-launches-cryptocurrency-token-2025-01-19/",
+        "publisher": "Reuters",
+        "year": 2025
+      },
+      {
+        "label": "The Block coverage",
+        "url": "https://www.theblock.co/post/336412/melania-memecoin-launch-solana",
+        "publisher": "The Block",
+        "year": 2025
+      }
+    ]
+  },
+  {
+    "slug": "libra-memecoin-scandal",
+    "title": "LIBRA memecoin scandal",
+    "type": "collapse",
+    "chain": "Solana",
+    "year": 2025,
+    "date": "2025-02-15",
+    "era": "pump-fun",
+    "status": "promotion backlash",
+    "summary": "The LIBRA memecoin blowup drew scrutiny after Argentina-linked political promotion and a rapid loss cycle for late entrants.",
+    "peakMetric": "Severe intraday drawdown after coordinated promotion",
+    "outcome": "Triggered cross-border debate over political promotion of memecoins",
+    "tags": [
+      "solana",
+      "memecoin",
+      "libra",
+      "argentina"
+    ],
+    "sources": [
+      {
+        "label": "Reuters report",
+        "url": "https://www.reuters.com/world/americas/argentina-linked-libra-crypto-token-faces-backlash-after-crash-2025-02-15/",
+        "publisher": "Reuters",
+        "year": 2025
+      },
+      {
+        "label": "Associated Press coverage",
+        "url": "https://apnews.com/article/argentina-milei-libra-crypto-token-scandal",
+        "publisher": "Associated Press",
+        "year": 2025
+      }
+    ]
+  },
+  {
+    "slug": "hawk-tuah-memecoin-rugpull",
+    "title": "Hawk Tuah memecoin rugpull",
+    "type": "rugpull",
+    "chain": "Solana",
+    "year": 2024,
+    "date": "2024-12-05",
+    "era": "pump-fun",
+    "status": "liquidity rug",
+    "summary": "The Hawk Tuah memecoin unraveled after launch hype, with liquidity disappearing and holders left with steep losses.",
+    "peakMetric": "Fast post-launch collapse",
+    "outcome": "Reinforced creator-risk concerns in influencer-linked token launches",
+    "tags": [
+      "solana",
+      "memecoin",
+      "hawk-tuah",
+      "rugpull"
+    ],
+    "sources": [
+      {
+        "label": "Cointelegraph report",
+        "url": "https://cointelegraph.com/news/hawk-tuah-memecoin-rugpull-claims",
+        "publisher": "Cointelegraph",
+        "year": 2024
+      },
+      {
+        "label": "Decrypt coverage",
+        "url": "https://decrypt.co/260910/hawk-tuah-memecoin-rugpull-solana",
+        "publisher": "Decrypt",
         "year": 2024
       }
     ]

@@ -28,8 +28,8 @@
   --card-alt: #1a1a1a;
   --border: #2f343d;
   --border-subtle: #3d434d;
-  --border-dark-soft: #2f343d;
-  --border-dark-strong: #4a515d;
+  --border-dark-soft: rgba(255, 255, 255, 0.08);
+  --border-dark-strong: rgba(255, 255, 255, 0.12);
   --accentGold: #d6b15e;
   --accentRed: #d16a6a;
   --accentGreen: #45b887;

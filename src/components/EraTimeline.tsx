@@ -111,9 +111,6 @@ export function EraTimeline({ highlights }: EraTimelineProps) {
           })}
         </div>
       </div>
-      <p className="text-sm text-muted">
-        Eras are maintained by the community; submit edits via the archive with sources.
-      </p>
     </section>
   );
 }

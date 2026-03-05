@@ -20,7 +20,7 @@ const presets: AccentPreset[] = [
     gradient: "linear-gradient(135deg, #a78bfa, #7c3aed)"
   },
   { id: "sky", label: "Sky", color: "#0ea5e9" },
-  { id: "rose", label: "Rose", color: "#e11d48" },
+  { id: "pink", label: "Pink", color: "#EC4899" },
   { id: "tangerine", label: "Tangerine", color: "#f97316" },
   { id: "emerald", label: "Emerald", color: "#059669" },
   { id: "electric", label: "Electric", color: "#3b82f6" },
@@ -116,7 +116,7 @@ export function AccentPicker() {
       <Button
         variant="ghost"
         size="icon"
-        className="hidden border border-border bg-card/80 text-muted-foreground transition-colors duration-200 hover:border-accentGold/50 hover:text-fg md:inline-flex"
+        className="hidden border border-border bg-card/80 text-muted-foreground transition-colors duration-200 hover:border-[#D6B15E] hover:bg-[#D6B15E]/10 hover:text-fg focus-visible:ring-[#D6B15E]/60 md:inline-flex"
         aria-label="Change data accent color"
         aria-haspopup="true"
         aria-expanded={open}
