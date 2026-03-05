@@ -71,21 +71,21 @@ export function Hero({ stats }: HeroProps) {
             </span>
           </div>
           <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2 sm:gap-3">
-            <div className="rounded-lg border border-border/70 bg-bg/55 p-3 sm:col-span-2">
+            <div className="rounded-lg border border-border bg-bg/55 p-3 dark:border-[color:var(--border-dark-soft)] dark:bg-card-alt/55 sm:col-span-2">
               <div className="text-[11px] text-muted">Years covered</div>
               <AccentText className="mt-1 text-base">
                 {earliestYear && latestYear ? `${earliestYear} - ${latestYear}` : "Unknown"}
               </AccentText>
             </div>
-            <div className="rounded-lg border border-border/70 bg-bg/55 p-3">
+            <div className="rounded-lg border border-border bg-bg/55 p-3 dark:border-[color:var(--border-dark-soft)] dark:bg-card-alt/55">
               <div className="text-[11px] text-muted">Events</div>
               <AccentText className="mt-1 text-lg">{totalEvents}</AccentText>
             </div>
-            <div className="rounded-lg border border-border/70 bg-bg/55 p-3">
+            <div className="rounded-lg border border-border bg-bg/55 p-3 dark:border-[color:var(--border-dark-soft)] dark:bg-card-alt/55">
               <div className="text-[11px] text-muted">Sources</div>
               <AccentText className="mt-1 text-lg">{sourcesCount}</AccentText>
             </div>
-            <div className="rounded-lg border border-border/70 bg-bg/55 p-3 sm:col-span-2">
+            <div className="rounded-lg border border-border bg-bg/55 p-3 dark:border-[color:var(--border-dark-soft)] dark:bg-card-alt/55 sm:col-span-2">
               <div className="text-[11px] text-muted">Latest entry</div>
               <AccentText as="time" className="mt-1 text-sm">
                 {latestEventDate}
