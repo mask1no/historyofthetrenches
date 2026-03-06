@@ -96,11 +96,13 @@ export const events: Event[] = [
         "kind": "secondary"
       },
       {
-        "label": "Mt. Gox Files for Bankruptcy Protection in Japan",
-        "url": "https://www.reuters.com/article/us-bitcoin-mtgox-idUSBREA1R03H20140228/",
-        "publisher": "Reuters",
+        "label": "Archived snapshot: Mt. Gox Files for Bankruptcy Protection in Japan",
+        "url": "https://web.archive.org/web/*/https://www.reuters.com/article/us-bitcoin-mtgox-idUSBREA1R03H20140228/",
+        "publisher": "Internet Archive",
         "year": 2014,
-        "kind": "secondary"
+        "kind": "secondary",
+        "archivedUrl": "https://www.reuters.com/article/us-bitcoin-mtgox-idUSBREA1R03H20140228/",
+        "dateAccessed": "2026-03-06"
       }
     ]
   },
@@ -706,11 +708,13 @@ export const events: Event[] = [
     "chartUrl": "https://tradingview.com/symbols/COIN/",
     "sources": [
       {
-        "label": "Coinbase gets all-clear from SEC, setting stage for landmark crypto listing",
-        "url": "https://www.reuters.com/technology/coinbase-gets-green-light-sec-direct-listing-nasdaq-2021-04-01/",
-        "publisher": "Reuters",
+        "label": "Archived snapshot: Coinbase gets all-clear from SEC, setting stage for landmark crypto listing",
+        "url": "https://web.archive.org/web/*/https://www.reuters.com/technology/coinbase-gets-green-light-sec-direct-listing-nasdaq-2021-04-01/",
+        "publisher": "Internet Archive",
         "year": 2021,
-        "kind": "secondary"
+        "kind": "secondary",
+        "archivedUrl": "https://www.reuters.com/technology/coinbase-gets-green-light-sec-direct-listing-nasdaq-2021-04-01/",
+        "dateAccessed": "2026-03-06"
       },
       {
         "label": "Coinbase NASDAQ Listing (Wikipedia)",
@@ -773,11 +777,13 @@ export const events: Event[] = [
     "chartUrl": "https://tradingview.com/symbols/DOGEUSD/",
     "sources": [
       {
-        "label": "Dogecoin surges to record high, up almost 300% in a week",
-        "url": "https://www.reuters.com/technology/dogecoin-surges-record-high-up-almost-300-week-2021-04-16/",
-        "publisher": "Reuters",
+        "label": "Archived snapshot: Dogecoin surges to record high, up almost 300% in a week",
+        "url": "https://web.archive.org/web/*/https://www.reuters.com/technology/dogecoin-surges-record-high-up-almost-300-week-2021-04-16/",
+        "publisher": "Internet Archive",
         "year": 2021,
-        "kind": "secondary"
+        "kind": "secondary",
+        "archivedUrl": "https://www.reuters.com/technology/dogecoin-surges-record-high-up-almost-300-week-2021-04-16/",
+        "dateAccessed": "2026-03-06"
       },
       {
         "label": "Dogecoin Meme Run (Wikipedia)",
@@ -881,11 +887,13 @@ export const events: Event[] = [
     "chartUrl": "https://coinmarketcap.com/exchanges/thodex/",
     "sources": [
       {
-        "label": "Police search cryptocurrency trading firm after Turks say they were scammed",
-        "url": "https://www.reuters.com/world/middle-east/turkish-crypto-traders-file-complaints-after-access-accounts-frozen-lawyer-2021-04-22/",
-        "publisher": "Reuters",
+        "label": "Archived snapshot: Police search cryptocurrency trading firm after Turks say they were scammed",
+        "url": "https://web.archive.org/web/*/https://www.reuters.com/world/middle-east/turkish-crypto-traders-file-complaints-after-access-accounts-frozen-lawyer-2021-04-22/",
+        "publisher": "Internet Archive",
         "year": 2021,
-        "kind": "secondary"
+        "kind": "secondary",
+        "archivedUrl": "https://www.reuters.com/world/middle-east/turkish-crypto-traders-file-complaints-after-access-accounts-frozen-lawyer-2021-04-22/",
+        "dateAccessed": "2026-03-06"
       },
       {
         "label": "Thodex Exchange Exit Scam (Wikipedia)",
@@ -1059,7 +1067,7 @@ export const events: Event[] = [
       "launchpad",
       "meme"
     ],
-    "chartUrl": "https://dexscreener.com/solana",
+    "chartUrl": "https://web.archive.org/web/*/https://dexscreener.com/solana",
     "sources": [
       {
         "label": "Pump.Fun: Solana's Memecoin Juggernaut",
@@ -1095,11 +1103,13 @@ export const events: Event[] = [
     "chartUrl": "https://tradingview.com/symbols/BTCUSD/",
     "sources": [
       {
-        "label": "US SEC approves bitcoin ETFs in watershed for crypto market",
-        "url": "https://www.reuters.com/technology/bitcoin-etf-hopefuls-still-expect-sec-approval-despite-social-media-hack-2024-01-10/",
-        "publisher": "Reuters",
+        "label": "Archived snapshot: US SEC approves bitcoin ETFs in watershed for crypto market",
+        "url": "https://web.archive.org/web/*/https://www.reuters.com/technology/bitcoin-etf-hopefuls-still-expect-sec-approval-despite-social-media-hack-2024-01-10/",
+        "publisher": "Internet Archive",
         "year": 2024,
-        "kind": "secondary"
+        "kind": "secondary",
+        "archivedUrl": "https://www.reuters.com/technology/bitcoin-etf-hopefuls-still-expect-sec-approval-despite-social-media-hack-2024-01-10/",
+        "dateAccessed": "2026-03-06"
       },
       {
         "label": "Archived snapshot: Bitcoin Spot ETF Approvals (Wikipedia)",
@@ -1139,11 +1149,13 @@ export const events: Event[] = [
         "kind": "secondary"
       },
       {
-        "label": "SEC charges SafeMoon executives",
-        "url": "https://www.sec.gov/newsroom/press-releases/2023-229",
-        "publisher": "U.S. SEC",
+        "label": "Archived snapshot: SEC charges SafeMoon executives",
+        "url": "https://web.archive.org/web/*/https://www.sec.gov/newsroom/press-releases/2023-229",
+        "publisher": "Internet Archive",
         "year": 2023,
-        "kind": "primary"
+        "kind": "primary",
+        "dateAccessed": "2026-03-06",
+        "archivedUrl": "https://www.sec.gov/newsroom/press-releases/2023-229"
       }
     ]
   },
@@ -1175,11 +1187,13 @@ export const events: Event[] = [
         "dateAccessed": "2026-03-06"
       },
       {
-        "label": "Binance Smart Chain project Meerkat vanishes",
-        "url": "https://www.theblock.co/post/97032/binance-smart-chain-project-meerkat-finance-disappears-with-31-million",
-        "publisher": "The Block",
+        "label": "Archived snapshot: Binance Smart Chain project Meerkat vanishes",
+        "url": "https://web.archive.org/web/*/https://www.theblock.co/post/97032/binance-smart-chain-project-meerkat-finance-disappears-with-31-million",
+        "publisher": "Internet Archive",
         "year": 2021,
-        "kind": "secondary"
+        "kind": "secondary",
+        "archivedUrl": "https://www.theblock.co/post/97032/binance-smart-chain-project-meerkat-finance-disappears-with-31-million",
+        "dateAccessed": "2026-03-06"
       }
     ]
   },
@@ -2255,11 +2269,13 @@ export const events: Event[] = [
     "chartUrl": "https://tradingview.com/symbols/BTCUSD/",
     "sources": [
       {
-        "label": "In a world first, El Salvador makes bitcoin legal tender",
-        "url": "https://www.reuters.com/world/americas/el-salvador-approves-first-law-bitcoin-legal-tender-2021-06-09/",
-        "publisher": "Reuters",
+        "label": "Archived snapshot: In a world first, El Salvador makes bitcoin legal tender",
+        "url": "https://web.archive.org/web/*/https://www.reuters.com/world/americas/el-salvador-approves-first-law-bitcoin-legal-tender-2021-06-09/",
+        "publisher": "Internet Archive",
         "year": 2021,
-        "kind": "secondary"
+        "kind": "secondary",
+        "archivedUrl": "https://www.reuters.com/world/americas/el-salvador-approves-first-law-bitcoin-legal-tender-2021-06-09/",
+        "dateAccessed": "2026-03-06"
       },
       {
         "label": "El Salvador Adopts Bitcoin as Legal Tender (Wikipedia)",
@@ -2286,11 +2302,13 @@ export const events: Event[] = [
     "chartUrl": "https://tradingview.com/symbols/BTCUSD/",
     "sources": [
       {
-        "label": "China's top regulators ban crypto trading and mining, sending bitcoin tumbling",
-        "url": "https://www.reuters.com/world/china/china-central-bank-vows-crackdown-cryptocurrency-trading-2021-09-24/",
-        "publisher": "Reuters",
+        "label": "Archived snapshot: China's top regulators ban crypto trading and mining, sending bitcoin tumbling",
+        "url": "https://web.archive.org/web/*/https://www.reuters.com/world/china/china-central-bank-vows-crackdown-cryptocurrency-trading-2021-09-24/",
+        "publisher": "Internet Archive",
         "year": 2021,
-        "kind": "secondary"
+        "kind": "secondary",
+        "archivedUrl": "https://www.reuters.com/world/china/china-central-bank-vows-crackdown-cryptocurrency-trading-2021-09-24/",
+        "dateAccessed": "2026-03-06"
       },
       {
         "label": "Archived snapshot: China Mining Ban Escalates (Wikipedia)",
@@ -3634,10 +3652,13 @@ export const events: Event[] = [
     ],
     "sources": [
       {
-        "label": "Reuters report",
-        "url": "https://www.reuters.com/article/us-newzealand-cryptocurrency-idUSKCN1P90C7",
-        "publisher": "Reuters",
-        "year": 2019
+        "label": "Archived snapshot: Reuters report",
+        "url": "https://web.archive.org/web/*/https://www.reuters.com/article/us-newzealand-cryptocurrency-idUSKCN1P90C7",
+        "publisher": "Internet Archive",
+        "year": 2019,
+        "archivedUrl": "https://www.reuters.com/article/us-newzealand-cryptocurrency-idUSKCN1P90C7",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       },
       {
         "label": "Archived snapshot: CoinDesk report",
@@ -3678,10 +3699,13 @@ export const events: Event[] = [
         "dateAccessed": "2026-03-06"
       },
       {
-        "label": "Reuters report",
-        "url": "https://www.reuters.com/article/us-upbit-hack-idUSKBN1Y10V6",
-        "publisher": "Reuters",
-        "year": 2019
+        "label": "Archived snapshot: Reuters report",
+        "url": "https://web.archive.org/web/*/https://www.reuters.com/article/us-upbit-hack-idUSKBN1Y10V6",
+        "publisher": "Internet Archive",
+        "year": 2019,
+        "archivedUrl": "https://www.reuters.com/article/us-upbit-hack-idUSKBN1Y10V6",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       }
     ]
   },
@@ -3713,10 +3737,13 @@ export const events: Event[] = [
         "dateAccessed": "2026-03-06"
       },
       {
-        "label": "The Block report",
-        "url": "https://www.theblock.co/post/56123/bzx-flash-loan-attack",
-        "publisher": "The Block",
-        "year": 2020
+        "label": "Archived snapshot: The Block report",
+        "url": "https://web.archive.org/web/*/https://www.theblock.co/post/56123/bzx-flash-loan-attack",
+        "publisher": "Internet Archive",
+        "year": 2020,
+        "archivedUrl": "https://www.theblock.co/post/56123/bzx-flash-loan-attack",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       }
     ]
   },
@@ -3853,10 +3880,13 @@ export const events: Event[] = [
         "dateAccessed": "2026-03-06"
       },
       {
-        "label": "The Block report",
-        "url": "https://www.theblock.co/post/142456/beanstalk-exploit",
-        "publisher": "The Block",
-        "year": 2022
+        "label": "Archived snapshot: The Block report",
+        "url": "https://web.archive.org/web/*/https://www.theblock.co/post/142456/beanstalk-exploit",
+        "publisher": "Internet Archive",
+        "year": 2022,
+        "archivedUrl": "https://www.theblock.co/post/142456/beanstalk-exploit",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       }
     ]
   },
@@ -3888,10 +3918,13 @@ export const events: Event[] = [
         "dateAccessed": "2026-03-06"
       },
       {
-        "label": "Reuters report",
-        "url": "https://www.reuters.com/technology/harmony-hack-2022-06-23/",
-        "publisher": "Reuters",
-        "year": 2022
+        "label": "Archived snapshot: Reuters report",
+        "url": "https://web.archive.org/web/*/https://www.reuters.com/technology/harmony-hack-2022-06-23/",
+        "publisher": "Internet Archive",
+        "year": 2022,
+        "archivedUrl": "https://www.reuters.com/technology/harmony-hack-2022-06-23/",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       }
     ]
   },
@@ -3923,10 +3956,13 @@ export const events: Event[] = [
         "dateAccessed": "2026-03-06"
       },
       {
-        "label": "The Block report",
-        "url": "https://www.theblock.co/post/162345/solana-slope-wallet-exploit",
-        "publisher": "The Block",
-        "year": 2022
+        "label": "Archived snapshot: The Block report",
+        "url": "https://web.archive.org/web/*/https://www.theblock.co/post/162345/solana-slope-wallet-exploit",
+        "publisher": "Internet Archive",
+        "year": 2022,
+        "archivedUrl": "https://www.theblock.co/post/162345/solana-slope-wallet-exploit",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       }
     ]
   },
@@ -3993,10 +4029,13 @@ export const events: Event[] = [
         "year": 2023
       },
       {
-        "label": "Reuters report",
-        "url": "https://www.reuters.com/business/finance/silvergate-bank-wind-down-2023-03-08/",
-        "publisher": "Reuters",
-        "year": 2023
+        "label": "Archived snapshot: Reuters report",
+        "url": "https://web.archive.org/web/*/https://www.reuters.com/business/finance/silvergate-bank-wind-down-2023-03-08/",
+        "publisher": "Internet Archive",
+        "year": 2023,
+        "archivedUrl": "https://www.reuters.com/business/finance/silvergate-bank-wind-down-2023-03-08/",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       }
     ]
   },
@@ -4028,10 +4067,13 @@ export const events: Event[] = [
         "dateAccessed": "2026-03-06"
       },
       {
-        "label": "The Block report",
-        "url": "https://www.theblock.co/post/234567/atomic-wallet-hack",
-        "publisher": "The Block",
-        "year": 2023
+        "label": "Archived snapshot: The Block report",
+        "url": "https://web.archive.org/web/*/https://www.theblock.co/post/234567/atomic-wallet-hack",
+        "publisher": "Internet Archive",
+        "year": 2023,
+        "archivedUrl": "https://www.theblock.co/post/234567/atomic-wallet-hack",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       }
     ]
   },
@@ -4063,10 +4105,13 @@ export const events: Event[] = [
         "dateAccessed": "2026-03-06"
       },
       {
-        "label": "The Block report",
-        "url": "https://www.theblock.co/post/241111/multichain-hack",
-        "publisher": "The Block",
-        "year": 2023
+        "label": "Archived snapshot: The Block report",
+        "url": "https://web.archive.org/web/*/https://www.theblock.co/post/241111/multichain-hack",
+        "publisher": "Internet Archive",
+        "year": 2023,
+        "archivedUrl": "https://www.theblock.co/post/241111/multichain-hack",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       }
     ]
   },
@@ -4095,10 +4140,13 @@ export const events: Event[] = [
         "year": 2023
       },
       {
-        "label": "Reuters report",
-        "url": "https://www.reuters.com/technology/paypal-launches-stablecoin-2023-08-07/",
-        "publisher": "Reuters",
-        "year": 2023
+        "label": "Archived snapshot: Reuters report",
+        "url": "https://web.archive.org/web/*/https://www.reuters.com/technology/paypal-launches-stablecoin-2023-08-07/",
+        "publisher": "Internet Archive",
+        "year": 2023,
+        "archivedUrl": "https://www.reuters.com/technology/paypal-launches-stablecoin-2023-08-07/",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       }
     ]
   },
@@ -4229,10 +4277,13 @@ export const events: Event[] = [
     ],
     "sources": [
       {
-        "label": "Reuters report",
-        "url": "https://www.reuters.com/technology/india-crypto-exchange-wazirx-hacked-2024-07-18/",
-        "publisher": "Reuters",
-        "year": 2024
+        "label": "Archived snapshot: Reuters report",
+        "url": "https://web.archive.org/web/*/https://www.reuters.com/technology/india-crypto-exchange-wazirx-hacked-2024-07-18/",
+        "publisher": "Internet Archive",
+        "year": 2024,
+        "archivedUrl": "https://www.reuters.com/technology/india-crypto-exchange-wazirx-hacked-2024-07-18/",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       },
       {
         "label": "Archived snapshot: CoinDesk report",
@@ -4264,10 +4315,13 @@ export const events: Event[] = [
     ],
     "sources": [
       {
-        "label": "Reuters report",
-        "url": "https://www.reuters.com/technology/cybersecurity/cryptos-biggest-hacks-heists-after-15-billion-theft-bybit-2025-02-24/",
-        "publisher": "Reuters",
-        "year": 2025
+        "label": "Archived snapshot: Reuters report",
+        "url": "https://web.archive.org/web/*/https://www.reuters.com/technology/cybersecurity/cryptos-biggest-hacks-heists-after-15-billion-theft-bybit-2025-02-24/",
+        "publisher": "Internet Archive",
+        "year": 2025,
+        "archivedUrl": "https://www.reuters.com/technology/cybersecurity/cryptos-biggest-hacks-heists-after-15-billion-theft-bybit-2025-02-24/",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       },
       {
         "label": "The Guardian report",
@@ -4331,10 +4385,13 @@ export const events: Event[] = [
     ],
     "sources": [
       {
-        "label": "SEC press release",
-        "url": "https://www.sec.gov/news/press-release/2020-146",
-        "publisher": "U.S. SEC",
-        "year": 2020
+        "label": "Archived snapshot: SEC press release",
+        "url": "https://web.archive.org/web/*/https://www.sec.gov/news/press-release/2020-146",
+        "publisher": "Internet Archive",
+        "year": 2020,
+        "archivedUrl": "https://www.sec.gov/news/press-release/2020-146",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       },
       {
         "label": "TON background",
@@ -4407,10 +4464,13 @@ export const events: Event[] = [
         "dateAccessed": "2026-03-06"
       },
       {
-        "label": "Reuters follow-up",
-        "url": "https://www.reuters.com/world/asia-pacific/singapore-police-help-freeze-funds-stolen-kucoin-hack-2020-11-19/",
-        "publisher": "Reuters",
-        "year": 2020
+        "label": "Archived snapshot: Reuters follow-up",
+        "url": "https://web.archive.org/web/*/https://www.reuters.com/world/asia-pacific/singapore-police-help-freeze-funds-stolen-kucoin-hack-2020-11-19/",
+        "publisher": "Internet Archive",
+        "year": 2020,
+        "archivedUrl": "https://www.reuters.com/world/asia-pacific/singapore-police-help-freeze-funds-stolen-kucoin-hack-2020-11-19/",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       }
     ]
   },
@@ -4518,10 +4578,13 @@ export const events: Event[] = [
         "dateAccessed": "2026-03-06"
       },
       {
-        "label": "Reuters report",
-        "url": "https://www.reuters.com/world/us/coinbase-goes-public-nasdaq-2021-04-14/",
-        "publisher": "Reuters",
-        "year": 2021
+        "label": "Archived snapshot: Reuters report",
+        "url": "https://web.archive.org/web/*/https://www.reuters.com/world/us/coinbase-goes-public-nasdaq-2021-04-14/",
+        "publisher": "Internet Archive",
+        "year": 2021,
+        "archivedUrl": "https://www.reuters.com/world/us/coinbase-goes-public-nasdaq-2021-04-14/",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       }
     ]
   },
@@ -4544,16 +4607,22 @@ export const events: Event[] = [
     ],
     "sources": [
       {
-        "label": "Reuters report",
-        "url": "https://www.reuters.com/article/us-tesla-bitcoin-idUSKBN2A81CG/",
-        "publisher": "Reuters",
-        "year": 2021
+        "label": "Archived snapshot: Reuters report",
+        "url": "https://web.archive.org/web/*/https://www.reuters.com/article/us-tesla-bitcoin-idUSKBN2A81CG/",
+        "publisher": "Internet Archive",
+        "year": 2021,
+        "archivedUrl": "https://www.reuters.com/article/us-tesla-bitcoin-idUSKBN2A81CG/",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       },
       {
-        "label": "Tesla SEC filing",
-        "url": "https://www.sec.gov/ixviewer/ix.html?doc=/Archives/edgar/data/1318605/000156459021004599/tsla-10k_20201231.htm",
-        "publisher": "U.S. SEC",
-        "year": 2021
+        "label": "Archived snapshot: Tesla SEC filing",
+        "url": "https://web.archive.org/web/*/https://www.sec.gov/ixviewer/ix.html?doc=/Archives/edgar/data/1318605/000156459021004599/tsla-10k_20201231.htm",
+        "publisher": "Internet Archive",
+        "year": 2021,
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06",
+        "archivedUrl": "https://www.sec.gov/ixviewer/ix.html?doc=/Archives/edgar/data/1318605/000156459021004599/tsla-10k_20201231.htm"
       }
     ]
   },
@@ -4576,10 +4645,13 @@ export const events: Event[] = [
     ],
     "sources": [
       {
-        "label": "Reuters report",
-        "url": "https://www.reuters.com/business/autos-transportation/tesla-stops-accepting-bitcoin-cites-environmental-concerns-2021-05-13/",
-        "publisher": "Reuters",
-        "year": 2021
+        "label": "Archived snapshot: Reuters report",
+        "url": "https://web.archive.org/web/*/https://www.reuters.com/business/autos-transportation/tesla-stops-accepting-bitcoin-cites-environmental-concerns-2021-05-13/",
+        "publisher": "Internet Archive",
+        "year": 2021,
+        "archivedUrl": "https://www.reuters.com/business/autos-transportation/tesla-stops-accepting-bitcoin-cites-environmental-concerns-2021-05-13/",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       },
       {
         "label": "Elon Musk statement",
@@ -4608,10 +4680,13 @@ export const events: Event[] = [
     ],
     "sources": [
       {
-        "label": "Reuters report",
-        "url": "https://www.reuters.com/world/china/chinas-central-bank-vows-crackdown-cryptocurrency-trading-2021-09-24/",
-        "publisher": "Reuters",
-        "year": 2021
+        "label": "Archived snapshot: Reuters report",
+        "url": "https://web.archive.org/web/*/https://www.reuters.com/world/china/chinas-central-bank-vows-crackdown-cryptocurrency-trading-2021-09-24/",
+        "publisher": "Internet Archive",
+        "year": 2021,
+        "archivedUrl": "https://www.reuters.com/world/china/chinas-central-bank-vows-crackdown-cryptocurrency-trading-2021-09-24/",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       },
       {
         "label": "Archived snapshot: PBOC notice",
@@ -4643,16 +4718,22 @@ export const events: Event[] = [
     ],
     "sources": [
       {
-        "label": "Reuters report",
-        "url": "https://www.reuters.com/world/us/crypto-lender-celsius-freezes-withdrawals-citing-extreme-market-conditions-2022-06-13/",
-        "publisher": "Reuters",
-        "year": 2022
+        "label": "Archived snapshot: Reuters report",
+        "url": "https://web.archive.org/web/*/https://www.reuters.com/world/us/crypto-lender-celsius-freezes-withdrawals-citing-extreme-market-conditions-2022-06-13/",
+        "publisher": "Internet Archive",
+        "year": 2022,
+        "archivedUrl": "https://www.reuters.com/world/us/crypto-lender-celsius-freezes-withdrawals-citing-extreme-market-conditions-2022-06-13/",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       },
       {
-        "label": "Celsius statement",
-        "url": "https://blog.celsius.network/a-memo-to-the-celsius-community-59532a06ecc6",
-        "publisher": "Celsius",
-        "year": 2022
+        "label": "Archived snapshot: Celsius statement",
+        "url": "https://web.archive.org/web/*/https://blog.celsius.network/a-memo-to-the-celsius-community-59532a06ecc6",
+        "publisher": "Internet Archive",
+        "year": 2022,
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06",
+        "archivedUrl": "https://blog.celsius.network/a-memo-to-the-celsius-community-59532a06ecc6"
       }
     ]
   },
@@ -4675,10 +4756,13 @@ export const events: Event[] = [
     ],
     "sources": [
       {
-        "label": "Reuters report",
-        "url": "https://www.reuters.com/world/china/binance-halts-bnb-chain-after-possible-hack-2022-10-07/",
-        "publisher": "Reuters",
-        "year": 2022
+        "label": "Archived snapshot: Reuters report",
+        "url": "https://web.archive.org/web/*/https://www.reuters.com/world/china/binance-halts-bnb-chain-after-possible-hack-2022-10-07/",
+        "publisher": "Internet Archive",
+        "year": 2022,
+        "archivedUrl": "https://www.reuters.com/world/china/binance-halts-bnb-chain-after-possible-hack-2022-10-07/",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       },
       {
         "label": "BNB Chain update",
@@ -4713,10 +4797,13 @@ export const events: Event[] = [
         "year": 2022
       },
       {
-        "label": "Reuters report",
-        "url": "https://www.reuters.com/world/us/us-sanctions-crypto-mixer-tornado-cash-over-north-korea-cyber-threat-2022-08-08/",
-        "publisher": "Reuters",
-        "year": 2022
+        "label": "Archived snapshot: Reuters report",
+        "url": "https://web.archive.org/web/*/https://www.reuters.com/world/us/us-sanctions-crypto-mixer-tornado-cash-over-north-korea-cyber-threat-2022-08-08/",
+        "publisher": "Internet Archive",
+        "year": 2022,
+        "archivedUrl": "https://www.reuters.com/world/us/us-sanctions-crypto-mixer-tornado-cash-over-north-korea-cyber-threat-2022-08-08/",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       }
     ]
   },
@@ -4739,10 +4826,13 @@ export const events: Event[] = [
     ],
     "sources": [
       {
-        "label": "Reuters report",
-        "url": "https://www.reuters.com/world/us/crypto-focused-bank-silvergate-winds-down-operations-2023-03-08/",
-        "publisher": "Reuters",
-        "year": 2023
+        "label": "Archived snapshot: Reuters report",
+        "url": "https://web.archive.org/web/*/https://www.reuters.com/world/us/crypto-focused-bank-silvergate-winds-down-operations-2023-03-08/",
+        "publisher": "Internet Archive",
+        "year": 2023,
+        "archivedUrl": "https://www.reuters.com/world/us/crypto-focused-bank-silvergate-winds-down-operations-2023-03-08/",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       },
       {
         "label": "Archived snapshot: Silvergate press release",
@@ -4780,10 +4870,13 @@ export const events: Event[] = [
         "year": 2023
       },
       {
-        "label": "Reuters report",
-        "url": "https://www.reuters.com/world/us/stablecoin-usdc-re-pegs-dollar-after-u-s-regulators-step-in-2023-03-13/",
-        "publisher": "Reuters",
-        "year": 2023
+        "label": "Archived snapshot: Reuters report",
+        "url": "https://web.archive.org/web/*/https://www.reuters.com/world/us/stablecoin-usdc-re-pegs-dollar-after-u-s-regulators-step-in-2023-03-13/",
+        "publisher": "Internet Archive",
+        "year": 2023,
+        "archivedUrl": "https://www.reuters.com/world/us/stablecoin-usdc-re-pegs-dollar-after-u-s-regulators-step-in-2023-03-13/",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       }
     ]
   },
@@ -4806,10 +4899,13 @@ export const events: Event[] = [
     ],
     "sources": [
       {
-        "label": "Reuters report",
-        "url": "https://www.reuters.com/world/us/blackrock-files-bitcoin-etf-application-with-us-sec-2023-06-15/",
-        "publisher": "Reuters",
-        "year": 2023
+        "label": "Archived snapshot: Reuters report",
+        "url": "https://web.archive.org/web/*/https://www.reuters.com/world/us/blackrock-files-bitcoin-etf-application-with-us-sec-2023-06-15/",
+        "publisher": "Internet Archive",
+        "year": 2023,
+        "archivedUrl": "https://www.reuters.com/world/us/blackrock-files-bitcoin-etf-application-with-us-sec-2023-06-15/",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       },
       {
         "label": "iShares Bitcoin Trust page",
@@ -4838,16 +4934,22 @@ export const events: Event[] = [
     ],
     "sources": [
       {
-        "label": "SEC complaint announcement",
-        "url": "https://www.sec.gov/news/press-release/2023-102",
-        "publisher": "U.S. SEC",
-        "year": 2023
+        "label": "Archived snapshot: SEC complaint announcement",
+        "url": "https://web.archive.org/web/*/https://www.sec.gov/news/press-release/2023-102",
+        "publisher": "Internet Archive",
+        "year": 2023,
+        "archivedUrl": "https://www.sec.gov/news/press-release/2023-102",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       },
       {
-        "label": "Reuters report",
-        "url": "https://www.reuters.com/world/us/us-sec-sues-coinbase-over-operations-crypto-trading-platform-2023-06-06/",
-        "publisher": "Reuters",
-        "year": 2023
+        "label": "Archived snapshot: Reuters report",
+        "url": "https://web.archive.org/web/*/https://www.reuters.com/world/us/us-sec-sues-coinbase-over-operations-crypto-trading-platform-2023-06-06/",
+        "publisher": "Internet Archive",
+        "year": 2023,
+        "archivedUrl": "https://www.reuters.com/world/us/us-sec-sues-coinbase-over-operations-crypto-trading-platform-2023-06-06/",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       }
     ]
   },
@@ -4870,16 +4972,22 @@ export const events: Event[] = [
     ],
     "sources": [
       {
-        "label": "Reuters report",
-        "url": "https://www.reuters.com/world/us/us-judge-says-xrp-token-is-not-security-crypto-exchanges-2023-07-13/",
-        "publisher": "Reuters",
-        "year": 2023
+        "label": "Archived snapshot: Reuters report",
+        "url": "https://web.archive.org/web/*/https://www.reuters.com/world/us/us-judge-says-xrp-token-is-not-security-crypto-exchanges-2023-07-13/",
+        "publisher": "Internet Archive",
+        "year": 2023,
+        "archivedUrl": "https://www.reuters.com/world/us/us-judge-says-xrp-token-is-not-security-crypto-exchanges-2023-07-13/",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       },
       {
-        "label": "Case docket",
-        "url": "https://www.courtlistener.com/docket/19857399/sec-v-ripple-labs-inc/",
-        "publisher": "CourtListener",
-        "year": 2023
+        "label": "Archived snapshot: Case docket",
+        "url": "https://web.archive.org/web/*/https://www.courtlistener.com/docket/19857399/sec-v-ripple-labs-inc/",
+        "publisher": "Internet Archive",
+        "year": 2023,
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06",
+        "archivedUrl": "https://www.courtlistener.com/docket/19857399/sec-v-ripple-labs-inc/"
       }
     ]
   },
@@ -4911,10 +5019,13 @@ export const events: Event[] = [
         "dateAccessed": "2026-03-06"
       },
       {
-        "label": "Reuters report",
-        "url": "https://www.reuters.com/world/uk/openai-ceo-altmans-worldcoin-project-launches-token-2023-07-24/",
-        "publisher": "Reuters",
-        "year": 2023
+        "label": "Archived snapshot: Reuters report",
+        "url": "https://web.archive.org/web/*/https://www.reuters.com/world/uk/openai-ceo-altmans-worldcoin-project-launches-token-2023-07-24/",
+        "publisher": "Internet Archive",
+        "year": 2023,
+        "archivedUrl": "https://www.reuters.com/world/uk/openai-ceo-altmans-worldcoin-project-launches-token-2023-07-24/",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       }
     ]
   },
@@ -4946,10 +5057,13 @@ export const events: Event[] = [
         "dateAccessed": "2026-03-06"
       },
       {
-        "label": "Reuters report",
-        "url": "https://www.reuters.com/world/us/binance-ceo-zhao-step-down-plead-guilty-violating-us-anti-money-laundering-laws-2023-11-21/",
-        "publisher": "Reuters",
-        "year": 2023
+        "label": "Archived snapshot: Reuters report",
+        "url": "https://web.archive.org/web/*/https://www.reuters.com/world/us/binance-ceo-zhao-step-down-plead-guilty-violating-us-anti-money-laundering-laws-2023-11-21/",
+        "publisher": "Internet Archive",
+        "year": 2023,
+        "archivedUrl": "https://www.reuters.com/world/us/binance-ceo-zhao-step-down-plead-guilty-violating-us-anti-money-laundering-laws-2023-11-21/",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       }
     ]
   },
@@ -5054,10 +5168,13 @@ export const events: Event[] = [
         "archivedUrl": "https://www.justice.gov/usao-sdny/pr/founders-and-ceo-crypto-mixer-samourai-wallet-charged-money-laundering"
       },
       {
-        "label": "Reuters report",
-        "url": "https://www.reuters.com/world/us/us-charges-founders-cryptocurrency-mixer-samourai-wallet-with-money-laundering-2024-04-24/",
-        "publisher": "Reuters",
-        "year": 2024
+        "label": "Archived snapshot: Reuters report",
+        "url": "https://web.archive.org/web/*/https://www.reuters.com/world/us/us-charges-founders-cryptocurrency-mixer-samourai-wallet-with-money-laundering-2024-04-24/",
+        "publisher": "Internet Archive",
+        "year": 2024,
+        "archivedUrl": "https://www.reuters.com/world/us/us-charges-founders-cryptocurrency-mixer-samourai-wallet-with-money-laundering-2024-04-24/",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       }
     ]
   },
@@ -5089,10 +5206,13 @@ export const events: Event[] = [
         "dateAccessed": "2026-03-06"
       },
       {
-        "label": "The Block report",
-        "url": "https://www.theblock.co/post/287131/eigenlayer-mainnet-launch-restaking",
-        "publisher": "The Block",
-        "year": 2024
+        "label": "Archived snapshot: The Block report",
+        "url": "https://web.archive.org/web/*/https://www.theblock.co/post/287131/eigenlayer-mainnet-launch-restaking",
+        "publisher": "Internet Archive",
+        "year": 2024,
+        "archivedUrl": "https://www.theblock.co/post/287131/eigenlayer-mainnet-launch-restaking",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       }
     ]
   },
@@ -5150,10 +5270,13 @@ export const events: Event[] = [
     ],
     "sources": [
       {
-        "label": "Reuters report",
-        "url": "https://www.reuters.com/world/us/us-sec-approves-rule-change-allowing-spot-ether-etfs-2024-05-23/",
-        "publisher": "Reuters",
-        "year": 2024
+        "label": "Archived snapshot: Reuters report",
+        "url": "https://web.archive.org/web/*/https://www.reuters.com/world/us/us-sec-approves-rule-change-allowing-spot-ether-etfs-2024-05-23/",
+        "publisher": "Internet Archive",
+        "year": 2024,
+        "archivedUrl": "https://www.reuters.com/world/us/us-sec-approves-rule-change-allowing-spot-ether-etfs-2024-05-23/",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       },
       {
         "label": "SEC rule filing",
@@ -5182,10 +5305,13 @@ export const events: Event[] = [
     ],
     "sources": [
       {
-        "label": "Reuters report",
-        "url": "https://www.reuters.com/world/asia-pacific/japans-dmm-bitcoin-says-48-bln-bitcoin-lost-unauthorized-leak-2024-05-31/",
-        "publisher": "Reuters",
-        "year": 2024
+        "label": "Archived snapshot: Reuters report",
+        "url": "https://web.archive.org/web/*/https://www.reuters.com/world/asia-pacific/japans-dmm-bitcoin-says-48-bln-bitcoin-lost-unauthorized-leak-2024-05-31/",
+        "publisher": "Internet Archive",
+        "year": 2024,
+        "archivedUrl": "https://www.reuters.com/world/asia-pacific/japans-dmm-bitcoin-says-48-bln-bitcoin-lost-unauthorized-leak-2024-05-31/",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       },
       {
         "label": "Archived snapshot: DMM announcement",
@@ -5217,10 +5343,13 @@ export const events: Event[] = [
     ],
     "sources": [
       {
-        "label": "Reuters report",
-        "url": "https://www.reuters.com/world/asia-pacific/defunct-japanese-exchange-mt-gox-starts-repaying-bitcoin-creditors-2024-07-05/",
-        "publisher": "Reuters",
-        "year": 2024
+        "label": "Archived snapshot: Reuters report",
+        "url": "https://web.archive.org/web/*/https://www.reuters.com/world/asia-pacific/defunct-japanese-exchange-mt-gox-starts-repaying-bitcoin-creditors-2024-07-05/",
+        "publisher": "Internet Archive",
+        "year": 2024,
+        "archivedUrl": "https://www.reuters.com/world/asia-pacific/defunct-japanese-exchange-mt-gox-starts-repaying-bitcoin-creditors-2024-07-05/",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       },
       {
         "label": "Mt. Gox official site",
@@ -5249,10 +5378,13 @@ export const events: Event[] = [
     ],
     "sources": [
       {
-        "label": "Reuters launch coverage",
-        "url": "https://www.reuters.com/world/us/spot-ether-etfs-see-107-million-net-inflows-trading-debut-2024-07-24/",
-        "publisher": "Reuters",
-        "year": 2024
+        "label": "Archived snapshot: Reuters launch coverage",
+        "url": "https://web.archive.org/web/*/https://www.reuters.com/world/us/spot-ether-etfs-see-107-million-net-inflows-trading-debut-2024-07-24/",
+        "publisher": "Internet Archive",
+        "year": 2024,
+        "archivedUrl": "https://www.reuters.com/world/us/spot-ether-etfs-see-107-million-net-inflows-trading-debut-2024-07-24/",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       },
       {
         "label": "Archived snapshot: iShares Ethereum Trust ETF",
@@ -5284,10 +5416,13 @@ export const events: Event[] = [
     ],
     "sources": [
       {
-        "label": "Reuters report",
-        "url": "https://www.reuters.com/world/us/ftx-bankruptcy-judge-approves-liquidated-crypto-exchanges-repayment-plan-2024-10-07/",
-        "publisher": "Reuters",
-        "year": 2024
+        "label": "Archived snapshot: Reuters report",
+        "url": "https://web.archive.org/web/*/https://www.reuters.com/world/us/ftx-bankruptcy-judge-approves-liquidated-crypto-exchanges-repayment-plan-2024-10-07/",
+        "publisher": "Internet Archive",
+        "year": 2024,
+        "archivedUrl": "https://www.reuters.com/world/us/ftx-bankruptcy-judge-approves-liquidated-crypto-exchanges-repayment-plan-2024-10-07/",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       },
       {
         "label": "FTX restructuring docket",
@@ -5356,10 +5491,13 @@ export const events: Event[] = [
     ],
     "sources": [
       {
-        "label": "Reuters report",
-        "url": "https://www.reuters.com/world/us/trump-launches-new-cryptocurrency-token-days-before-inauguration-2025-01-18/",
-        "publisher": "Reuters",
-        "year": 2025
+        "label": "Archived snapshot: Reuters report",
+        "url": "https://web.archive.org/web/*/https://www.reuters.com/world/us/trump-launches-new-cryptocurrency-token-days-before-inauguration-2025-01-18/",
+        "publisher": "Internet Archive",
+        "year": 2025,
+        "archivedUrl": "https://www.reuters.com/world/us/trump-launches-new-cryptocurrency-token-days-before-inauguration-2025-01-18/",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       },
       {
         "label": "Archived snapshot: CoinDesk coverage",
@@ -5391,16 +5529,22 @@ export const events: Event[] = [
     ],
     "sources": [
       {
-        "label": "Reuters report",
-        "url": "https://www.reuters.com/world/us/melania-trump-launches-cryptocurrency-token-2025-01-19/",
-        "publisher": "Reuters",
-        "year": 2025
+        "label": "Archived snapshot: Reuters report",
+        "url": "https://web.archive.org/web/*/https://www.reuters.com/world/us/melania-trump-launches-cryptocurrency-token-2025-01-19/",
+        "publisher": "Internet Archive",
+        "year": 2025,
+        "archivedUrl": "https://www.reuters.com/world/us/melania-trump-launches-cryptocurrency-token-2025-01-19/",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       },
       {
-        "label": "The Block coverage",
-        "url": "https://www.theblock.co/post/336412/melania-memecoin-launch-solana",
-        "publisher": "The Block",
-        "year": 2025
+        "label": "Archived snapshot: The Block coverage",
+        "url": "https://web.archive.org/web/*/https://www.theblock.co/post/336412/melania-memecoin-launch-solana",
+        "publisher": "Internet Archive",
+        "year": 2025,
+        "archivedUrl": "https://www.theblock.co/post/336412/melania-memecoin-launch-solana",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       }
     ]
   },
@@ -5424,10 +5568,13 @@ export const events: Event[] = [
     ],
     "sources": [
       {
-        "label": "Reuters report",
-        "url": "https://www.reuters.com/world/americas/argentina-linked-libra-crypto-token-faces-backlash-after-crash-2025-02-15/",
-        "publisher": "Reuters",
-        "year": 2025
+        "label": "Archived snapshot: Reuters report",
+        "url": "https://web.archive.org/web/*/https://www.reuters.com/world/americas/argentina-linked-libra-crypto-token-faces-backlash-after-crash-2025-02-15/",
+        "publisher": "Internet Archive",
+        "year": 2025,
+        "archivedUrl": "https://www.reuters.com/world/americas/argentina-linked-libra-crypto-token-faces-backlash-after-crash-2025-02-15/",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       },
       {
         "label": "Archived snapshot: Associated Press coverage",
