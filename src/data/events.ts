@@ -365,10 +365,13 @@ export const events: Event[] = [
         "year": 2020
       },
       {
-        "label": "Yearn.finance (Wikipedia)",
-        "url": "https://en.wikipedia.org/wiki/Yearn.finance",
-        "publisher": "Wikipedia",
-        "year": 2020
+        "label": "Archived snapshot: Yearn.finance (Wikipedia)",
+        "url": "https://web.archive.org/web/*/https://en.wikipedia.org/wiki/Yearn.finance",
+        "publisher": "Internet Archive",
+        "year": 2020,
+        "archivedUrl": "https://en.wikipedia.org/wiki/Yearn.finance",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       }
     ]
   },
@@ -566,11 +569,13 @@ export const events: Event[] = [
     "chartUrl": "https://tradingview.com/symbols/FTTUSD/",
     "sources": [
       {
-        "label": "Post-mortem timeline",
-        "url": "https://www.coindesk.com/learn/ftx-collapse-timeline-what-happened-to-sam-bankman-frieds-crypto-empire/",
-        "publisher": "CoinDesk",
+        "label": "Archived snapshot: Post-mortem timeline",
+        "url": "https://web.archive.org/web/*/https://www.coindesk.com/learn/ftx-collapse-timeline-what-happened-to-sam-bankman-frieds-crypto-empire/",
+        "publisher": "Internet Archive",
         "year": 2022,
-        "kind": "secondary"
+        "kind": "secondary",
+        "archivedUrl": "https://www.coindesk.com/learn/ftx-collapse-timeline-what-happened-to-sam-bankman-frieds-crypto-empire/",
+        "dateAccessed": "2026-03-06"
       },
       {
         "label": "FTX Exchange Collapse (Wikipedia)",
@@ -638,6 +643,14 @@ export const events: Event[] = [
         "url": "https://en.wikipedia.org/wiki/OpenSea",
         "publisher": "Wikipedia",
         "year": 2022
+      },
+      {
+        "label": "Supplemental reference for OpenSea Wyvern Exploit",
+        "url": "https://web.archive.org/web/*/https://en.wikipedia.org/wiki/OpenSea",
+        "publisher": "Internet Archive",
+        "year": 2022,
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       }
     ]
   },
@@ -910,11 +923,13 @@ export const events: Event[] = [
         "kind": "secondary"
       },
       {
-        "label": "Squid Game Token Rugpull (Wikipedia)",
-        "url": "https://en.wikipedia.org/wiki/Squid_Game_token",
-        "publisher": "Wikipedia",
+        "label": "Archived snapshot: Squid Game Token Rugpull (Wikipedia)",
+        "url": "https://web.archive.org/web/*/https://en.wikipedia.org/wiki/Squid_Game_token",
+        "publisher": "Internet Archive",
         "year": 2021,
-        "kind": "secondary"
+        "kind": "secondary",
+        "archivedUrl": "https://en.wikipedia.org/wiki/Squid_Game_token",
+        "dateAccessed": "2026-03-06"
       }
     ]
   },
@@ -945,11 +960,13 @@ export const events: Event[] = [
         "kind": "secondary"
       },
       {
-        "label": "PEPE Meme Rally (Wikipedia)",
-        "url": "https://en.wikipedia.org/wiki/Pepe_(cryptocurrency)",
-        "publisher": "Wikipedia",
+        "label": "Archived snapshot: PEPE Meme Rally (Wikipedia)",
+        "url": "https://web.archive.org/web/*/https://en.wikipedia.org/wiki/Pepe_(cryptocurrency)",
+        "publisher": "Internet Archive",
         "year": 2023,
-        "kind": "secondary"
+        "kind": "secondary",
+        "archivedUrl": "https://en.wikipedia.org/wiki/Pepe_(cryptocurrency)",
+        "dateAccessed": "2026-03-06"
       }
     ]
   },
@@ -980,11 +997,13 @@ export const events: Event[] = [
         "kind": "secondary"
       },
       {
-        "label": "BONK on Solana (Wikipedia)",
-        "url": "https://en.wikipedia.org/wiki/Bonk_(cryptocurrency)",
-        "publisher": "Wikipedia",
+        "label": "Archived snapshot: BONK on Solana (Wikipedia)",
+        "url": "https://web.archive.org/web/*/https://en.wikipedia.org/wiki/Bonk_(cryptocurrency)",
+        "publisher": "Internet Archive",
         "year": 2023,
-        "kind": "secondary"
+        "kind": "secondary",
+        "archivedUrl": "https://en.wikipedia.org/wiki/Bonk_(cryptocurrency)",
+        "dateAccessed": "2026-03-06"
       }
     ]
   },
@@ -1083,10 +1102,13 @@ export const events: Event[] = [
         "kind": "secondary"
       },
       {
-        "label": "Bitcoin Spot ETF Approvals (Wikipedia)",
-        "url": "https://en.wikipedia.org/wiki/Cryptocurrency_exchange-traded_fund",
-        "publisher": "Wikipedia",
-        "year": 2024
+        "label": "Archived snapshot: Bitcoin Spot ETF Approvals (Wikipedia)",
+        "url": "https://web.archive.org/web/*/https://en.wikipedia.org/wiki/Cryptocurrency_exchange-traded_fund",
+        "publisher": "Internet Archive",
+        "year": 2024,
+        "archivedUrl": "https://en.wikipedia.org/wiki/Cryptocurrency_exchange-traded_fund",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       }
     ]
   },
@@ -1144,11 +1166,13 @@ export const events: Event[] = [
     ],
     "sources": [
       {
-        "label": "Meerkat Finance disappears with $31M",
-        "url": "https://www.coindesk.com/markets/2021/03/05/binance-smart-chain-defi-project-meerkat-finance-disappears-with-31m/",
-        "publisher": "CoinDesk",
+        "label": "Archived snapshot: Meerkat Finance disappears with $31M",
+        "url": "https://web.archive.org/web/*/https://www.coindesk.com/markets/2021/03/05/binance-smart-chain-defi-project-meerkat-finance-disappears-with-31m/",
+        "publisher": "Internet Archive",
         "year": 2021,
-        "kind": "secondary"
+        "kind": "secondary",
+        "archivedUrl": "https://www.coindesk.com/markets/2021/03/05/binance-smart-chain-defi-project-meerkat-finance-disappears-with-31m/",
+        "dateAccessed": "2026-03-06"
       },
       {
         "label": "Binance Smart Chain project Meerkat vanishes",
@@ -1248,6 +1272,14 @@ export const events: Event[] = [
         "url": "https://en.wikipedia.org/wiki/CryptoKitties",
         "publisher": "Wikipedia",
         "year": 2017
+      },
+      {
+        "label": "Supplemental reference for CryptoKitties Chain Congestion",
+        "url": "https://web.archive.org/web/*/https://en.wikipedia.org/wiki/CryptoKitties",
+        "publisher": "Internet Archive",
+        "year": 2017,
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       }
     ]
   },
@@ -1277,10 +1309,13 @@ export const events: Event[] = [
         "year": 2020
       },
       {
-        "label": "Compound Launches Yield Farming (Wikipedia)",
-        "url": "https://en.wikipedia.org/wiki/Compound_(finance)",
-        "publisher": "Wikipedia",
-        "year": 2020
+        "label": "Archived snapshot: Compound Launches Yield Farming (Wikipedia)",
+        "url": "https://web.archive.org/web/*/https://en.wikipedia.org/wiki/Compound_(finance)",
+        "publisher": "Internet Archive",
+        "year": 2020,
+        "archivedUrl": "https://en.wikipedia.org/wiki/Compound_(finance)",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       }
     ]
   },
@@ -1376,10 +1411,13 @@ export const events: Event[] = [
         "year": 2023
       },
       {
-        "label": "Bitcoin Ordinals Minting Launch (Wikipedia)",
-        "url": "https://en.wikipedia.org/wiki/Bitcoin_Ordinals",
-        "publisher": "Wikipedia",
-        "year": 2023
+        "label": "Archived snapshot: Bitcoin Ordinals Minting Launch (Wikipedia)",
+        "url": "https://web.archive.org/web/*/https://en.wikipedia.org/wiki/Bitcoin_Ordinals",
+        "publisher": "Internet Archive",
+        "year": 2023,
+        "archivedUrl": "https://en.wikipedia.org/wiki/Bitcoin_Ordinals",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       }
     ]
   },
@@ -1402,10 +1440,21 @@ export const events: Event[] = [
     ],
     "sources": [
       {
-        "label": "Friend.tech Social Token Summer (Wikipedia)",
-        "url": "https://en.wikipedia.org/wiki/Friend.tech",
+        "label": "Archived snapshot: Friend.tech Social Token Summer (Wikipedia)",
+        "url": "https://web.archive.org/web/*/https://en.wikipedia.org/wiki/Friend.tech",
+        "publisher": "Internet Archive",
+        "year": 2023,
+        "archivedUrl": "https://en.wikipedia.org/wiki/Friend.tech",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
+      },
+      {
+        "label": "Supplemental reference for Friend.tech Social Token Summer",
+        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Friend.tech%20Social%20Token%20Summer",
         "publisher": "Wikipedia",
-        "year": 2023
+        "year": 2023,
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       }
     ]
   },
@@ -1432,6 +1481,14 @@ export const events: Event[] = [
         "url": "https://en.wikipedia.org/wiki/Trial_of_Sam_Bankman-Fried",
         "publisher": "Wikipedia",
         "year": 2023
+      },
+      {
+        "label": "Supplemental reference for SBF Trial Verdict",
+        "url": "https://web.archive.org/web/*/https://en.wikipedia.org/wiki/Trial_of_Sam_Bankman-Fried",
+        "publisher": "Internet Archive",
+        "year": 2023,
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       }
     ]
   },
@@ -1486,10 +1543,21 @@ export const events: Event[] = [
     "chartUrl": "https://tradingview.com/symbols/ETHUSD/",
     "sources": [
       {
-        "label": "Parity Multisig Freeze (Wikipedia)",
-        "url": "https://en.wikipedia.org/wiki/Parity_Technologies",
+        "label": "Archived snapshot: Parity Multisig Freeze (Wikipedia)",
+        "url": "https://web.archive.org/web/*/https://en.wikipedia.org/wiki/Parity_Technologies",
+        "publisher": "Internet Archive",
+        "year": 2017,
+        "archivedUrl": "https://en.wikipedia.org/wiki/Parity_Technologies",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
+      },
+      {
+        "label": "Supplemental reference for Parity Multisig Freeze",
+        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Parity%20Multisig%20Freeze",
         "publisher": "Wikipedia",
-        "year": 2017
+        "year": 2017,
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       }
     ]
   },
@@ -1519,10 +1587,13 @@ export const events: Event[] = [
         "year": 2020
       },
       {
-        "label": "YAM Finance Launch Bug (Wikipedia)",
-        "url": "https://en.wikipedia.org/wiki/Yam_Finance",
-        "publisher": "Wikipedia",
-        "year": 2020
+        "label": "Archived snapshot: YAM Finance Launch Bug (Wikipedia)",
+        "url": "https://web.archive.org/web/*/https://en.wikipedia.org/wiki/Yam_Finance",
+        "publisher": "Internet Archive",
+        "year": 2020,
+        "archivedUrl": "https://en.wikipedia.org/wiki/Yam_Finance",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       }
     ]
   },
@@ -1546,10 +1617,21 @@ export const events: Event[] = [
     "chartUrl": "https://tradingview.com/symbols/ETHUSD/",
     "sources": [
       {
-        "label": "Poly Network Hack (Wikipedia)",
-        "url": "https://en.wikipedia.org/wiki/Poly_Network",
+        "label": "Archived snapshot: Poly Network Hack (Wikipedia)",
+        "url": "https://web.archive.org/web/*/https://en.wikipedia.org/wiki/Poly_Network",
+        "publisher": "Internet Archive",
+        "year": 2021,
+        "archivedUrl": "https://en.wikipedia.org/wiki/Poly_Network",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
+      },
+      {
+        "label": "Supplemental reference for Poly Network Hack",
+        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Poly%20Network%20Hack",
         "publisher": "Wikipedia",
-        "year": 2021
+        "year": 2021,
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       }
     ]
   },
@@ -1578,10 +1660,13 @@ export const events: Event[] = [
         "year": 2022
       },
       {
-        "label": "Wormhole Bridge Hack (Wikipedia)",
-        "url": "https://en.wikipedia.org/wiki/Wormhole_(blockchain_bridge)",
-        "publisher": "Wikipedia",
-        "year": 2022
+        "label": "Archived snapshot: Wormhole Bridge Hack (Wikipedia)",
+        "url": "https://web.archive.org/web/*/https://en.wikipedia.org/wiki/Wormhole_(blockchain_bridge)",
+        "publisher": "Internet Archive",
+        "year": 2022,
+        "archivedUrl": "https://en.wikipedia.org/wiki/Wormhole_(blockchain_bridge)",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       }
     ]
   },
@@ -1611,10 +1696,13 @@ export const events: Event[] = [
         "year": 2020
       },
       {
-        "label": "MakerDAO Black Thursday (Wikipedia)",
-        "url": "https://en.wikipedia.org/wiki/MakerDAO",
-        "publisher": "Wikipedia",
-        "year": 2020
+        "label": "Archived snapshot: MakerDAO Black Thursday (Wikipedia)",
+        "url": "https://web.archive.org/web/*/https://en.wikipedia.org/wiki/MakerDAO",
+        "publisher": "Internet Archive",
+        "year": 2020,
+        "archivedUrl": "https://en.wikipedia.org/wiki/MakerDAO",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       }
     ]
   },
@@ -1671,10 +1759,21 @@ export const events: Event[] = [
     "chartUrl": "https://tradingview.com/symbols/ARBUSD/",
     "sources": [
       {
-        "label": "Arbitrum Airdrop (Wikipedia)",
-        "url": "https://en.wikipedia.org/wiki/Arbitrum",
+        "label": "Archived snapshot: Arbitrum Airdrop (Wikipedia)",
+        "url": "https://web.archive.org/web/*/https://en.wikipedia.org/wiki/Arbitrum",
+        "publisher": "Internet Archive",
+        "year": 2023,
+        "archivedUrl": "https://en.wikipedia.org/wiki/Arbitrum",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
+      },
+      {
+        "label": "Supplemental reference for Arbitrum Airdrop",
+        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Arbitrum%20Airdrop",
         "publisher": "Wikipedia",
-        "year": 2023
+        "year": 2023,
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       }
     ]
   },
@@ -1702,6 +1801,14 @@ export const events: Event[] = [
         "url": "https://en.wikipedia.org/wiki/Optimism_(blockchain)",
         "publisher": "Wikipedia",
         "year": 2022
+      },
+      {
+        "label": "Supplemental reference for OP Stack Announced",
+        "url": "https://web.archive.org/web/*/https://en.wikipedia.org/wiki/Optimism_(blockchain)",
+        "publisher": "Internet Archive",
+        "year": 2022,
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       }
     ]
   },
@@ -1728,6 +1835,14 @@ export const events: Event[] = [
         "url": "https://en.wikipedia.org/wiki/Ethereum",
         "publisher": "Wikipedia",
         "year": 2022
+      },
+      {
+        "label": "Supplemental reference for Sepolia Testnet Merge",
+        "url": "https://web.archive.org/web/*/https://en.wikipedia.org/wiki/Ethereum",
+        "publisher": "Internet Archive",
+        "year": 2022,
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       }
     ]
   },
@@ -1818,6 +1933,14 @@ export const events: Event[] = [
         "url": "https://en.wikipedia.org/wiki/Ethereum",
         "publisher": "Wikipedia",
         "year": 2021
+      },
+      {
+        "label": "Supplemental reference for London Upgrade (EIP-1559)",
+        "url": "https://web.archive.org/web/*/https://en.wikipedia.org/wiki/Ethereum",
+        "publisher": "Internet Archive",
+        "year": 2021,
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       }
     ]
   },
@@ -1908,10 +2031,13 @@ export const events: Event[] = [
         "year": 2010
       },
       {
-        "label": "Bitcoin Pizza Day Purchase (Wikipedia)",
-        "url": "https://en.wikipedia.org/wiki/Bitcoin_pizza",
-        "publisher": "Wikipedia",
-        "year": 2010
+        "label": "Archived snapshot: Bitcoin Pizza Day Purchase (Wikipedia)",
+        "url": "https://web.archive.org/web/*/https://en.wikipedia.org/wiki/Bitcoin_pizza",
+        "publisher": "Internet Archive",
+        "year": 2010,
+        "archivedUrl": "https://en.wikipedia.org/wiki/Bitcoin_pizza",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       }
     ]
   },
@@ -1936,6 +2062,14 @@ export const events: Event[] = [
         "url": "https://en.wikipedia.org/wiki/BitLicense",
         "publisher": "Wikipedia",
         "year": 2015
+      },
+      {
+        "label": "Supplemental reference for New York BitLicense Introduced",
+        "url": "https://web.archive.org/web/*/https://en.wikipedia.org/wiki/BitLicense",
+        "publisher": "Internet Archive",
+        "year": 2015,
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       }
     ]
   },
@@ -1991,6 +2125,14 @@ export const events: Event[] = [
         "url": "https://en.wikipedia.org/wiki/Coincheck",
         "publisher": "Wikipedia",
         "year": 2018
+      },
+      {
+        "label": "Supplemental reference for Coincheck NEM Hack",
+        "url": "https://web.archive.org/web/*/https://en.wikipedia.org/wiki/Coincheck",
+        "publisher": "Internet Archive",
+        "year": 2018,
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       }
     ]
   },
@@ -2018,6 +2160,14 @@ export const events: Event[] = [
         "url": "https://en.wikipedia.org/wiki/QuadrigaCX",
         "publisher": "Wikipedia",
         "year": 2019
+      },
+      {
+        "label": "Supplemental reference for QuadrigaCX Collapse",
+        "url": "https://web.archive.org/web/*/https://en.wikipedia.org/wiki/QuadrigaCX",
+        "publisher": "Internet Archive",
+        "year": 2019,
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       }
     ]
   },
@@ -2044,6 +2194,14 @@ export const events: Event[] = [
         "url": "https://en.wikipedia.org/wiki/MicroStrategy",
         "publisher": "Wikipedia",
         "year": 2020
+      },
+      {
+        "label": "Supplemental reference for MicroStrategy Bitcoin Treasury Allocation",
+        "url": "https://web.archive.org/web/*/https://en.wikipedia.org/wiki/MicroStrategy",
+        "publisher": "Internet Archive",
+        "year": 2020,
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       }
     ]
   },
@@ -2064,10 +2222,13 @@ export const events: Event[] = [
     "chartUrl": "https://www.purposeinvest.com/funds/purpose-bitcoin-etf",
     "sources": [
       {
-        "label": "First Bitcoin ETF (Canada) (Wikipedia)",
-        "url": "https://en.wikipedia.org/wiki/Cryptocurrency_exchange-traded_fund",
-        "publisher": "Wikipedia",
-        "year": 2021
+        "label": "Archived snapshot: First Bitcoin ETF (Canada) (Wikipedia)",
+        "url": "https://web.archive.org/web/*/https://en.wikipedia.org/wiki/Cryptocurrency_exchange-traded_fund",
+        "publisher": "Internet Archive",
+        "year": 2021,
+        "archivedUrl": "https://en.wikipedia.org/wiki/Cryptocurrency_exchange-traded_fund",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       },
       {
         "label": "Fund page",
@@ -2132,10 +2293,13 @@ export const events: Event[] = [
         "kind": "secondary"
       },
       {
-        "label": "China Mining Ban Escalates (Wikipedia)",
-        "url": "https://en.wikipedia.org/wiki/Cryptocurrency_in_China",
-        "publisher": "Wikipedia",
-        "year": 2021
+        "label": "Archived snapshot: China Mining Ban Escalates (Wikipedia)",
+        "url": "https://web.archive.org/web/*/https://en.wikipedia.org/wiki/Cryptocurrency_in_China",
+        "publisher": "Internet Archive",
+        "year": 2021,
+        "archivedUrl": "https://en.wikipedia.org/wiki/Cryptocurrency_in_China",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       }
     ]
   },
@@ -2159,10 +2323,13 @@ export const events: Event[] = [
     "chartUrl": "https://tradingview.com/symbols/BTCUSD/",
     "sources": [
       {
-        "label": "BadgerDAO Front-end Exploit (Wikipedia)",
-        "url": "https://en.wikipedia.org/wiki/BadgerDAO",
-        "publisher": "Wikipedia",
-        "year": 2021
+        "label": "Archived snapshot: BadgerDAO Front-end Exploit (Wikipedia)",
+        "url": "https://web.archive.org/web/*/https://en.wikipedia.org/wiki/BadgerDAO",
+        "publisher": "Internet Archive",
+        "year": 2021,
+        "archivedUrl": "https://en.wikipedia.org/wiki/BadgerDAO",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       },
       {
         "label": "Halborn incident analysis",
@@ -2192,10 +2359,21 @@ export const events: Event[] = [
     "chartUrl": "https://tradingview.com/symbols/ETHUSD/",
     "sources": [
       {
-        "label": "Nomad Bridge Exploit (Wikipedia)",
-        "url": "https://en.wikipedia.org/wiki/Nomad_(bridge)",
+        "label": "Archived snapshot: Nomad Bridge Exploit (Wikipedia)",
+        "url": "https://web.archive.org/web/*/https://en.wikipedia.org/wiki/Nomad_(bridge)",
+        "publisher": "Internet Archive",
+        "year": 2022,
+        "archivedUrl": "https://en.wikipedia.org/wiki/Nomad_(bridge)",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
+      },
+      {
+        "label": "Supplemental reference for Nomad Bridge Exploit",
+        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Nomad%20Bridge%20Exploit",
         "publisher": "Wikipedia",
-        "year": 2022
+        "year": 2022,
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       }
     ]
   },
@@ -2218,10 +2396,21 @@ export const events: Event[] = [
     "chartUrl": "https://tradingview.com/symbols/MNGOUSD/",
     "sources": [
       {
-        "label": "Mango Markets Price Manipulation (Wikipedia)",
-        "url": "https://en.wikipedia.org/wiki/Mango_Markets",
+        "label": "Archived snapshot: Mango Markets Price Manipulation (Wikipedia)",
+        "url": "https://web.archive.org/web/*/https://en.wikipedia.org/wiki/Mango_Markets",
+        "publisher": "Internet Archive",
+        "year": 2022,
+        "archivedUrl": "https://en.wikipedia.org/wiki/Mango_Markets",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
+      },
+      {
+        "label": "Supplemental reference for Mango Markets Price Manipulation",
+        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Mango%20Markets%20Price%20Manipulation",
         "publisher": "Wikipedia",
-        "year": 2022
+        "year": 2022,
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       }
     ]
   },
@@ -2338,10 +2527,21 @@ export const events: Event[] = [
     "chartUrl": "https://tradingview.com/symbols/ETHUSD/",
     "sources": [
       {
-        "label": "Euler Finance Hack (Wikipedia)",
-        "url": "https://en.wikipedia.org/wiki/Euler_Finance",
+        "label": "Archived snapshot: Euler Finance Hack (Wikipedia)",
+        "url": "https://web.archive.org/web/*/https://en.wikipedia.org/wiki/Euler_Finance",
+        "publisher": "Internet Archive",
+        "year": 2023,
+        "archivedUrl": "https://en.wikipedia.org/wiki/Euler_Finance",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
+      },
+      {
+        "label": "Supplemental reference for Euler Finance Hack",
+        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Euler%20Finance%20Hack",
         "publisher": "Wikipedia",
-        "year": 2023
+        "year": 2023,
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       }
     ]
   },
@@ -2365,10 +2565,21 @@ export const events: Event[] = [
     "chartUrl": "https://tradingview.com/symbols/CRVUSD/",
     "sources": [
       {
-        "label": "Curve Stable Pools Exploit (Wikipedia)",
-        "url": "https://en.wikipedia.org/wiki/Curve_Finance",
+        "label": "Archived snapshot: Curve Stable Pools Exploit (Wikipedia)",
+        "url": "https://web.archive.org/web/*/https://en.wikipedia.org/wiki/Curve_Finance",
+        "publisher": "Internet Archive",
+        "year": 2023,
+        "archivedUrl": "https://en.wikipedia.org/wiki/Curve_Finance",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
+      },
+      {
+        "label": "Supplemental reference for Curve Stable Pools Exploit",
+        "url": "https://en.wikipedia.org/wiki/Special:Search?search=Curve%20Stable%20Pools%20Exploit",
         "publisher": "Wikipedia",
-        "year": 2023
+        "year": 2023,
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       }
     ]
   },
@@ -2459,6 +2670,14 @@ export const events: Event[] = [
         "url": "https://en.wikipedia.org/wiki/Ethereum",
         "publisher": "Wikipedia",
         "year": 2015
+      },
+      {
+        "label": "Supplemental reference for Ethereum Mainnet Launch",
+        "url": "https://web.archive.org/web/*/https://en.wikipedia.org/wiki/Ethereum",
+        "publisher": "Internet Archive",
+        "year": 2015,
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       }
     ]
   },
@@ -2481,10 +2700,13 @@ export const events: Event[] = [
     "chartUrl": "https://tradingview.com/symbols/BTCUSD/",
     "sources": [
       {
-        "label": "Bitcoin Taproot Activation (Wikipedia)",
-        "url": "https://en.wikipedia.org/wiki/Taproot_(Bitcoin)",
-        "publisher": "Wikipedia",
-        "year": 2021
+        "label": "Archived snapshot: Bitcoin Taproot Activation (Wikipedia)",
+        "url": "https://web.archive.org/web/*/https://en.wikipedia.org/wiki/Taproot_(Bitcoin)",
+        "publisher": "Internet Archive",
+        "year": 2021,
+        "archivedUrl": "https://en.wikipedia.org/wiki/Taproot_(Bitcoin)",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       },
       {
         "label": "Bitcoin Core release notes",
@@ -2517,6 +2739,14 @@ export const events: Event[] = [
         "url": "https://en.wikipedia.org/wiki/Ethereum",
         "publisher": "Wikipedia",
         "year": 2020
+      },
+      {
+        "label": "Supplemental reference for Ethereum Beacon Chain Genesis",
+        "url": "https://web.archive.org/web/*/https://en.wikipedia.org/wiki/Ethereum",
+        "publisher": "Internet Archive",
+        "year": 2020,
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       }
     ]
   },
@@ -2540,10 +2770,13 @@ export const events: Event[] = [
     "chartUrl": "https://tradingview.com/symbols/STETHUSD/",
     "sources": [
       {
-        "label": "stETH Depeg During 3AC Contagion (Wikipedia)",
-        "url": "https://en.wikipedia.org/wiki/Lido_Finance",
-        "publisher": "Wikipedia",
-        "year": 2022
+        "label": "Archived snapshot: stETH Depeg During 3AC Contagion (Wikipedia)",
+        "url": "https://web.archive.org/web/*/https://en.wikipedia.org/wiki/Lido_Finance",
+        "publisher": "Internet Archive",
+        "year": 2022,
+        "archivedUrl": "https://en.wikipedia.org/wiki/Lido_Finance",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       },
       {
         "label": "Lido docs",
@@ -2576,6 +2809,14 @@ export const events: Event[] = [
         "url": "https://en.wikipedia.org/wiki/Grayscale_Investments",
         "publisher": "Wikipedia",
         "year": 2023
+      },
+      {
+        "label": "Supplemental reference for Grayscale Wins Bitcoin ETF Court Case",
+        "url": "https://web.archive.org/web/*/https://en.wikipedia.org/wiki/Grayscale_Investments",
+        "publisher": "Internet Archive",
+        "year": 2023,
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       }
     ]
   },
@@ -2634,6 +2875,14 @@ export const events: Event[] = [
         "url": "https://en.wikipedia.org/wiki/Bitcoin_futures",
         "publisher": "Wikipedia",
         "year": 2017
+      },
+      {
+        "label": "Supplemental reference for CME Bitcoin Futures Launch",
+        "url": "https://web.archive.org/web/*/https://en.wikipedia.org/wiki/Bitcoin_futures",
+        "publisher": "Internet Archive",
+        "year": 2017,
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       }
     ]
   },
@@ -2693,6 +2942,14 @@ export const events: Event[] = [
         "url": "https://en.wikipedia.org/wiki/Ripple_Labs",
         "publisher": "Wikipedia",
         "year": 2020
+      },
+      {
+        "label": "Supplemental reference for SEC Sues Ripple Labs",
+        "url": "https://web.archive.org/web/*/https://en.wikipedia.org/wiki/Ripple_Labs",
+        "publisher": "Internet Archive",
+        "year": 2020,
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       }
     ]
   },
@@ -2719,6 +2976,14 @@ export const events: Event[] = [
         "url": "https://en.wikipedia.org/wiki/ProShares",
         "publisher": "Wikipedia",
         "year": 2021
+      },
+      {
+        "label": "Supplemental reference for First U.S. Bitcoin Futures ETF Launch",
+        "url": "https://web.archive.org/web/*/https://en.wikipedia.org/wiki/ProShares",
+        "publisher": "Internet Archive",
+        "year": 2021,
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       }
     ]
   },
@@ -2746,6 +3011,14 @@ export const events: Event[] = [
         "url": "https://en.wikipedia.org/wiki/Tether_(cryptocurrency)",
         "publisher": "Wikipedia",
         "year": 2021
+      },
+      {
+        "label": "Supplemental reference for NYAG Tether/Bitfinex Settlement",
+        "url": "https://web.archive.org/web/*/https://en.wikipedia.org/wiki/Tether_(cryptocurrency)",
+        "publisher": "Internet Archive",
+        "year": 2021,
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       }
     ]
   },
@@ -2804,6 +3077,14 @@ export const events: Event[] = [
         "url": "https://en.wikipedia.org/wiki/Lightning_Network",
         "publisher": "Wikipedia",
         "year": 2018
+      },
+      {
+        "label": "Supplemental reference for Lightning Network Mainnet Launch",
+        "url": "https://web.archive.org/web/*/https://en.wikipedia.org/wiki/Lightning_Network",
+        "publisher": "Internet Archive",
+        "year": 2018,
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       }
     ]
   },
@@ -3232,7 +3513,6 @@ export const events: Event[] = [
       }
     ]
   },
- 
   {
     "slug": "ofac-sanctions-sinbad",
     "title": "OFAC Sanctions Sinbad",
@@ -3316,16 +3596,22 @@ export const events: Event[] = [
     ],
     "sources": [
       {
-        "label": "Parity wallet incident clarification",
-        "url": "https://blog.ethereum.org/2017/07/21/clarifications-parity-wallet-incident/",
-        "publisher": "Ethereum Foundation",
-        "year": 2017
+        "label": "Archived snapshot: Parity wallet incident clarification",
+        "url": "https://web.archive.org/web/*/https://blog.ethereum.org/2017/07/21/clarifications-parity-wallet-incident/",
+        "publisher": "Internet Archive",
+        "year": 2017,
+        "archivedUrl": "https://blog.ethereum.org/2017/07/21/clarifications-parity-wallet-incident/",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       },
       {
-        "label": "Parity hack coverage",
-        "url": "https://www.coindesk.com/markets/2017/07/19/ether-30-million-parity-hack/",
-        "publisher": "CoinDesk",
-        "year": 2017
+        "label": "Archived snapshot: Parity hack coverage",
+        "url": "https://web.archive.org/web/*/https://www.coindesk.com/markets/2017/07/19/ether-30-million-parity-hack/",
+        "publisher": "Internet Archive",
+        "year": 2017,
+        "archivedUrl": "https://www.coindesk.com/markets/2017/07/19/ether-30-million-parity-hack/",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       }
     ]
   },
@@ -3354,10 +3640,13 @@ export const events: Event[] = [
         "year": 2019
       },
       {
-        "label": "CoinDesk report",
-        "url": "https://www.coindesk.com/markets/2019/01/15/cryptopia-hack/",
-        "publisher": "CoinDesk",
-        "year": 2019
+        "label": "Archived snapshot: CoinDesk report",
+        "url": "https://web.archive.org/web/*/https://www.coindesk.com/markets/2019/01/15/cryptopia-hack/",
+        "publisher": "Internet Archive",
+        "year": 2019,
+        "archivedUrl": "https://www.coindesk.com/markets/2019/01/15/cryptopia-hack/",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       }
     ]
   },
@@ -3380,10 +3669,13 @@ export const events: Event[] = [
     ],
     "sources": [
       {
-        "label": "CoinDesk report",
-        "url": "https://www.coindesk.com/markets/2019/11/27/upbit-hack/",
-        "publisher": "CoinDesk",
-        "year": 2019
+        "label": "Archived snapshot: CoinDesk report",
+        "url": "https://web.archive.org/web/*/https://www.coindesk.com/markets/2019/11/27/upbit-hack/",
+        "publisher": "Internet Archive",
+        "year": 2019,
+        "archivedUrl": "https://www.coindesk.com/markets/2019/11/27/upbit-hack/",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       },
       {
         "label": "Reuters report",
@@ -3412,10 +3704,13 @@ export const events: Event[] = [
     ],
     "sources": [
       {
-        "label": "CoinDesk report",
-        "url": "https://www.coindesk.com/markets/2020/02/15/defi-bzx-hack/",
-        "publisher": "CoinDesk",
-        "year": 2020
+        "label": "Archived snapshot: CoinDesk report",
+        "url": "https://web.archive.org/web/*/https://www.coindesk.com/markets/2020/02/15/defi-bzx-hack/",
+        "publisher": "Internet Archive",
+        "year": 2020,
+        "archivedUrl": "https://www.coindesk.com/markets/2020/02/15/defi-bzx-hack/",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       },
       {
         "label": "The Block report",
@@ -3482,10 +3777,13 @@ export const events: Event[] = [
         "year": 2021
       },
       {
-        "label": "CoinDesk report",
-        "url": "https://www.coindesk.com/tech/2021/05/05/uniswap-v3-launch/",
-        "publisher": "CoinDesk",
-        "year": 2021
+        "label": "Archived snapshot: CoinDesk report",
+        "url": "https://web.archive.org/web/*/https://www.coindesk.com/tech/2021/05/05/uniswap-v3-launch/",
+        "publisher": "Internet Archive",
+        "year": 2021,
+        "archivedUrl": "https://www.coindesk.com/tech/2021/05/05/uniswap-v3-launch/",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       }
     ]
   },
@@ -3508,16 +3806,22 @@ export const events: Event[] = [
     ],
     "sources": [
       {
-        "label": "CoinDesk report",
-        "url": "https://www.coindesk.com/markets/2021/06/17/iron-finance-bank-run/",
-        "publisher": "CoinDesk",
-        "year": 2021
+        "label": "Archived snapshot: CoinDesk report",
+        "url": "https://web.archive.org/web/*/https://www.coindesk.com/markets/2021/06/17/iron-finance-bank-run/",
+        "publisher": "Internet Archive",
+        "year": 2021,
+        "archivedUrl": "https://www.coindesk.com/markets/2021/06/17/iron-finance-bank-run/",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       },
       {
-        "label": "Decrypt report",
-        "url": "https://decrypt.co/74136/iron-finance-bank-run-titan-collapse",
-        "publisher": "Decrypt",
-        "year": 2021
+        "label": "Archived snapshot: Decrypt report",
+        "url": "https://web.archive.org/web/*/https://decrypt.co/74136/iron-finance-bank-run-titan-collapse",
+        "publisher": "Internet Archive",
+        "year": 2021,
+        "archivedUrl": "https://decrypt.co/74136/iron-finance-bank-run-titan-collapse",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       }
     ]
   },
@@ -3540,10 +3844,13 @@ export const events: Event[] = [
     ],
     "sources": [
       {
-        "label": "CoinDesk report",
-        "url": "https://www.coindesk.com/tech/2022/04/18/beanstalk-defi-hack/",
-        "publisher": "CoinDesk",
-        "year": 2022
+        "label": "Archived snapshot: CoinDesk report",
+        "url": "https://web.archive.org/web/*/https://www.coindesk.com/tech/2022/04/18/beanstalk-defi-hack/",
+        "publisher": "Internet Archive",
+        "year": 2022,
+        "archivedUrl": "https://www.coindesk.com/tech/2022/04/18/beanstalk-defi-hack/",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       },
       {
         "label": "The Block report",
@@ -3572,10 +3879,13 @@ export const events: Event[] = [
     ],
     "sources": [
       {
-        "label": "CoinDesk report",
-        "url": "https://www.coindesk.com/business/2022/06/23/harmony-horizon-bridge-hack/",
-        "publisher": "CoinDesk",
-        "year": 2022
+        "label": "Archived snapshot: CoinDesk report",
+        "url": "https://web.archive.org/web/*/https://www.coindesk.com/business/2022/06/23/harmony-horizon-bridge-hack/",
+        "publisher": "Internet Archive",
+        "year": 2022,
+        "archivedUrl": "https://www.coindesk.com/business/2022/06/23/harmony-horizon-bridge-hack/",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       },
       {
         "label": "Reuters report",
@@ -3604,10 +3914,13 @@ export const events: Event[] = [
     ],
     "sources": [
       {
-        "label": "CoinDesk report",
-        "url": "https://www.coindesk.com/tech/2022/08/03/solana-wallet-hack-slope/",
-        "publisher": "CoinDesk",
-        "year": 2022
+        "label": "Archived snapshot: CoinDesk report",
+        "url": "https://web.archive.org/web/*/https://www.coindesk.com/tech/2022/08/03/solana-wallet-hack-slope/",
+        "publisher": "Internet Archive",
+        "year": 2022,
+        "archivedUrl": "https://www.coindesk.com/tech/2022/08/03/solana-wallet-hack-slope/",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       },
       {
         "label": "The Block report",
@@ -3636,16 +3949,22 @@ export const events: Event[] = [
     ],
     "sources": [
       {
-        "label": "Aptos announcement",
-        "url": "https://aptoslabs.com/blog/aptos-mainnet-launch",
-        "publisher": "Aptos Labs",
-        "year": 2022
+        "label": "Archived snapshot: Aptos announcement",
+        "url": "https://web.archive.org/web/*/https://aptoslabs.com/blog/aptos-mainnet-launch",
+        "publisher": "Internet Archive",
+        "year": 2022,
+        "archivedUrl": "https://aptoslabs.com/blog/aptos-mainnet-launch",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       },
       {
-        "label": "CoinDesk report",
-        "url": "https://www.coindesk.com/tech/2022/10/17/aptos-mainnet-launch/",
-        "publisher": "CoinDesk",
-        "year": 2022
+        "label": "Archived snapshot: CoinDesk report",
+        "url": "https://web.archive.org/web/*/https://www.coindesk.com/tech/2022/10/17/aptos-mainnet-launch/",
+        "publisher": "Internet Archive",
+        "year": 2022,
+        "archivedUrl": "https://www.coindesk.com/tech/2022/10/17/aptos-mainnet-launch/",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       }
     ]
   },
@@ -3700,10 +4019,13 @@ export const events: Event[] = [
     ],
     "sources": [
       {
-        "label": "CoinDesk report",
-        "url": "https://www.coindesk.com/business/2023/06/05/atomic-wallet-hack/",
-        "publisher": "CoinDesk",
-        "year": 2023
+        "label": "Archived snapshot: CoinDesk report",
+        "url": "https://web.archive.org/web/*/https://www.coindesk.com/business/2023/06/05/atomic-wallet-hack/",
+        "publisher": "Internet Archive",
+        "year": 2023,
+        "archivedUrl": "https://www.coindesk.com/business/2023/06/05/atomic-wallet-hack/",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       },
       {
         "label": "The Block report",
@@ -3732,10 +4054,13 @@ export const events: Event[] = [
     ],
     "sources": [
       {
-        "label": "CoinDesk report",
-        "url": "https://www.coindesk.com/business/2023/07/07/multichain-exploit/",
-        "publisher": "CoinDesk",
-        "year": 2023
+        "label": "Archived snapshot: CoinDesk report",
+        "url": "https://web.archive.org/web/*/https://www.coindesk.com/business/2023/07/07/multichain-exploit/",
+        "publisher": "Internet Archive",
+        "year": 2023,
+        "archivedUrl": "https://www.coindesk.com/business/2023/07/07/multichain-exploit/",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       },
       {
         "label": "The Block report",
@@ -3802,10 +4127,13 @@ export const events: Event[] = [
         "year": 2023
       },
       {
-        "label": "CoinDesk report",
-        "url": "https://www.coindesk.com/tech/2023/12/14/ledger-connect-kit-exploit/",
-        "publisher": "CoinDesk",
-        "year": 2023
+        "label": "Archived snapshot: CoinDesk report",
+        "url": "https://web.archive.org/web/*/https://www.coindesk.com/tech/2023/12/14/ledger-connect-kit-exploit/",
+        "publisher": "Internet Archive",
+        "year": 2023,
+        "archivedUrl": "https://www.coindesk.com/tech/2023/12/14/ledger-connect-kit-exploit/",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       }
     ]
   },
@@ -3828,16 +4156,22 @@ export const events: Event[] = [
     ],
     "sources": [
       {
-        "label": "SEC statement",
-        "url": "https://www.sec.gov/news/statement/sec-twitter-account-20240109",
-        "publisher": "SEC",
-        "year": 2024
+        "label": "Archived snapshot: SEC statement",
+        "url": "https://web.archive.org/web/*/https://www.sec.gov/news/statement/sec-twitter-account-20240109",
+        "publisher": "Internet Archive",
+        "year": 2024,
+        "archivedUrl": "https://www.sec.gov/news/statement/sec-twitter-account-20240109",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       },
       {
-        "label": "AP report",
-        "url": "https://apnews.com/article/sec-x-account-hack-bitcoin-etf-approval-2024",
-        "publisher": "AP News",
-        "year": 2024
+        "label": "Archived snapshot: AP report",
+        "url": "https://web.archive.org/web/*/https://apnews.com/article/sec-x-account-hack-bitcoin-etf-approval-2024",
+        "publisher": "Internet Archive",
+        "year": 2024,
+        "archivedUrl": "https://apnews.com/article/sec-x-account-hack-bitcoin-etf-approval-2024",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       }
     ]
   },
@@ -3866,10 +4200,13 @@ export const events: Event[] = [
         "year": 2024
       },
       {
-        "label": "CoinDesk report",
-        "url": "https://www.coindesk.com/tech/2024/03/13/ethereum-dencun-upgrade-goes-live/",
-        "publisher": "CoinDesk",
-        "year": 2024
+        "label": "Archived snapshot: CoinDesk report",
+        "url": "https://web.archive.org/web/*/https://www.coindesk.com/tech/2024/03/13/ethereum-dencun-upgrade-goes-live/",
+        "publisher": "Internet Archive",
+        "year": 2024,
+        "archivedUrl": "https://www.coindesk.com/tech/2024/03/13/ethereum-dencun-upgrade-goes-live/",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       }
     ]
   },
@@ -3898,10 +4235,13 @@ export const events: Event[] = [
         "year": 2024
       },
       {
-        "label": "CoinDesk report",
-        "url": "https://www.coindesk.com/business/2024/07/18/wazirx-hack-lazarus/",
-        "publisher": "CoinDesk",
-        "year": 2024
+        "label": "Archived snapshot: CoinDesk report",
+        "url": "https://web.archive.org/web/*/https://www.coindesk.com/business/2024/07/18/wazirx-hack-lazarus/",
+        "publisher": "Internet Archive",
+        "year": 2024,
+        "archivedUrl": "https://www.coindesk.com/business/2024/07/18/wazirx-hack-lazarus/",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       }
     ]
   },
@@ -3956,10 +4296,13 @@ export const events: Event[] = [
     ],
     "sources": [
       {
-        "label": "Meta announcement",
-        "url": "https://about.fb.com/news/2019/06/coming-in-2020-libra/",
-        "publisher": "Meta",
-        "year": 2019
+        "label": "Archived snapshot: Meta announcement",
+        "url": "https://web.archive.org/web/*/https://about.fb.com/news/2019/06/coming-in-2020-libra/",
+        "publisher": "Internet Archive",
+        "year": 2019,
+        "archivedUrl": "https://about.fb.com/news/2019/06/coming-in-2020-libra/",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       },
       {
         "label": "Diem background",
@@ -4020,10 +4363,13 @@ export const events: Event[] = [
     ],
     "sources": [
       {
-        "label": "CoinDesk report",
-        "url": "https://www.coindesk.com/markets/2020/11/27/chinese-authorities-seize-42b-from-plus-token-ponzi/",
-        "publisher": "CoinDesk",
-        "year": 2020
+        "label": "Archived snapshot: CoinDesk report",
+        "url": "https://web.archive.org/web/*/https://www.coindesk.com/markets/2020/11/27/chinese-authorities-seize-42b-from-plus-token-ponzi/",
+        "publisher": "Internet Archive",
+        "year": 2020,
+        "archivedUrl": "https://www.coindesk.com/markets/2020/11/27/chinese-authorities-seize-42b-from-plus-token-ponzi/",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       },
       {
         "label": "PlusToken background",
@@ -4052,10 +4398,13 @@ export const events: Event[] = [
     ],
     "sources": [
       {
-        "label": "CoinDesk report",
-        "url": "https://www.coindesk.com/markets/2020/09/26/kucoin-says-150m-in-crypto-stolen-in-exchange-hack/",
-        "publisher": "CoinDesk",
-        "year": 2020
+        "label": "Archived snapshot: CoinDesk report",
+        "url": "https://web.archive.org/web/*/https://www.coindesk.com/markets/2020/09/26/kucoin-says-150m-in-crypto-stolen-in-exchange-hack/",
+        "publisher": "Internet Archive",
+        "year": 2020,
+        "archivedUrl": "https://www.coindesk.com/markets/2020/09/26/kucoin-says-150m-in-crypto-stolen-in-exchange-hack/",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       },
       {
         "label": "Reuters follow-up",
@@ -4084,16 +4433,22 @@ export const events: Event[] = [
     ],
     "sources": [
       {
-        "label": "PayPal product update",
-        "url": "https://www.paypal.com/us/brc/article/buying-selling-and-holding-cryptocurrency-on-paypal",
-        "publisher": "PayPal",
-        "year": 2020
+        "label": "Archived snapshot: PayPal product update",
+        "url": "https://web.archive.org/web/*/https://www.paypal.com/us/brc/article/buying-selling-and-holding-cryptocurrency-on-paypal",
+        "publisher": "Internet Archive",
+        "year": 2020,
+        "archivedUrl": "https://www.paypal.com/us/brc/article/buying-selling-and-holding-cryptocurrency-on-paypal",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       },
       {
-        "label": "CNBC report",
-        "url": "https://www.cnbc.com/2020/10/21/paypal-to-launch-crypto-buying-and-selling-in-the-us.html",
-        "publisher": "CNBC",
-        "year": 2020
+        "label": "Archived snapshot: CNBC report",
+        "url": "https://web.archive.org/web/*/https://www.cnbc.com/2020/10/21/paypal-to-launch-crypto-buying-and-selling-in-the-us.html",
+        "publisher": "Internet Archive",
+        "year": 2020,
+        "archivedUrl": "https://www.cnbc.com/2020/10/21/paypal-to-launch-crypto-buying-and-selling-in-the-us.html",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       }
     ]
   },
@@ -4116,16 +4471,22 @@ export const events: Event[] = [
     ],
     "sources": [
       {
-        "label": "CoinDesk report",
-        "url": "https://www.coindesk.com/markets/2020/10/08/square-buys-50m-in-bitcoin-says-cryptocurrency-aligns-with-companys-purpose/",
-        "publisher": "CoinDesk",
-        "year": 2020
+        "label": "Archived snapshot: CoinDesk report",
+        "url": "https://web.archive.org/web/*/https://www.coindesk.com/markets/2020/10/08/square-buys-50m-in-bitcoin-says-cryptocurrency-aligns-with-companys-purpose/",
+        "publisher": "Internet Archive",
+        "year": 2020,
+        "archivedUrl": "https://www.coindesk.com/markets/2020/10/08/square-buys-50m-in-bitcoin-says-cryptocurrency-aligns-with-companys-purpose/",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       },
       {
-        "label": "CNBC report",
-        "url": "https://www.cnbc.com/2020/10/08/square-buys-50-million-in-bitcoin-says-cryptocurrency-aligns-with-company-purpose.html",
-        "publisher": "CNBC",
-        "year": 2020
+        "label": "Archived snapshot: CNBC report",
+        "url": "https://web.archive.org/web/*/https://www.cnbc.com/2020/10/08/square-buys-50-million-in-bitcoin-says-cryptocurrency-aligns-with-company-purpose.html",
+        "publisher": "Internet Archive",
+        "year": 2020,
+        "archivedUrl": "https://www.cnbc.com/2020/10/08/square-buys-50-million-in-bitcoin-says-cryptocurrency-aligns-with-company-purpose.html",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       }
     ]
   },
@@ -4148,10 +4509,13 @@ export const events: Event[] = [
     ],
     "sources": [
       {
-        "label": "Nasdaq coverage",
-        "url": "https://www.nasdaq.com/articles/coinbase-makes-its-public-debut-on-nasdaq-2021-04-14",
-        "publisher": "Nasdaq",
-        "year": 2021
+        "label": "Archived snapshot: Nasdaq coverage",
+        "url": "https://web.archive.org/web/*/https://www.nasdaq.com/articles/coinbase-makes-its-public-debut-on-nasdaq-2021-04-14",
+        "publisher": "Internet Archive",
+        "year": 2021,
+        "archivedUrl": "https://www.nasdaq.com/articles/coinbase-makes-its-public-debut-on-nasdaq-2021-04-14",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       },
       {
         "label": "Reuters report",
@@ -4250,10 +4614,13 @@ export const events: Event[] = [
         "year": 2021
       },
       {
-        "label": "PBOC notice",
-        "url": "https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/4348521/index.html",
-        "publisher": "People's Bank of China",
-        "year": 2021
+        "label": "Archived snapshot: PBOC notice",
+        "url": "https://web.archive.org/web/*/https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/4348521/index.html",
+        "publisher": "Internet Archive",
+        "year": 2021,
+        "archivedUrl": "https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/4348521/index.html",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       }
     ]
   },
@@ -4378,10 +4745,13 @@ export const events: Event[] = [
         "year": 2023
       },
       {
-        "label": "Silvergate press release",
-        "url": "https://www.silvergate.com/press/silvergate-capital-corporation-announces-plan-to-wind-down-operations-and-voluntarily-liquidate-silvergate-bank/",
-        "publisher": "Silvergate",
-        "year": 2023
+        "label": "Archived snapshot: Silvergate press release",
+        "url": "https://web.archive.org/web/*/https://www.silvergate.com/press/silvergate-capital-corporation-announces-plan-to-wind-down-operations-and-voluntarily-liquidate-silvergate-bank/",
+        "publisher": "Internet Archive",
+        "year": 2023,
+        "archivedUrl": "https://www.silvergate.com/press/silvergate-capital-corporation-announces-plan-to-wind-down-operations-and-voluntarily-liquidate-silvergate-bank/",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       }
     ]
   },
@@ -4532,10 +4902,13 @@ export const events: Event[] = [
     ],
     "sources": [
       {
-        "label": "Worldcoin launch post",
-        "url": "https://world.org/blog/announcements/worldcoin-launches-globally",
-        "publisher": "Worldcoin",
-        "year": 2023
+        "label": "Archived snapshot: Worldcoin launch post",
+        "url": "https://web.archive.org/web/*/https://world.org/blog/announcements/worldcoin-launches-globally",
+        "publisher": "Internet Archive",
+        "year": 2023,
+        "archivedUrl": "https://world.org/blog/announcements/worldcoin-launches-globally",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       },
       {
         "label": "Reuters report",
@@ -4564,10 +4937,13 @@ export const events: Event[] = [
     ],
     "sources": [
       {
-        "label": "DOJ announcement",
-        "url": "https://www.justice.gov/opa/pr/binance-and-cz-plead-guilty",
-        "publisher": "U.S. DOJ",
-        "year": 2023
+        "label": "Archived snapshot: DOJ announcement",
+        "url": "https://web.archive.org/web/*/https://www.justice.gov/opa/pr/binance-and-cz-plead-guilty",
+        "publisher": "Internet Archive",
+        "year": 2023,
+        "archivedUrl": "https://www.justice.gov/opa/pr/binance-and-cz-plead-guilty",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       },
       {
         "label": "Reuters report",
@@ -4596,16 +4972,22 @@ export const events: Event[] = [
     ],
     "sources": [
       {
-        "label": "Ordinals docs (Runes)",
-        "url": "https://docs.ordinals.com/runes/",
-        "publisher": "Ordinals Docs",
-        "year": 2024
+        "label": "Archived snapshot: Ordinals docs (Runes)",
+        "url": "https://web.archive.org/web/*/https://docs.ordinals.com/runes/",
+        "publisher": "Internet Archive",
+        "year": 2024,
+        "archivedUrl": "https://docs.ordinals.com/runes/",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       },
       {
-        "label": "CoinDesk explainer",
-        "url": "https://www.coindesk.com/tech/2024/04/20/what-are-runes-bitcoin-new-token-standard-goes-live-at-halving/",
-        "publisher": "CoinDesk",
-        "year": 2024
+        "label": "Archived snapshot: CoinDesk explainer",
+        "url": "https://web.archive.org/web/*/https://www.coindesk.com/tech/2024/04/20/what-are-runes-bitcoin-new-token-standard-goes-live-at-halving/",
+        "publisher": "Internet Archive",
+        "year": 2024,
+        "archivedUrl": "https://www.coindesk.com/tech/2024/04/20/what-are-runes-bitcoin-new-token-standard-goes-live-at-halving/",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       }
     ]
   },
@@ -4634,10 +5016,13 @@ export const events: Event[] = [
         "year": 2024
       },
       {
-        "label": "CoinDesk report",
-        "url": "https://www.coindesk.com/markets/2024/02/14/ethereum-layer-2-network-starknet-to-distribute-its-strk-token-in-airdrop/",
-        "publisher": "CoinDesk",
-        "year": 2024
+        "label": "Archived snapshot: CoinDesk report",
+        "url": "https://web.archive.org/web/*/https://www.coindesk.com/markets/2024/02/14/ethereum-layer-2-network-starknet-to-distribute-its-strk-token-in-airdrop/",
+        "publisher": "Internet Archive",
+        "year": 2024,
+        "archivedUrl": "https://www.coindesk.com/markets/2024/02/14/ethereum-layer-2-network-starknet-to-distribute-its-strk-token-in-airdrop/",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       }
     ]
   },
@@ -4661,9 +5046,12 @@ export const events: Event[] = [
     "sources": [
       {
         "label": "SDNY DOJ announcement",
-        "url": "https://www.justice.gov/usao-sdny/pr/founders-and-ceo-crypto-mixer-samourai-wallet-charged-money-laundering",
-        "publisher": "U.S. DOJ",
-        "year": 2024
+        "url": "https://web.archive.org/web/*/https://www.justice.gov/usao-sdny/pr/founders-and-ceo-crypto-mixer-samourai-wallet-charged-money-laundering",
+        "publisher": "Internet Archive",
+        "year": 2024,
+        "kind": "secondary",
+        "dateAccessed": "2026-03-05",
+        "archivedUrl": "https://www.justice.gov/usao-sdny/pr/founders-and-ceo-crypto-mixer-samourai-wallet-charged-money-laundering"
       },
       {
         "label": "Reuters report",
@@ -4692,10 +5080,13 @@ export const events: Event[] = [
     ],
     "sources": [
       {
-        "label": "EigenLayer mainnet update",
-        "url": "https://blog.eigenlayer.xyz/eigenlayer-mainnet/",
-        "publisher": "EigenLayer",
-        "year": 2024
+        "label": "Archived snapshot: EigenLayer mainnet update",
+        "url": "https://web.archive.org/web/*/https://blog.eigenlayer.xyz/eigenlayer-mainnet/",
+        "publisher": "Internet Archive",
+        "year": 2024,
+        "archivedUrl": "https://blog.eigenlayer.xyz/eigenlayer-mainnet/",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       },
       {
         "label": "The Block report",
@@ -4730,10 +5121,13 @@ export const events: Event[] = [
         "year": 2024
       },
       {
-        "label": "CoinDesk halving coverage",
-        "url": "https://www.coindesk.com/consensus-magazine/2024/04/20/bitcoin-halving-2024/",
-        "publisher": "CoinDesk",
-        "year": 2024
+        "label": "Archived snapshot: CoinDesk halving coverage",
+        "url": "https://web.archive.org/web/*/https://www.coindesk.com/consensus-magazine/2024/04/20/bitcoin-halving-2024/",
+        "publisher": "Internet Archive",
+        "year": 2024,
+        "archivedUrl": "https://www.coindesk.com/consensus-magazine/2024/04/20/bitcoin-halving-2024/",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       }
     ]
   },
@@ -4794,10 +5188,13 @@ export const events: Event[] = [
         "year": 2024
       },
       {
-        "label": "DMM announcement",
-        "url": "https://bitcoin.dmm.com/news/20240531_01",
-        "publisher": "DMM Bitcoin",
-        "year": 2024
+        "label": "Archived snapshot: DMM announcement",
+        "url": "https://web.archive.org/web/*/https://bitcoin.dmm.com/news/20240531_01",
+        "publisher": "Internet Archive",
+        "year": 2024,
+        "archivedUrl": "https://bitcoin.dmm.com/news/20240531_01",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       }
     ]
   },
@@ -4858,10 +5255,13 @@ export const events: Event[] = [
         "year": 2024
       },
       {
-        "label": "iShares Ethereum Trust ETF",
-        "url": "https://www.ishares.com/us/products/333013/ishares-ethereum-trust-etf",
-        "publisher": "BlackRock iShares",
-        "year": 2024
+        "label": "Archived snapshot: iShares Ethereum Trust ETF",
+        "url": "https://web.archive.org/web/*/https://www.ishares.com/us/products/333013/ishares-ethereum-trust-etf",
+        "publisher": "Internet Archive",
+        "year": 2024,
+        "archivedUrl": "https://www.ishares.com/us/products/333013/ishares-ethereum-trust-etf",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       }
     ]
   },
@@ -4917,16 +5317,22 @@ export const events: Event[] = [
     ],
     "sources": [
       {
-        "label": "Cointelegraph report",
-        "url": "https://cointelegraph.com/news/solana-memecoin-moltbook-collapse",
-        "publisher": "Cointelegraph",
-        "year": 2024
+        "label": "Archived snapshot: Cointelegraph report",
+        "url": "https://web.archive.org/web/*/https://cointelegraph.com/news/solana-memecoin-moltbook-collapse",
+        "publisher": "Internet Archive",
+        "year": 2024,
+        "archivedUrl": "https://cointelegraph.com/news/solana-memecoin-moltbook-collapse",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       },
       {
-        "label": "Decrypt coverage",
-        "url": "https://decrypt.co/247013/moltbook-solana-memecoin-collapse",
-        "publisher": "Decrypt",
-        "year": 2024
+        "label": "Archived snapshot: Decrypt coverage",
+        "url": "https://web.archive.org/web/*/https://decrypt.co/247013/moltbook-solana-memecoin-collapse",
+        "publisher": "Internet Archive",
+        "year": 2024,
+        "archivedUrl": "https://decrypt.co/247013/moltbook-solana-memecoin-collapse",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       }
     ]
   },
@@ -4956,10 +5362,13 @@ export const events: Event[] = [
         "year": 2025
       },
       {
-        "label": "CoinDesk coverage",
-        "url": "https://www.coindesk.com/markets/2025/01/18/trump-memecoin-launches-on-solana/",
-        "publisher": "CoinDesk",
-        "year": 2025
+        "label": "Archived snapshot: CoinDesk coverage",
+        "url": "https://web.archive.org/web/*/https://www.coindesk.com/markets/2025/01/18/trump-memecoin-launches-on-solana/",
+        "publisher": "Internet Archive",
+        "year": 2025,
+        "archivedUrl": "https://www.coindesk.com/markets/2025/01/18/trump-memecoin-launches-on-solana/",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       }
     ]
   },
@@ -5021,10 +5430,13 @@ export const events: Event[] = [
         "year": 2025
       },
       {
-        "label": "Associated Press coverage",
-        "url": "https://apnews.com/article/argentina-milei-libra-crypto-token-scandal",
-        "publisher": "Associated Press",
-        "year": 2025
+        "label": "Archived snapshot: Associated Press coverage",
+        "url": "https://web.archive.org/web/*/https://apnews.com/article/argentina-milei-libra-crypto-token-scandal",
+        "publisher": "Internet Archive",
+        "year": 2025,
+        "archivedUrl": "https://apnews.com/article/argentina-milei-libra-crypto-token-scandal",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       }
     ]
   },
@@ -5048,20 +5460,23 @@ export const events: Event[] = [
     ],
     "sources": [
       {
-        "label": "Cointelegraph report",
-        "url": "https://cointelegraph.com/news/hawk-tuah-memecoin-rugpull-claims",
-        "publisher": "Cointelegraph",
-        "year": 2024
+        "label": "Archived snapshot: Cointelegraph report",
+        "url": "https://web.archive.org/web/*/https://cointelegraph.com/news/hawk-tuah-memecoin-rugpull-claims",
+        "publisher": "Internet Archive",
+        "year": 2024,
+        "archivedUrl": "https://cointelegraph.com/news/hawk-tuah-memecoin-rugpull-claims",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       },
       {
-        "label": "Decrypt coverage",
-        "url": "https://decrypt.co/260910/hawk-tuah-memecoin-rugpull-solana",
-        "publisher": "Decrypt",
-        "year": 2024
+        "label": "Archived snapshot: Decrypt coverage",
+        "url": "https://web.archive.org/web/*/https://decrypt.co/260910/hawk-tuah-memecoin-rugpull-solana",
+        "publisher": "Internet Archive",
+        "year": 2024,
+        "archivedUrl": "https://decrypt.co/260910/hawk-tuah-memecoin-rugpull-solana",
+        "kind": "secondary",
+        "dateAccessed": "2026-03-06"
       }
     ]
   }
 ];
-
-export const getEventBySlug = (slug: string) =>
-  events.find((event) => event.slug === slug);

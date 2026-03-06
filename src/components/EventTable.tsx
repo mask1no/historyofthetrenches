@@ -12,7 +12,6 @@ import { AccentText } from "@/components/AccentText";
 import { typeLabel, typeVariant } from "@/lib/eventType";
 import { compareEventDatesAsc, compareEventDatesDesc } from "@/lib/utils";
 import { canonicalizeChain } from "@/lib/events/taxonomy";
-import { hasUsableChartUrl } from "@/lib/events/chart";
 import type { Event, EventFilters } from "@/lib/events/schema";
 
 type FilterState = {
@@ -543,9 +542,6 @@ export function EventTable() {
               </div>
               <div className="flex items-center justify-between gap-3 text-xs text-muted sm:text-sm">
                 <span>{event.outcome ?? "Outcome pending"}</span>
-                {hasUsableChartUrl(event.chartUrl, event.chartHidden) && (
-                  <span className="link-accent">Chart linked in event details</span>
-                )}
               </div>
             </Link>
           ))}
